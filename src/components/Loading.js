@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Loading = ({ isLoading, error }) => {
+const Loading = ({ error, pastDelay }) => {
   // Handle the loading state
-  if (isLoading) {
+  if (pastDelay) {
     return <div>Loading...</div>;
   }
   // Handle the error state
@@ -15,8 +15,12 @@ const Loading = ({ isLoading, error }) => {
 };
 
 Loading.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.bool,
+  pastDelay: PropTypes.bool.isRequired,
+};
+
+Loading.defaultProps = {
+  error: false,
 };
 
 export default Loading;
