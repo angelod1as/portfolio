@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Loading from './components/Loading';
 
-const Home = Loadable({
-  loader: () => import('./pages/Home'),
+const Container = Loadable({
+  loader: () => import('./pages/Container'),
   loading: Loading,
 });
 
@@ -15,11 +15,26 @@ const About = Loadable({
   loading: Loading,
 });
 
+const Opening = Loadable({
+  loader: () => import('./pages/Home/Opening'),
+  loading: Loading,
+});
+
+const Menu = Loadable({
+  loader: () => import('./pages/Home/Menu'),
+  loading: Loading,
+});
+
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <Container left={<Opening />} right={<Menu />} division="center" bg="right" />
+        )}
+      />
       {/* Finally, catch all unmatched routes */}
       {/* <Route component={AsyncNotFound} /> */}
     </Switch>
