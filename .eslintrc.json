@@ -9,6 +9,7 @@
     "prettier",
     "prettier/react"
   ],
+  "parser": "babel-eslint",
   "plugins": [
     "import",
     "jsx-a11y",
@@ -33,6 +34,7 @@
         "printWidth": 100
       }
     ],
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "no-unused-vars": 1
   }
 }
