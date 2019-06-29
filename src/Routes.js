@@ -1,55 +1,38 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Loadable from 'react-loadable';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './components/GlobalStyle';
 
-import Loading from './components/Loading';
+import { Container, Opening, Menu, AboutSidebar, About } from './components/Loadable';
 
-const Container = Loadable({
-  loader: () => import('./pages/Container'),
-  loading: Loading,
-});
-
-const About = Loadable({
-  loader: () => import('./pages/About'),
-  loading: Loading,
-});
-
-const Opening = Loadable({
-  loader: () => import('./pages/Home/Opening'),
-  loading: Loading,
-});
-
-const Menu = Loadable({
-  loader: () => import('./pages/Home/Menu'),
-  loading: Loading,
-});
-
-const AboutSidebar = Loadable({
-  loader: () => import('./pages/About/Sidebar'),
-  loading: Loading,
-});
+const theme = {
+  color: {
+    color: '#19006A',
+    white: '#F4F4F4',
+    black: '#333333',
+  },
+  font: {
+    display: 'Montserrat Alternates',
+    text: 'Montserrat',
+  },
+};
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <Container left={<Opening />} right={<Menu />} division="center" bg="right" />
-        )}
-      />
-      <Route
-        exact
-        path="/about"
-        render={() => (
-          <Container left={<AboutSidebar />} right={<About />} division="center" bg="right" />
-        )}
-      />
-      {/* Finally, catch all unmatched routes */}
-      {/* <Route component={AsyncNotFound} /> */}
-    </Switch>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Switch>
+        <Route exact path="/" render={() => <Container left={<Opening />} right={<Menu />} />} />
+        <Route
+          exact
+          path="/about"
+          render={() => <Container left={<AboutSidebar />} right={<About />} />}
+        />
+        {/* Finally, catch all unmatched routes */}
+        {/* <Route component={AsyncNotFound} /> */}
+      </Switch>
+    </ThemeProvider>
   </Router>
 );
 
