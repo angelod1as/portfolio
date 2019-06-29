@@ -25,6 +25,11 @@ const Menu = Loadable({
   loading: Loading,
 });
 
+const AboutSidebar = Loadable({
+  loader: () => import('./pages/About/Sidebar'),
+  loading: Loading,
+});
+
 const App = () => (
   <Router>
     <Switch>
@@ -33,6 +38,13 @@ const App = () => (
         path="/"
         render={() => (
           <Container left={<Opening />} right={<Menu />} division="center" bg="right" />
+        )}
+      />
+      <Route
+        exact
+        path="/about"
+        render={() => (
+          <Container left={<AboutSidebar />} right={<About />} division="center" bg="right" />
         )}
       />
       {/* Finally, catch all unmatched routes */}
