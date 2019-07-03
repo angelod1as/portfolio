@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from './components/GlobalStyle';
+import GlobalStyle from '../components/GlobalStyle';
 
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   NotFound,
   Portfolio,
   PortfolioSidebar,
-} from './components/Loadable';
+} from '../components/Loadable';
 
 const theme = {
   color: {
@@ -46,48 +46,52 @@ class App extends Component {
     super();
 
     this.state = {
-      activeLanguage: 'english',
+      lang: 'en',
     };
 
     this.changeLanguage = this.changeLanguage.bind(this);
   }
 
   changeLanguage({ title }) {
-    this.setState({ activeLanguage: title });
+    this.setState({ lang: title });
   }
 
   render() {
-    const { activeLanguage } = this.state;
+    const { lang } = this.state;
     return (
       <Stack>
         {/* Home */}
+
         <Route
           exact
           path="/"
           render={() => (
             <Container
-              left={<Opening changeLanguage={this.changeLanguage} active={activeLanguage} />}
+              left={<Opening changeLanguage={this.changeLanguage} lang={lang} />}
               right={<Menu />}
               center
             />
           )}
         />
-
-        {/* Portfolio */}
         <Route
-          path="/portfolio/:tag?"
+          path="/portfolio"
           render={() => <Container left={<PortfolioSidebar />} right={<Portfolio />} />}
         />
-
-        {/* About */}
         <Route
           exact
           path="/about"
           render={() => <Container left={<AboutSidebar />} right={<About />} />}
         />
 
-        {/* 404 */}
-        <Route render={() => <Container left={<AboutSidebar />} right={<NotFound />} />} />
+        <Route
+          render={() => (
+            <Container
+              left={<Opening changeLanguage={this.changeLanguage} lang={lang} />}
+              right={<NotFound />}
+              center
+            />
+          )}
+        />
       </Stack>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import uuid from 'uuid/v1';
@@ -106,6 +107,7 @@ const Menu = () => {
       ],
     },
   ];
+
   return (
     <Fade delay={400}>
       <div className="menu">
