@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 // import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -11,30 +11,61 @@ const theme = {
     color: '#19006A',
     white: '#F4F4F4',
     black: '#333333',
+    gray: '#CCCCCC',
   },
   font: {
     display: 'Montserrat Alternates',
     text: 'Montserrat',
   },
 };
+class App extends Component {
+  constructor() {
+    super();
 
-const App = () => (
-  <Router>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <Switch>
-        <Route exact path="/" render={() => <Container left={<Opening />} right={<Menu />} />} />
-        <Route
-          exact
-          path="/about"
-          render={() => <Container left={<AboutSidebar />} right={<About />} />}
-        />
-        {/* Finally, catch all unmatched routes */}
-        {/* <Route component={AsyncNotFound} /> */}
-      </Switch>
-    </ThemeProvider>
-  </Router>
-);
+    this.state = {
+      activeLanguage: 'english',
+    };
+
+    this.changeLanguage = this.changeLanguage.bind(this);
+  }
+
+  changeLanguage({ title }) {
+    this.setState({ activeLanguage: title });
+  }
+
+  render() {
+    const { activeLanguage } = this.state;
+    return (
+      <Router>
+        <ThemeProvider theme={theme}>
+          <Fragment>
+            <GlobalStyle />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <Container
+                    left={<Opening changeLanguage={this.changeLanguage} active={activeLanguage} />}
+                    right={<Menu />}
+                    center
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/about"
+                render={() => <Container left={<AboutSidebar />} right={<About />} />}
+              />
+              {/* Finally, catch all unmatched routes */}
+              {/* <Route component={AsyncNotFound} /> */}
+            </Switch>
+          </Fragment>
+        </ThemeProvider>
+      </Router>
+    );
+  }
+}
 
 // App.propTypes = {
 //   childProps,

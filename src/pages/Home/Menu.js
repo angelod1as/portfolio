@@ -1,38 +1,128 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import uuid from 'uuid/v1';
 
-const Menu = () => (
-  <Fade>
-    <div className="menu">
-      <div className="menu-item">
-        <p>things I do</p>
-        <ul>
-          <li>front-end development</li>
-          <li>project management</li>
-          <li>editorial design</li>
-          <li>fiction writing</li>
-        </ul>
+const MenuItem = styled.div`
+  margin: 50px 0;
+
+  a {
+    color: ${p => p.theme.color.white};
+    font-size: 35px;
+    font-weight: 700;
+    display: block;
+    margin: 15px 0;
+  }
+`;
+
+const Menu = () => {
+  const menus = [
+    {
+      title: 'things I do',
+      list: [
+        {
+          item: 'websites free maintenance',
+          route: '#',
+        },
+        {
+          item: 'front-end development',
+          route: '#',
+        },
+        {
+          item: 'project management',
+          route: '#',
+        },
+        {
+          item: 'editorial design',
+          route: '#',
+        },
+        {
+          item: 'fiction writing',
+          route: '#',
+        },
+      ],
+    },
+    {
+      title: 'things I know',
+      list: [
+        {
+          item: 'react',
+          route: '#',
+        },
+        {
+          item: 'node',
+          route: '#',
+        },
+        {
+          item: 'javascript/babel',
+          route: '#',
+        },
+        {
+          item: 'css/sass/stylus',
+          route: '#',
+        },
+      ],
+    },
+    {
+      title: 'things I do',
+      list: [
+        {
+          item: 'front-end development',
+          route: '#',
+        },
+        {
+          item: 'project management',
+          route: '#',
+        },
+        {
+          item: 'editorial design',
+          route: '#',
+        },
+        {
+          item: 'fiction writing',
+          route: '#',
+        },
+      ],
+    },
+    {
+      title: 'things I do',
+      list: [
+        {
+          item: 'front-end development',
+          route: '#',
+        },
+        {
+          item: 'project management',
+          route: '#',
+        },
+        {
+          item: 'editorial design',
+          route: '#',
+        },
+        {
+          item: 'fiction writing',
+          route: '#',
+        },
+      ],
+    },
+  ];
+  return (
+    <Fade delay={400}>
+      <div className="menu">
+        {menus.map(menu => (
+          <MenuItem key={uuid()}>
+            <p>{menu.title}</p>
+            {menu.list.map(item => (
+              <Link to={item.route} key={uuid()}>
+                {item.item}
+              </Link>
+            ))}
+          </MenuItem>
+        ))}
       </div>
-      <div className="menu-item">
-        <p>things I know</p>
-        <ul>
-          <li>react</li>
-          <li>node</li>
-          <li>javascript/babel</li>
-          <li>css/sass/stylus</li>
-        </ul>
-      </div>
-      <div className="menu-item">
-        <p>things I do</p>
-        <ul>
-          <li>front-end development</li>
-          <li>project management</li>
-          <li>editorial design</li>
-          <li>fiction writing</li>
-        </ul>
-      </div>
-    </div>
-  </Fade>
-);
+    </Fade>
+  );
+};
 
 export default Menu;

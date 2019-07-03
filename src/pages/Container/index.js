@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -7,28 +7,42 @@ const Main = styled.div`
   background-color: ${props => props.theme.color.white};
   font-family: ${props => props.theme.font.display};
 
+  display: grid;
+  grid-template-columns: ${p => (p.center ? '50%' : '20%')} auto;
   height: 100%;
-  display: flex;
-`;
+  transition: grid-template-columns 1s;
 
-const Shifter = styled.div`
-  &.left {
-    width: 50%;
+  & > div {
+    padding: 40px;
+    display: flex;
   }
-  &.right {
-    width: 50%;
-    background-color: ${props => props.theme.color.color};
-    color: ${props => props.theme.color.white};
+
+  & > div:first-child {
+    position: fixed;
+    transition: all 1s;
+    width: ${p => (p.center ? '50%' : '20%')};
+    height: 100vh;
+
+    background-color: ${p => (p.center ? p.theme.color.white : p.theme.color.color)};
+    color: ${p => (p.center ? p.theme.color.black : p.theme.color.white)};
+  }
+  & > div:last-child {
+    grid-column-start: 2;
+
+    transition: all 1s;
+    /* width: ${p => (p.center ? '50%' : '80%')}; */
+    background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};
+    color: ${p => (p.center ? p.theme.color.white : p.theme.color.black)};
   }
 `;
 
 const Container = props => {
-  const { left, right } = props;
+  const { left, right, center } = props;
 
   return (
-    <Main>
-      <Shifter className="left">{left}</Shifter>
-      <Shifter className="right">{right}</Shifter>
+    <Main center={center}>
+      <div>{left}</div>
+      <div>{right}</div>
     </Main>
   );
 };
@@ -36,6 +50,11 @@ const Container = props => {
 Container.propTypes = {
   left: PropTypes.element.isRequired,
   right: PropTypes.element.isRequired,
+  center: PropTypes.bool,
+};
+
+Container.defaultProps = {
+  center: false,
 };
 
 export default Container;

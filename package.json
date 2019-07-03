@@ -13,7 +13,8 @@
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6",
-    "styled-reset": "^2.0.16"
+    "styled-reset": "^2.0.16",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
