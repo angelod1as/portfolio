@@ -27,7 +27,12 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.3em;
   }
 
+  h2 {
+    font-size: 1.5em;
+  }
+
   a {
+    display: inline-block;
     color: ${p => p.theme.color.color};
     font-weight: 700;
     transition: color .2s, transform .2s;
@@ -36,6 +41,16 @@ const GlobalStyle = createGlobalStyle`
       transform: skewX(-15deg);
       color: ${p => p.theme.color.black};
     }
+  }
+  &.bg {
+    color: ${p => p.theme.color.white};
+    &:hover {
+      color: ${p => p.theme.color.gray};
+    }
+  }
+
+  .sidebar {
+    max-width: 300px;
   }
 `;
 

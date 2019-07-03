@@ -25,3 +25,18 @@ export const AboutSidebar = Loadable({
   loader: () => import('../pages/About/Sidebar'),
   loading: Loading,
 });
+
+export const NotFound = Loadable({
+  loader: () => import('../pages/NotFound'),
+  loading: Loading,
+});
+
+export const Portfolio = Loadable({
+  loader: () => import('../pages/Portfolio'),
+  loading: Loading,
+});
+
+export const PortfolioSidebar = Loadable({
+  loader: () => import('../pages/Portfolio/Sidebar'),
+  loading: Loading,
+});

@@ -8,7 +8,6 @@ const MenuItem = styled.div`
   margin: 50px 0;
 
   a {
-    color: ${p => p.theme.color.white};
     font-size: 35px;
     font-weight: 700;
     display: block;
@@ -114,7 +113,7 @@ const Menu = () => {
           <MenuItem key={uuid()}>
             <p>{menu.title}</p>
             {menu.list.map(item => (
-              <Link to={item.route} key={uuid()}>
+              <Link className="bg" to={item.route} key={uuid()}>
                 {item.item}
               </Link>
             ))}
