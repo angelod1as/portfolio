@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import Container from '../layouts';
 
@@ -7,11 +8,30 @@ import PortfolioMain from '../fragments/Portfolio';
 
 const seo = '';
 
-const About = () => (
-  <Container seo={seo}>
-    <PortfolioSidebar />
-    <PortfolioMain />
-  </Container>
-);
+const About = ({ data }) => {
+  return (
+    <Container seo={seo}>
+      <PortfolioSidebar />
+      <PortfolioMain />
+    </Container>
+  );
+};
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          fileAbsolutePath
+          frontmatter {
+            title
+            path
+            date
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default About;
