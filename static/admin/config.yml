@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: angelod1as/portfolio
 
 media_folder: static/assets
 public_folder: assets
