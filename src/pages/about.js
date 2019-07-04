@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from '../layouts';
+import Container from '../templates';
 
 import AboutSidebar from '../fragments/About/Sidebar';
 import AboutMain from '../fragments/About';

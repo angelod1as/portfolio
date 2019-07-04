@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from '../layouts';
+import Container from '../templates';
 
 import Opening from '../fragments/Home/Opening';
 import Menu from '../fragments/Home/Menu';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Container from '../layouts';
+import Container from '../templates';
 
 import PortfolioSidebar from '../fragments/Portfolio/Sidebar';
 import PortfolioMain from '../fragments/Portfolio';
