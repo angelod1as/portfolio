@@ -53,6 +53,8 @@ const Main = styled.div`
   & > div:last-child {
     grid-column-start: 2;
 
+    height: 100vh;
+
     transition: all 1s;
     /* width: ${p => (p.center ? '50%' : '80%')}; */
     background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};

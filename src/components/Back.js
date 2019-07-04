@@ -28,7 +28,7 @@ const Arrow = styled.i`
 const Back = ({ to }) => {
   return (
     <BackLink>
-      <Link direction="left" className="bg" to={to}>
+      <Link direction="right" className="bg" to={to}>
         <Arrow />
         back
       </Link>

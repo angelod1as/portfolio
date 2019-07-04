@@ -47,7 +47,9 @@ const Opening = () => {
           <Link direction="left" to="/portfolio">
             Portfolio
           </Link>
-          <Link to="/about">About me</Link>
+          <Link direction="left" to="/about">
+            About me
+          </Link>
         </List>
       </Container>
     </Fade>
