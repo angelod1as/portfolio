@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Link from './Link';
 
 const BackLink = styled.div`
   a {
@@ -28,7 +28,7 @@ const Arrow = styled.i`
 const Back = ({ to }) => {
   return (
     <BackLink>
-      <Link className="bg" to={to}>
+      <Link direction="left" className="bg" to={to}>
         <Arrow />
         back
       </Link>

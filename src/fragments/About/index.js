@@ -2,7 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 
 const About = () => (
-  <Fade delay={400}>
+  <Fade>
     <div className="about">oi</div>
   </Fade>
 );

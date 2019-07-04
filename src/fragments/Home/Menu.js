@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import uuid from 'uuid/v1';
+import Link from '../../components/Link';
 
 const MenuItem = styled.div`
   margin: 50px 0;
@@ -23,23 +23,23 @@ const Menu = () => {
       list: [
         {
           item: 'websites free maintenance',
-          route: '#',
+          route: '/',
         },
         {
           item: 'front-end development',
-          route: '#',
+          route: '/',
         },
         {
           item: 'project management',
-          route: '#',
+          route: '/',
         },
         {
           item: 'editorial design',
-          route: '#',
+          route: '/',
         },
         {
           item: 'fiction writing',
-          route: '#',
+          route: '/',
         },
       ],
     },
@@ -48,19 +48,19 @@ const Menu = () => {
       list: [
         {
           item: 'react',
-          route: '#',
+          route: '/',
         },
         {
           item: 'node',
-          route: '#',
+          route: '/',
         },
         {
           item: 'javascript/babel',
-          route: '#',
+          route: '/',
         },
         {
           item: 'css/sass/stylus',
-          route: '#',
+          route: '/',
         },
       ],
     },
@@ -69,19 +69,19 @@ const Menu = () => {
       list: [
         {
           item: 'front-end development',
-          route: '#',
+          route: '/',
         },
         {
           item: 'project management',
-          route: '#',
+          route: '/',
         },
         {
           item: 'editorial design',
-          route: '#',
+          route: '/',
         },
         {
           item: 'fiction writing',
-          route: '#',
+          route: '/',
         },
       ],
     },
@@ -90,26 +90,26 @@ const Menu = () => {
       list: [
         {
           item: 'front-end development',
-          route: '#',
+          route: '/',
         },
         {
           item: 'project management',
-          route: '#',
+          route: '/',
         },
         {
           item: 'editorial design',
-          route: '#',
+          route: '/',
         },
         {
           item: 'fiction writing',
-          route: '#',
+          route: '/',
         },
       ],
     },
   ];
 
   return (
-    <Fade delay={400}>
+    <Fade>
       <div className="menu">
         {menus.map(menu => (
           <MenuItem key={uuid()}>

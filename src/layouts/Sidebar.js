@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-import Back from './Back';
+import Back from '../components/Back';
 
 const H2 = styled.h2`
   margin: 30px 0;
