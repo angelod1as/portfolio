@@ -17,23 +17,26 @@ const MenuItem = styled.div`
 `;
 
 const Menu = ({ from, items }) => {
+  const menuItems = items.map(item => {
+    console.log(item);
+  });
   return (
     <Fade>
       <div className="menu">
-        {items.map(item => {
+        {/* {items.map(item => {
           console.log(item);
           return (
             <MenuItem key={uuid()}>
               <p>{item.title}</p>
-              {/* <p>{menu.title}</p>
+              <p>{menu.title}</p>
               {menu.list.map(item => (
                 <Link className="bg" to={item.route} key={uuid()}>
                   {item.item}
                 </Link>
-              ))} */}
+              ))}
             </MenuItem>
           );
-        })}
+        })} */}
       </div>
     </Fade>
   );

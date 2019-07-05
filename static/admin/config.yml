@@ -21,7 +21,7 @@ collections:
       - { name: body, label: Body, widget: markdown }
   - name: pages
     label: pages
-    folder: content/pages
+    folder: content
     create: true
     fields:
       - { name: date, label: Date, widget: date }
