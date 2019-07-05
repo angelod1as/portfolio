@@ -2,28 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import Fade from 'react-reveal/Fade';
+import styled from 'styled-components';
 // import { Link } from 'gatsby';
-import Link from '../../components/Link';
+
+import Tile from './Tile';
+
+const Mosaic = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5%;
+`;
 
 const PortfolioMain = props => {
   const { edges, nodes, from } = props;
   return (
     <Fade>
-      <div className="portfolio">
-        <div>
-          {edges.map((item, i) => {
-            const front = item.node.frontmatter;
-            const { fullPath } = nodes[i].fields;
-            return (
-              <div key={uuid()}>
-                <Link to={fullPath} from={from}>
-                  {front.title}
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <Mosaic className="portfolio">
+        {edges.map((item, i) => {
+          const front = item.node.frontmatter;
+          const { fullPath } = nodes[i].fields;
+          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
+        })}
+        {edges.map((item, i) => {
+          const front = item.node.frontmatter;
+          const { fullPath } = nodes[i].fields;
+          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
+        })}
+        {edges.map((item, i) => {
+          const front = item.node.frontmatter;
+          const { fullPath } = nodes[i].fields;
+          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
+        })}
+      </Mosaic>
     </Fade>
   );
 };

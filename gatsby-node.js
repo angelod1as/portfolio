@@ -26,7 +26,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
       } else {
         slug = split;
       }
-      return slug.replace('.md', '');
+      return slug.replace('.mdx', '').replace('.md', '');
     };
 
     // create slugs
@@ -64,13 +64,16 @@ exports.createPages = async ({ actions, graphql }) => {
   // #########
   const getPortfolio = () => {
     return graphql(`
-      {
+      query {
         allMarkdownRemark(
           filter: { fields: { type: { eq: "portfolio" } } }
           sort: { order: DESC, fields: frontmatter___date }
         ) {
           edges {
             node {
+              frontmatter {
+                query
+              }
               fields {
                 type
                 slug

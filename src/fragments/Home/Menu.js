@@ -18,7 +18,7 @@ const MenuItem = styled.div`
 
 const Menu = ({ from, items }) => {
   // filtering categories
-  const categories = items.map(item => item.category);
+  const categories = items.filter(item => item.category !== 'hidden').map(item => item.category);
   const filtered = categories.filter((v, i) => categories.indexOf(v) === i);
 
   // Grouping items

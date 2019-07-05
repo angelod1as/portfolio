@@ -10,7 +10,6 @@ import ItemSidebar from '../fragments/Item/Sidebar';
 const seo = '';
 
 const IndexPage = props => {
-  console.log(props);
   // getting last page url
   const {
     data,
@@ -21,13 +20,12 @@ const IndexPage = props => {
   // getting data
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { date, title } = frontmatter;
 
   // returning
   return (
     <Container seo={seo}>
-      <ItemSidebar date={date} title={title} from={from} />
-      <Item html={html} />
+      <ItemSidebar {...frontmatter} from={from} />
+      <Item html={html} {...frontmatter} />
     </Container>
   );
 };
@@ -37,8 +35,15 @@ export const pageQuery = graphql`
     markdownRemark(fields: { fullPath: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
+        menu
+        date(formatString: "DD/MM/YY")
+        category
+        desc
+        thumb
+        longdesc
+        tags
+        query
       }
     }
   }
@@ -52,10 +57,7 @@ IndexPage.propTypes = {
   }),
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        date: PropTypes.string,
-        title: PropTypes.string,
-      }),
+      frontmatter: PropTypes.shape(),
       html: PropTypes.string,
     }),
   }).isRequired,

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { graphql } from 'gatsby';
 
 import GlobalStyle from '../components/GlobalStyle';
 import SEO from '../components/seo';
@@ -31,14 +30,14 @@ const Main = styled.div`
 
   & > div {
     padding: 40px;
-    display: flex;
+    display: ${p => (p.center ? 'flex' : 'block')};
   }
 
   & > div:first-child {
     position: fixed;
     transition: all 1s;
     width: ${p => (p.center ? '50%' : '20%')};
-    height: 100vh;
+    height: ${p => (p.center ? '100vh' : '100%')};
 
     background-color: ${p => (p.center ? p.theme.color.white : p.theme.color.color)};
     color: ${p => (p.center ? p.theme.color.black : p.theme.color.white)};
@@ -46,7 +45,7 @@ const Main = styled.div`
   & > div:last-child {
     grid-column-start: 2;
 
-    height: 100vh;
+    height: ${p => (p.center ? '100vh' : '100%')};
 
     transition: all 1s;
     /* width: ${p => (p.center ? '50%' : '80%')}; */
