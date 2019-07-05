@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import Fade from 'react-reveal/Fade';
 // import { Link } from 'gatsby';
 import Link from '../../components/Link';
 
 const PortfolioMain = props => {
   const { edges, nodes } = props;
   return (
-    <div className="portfolio">
-      <div>
-        {edges.map((item, i) => {
-          const front = item.node.frontmatter;
-          const { slug } = nodes[i].fields;
-          console.log(slug);
-          // const url = node.fileAbsolutePath.split('.md')[0].split('/src')[1];
-          return (
-            <div key={uuid()}>
-              <Link to={slug}>{front.title}</Link>
-            </div>
-          );
-        })}
+    <Fade>
+      <div className="portfolio">
+        <div>
+          {edges.map((item, i) => {
+            const front = item.node.frontmatter;
+            const { slug } = nodes[i].fields;
+            console.log(slug);
+            // const url = node.fileAbsolutePath.split('.md')[0].split('/src')[1];
+            return (
+              <div key={uuid()}>
+                <Link to={slug}>{front.title}</Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Fade>
   );
 };
 

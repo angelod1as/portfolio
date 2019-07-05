@@ -1,10 +1,10 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
+import Main from '../../layouts/Main';
 
 const About = () => (
-  <Fade>
+  <Main>
     <div className="about">oi</div>
-  </Fade>
+  </Main>
 );
 
 export default About;

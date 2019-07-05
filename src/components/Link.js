@@ -5,14 +5,20 @@ import { Link } from 'gatsby';
 import { withTheme } from 'styled-components';
 
 const CustomLink = ({ children, direction, className, color, to, theme }) => {
-  const mainColor = theme.color.color;
+  const transition = false;
 
+  if (transition) {
+    const mainColor = theme.color.color;
+    return (
+      <AniLink cover direction={direction} className={className} bg={color || mainColor} to={to}>
+        {children}
+      </AniLink>
+    );
+  }
   return (
-    <AniLink cover direction={direction} className={className} bg={color || mainColor} to={to}>
-      {/* <Link to={to}> */}
+    <Link to={to} className={className}>
       {children}
-      {/* </Link> */}
-    </AniLink>
+    </Link>
   );
 };
 

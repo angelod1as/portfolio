@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Link from '../../components/Link';
+import Main from '../../layouts/Main';
 
 const Container = styled.div`
   height: 100%;
@@ -34,7 +35,7 @@ const List = styled.div`
 
 const Opening = () => {
   return (
-    <Fade>
+    <Main>
       <Container className="opening">
         {/* <Flags /> */}
         <Title>My name is angelo and I do stuff</Title>
@@ -52,7 +53,7 @@ const Opening = () => {
           </Link>
         </List>
       </Container>
-    </Fade>
+    </Main>
   );
 };
 
