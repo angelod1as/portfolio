@@ -24,6 +24,7 @@ collections:
     folder: content
     create: true
     fields:
+      - { name: menu, label: Add to menu, widget: boolean, default: true }
       - { name: date, label: Date, widget: date }
       - { name: category, label: Category }
       - { name: title, label: Title }
