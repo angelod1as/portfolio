@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 import Link from '../../components/Link';
 
 const PortfolioMain = props => {
-  const { edges, nodes } = props;
+  const { edges, nodes, from } = props;
   return (
     <Fade>
       <div className="portfolio">
@@ -14,11 +14,11 @@ const PortfolioMain = props => {
           {edges.map((item, i) => {
             const front = item.node.frontmatter;
             const { slug } = nodes[i].fields;
-            console.log(slug);
-            // const url = node.fileAbsolutePath.split('.md')[0].split('/src')[1];
             return (
               <div key={uuid()}>
-                <Link to={slug}>{front.title}</Link>
+                <Link to={slug} from={from}>
+                  {front.title}
+                </Link>
               </div>
             );
           })}
@@ -29,11 +29,23 @@ const PortfolioMain = props => {
 };
 
 PortfolioMain.propTypes = {
-  // data: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     item: PropTypes.element,
-  //   })
-  // ).isRequired,
+  edges: PropTypes.arrayOf(
+    PropTypes.shape({
+      item: PropTypes.element,
+    })
+  ).isRequired,
+  nodes: PropTypes.arrayOf(
+    PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string,
+      }),
+    })
+  ).isRequired,
+  from: PropTypes.string,
+};
+
+PortfolioMain.defaultProps = {
+  from: null,
 };
 
 export default PortfolioMain;

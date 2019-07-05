@@ -25,87 +25,87 @@ const Menu = () => {
           item: 'websites free maintenance',
           route: '/',
         },
-        {
-          item: 'front-end development',
-          route: '/',
-        },
-        {
-          item: 'project management',
-          route: '/',
-        },
-        {
-          item: 'editorial design',
-          route: '/',
-        },
-        {
-          item: 'fiction writing',
-          route: '/',
-        },
+        // {
+        //   item: 'front-end development',
+        //   route: '/',
+        // },
+        // {
+        //   item: 'project management',
+        //   route: '/',
+        // },
+        // {
+        //   item: 'editorial design',
+        //   route: '/',
+        // },
+        // {
+        //   item: 'fiction writing',
+        //   route: '/',
+        // },
       ],
     },
-    {
-      title: 'things I know',
-      list: [
-        {
-          item: 'react',
-          route: '/',
-        },
-        {
-          item: 'node',
-          route: '/',
-        },
-        {
-          item: 'javascript/babel',
-          route: '/',
-        },
-        {
-          item: 'css/sass/stylus',
-          route: '/',
-        },
-      ],
-    },
-    {
-      title: 'things I do',
-      list: [
-        {
-          item: 'front-end development',
-          route: '/',
-        },
-        {
-          item: 'project management',
-          route: '/',
-        },
-        {
-          item: 'editorial design',
-          route: '/',
-        },
-        {
-          item: 'fiction writing',
-          route: '/',
-        },
-      ],
-    },
-    {
-      title: 'things I do',
-      list: [
-        {
-          item: 'front-end development',
-          route: '/',
-        },
-        {
-          item: 'project management',
-          route: '/',
-        },
-        {
-          item: 'editorial design',
-          route: '/',
-        },
-        {
-          item: 'fiction writing',
-          route: '/',
-        },
-      ],
-    },
+    // {
+    //   title: 'things I know',
+    //   list: [
+    //     {
+    //       item: 'react',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'node',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'javascript/babel',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'css/sass/stylus',
+    //       route: '/',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'things I do',
+    //   list: [
+    //     {
+    //       item: 'front-end development',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'project management',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'editorial design',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'fiction writing',
+    //       route: '/',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'things I do',
+    //   list: [
+    //     {
+    //       item: 'front-end development',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'project management',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'editorial design',
+    //       route: '/',
+    //     },
+    //     {
+    //       item: 'fiction writing',
+    //       route: '/',
+    //     },
+    //   ],
+    // },
   ];
 
   return (

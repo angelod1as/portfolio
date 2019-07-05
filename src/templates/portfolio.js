@@ -9,12 +9,12 @@ import PortfolioMain from '../fragments/Portfolio';
 
 const seo = '';
 
-const Portfolio = ({ data }) => {
+const Portfolio = ({ data, location: { pathname } }) => {
   const { edges, nodes } = data.allMarkdownRemark;
   return (
     <Container seo={seo}>
       <PortfolioSidebar />
-      <PortfolioMain edges={edges} nodes={nodes} />
+      <PortfolioMain edges={edges} nodes={nodes} from={pathname} />
     </Container>
   );
 };
