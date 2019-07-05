@@ -23,7 +23,7 @@ const Menu = () => {
       list: [
         {
           item: 'websites free maintenance',
-          route: '/portfolio/testing-portif',
+          route: '/',
         },
         {
           item: 'front-end development',

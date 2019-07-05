@@ -13,7 +13,7 @@ slug:
 collections:
   - name: portfolio
     label: portfolio
-    folder: src/portfolio
+    folder: content/portfolio
     create: true
     fields:
       - { name: date, label: Date, widget: date }
