@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

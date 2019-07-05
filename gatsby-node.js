@@ -1,33 +1,55 @@
 const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = ({ actions, graphql }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `src/portfolio` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
+
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const itemTemplate = path.resolve(`src/templates/item.js`);
-
-  return graphql(`
-    {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
-        edges {
-          node {
-            frontmatter {
-              path
+  // #########
+  // PORTFOLIO
+  // #########
+  const getPortfolio = () => {
+    return graphql(`
+      {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+          edges {
+            node {
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
+    `);
+  };
 
-    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: itemTemplate,
-        context: {}, // additional data can be passed via context
-      });
+  const portfolioQl = await getPortfolio();
+
+  if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+
+  createPage({
+    path: '/portfolio',
+    component: path.resolve('src/templates/portfolio.js'),
+    context: {},
+  });
+
+  portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`src/templates/item.js`),
+      context: {},
     });
   });
 };

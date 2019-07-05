@@ -12,7 +12,6 @@ const IndexPage = ({ data }) => {
   const { markdownRemark } = data; // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark;
   const { date, title } = frontmatter;
-  console.log(frontmatter, html);
   return (
     <Container seo={seo}>
       <ItemSidebar date={date} title={title} />
@@ -23,11 +22,10 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    markdownRemark(fields: { slug: { eq: $path } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        path
         title
       }
     }

@@ -5,13 +5,17 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
 collections:
   - name: portfolio
     label: portfolio
     folder: src/portfolio
     create: true
     fields:
-      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
