@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import uuid from 'uuid/v1';
@@ -17,12 +17,39 @@ const MenuItem = styled.div`
 `;
 
 const Menu = ({ from, items }) => {
-  const menuItems = items.map(item => {
-    console.log(item);
+  // filtering categories
+  const categories = items.map(item => item.category);
+  const filtered = categories.filter((v, i) => categories.indexOf(v) === i);
+
+  // Grouping items
+  const groupBy = key => array =>
+    array.reduce((objectsByKeyValue, obj) => {
+      const newObj = objectsByKeyValue;
+      const value = obj[key];
+      newObj[value] = (objectsByKeyValue[value] || []).concat(obj);
+      return newObj;
+    }, {});
+
+  const categorized = groupBy('category');
+  const grouped = categorized(items);
+
+  const insert = filtered.map(each => {
+    return (
+      <MenuItem key={uuid()}>
+        <p>{each}</p>
+        {grouped[each].map(inside => (
+          <Link className="bg" to={inside.fullPath} key={uuid()}>
+            {inside.title}
+          </Link>
+        ))}
+      </MenuItem>
+    );
   });
+
   return (
     <Fade>
       <div className="menu">
+        {insert}
         {/* {items.map(item => {
           console.log(item);
           return (
@@ -42,4 +69,12 @@ const Menu = ({ from, items }) => {
   );
 };
 
+Menu.propTypes = {
+  from: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+Menu.defaultProps = {
+  from: null,
+};
 export default Menu;
