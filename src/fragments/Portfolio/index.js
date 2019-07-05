@@ -13,10 +13,10 @@ const PortfolioMain = props => {
         <div>
           {edges.map((item, i) => {
             const front = item.node.frontmatter;
-            const { slug } = nodes[i].fields;
+            const { fullPath } = nodes[i].fields;
             return (
               <div key={uuid()}>
-                <Link to={slug} from={from}>
+                <Link to={fullPath} from={from}>
                   {front.title}
                 </Link>
               </div>

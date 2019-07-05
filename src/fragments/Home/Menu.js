@@ -16,111 +16,24 @@ const MenuItem = styled.div`
   }
 `;
 
-const Menu = () => {
-  const menus = [
-    {
-      title: 'things I do',
-      list: [
-        {
-          item: 'websites free maintenance',
-          route: '/',
-        },
-        // {
-        //   item: 'front-end development',
-        //   route: '/',
-        // },
-        // {
-        //   item: 'project management',
-        //   route: '/',
-        // },
-        // {
-        //   item: 'editorial design',
-        //   route: '/',
-        // },
-        // {
-        //   item: 'fiction writing',
-        //   route: '/',
-        // },
-      ],
-    },
-    // {
-    //   title: 'things I know',
-    //   list: [
-    //     {
-    //       item: 'react',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'node',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'javascript/babel',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'css/sass/stylus',
-    //       route: '/',
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: 'things I do',
-    //   list: [
-    //     {
-    //       item: 'front-end development',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'project management',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'editorial design',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'fiction writing',
-    //       route: '/',
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: 'things I do',
-    //   list: [
-    //     {
-    //       item: 'front-end development',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'project management',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'editorial design',
-    //       route: '/',
-    //     },
-    //     {
-    //       item: 'fiction writing',
-    //       route: '/',
-    //     },
-    //   ],
-    // },
-  ];
-
+const Menu = ({ from, items }) => {
   return (
     <Fade>
       <div className="menu">
-        {menus.map(menu => (
-          <MenuItem key={uuid()}>
-            <p>{menu.title}</p>
-            {menu.list.map(item => (
-              <Link className="bg" to={item.route} key={uuid()}>
-                {item.item}
-              </Link>
-            ))}
-          </MenuItem>
-        ))}
+        {items.map(item => {
+          console.log(item);
+          return (
+            <MenuItem key={uuid()}>
+              <p>{item.title}</p>
+              {/* <p>{menu.title}</p>
+              {menu.list.map(item => (
+                <Link className="bg" to={item.route} key={uuid()}>
+                  {item.item}
+                </Link>
+              ))} */}
+            </MenuItem>
+          );
+        })}
       </div>
     </Fade>
   );

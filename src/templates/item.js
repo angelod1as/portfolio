@@ -10,6 +10,7 @@ import ItemSidebar from '../fragments/Item/Sidebar';
 const seo = '';
 
 const IndexPage = props => {
+  console.log(props);
   // getting last page url
   const {
     data,
@@ -33,7 +34,7 @@ const IndexPage = props => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(fields: { slug: { eq: $path } }) {
+    markdownRemark(fields: { fullPath: { eq: $path } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

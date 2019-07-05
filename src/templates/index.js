@@ -1,14 +1,7 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-// import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import GlobalStyle from '../components/GlobalStyle';
 import SEO from '../components/seo';
@@ -63,16 +56,6 @@ const Main = styled.div`
 `;
 
 const Container = ({ children, center, seo }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `);
-
   return (
     <ThemeProvider theme={theme}>
       <Fragment>

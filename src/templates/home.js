@@ -4,24 +4,30 @@ import { graphql } from 'gatsby';
 
 import Container from '.';
 
-import PortfolioSidebar from '../fragments/Portfolio/Sidebar';
-import PortfolioMain from '../fragments/Portfolio';
+import Opening from '../fragments/Home/Opening';
+import Menu from '../fragments/Home/Menu';
 
 const seo = '';
 
-const Portfolio = ({ data, location: { pathname } }) => {
+const Home = ({ data, location: { pathname } }) => {
   const { edges, nodes } = data.allMarkdownRemark;
+
+  const menuItems = edges.map((items, i) => {
+    const { frontmatter } = items.node;
+    const paths = nodes[i].fields;
+    return { ...frontmatter, ...paths };
+  });
   return (
-    <Container seo={seo}>
-      <PortfolioSidebar />
-      <PortfolioMain edges={edges} nodes={nodes} from={pathname} />
+    <Container center seo={seo}>
+      <Opening />
+      <Menu items={menuItems} from={pathname} />
     </Container>
   );
 };
 
 export const pageQuery = graphql`
   {
-    allMarkdownRemark(filter: { fields: { type: { eq: "portfolio" } } }) {
+    allMarkdownRemark(filter: { fields: { type: { eq: "pages" } } }) {
       nodes {
         fields {
           slug
@@ -41,7 +47,7 @@ export const pageQuery = graphql`
   }
 `;
 
-Portfolio.propTypes = {
+Home.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       nodes: PropTypes.arrayOf(PropTypes.shape()),
@@ -63,4 +69,4 @@ Portfolio.propTypes = {
   }).isRequired,
 };
 
-export default Portfolio;
+export default Home;

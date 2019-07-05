@@ -19,3 +19,12 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+  - name: pages
+    label: pages
+    folder: content/pages
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: category, label: Category }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
