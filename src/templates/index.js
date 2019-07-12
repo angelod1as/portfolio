@@ -11,6 +11,7 @@ const theme = {
     white: '#F4F4F4',
     black: '#333333',
     gray: '#CCCCCC',
+    darkgray: '#A9A9A9',
   },
   font: {
     display: 'Montserrat Alternates',

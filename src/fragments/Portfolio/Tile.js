@@ -4,21 +4,44 @@ import PropTypes from 'prop-types';
 import Link from '../../components/Link';
 
 const Container = styled.div`
+  * {
+    transition: all 0.2s;
+  }
+  figure {
+    background-color: ${p => p.theme.color.color};
+    line-height: 0;
+  }
   &:hover {
-    background-color: red;
     a {
       transform: none;
+      img {
+        /* transform: scale(0.97); */
+        transform: translate(10px, -10px);
+      }
     }
-    p {
+    h2 {
       transform: skewX(-15deg);
     }
-  }
-  p {
-    margin: 0;
   }
   img {
     width: 100%;
     height: auto;
+  }
+`;
+
+const Text = styled.div`
+  margin-top: 10px;
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 1em;
+    span {
+      font-size: 0.9em;
+      font-weight: 700;
+      color: ${p => p.theme.color.darkgray};
+    }
   }
 `;
 
@@ -28,8 +51,17 @@ const Tile = props => {
   return (
     <Container>
       <Link to={fullPath} from={from}>
-        <img src={front.thumb} alt="" />
-        <p>{front.title}</p>
+        <figure>
+          <img src={front.thumb} alt="" />
+        </figure>
+        <Text>
+          <h2>{front.title}</h2>
+          <p>
+            {front.desc}
+            &nbsp;
+            <span>{front.date}</span>
+          </p>
+        </Text>
       </Link>
     </Container>
   );
