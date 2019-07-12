@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import uuid from 'uuid/v1';
 import Link from '../../components/Link';
+import size from '../../components/breakpoints';
 
 const MenuItem = styled.div`
   margin: 50px 0;
@@ -13,6 +14,12 @@ const MenuItem = styled.div`
     font-weight: 700;
     display: block;
     margin: 15px 0;
+    line-height: 1.3em;
+  }
+
+  @media ${size.medium} {
+    max-width: 600px;
+    margin: 0 auto;
   }
 `;
 

@@ -3,12 +3,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from '../../components/Link';
 import Main from '../../layouts/Main';
+import size from '../../components/breakpoints';
 
 const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media ${size.medium} {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 `;
 
 const Title = styled.h1`
@@ -35,7 +40,7 @@ const List = styled.div`
 const Opening = () => {
   return (
     <Main>
-      <Container className="opening">
+      <Container>
         {/* <Flags /> */}
         <Title>My name is angelo and I do stuff</Title>
         <Text>Journalist turned designer turned developer.</Text>

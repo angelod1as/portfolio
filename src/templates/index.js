@@ -5,6 +5,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../components/GlobalStyle';
 import SEO from '../components/seo';
 
+import size from '../components/breakpoints';
+
 const theme = {
   color: {
     color: '#19006A',
@@ -27,7 +29,6 @@ const Main = styled.div`
   display: grid;
   grid-template-columns: ${p => (p.center ? '50%' : '20%')} auto;
   height: 100%;
-  transition: grid-template-columns 1s;
 
   & > div {
     padding: 40px;
@@ -36,7 +37,6 @@ const Main = styled.div`
 
   & > div:first-child {
     position: fixed;
-    transition: all 1s;
     width: ${p => (p.center ? '50%' : '20%')};
     height: ${p => (p.center ? '100vh' : '100%')};
 
@@ -48,10 +48,23 @@ const Main = styled.div`
 
     height: ${p => (p.center ? '100vh' : '100%')};
 
-    transition: all 1s;
-    /* width: ${p => (p.center ? '50%' : '80%')}; */
     background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};
     color: ${p => (p.center ? p.theme.color.white : p.theme.color.black)};
+  }
+
+  @media ${size.medium} {
+    display: block;
+    & > div:first-child {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    & > div:last-child {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
