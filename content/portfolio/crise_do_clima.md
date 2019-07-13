@@ -1,11 +1,20 @@
 ---
 date: 2019-07-05T15:49:35.155Z
 title: Crise do Clima
-desc: Crise do clima do Marcelo Leite
-tags: [react, javascript, stylus, special, folha]
+descGroup:
+  desc: Crise do clima do Marcelo Leite
+  longdesc: Crise do clima do Marcelo Leite
+tags:
+  - react
+  - javascript
+  - stylus
+  - tool
+  - embed
+  - folha
 thumb: https://source.unsplash.com/random/600x600
-longdesc: Crise do clima do Marcelo Leite
-query: special
+others:
+  menu: true
+  query: special
 ---
 # CRISE DO CLIMA!
 

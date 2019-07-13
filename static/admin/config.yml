@@ -18,19 +18,37 @@ collections:
     fields:
       - { name: date, label: Data, widget: date }
       - { name: title, label: Título, widget: string }
-      - { name: desc, label: Descrição curta, widget: string }
+      - name: descGroup
+        label: Descrições
+        widget: object
+        fields:
+          - { name: desc, label: Descrição curta, widget: string }
+          - { name: longdesc, label: Descrição sidebar, widget: text }
       - { name: tags, label: Tags, widget: list }
-      - { name: thumb, label: Imagem, widget: image }
-      - { name: longdesc, label: Descrição longa, widget: text }
-      - { name: query, label: Query, widget: string }
+      - { name: thumb, label: Imagem do menu, widget: image }
       - { name: body, label: Texto, widget: markdown }
+      - name: others
+        label: Outras
+        widget: object
+        fields:
+          - { name: menu, label: Mostrar no menu?, widget: boolean }
+          - { name: query, label: Query, widget: string, required: false }
   - name: pages
     label: pages
     folder: content
     create: true
     fields:
-      - { name: menu, label: Add to menu, widget: boolean, default: true }
       - { name: date, label: Date, widget: date }
-      - { name: category, label: Category }
       - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - { name: longdesc, label: Descrição sidebar, widget: text }
+      - { name: body, label: Texto, widget: markdown }
+      - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
+      - { name: category, label: Category, widget: string, required: false }
+  - name: menu
+    label: menu
+    folder: content/menu
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Texto, widget: markdown }

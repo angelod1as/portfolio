@@ -38,9 +38,12 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
+            date(formatString: "MMMM DD, YYYY")
             category
+            menu
+            desc
+            longdesc
           }
         }
       }

@@ -108,7 +108,7 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 
   // #########
-  // PORTFOLIO
+  // PAGES
   // #########
   const getHome = () => {
     return graphql(`

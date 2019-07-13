@@ -24,39 +24,75 @@ const MenuItem = styled.div`
 `;
 
 const Menu = ({ from, items }) => {
-  // filtering categories
-  const categories = items.filter(item => item.category !== 'hidden').map(item => item.category);
-  const filtered = categories.filter((v, i) => categories.indexOf(v) === i);
+  const menu = items.filter(item => item.menu);
+  let categories = menu.map(item => item.category);
 
-  // Grouping items
-  const groupBy = key => array =>
-    array.reduce((objectsByKeyValue, obj) => {
-      const newObj = objectsByKeyValue;
-      const value = obj[key];
-      newObj[value] = (objectsByKeyValue[value] || []).concat(obj);
-      return newObj;
-    }, {});
+  // things i do
+  const Default = () => {
+    const print = menu.map(item => {
+      const { category } = item;
 
-  const categorized = groupBy('category');
-  const grouped = categorized(items);
-
-  const insert = filtered.map(each => {
+      if (
+        (typeof category === 'string' && category.toLowerCase() === 'things i do') ||
+        (typeof item !== 'undefined' && item)
+      ) {
+        return (
+          <Link className="bg" to={item.fullPath} key={uuid()}>
+            - {item.title}
+          </Link>
+        );
+      }
+    });
     return (
       <MenuItem key={uuid()}>
-        <p>{each}</p>
-        {grouped[each].map(inside => (
-          <Link className="bg" to={inside.fullPath} key={uuid()}>
-            {inside.title}
-          </Link>
-        ))}
+        <p>things i do</p>
+        {print}
       </MenuItem>
     );
-  });
+  };
+
+  // other categories
+  const Categorized = () => {
+    // filtering categories
+    categories = categories
+      .filter(item => item !== 'things i do')
+      .filter(item => typeof item !== 'undefined' && item);
+
+    if (categories.length < 0) {
+      categories = categories.filter((v, i) => categories.indexOf(v) === i);
+    }
+
+    // Grouping items
+    const groupBy = key => array =>
+      array.reduce((objectsByKeyValue, obj) => {
+        const newObj = objectsByKeyValue;
+        const value = obj[key];
+        newObj[value] = (objectsByKeyValue[value] || []).concat(obj);
+        return newObj;
+      }, {});
+
+    const grouped = groupBy('category')(items);
+
+    const print = categories.map(cat => {
+      return (
+        <MenuItem key={uuid()}>
+          <p>{cat}</p>
+          {grouped[cat].map(inside => (
+            <Link className="bg" to={inside.fullPath} key={uuid()}>
+              - {inside.title}
+            </Link>
+          ))}
+        </MenuItem>
+      );
+    });
+    return print;
+  };
 
   return (
     <Fade>
       <div className="menu">
-        {insert}
+        <Default />
+        <Categorized />
         {/* {items.map(item => {
           console.log(item);
           return (
