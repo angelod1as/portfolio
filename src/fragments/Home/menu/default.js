@@ -18,8 +18,6 @@ const Default = ({ menu, MenuItem }) => {
       );
     });
 
-  console.log(print);
-
   print.sort((a, b) => ((a.props.order || 0) > (b.props.order || 0) ? 1 : -1));
   return (
     <MenuItem key={uuid()}>
