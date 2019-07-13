@@ -44,7 +44,7 @@ collections:
       - { name: body, label: Texto, widget: markdown }
       - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
       - { name: category, label: Category, widget: string, required: false }
-      - { name: order, label: Ordem, widget: number }
+      - { name: order, label: Ordem, widget: number, required: false }
   - name: menu
     label: menu
     folder: content/menu
@@ -53,4 +53,4 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Texto, widget: markdown }
-      - { name: order, label: Ordem, widget: number }
+      - { name: order, label: Ordem, widget: number, required: false }
