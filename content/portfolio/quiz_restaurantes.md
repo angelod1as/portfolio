@@ -2,9 +2,19 @@
 date: 2019-07-05T15:49:35.155Z
 title: Quiz restaurantes
 desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
-tags: [react, javascript, stylus, tool, embed, folha]
-thumb: https://source.unsplash.com/random/600x600
-longdesc: Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo
+tags:
+  - react
+  - javascript
+  - stylus
+  - tool
+  - embed
+  - folha
+thumb: /assets/test.jpeg
+longdesc: >-
+  Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta
+  interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com
+  os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores
+  do Melhor de São Paulo
 query: tool
 ---
 # Quoque esse
