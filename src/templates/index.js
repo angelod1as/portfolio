@@ -45,8 +45,7 @@ const Main = styled.div`
   }
   & > div:last-child {
     grid-column-start: 2;
-
-    height: ${p => (p.center ? '100vh' : '100%')};
+    height: 100%;
 
     background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};
     color: ${p => (p.center ? p.theme.color.white : p.theme.color.black)};

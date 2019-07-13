@@ -12,11 +12,13 @@ const Default = ({ menu, MenuItem }) => {
     )
     .map(item => {
       return (
-        <Link className="bg" to={item.fullPath} key={uuid()}>
+        <Link className="bg" to={item.fullPath} order={item.order} key={uuid()}>
           {item.title}
         </Link>
       );
     });
+
+  print.sort((a, b) => ((a.props.order || 0) > (b.props.order || 0) ? 1 : -1));
   return (
     <MenuItem key={uuid()}>
       <p>things i do</p>

@@ -9,7 +9,10 @@ import Categorized from './menu/categorized';
 import Lists from './menu/lists';
 
 const MenuItem = styled.div`
-  margin: 50px 0;
+  margin: 80px 0;
+  &:first-child {
+    margin: 0;
+  }
 
   a,
   li {
@@ -89,20 +92,6 @@ const Menu = ({ from, items }) => {
         <Default {...props} />
         <Categorized {...props} />
         <Lists {...props} />
-        {/* {items.map(item => {
-          console.log(item);
-          return (
-            <MenuItem key={uuid()}>
-              <p>{item.title}</p>
-              <p>{menu.title}</p>
-              {menu.list.map(item => (
-                <Link className="bg" to={item.route} key={uuid()}>
-                  {item.item}
-                </Link>
-              ))}
-            </MenuItem>
-          );
-        })} */}
       </div>
     </Fade>
   );

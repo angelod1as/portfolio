@@ -44,6 +44,7 @@ export const pageQuery = graphql`
             menu
             desc
             longdesc
+            order
           }
         }
       }

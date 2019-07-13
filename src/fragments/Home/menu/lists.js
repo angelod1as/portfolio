@@ -2,7 +2,6 @@ import React from 'react';
 import uuid from 'uuid/v1';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Link from '../../../components/Link';
 
 const Lists = ({ MenuItem }) => {
   return (
@@ -15,6 +14,7 @@ const Lists = ({ MenuItem }) => {
                 html
                 frontmatter {
                   title
+                  order
                 }
               }
             }
@@ -23,11 +23,12 @@ const Lists = ({ MenuItem }) => {
       `}
       render={data => {
         const item = data.allMarkdownRemark.edges.map(node => {
-          return [node.node.frontmatter.title, node.node.html];
+          const { title, order } = node.node.frontmatter;
+          return [title, node.node.html, order];
         });
 
         const print = item.map(list => (
-          <MenuItem key={uuid()}>
+          <MenuItem order={list[2]} key={uuid()}>
             <p>{list[0]}</p>
             <div
               dangerouslySetInnerHTML={{
@@ -38,6 +39,8 @@ const Lists = ({ MenuItem }) => {
             />
           </MenuItem>
         ));
+
+        print.sort((a, b) => ((a.props.order || 0) > (b.props.order || 0) ? 1 : -1));
 
         return print;
       }}
