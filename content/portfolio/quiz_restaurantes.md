@@ -1,7 +1,9 @@
 ---
 date: 2019-07-05T15:49:35.155Z
 title: Quiz restaurantes
-desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
+descGroup:
+  desc: testando descrição curta
+  longdesc: Testando descrição longa! Epa Epa Epa!
 tags:
   - react
   - javascript
@@ -10,12 +12,9 @@ tags:
   - embed
   - folha
 thumb: /assets/test.jpeg
-longdesc: >-
-  Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta
-  interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com
-  os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores
-  do Melhor de São Paulo
-query: tool
+others:
+  menu: true
+  query: query required?
 ---
 # Quoque esse
 
