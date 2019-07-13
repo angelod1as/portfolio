@@ -14,7 +14,7 @@ tags:
 thumb: /assets/test.jpeg
 others:
   menu: true
-  query: query required?
+  query: ''
 ---
 # Quoque esse
 
