@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import Link from '../../components/Link';
 
 const Container = styled.div`
@@ -47,6 +49,8 @@ const Text = styled.div`
 
 const Tile = props => {
   const { front, fullPath, from } = props;
+  console.log(front.thumb);
+
   return (
     <Container>
       <Link to={fullPath} from={from}>
@@ -65,6 +69,9 @@ const Tile = props => {
     </Container>
   );
 };
+
+// export const query = graphql`
+// `;
 
 Tile.propTypes = {
   fullPath: PropTypes.string.isRequired,

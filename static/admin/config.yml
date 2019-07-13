@@ -16,9 +16,14 @@ collections:
     folder: content/portfolio
     create: true
     fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - { name: date, label: Data, widget: date }
+      - { name: title, label: Título, widget: string }
+      - { name: desc, label: Descrição curta, widget: string }
+      - { name: tags, label: Tags, widget: string }
+      - { name: thumb, label: Imagem, widget: image }
+      - { name: longdesc, label: Descrição longa, widget: text }
+      - { name: query, label: Query, widget: string }
+      - { name: body, label: Texto, widget: markdown }
   - name: pages
     label: pages
     folder: content

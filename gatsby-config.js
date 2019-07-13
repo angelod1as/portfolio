@@ -1,3 +1,5 @@
+const path = require(`path`);
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -45,7 +47,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: `${__dirname}/src/svg/`,
+          include: path.join(__dirname, `src`, `svg`),
         },
       },
     },
@@ -53,21 +55,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
+        path: path.join(__dirname, `src`),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/content/`,
+        path: path.join(__dirname, `content`),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     `gatsby-transformer-sharp`,
