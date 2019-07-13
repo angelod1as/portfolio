@@ -3,7 +3,7 @@ date: 2019-05-05T15:49:35.155Z
 title: Muros
 desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
 tags: [react, javascript, stylus, special, folha, prize]
-thumb: https://via.placeholder.com/600
+thumb: https://source.unsplash.com/random/600x600
 longdesc: Ferramenta interativa com os vencedores do Melhor de São Paulo
 query: special
 ---

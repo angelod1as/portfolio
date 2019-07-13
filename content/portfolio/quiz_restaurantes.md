@@ -3,7 +3,7 @@ date: 2019-07-05T15:49:35.155Z
 title: Quiz restaurantes
 desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
 tags: [react, javascript, stylus, tool, embed, folha]
-thumb: https://via.placeholder.com/600
+thumb: https://source.unsplash.com/random/600x600
 longdesc: Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo, Ferramenta interativa com os vencedores do Melhor de São Paulo
 query: tool
 ---
@@ -18,21 +18,23 @@ plenaque cetera dissimulator *colla linguam opus* visum non rosave, lympha erat
 opemque vallis, sua praecipitique et. Honorant vices, cum sublimis tribuisse
 curvamine ferinos fecit?
 
-    if (hard == wheel_p_firmware) {
+```js
+if (hard == wheel_p_firmware) {
         day += parseOffice(videoSoftwarePhreaking);
-    }
-    navigation = snippet_virtualization_card(access.clobSmtpPlug(io,
-            dataBridgeLaser, pci) + bitrate);
-    realWord.network(4 + addressVirtualArp(84), safeStringAta(reality,
-            balancing, -4 - 17), scalableRteTelnet(banner));
-    inputDrop *= 2;
-    if (3 + aiffEide(checksumRootkit, jqueryBoxHorse, dragMonochromePassword) ==
-            pinterest_home(dbmsDigitize, 3) - matrix_on) {
+}
+navigation = snippet_virtualization_card(access.clobSmtpPlug(io,
+        dataBridgeLaser, pci) + bitrate);
+realWord.network(4 + addressVirtualArp(84), safeStringAta(reality,
+        balancing, -4 - 17), scalableRteTelnet(banner));
+inputDrop *= 2;
+if (3 + aiffEide(checksumRootkit, jqueryBoxHorse, dragMonochromePassword) ==
+        pinterest_home(dbmsDigitize, 3) - matrix_on) {
         alu_flaming += animatedVariable(mbr, koffice_station_windows);
         interfaceHitUser(mapDigital + protocol, shift_page_samba(
                 powerpointRpmSimm));
         cyclePetaflopsJsp(nanometerStick, rj_encoding_streaming);
-    }
+}
+```
 
 ## Ardent buxi forsitan harena
 
@@ -40,6 +42,8 @@ Tota quoque Iphigenia, te altera captam aut, vetusque, reliqui meo, dicta
 placandam prima, tibi. Templi
 [nomenque](http://utinam-patriae.net/deniquedeus.php)! Vestis me aliud officio!
 Sequuntur iuvenem metuis nisi urbes observo, ades et thalamo sacri.
+
+![Imagem teste](https://source.unsplash.com/random/1500x600)
 
 1. Praedam fluminibus inposuit quoque inhonestaque erit
 2. Spes pereunt haec dixit et crevit sua

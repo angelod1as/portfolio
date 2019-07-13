@@ -1,9 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import uuid from 'uuid/v1';
 import Link from '../../components/Link';
 import Main from '../../layouts/Main';
 import size from '../../components/breakpoints';
+
+import Github from '../../svg/social/github.svg';
+import Linkedin from '../../svg/social/linkedin.svg';
+import Whatsapp from '../../svg/social/whatsapp.svg';
 
 const Container = styled.div`
   height: 100%;
@@ -27,6 +32,25 @@ const Text = styled.p`
   max-width: 600px;
 `;
 
+const Social = styled.figure`
+  svg {
+    width: 2em;
+    height: auto;
+    fill: ${p => p.theme.color.darkgray};
+    margin: 0 20px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  a:hover {
+    transform: none;
+    transform: scale(0.97);
+    svg {
+      fill: ${p => p.theme.color.color};
+    }
+  }
+`;
+
 const List = styled.div`
   margin-top: 20px;
   font-size: 1.2em;
@@ -38,6 +62,11 @@ const List = styled.div`
 `;
 
 const Opening = () => {
+  const social = [
+    [<Github />, 'https://github.com/angelod1as'],
+    [<Linkedin />, 'https://www.linkedin.com/in/angelod1as/'],
+    [<Whatsapp />, 'https://wa.me/5511985554639'],
+  ];
   return (
     <Main>
       <Container>
@@ -48,6 +77,13 @@ const Opening = () => {
           Spent 5 years at Folha de S.Paulo designing print, thinking infographics and writing code.
           Simultaneously, created and maintained a satyrical sci-fi newspaper.
         </Text>
+        <Social>
+          {social.map(s => (
+            <a href={s[1]} target="_blank" rel="noreferrer noopener" key={uuid()}>
+              {s[0]}
+            </a>
+          ))}
+        </Social>
         <List>
           <Link direction="left" to="/portfolio">
             Portfolio

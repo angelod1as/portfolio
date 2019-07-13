@@ -47,7 +47,6 @@ const Text = styled.div`
 
 const Tile = props => {
   const { front, fullPath, from } = props;
-  console.log(front);
   return (
     <Container>
       <Link to={fullPath} from={from}>
@@ -67,8 +66,19 @@ const Tile = props => {
   );
 };
 
-// Tile.propTypes = {
-//   from: PropTypes.string,
-// };
+Tile.propTypes = {
+  fullPath: PropTypes.string.isRequired,
+  from: PropTypes.string,
+  front: PropTypes.shape({
+    thumb: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    date: PropTypes.string,
+  }).isRequired,
+};
+
+Tile.defaultProps = {
+  from: null,
+};
 
 export default Tile;
