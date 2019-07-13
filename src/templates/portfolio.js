@@ -35,7 +35,6 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             category
-            test
             menu
             desc
             thumb

@@ -5,31 +5,28 @@ import Link from './Link';
 
 const BackLink = styled.div`
   a {
+    padding-left: 20px;
+    position: relative;
+    &:before {
+      content: '‹';
+      top: -6px;
+      left: 0;
+      position: absolute;
+      font-size: 1.5em;
+    }
     &:hover {
-      transform: skewX(-15deg);
-      i {
-        transform: rotate(135deg) translate3d(5px, 5px, 0);
-        border-color: ${p => p.theme.color.gray};
+      &:before {
+        content: '«';
       }
     }
   }
-`;
-
-const Arrow = styled.i`
-  border: solid ${p => p.theme.color.white};
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(135deg);
-  margin-right: 5px;
-  transition: all 0.2s;
 `;
 
 const Back = ({ to }) => {
   return (
     <BackLink>
       <Link direction="right" className="bg" to={to}>
-        <Arrow />
+        {/* <Arrow /> */}
         back
       </Link>
     </BackLink>

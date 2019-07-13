@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-transition-link`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
