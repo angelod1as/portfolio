@@ -19,7 +19,7 @@ collections:
       - { name: date, label: Data, widget: date }
       - { name: title, label: Título, widget: string }
       - { name: desc, label: Descrição curta, widget: string }
-      - { name: tags, label: Tags, widget: string }
+      - { name: tags, label: Tags, widget: list }
       - { name: thumb, label: Imagem, widget: image }
       - { name: longdesc, label: Descrição longa, widget: text }
       - { name: query, label: Query, widget: string }
