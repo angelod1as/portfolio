@@ -8,9 +8,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    // `gatsby-plugin-transition-link`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -43,7 +45,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
@@ -80,8 +81,6 @@ module.exports = {
         path: path.join(__dirname, `public`, `assets`),
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -94,8 +93,5 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
