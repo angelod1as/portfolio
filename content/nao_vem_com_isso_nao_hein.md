@@ -1,5 +1,7 @@
 ---
-longdesc: nope!
+descGroup:
+  desc: Testando
+  longdesc: Testando
 date: 2019-07-05T15:58:19.980Z
 title: 'Não vem com isso não, hein!'
 menu: true

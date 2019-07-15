@@ -2,13 +2,10 @@
 date: 2019-05-05T15:49:35.155Z
 title: Muros
 descGroup:
-	desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
-	longdesc: Ferramenta interativa com os vencedores do Melhor de São Paulo
+  desc: Ferramenta interativa com os vencedores do Melhor de São Paulo
+  longdesc: Ferramenta interativa com os vencedores do Melhor de São Paulo
 tags: [tool, folha, teste]
 thumb: https://source.unsplash.com/random/600x600
-others:
-	query: special
-	menu: true
 ---
 # Quoque esse SPECIAL
 

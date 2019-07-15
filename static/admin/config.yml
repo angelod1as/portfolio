@@ -30,9 +30,6 @@ collections:
       - name: others
         label: Outras
         widget: object
-        fields:
-          - { name: menu, label: Mostrar no menu?, widget: boolean }
-          - { name: query, label: Query, widget: string, required: false }
   - name: pages
     label: pages
     folder: content
@@ -40,7 +37,12 @@ collections:
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: longdesc, label: Descrição sidebar, widget: text }
+      - name: descGroup
+        label: Descrições
+        widget: object
+        fields:
+          - { name: desc, label: Descrição curta, widget: string }
+          - { name: longdesc, label: Descrição sidebar, widget: text }
       - { name: body, label: Texto, widget: markdown }
       - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
       - { name: category, label: Category, widget: string, required: false }

@@ -75,13 +75,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `public-images`,
-        path: path.join(__dirname, `public`, `assets`),
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Angelo Dias' Portfolio`,

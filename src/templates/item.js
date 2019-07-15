@@ -7,8 +7,6 @@ import Container from '.';
 import Item from '../fragments/Item';
 import ItemSidebar from '../fragments/Item/Sidebar';
 
-const seo = '';
-
 const IndexPage = props => {
   // getting last page url
   const {
@@ -20,12 +18,15 @@ const IndexPage = props => {
   // getting data
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
+  const { descGroup } = frontmatter;
+
+  const seo = frontmatter.title;
 
   // returning
   return (
     <Container seo={seo}>
-      <ItemSidebar {...frontmatter} from={from} />
-      <Item html={html} {...frontmatter} />
+      <ItemSidebar {...frontmatter} {...descGroup} from={from} />
+      <Item html={html} {...frontmatter} {...descGroup} />
     </Container>
   );
 };
@@ -35,15 +36,14 @@ export const pageQuery = graphql`
     markdownRemark(fields: { fullPath: { eq: $path } }) {
       html
       frontmatter {
-        title
-        menu
         date(formatString: "DD/MM/YY")
-        category
-        desc
-        thumb
-        longdesc
+        title
+        descGroup {
+          desc
+          longdesc
+        }
         tags
-        query
+        thumb
       }
     }
   }

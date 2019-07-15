@@ -7,7 +7,7 @@ import Container from '.';
 import PortfolioSidebar from '../fragments/Portfolio/Sidebar';
 import PortfolioMain from '../fragments/Portfolio';
 
-const seo = '';
+const seo = "Angelo Dia's Portfolio";
 
 const Portfolio = ({ data, location: { pathname } }) => {
   const { edges, nodes } = data.allMarkdownRemark;
@@ -36,10 +36,11 @@ export const pageQuery = graphql`
             title
             category
             menu
-            desc
+            descGroup {
+              desc
+              longdesc
+            }
             thumb
-            longdesc
-            query
           }
         }
       }

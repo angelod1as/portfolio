@@ -7,16 +7,18 @@ import Container from '.';
 import Opening from '../fragments/Home/Opening';
 import Menu from '../fragments/Home/Menu';
 
-const seo = '';
-
 const Home = ({ data, location: { pathname } }) => {
   const { edges, nodes } = data.allMarkdownRemark;
 
   const menuItems = edges.map((items, i) => {
     const { frontmatter } = items.node;
+    const { descGroup } = frontmatter;
     const paths = nodes[i].fields;
-    return { ...frontmatter, ...paths };
+    return { ...frontmatter, ...descGroup, ...paths };
   });
+
+  const seo = "Angelo Dias's Portfolio";
+
   return (
     <Container center seo={seo}>
       <Opening />
@@ -42,8 +44,10 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             category
             menu
-            desc
-            longdesc
+            descGroup {
+              desc
+              longdesc
+            }
             order
           }
         }
