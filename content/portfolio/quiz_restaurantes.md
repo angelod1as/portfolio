@@ -14,7 +14,6 @@ tags:
 thumb: /assets/test.jpeg
 others:
   menu: true
-  query: ''
 ---
 # Quoque esse
 

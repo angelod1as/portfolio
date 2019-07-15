@@ -72,7 +72,6 @@ exports.createPages = async ({ actions, graphql }) => {
           edges {
             node {
               frontmatter {
-                query
                 thumb
               }
               fields {

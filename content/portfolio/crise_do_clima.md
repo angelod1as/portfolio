@@ -14,7 +14,6 @@ tags:
 thumb: https://source.unsplash.com/random/600x600
 others:
   menu: true
-  query: special
 ---
 # CRISE DO CLIMA!
 
