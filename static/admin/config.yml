@@ -25,7 +25,7 @@ collections:
           - { name: desc, label: Descrição curta, widget: string }
           - { name: longdesc, label: Descrição sidebar, widget: text }
       - { name: tags, label: Tags, widget: list }
-      - { name: thumb, label: Imagem do menu, widget: image }
+      - { name: image, label: Imagem do menu, widget: image }
       - { name: body, label: Texto, widget: markdown }
       - name: others
         label: Outras

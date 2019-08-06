@@ -53,7 +53,7 @@ const Tile = props => {
     <Container>
       <Link to={fullPath} from={from}>
         <figure>
-          <img src={front.thumb} alt="" />
+          <img src={front.image} alt="" />
         </figure>
         <Text>
           <h2>{front.title}</h2>
@@ -72,7 +72,7 @@ Tile.propTypes = {
   fullPath: PropTypes.string.isRequired,
   from: PropTypes.string,
   front: PropTypes.shape({
-    thumb: PropTypes.string,
+    image: PropTypes.string,
     title: PropTypes.string,
     desc: PropTypes.string,
     date: PropTypes.string,

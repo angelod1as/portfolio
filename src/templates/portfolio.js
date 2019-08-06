@@ -40,7 +40,7 @@ export const pageQuery = graphql`
               desc
               longdesc
             }
-            thumb
+            image
           }
         }
       }

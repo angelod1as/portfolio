@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql }) => {
           edges {
             node {
               frontmatter {
-                thumb
+                image
               }
               fields {
                 type
