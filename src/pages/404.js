@@ -14,6 +14,12 @@ const IndexPage = () => {
       <Sidebar back="/" title="Erro 404" />
       <Main>
         <h1>Oops, acho que você chegou em uma página que não existe!</h1>
+        <img
+          src="https://img.shields.io/github/last-commit/angelod1as/portfolio?color=%2319006A"
+          alt=""
+          target="_blank"
+          rel="noreferrer noopener"
+        />
       </Main>
     </Container>
   );
