@@ -14,8 +14,6 @@ image: https://source.unsplash.com/random/600x600
 others:
   menu: true
 ---
-# Crise do clima
-
 ## About the project
 
 Evidence of global climate change is increasingly irrefutable, with the accumulation of carbon dioxide (CO2) and other greenhouse gases in the atmosphere.

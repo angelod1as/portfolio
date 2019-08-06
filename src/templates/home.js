@@ -10,16 +10,18 @@ const Home = props => {
   const {
     location: { pathname },
     pageContext: {
-      content: { data },
+      content: {
+        data: {
+          allMarkdownRemark: { edges },
+        },
+      },
     },
   } = props;
-  const { edges, nodes } = data.allMarkdownRemark;
 
-  const menuItems = edges.map((items, i) => {
-    const { frontmatter } = items.node;
+  const menuItems = edges.map(({ node }) => {
+    const { frontmatter, fields } = node;
     const { descGroup } = frontmatter;
-    const paths = nodes[i].fields;
-    return { ...frontmatter, ...descGroup, ...paths };
+    return { ...frontmatter, ...descGroup, ...fields };
   });
 
   const seo = "Angelo Dias's Portfolio";

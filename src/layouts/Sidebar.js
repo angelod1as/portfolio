@@ -6,6 +6,7 @@ import Back from '../components/Back';
 
 const H2 = styled.h2`
   margin: 30px 0;
+  font-weight: 700;
 `;
 
 const Sidebar = ({ back, title, children }) => {
