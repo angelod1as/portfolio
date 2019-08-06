@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
 
 import Container from '.';
 
@@ -9,60 +8,44 @@ import PortfolioMain from '../fragments/Portfolio';
 
 const seo = "Angelo Dia's Portfolio";
 
-const Portfolio = ({ data, location: { pathname } }) => {
-  const { edges, nodes } = data.allMarkdownRemark;
+const Portfolio = props => {
+  const {
+    location: { pathname },
+    pageContext: {
+      content: {
+        data: {
+          allMarkdownRemark: { edges },
+        },
+      },
+    },
+  } = props;
   return (
     <Container seo={seo}>
       <PortfolioSidebar />
-      <PortfolioMain edges={edges} nodes={nodes} from={pathname} />
+      <PortfolioMain edges={edges} from={pathname} />
     </Container>
   );
 };
 
-export const pageQuery = graphql`
-  {
-    allMarkdownRemark(filter: { fields: { type: { eq: "portfolio" } } }) {
-      nodes {
-        fields {
-          slug
-          type
-          fullPath
-        }
-      }
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            category
-            menu
-            descGroup {
-              desc
-              longdesc
-            }
-            image
-          }
-        }
-      }
-    }
-  }
-`;
-
 Portfolio.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      nodes: PropTypes.arrayOf(PropTypes.shape()),
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              date: PropTypes.string,
-              slug: PropTypes.string,
-              title: PropTypes.string,
-            }),
-          }),
-        })
-      ),
+  pageContext: PropTypes.shape({
+    content: PropTypes.shape({
+      data: PropTypes.shape({
+        allMarkdownRemark: PropTypes.shape({
+          nodes: PropTypes.arrayOf(PropTypes.shape()),
+          edges: PropTypes.arrayOf(
+            PropTypes.shape({
+              node: PropTypes.shape({
+                frontmatter: PropTypes.shape({
+                  date: PropTypes.string,
+                  slug: PropTypes.string,
+                  title: PropTypes.string,
+                }),
+              }),
+            })
+          ),
+        }),
+      }),
     }),
   }).isRequired,
   location: PropTypes.shape({

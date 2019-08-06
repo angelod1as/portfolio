@@ -23,24 +23,14 @@ const Mosaic = styled.div`
 `;
 
 const PortfolioMain = props => {
-  const { edges, nodes, from } = props;
+  const { edges, from } = props;
   return (
     <Fade>
       <Mosaic className="portfolio">
-        {edges.map((item, i) => {
-          const front = item.node.frontmatter;
-          const { fullPath } = nodes[i].fields;
-          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
-        })}
-        {edges.map((item, i) => {
-          const front = item.node.frontmatter;
-          const { fullPath } = nodes[i].fields;
-          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
-        })}
-        {edges.map((item, i) => {
-          const front = item.node.frontmatter;
-          const { fullPath } = nodes[i].fields;
-          return <Tile key={uuid()} front={front} from={from} fullPath={fullPath} />;
+        {edges.map(({ node }) => {
+          const { frontmatter } = node;
+          const { fullPath } = node.fields;
+          return <Tile key={uuid()} front={frontmatter} from={from} fullPath={fullPath} />;
         })}
       </Mosaic>
     </Fade>
@@ -50,13 +40,11 @@ const PortfolioMain = props => {
 PortfolioMain.propTypes = {
   edges: PropTypes.arrayOf(
     PropTypes.shape({
-      item: PropTypes.element,
-    })
-  ).isRequired,
-  nodes: PropTypes.arrayOf(
-    PropTypes.shape({
-      fields: PropTypes.shape({
-        slug: PropTypes.string,
+      node: PropTypes.shape({
+        fields: PropTypes.shape({
+          fullPath: PropTypes.string,
+        }),
+        frontmatter: PropTypes.shape(),
       }),
     })
   ).isRequired,

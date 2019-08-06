@@ -62,49 +62,82 @@ exports.createPages = async ({ actions, graphql }) => {
   // #########
   // PORTFOLIO
   // #########
-  const getPortfolio = () => {
-    return graphql(`
-      query {
-        allMarkdownRemark(
-          filter: { fields: { type: { eq: "portfolio" } } }
-          sort: { order: DESC, fields: frontmatter___date }
-        ) {
-          edges {
-            node {
-              frontmatter {
-                image
-              }
-              fields {
-                type
-                slug
-                fullPath
+  const checkQuery = async query => {
+    const ql = await graphql(query);
+    return ql.data.allMarkdownRemark.edges.length > 0;
+  };
+  // check if pages exist
+  if (
+    await checkQuery(`
+    query {
+      allMarkdownRemark(
+        filter: { fields: { type: { eq: "portfolio" } } }
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `)
+  ) {
+    const getPortfolio = () => {
+      return graphql(`
+        query {
+          allMarkdownRemark(
+            filter: { fields: { type: { eq: "portfolio" } } }
+            sort: { order: DESC, fields: frontmatter___date }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  menu
+                  descGroup {
+                    desc
+                    longdesc
+                  }
+                  image
+                }
+                fields {
+                  type
+                  slug
+                  fullPath
+                }
               }
             }
           }
         }
-      }
-    `);
-  };
+      `);
+    };
 
-  const portfolioQl = await getPortfolio();
+    const portfolioQl = await getPortfolio();
 
-  if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+    if (portfolioQl.errors) throw new Error(portfolioQl.errors);
 
-  // creating main portfolio page
-  createPage({
-    path: '/portfolio',
-    component: path.resolve('src/templates/portfolio.js'),
-    context: {},
-  });
-
-  // creating each portfolio page
-  portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // creating main portfolio page
     createPage({
-      path: node.fields.fullPath,
-      component: path.resolve(`src/templates/item.js`),
-      context: {},
+      path: '/portfolio',
+      component: path.resolve('src/templates/portfolio.js'),
+      context: {
+        content: portfolioQl,
+      },
     });
-  });
+
+    // creating each portfolio page
+    portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.fullPath,
+        component: path.resolve(`src/templates/item.js`),
+        context: {
+          content: node,
+        },
+      });
+    });
+  }
 
   // #########
   // PAGES
@@ -118,9 +151,19 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
+              frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+                menu
+                descGroup {
+                  desc
+                  longdesc
+                }
+                order
+              }
               fields {
-                type
                 slug
+                type
                 fullPath
               }
             }
@@ -138,7 +181,9 @@ exports.createPages = async ({ actions, graphql }) => {
   createPage({
     path: '/',
     component: path.resolve('src/templates/home.js'),
-    context: {},
+    context: {
+      content: homeQl,
+    },
   });
 
   // creating each sub pages
@@ -146,7 +191,9 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: node.fields.fullPath,
       component: path.resolve(`src/templates/item.js`),
-      context: {},
+      context: {
+        content: node,
+      },
     });
   });
 };
