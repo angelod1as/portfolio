@@ -4,9 +4,9 @@ import styled from 'styled-components';
 // import Img from 'gatsby-image';
 import Sidebar from '../../components/Sidebar';
 
-const Date = styled.p`
-  margin: 30px 0;
-`;
+// const Date = styled.p`
+//   margin: 30px 0;
+// `;
 const LongDesc = styled.p``;
 
 const ItemSidebar = props => {
@@ -14,7 +14,7 @@ const ItemSidebar = props => {
   return (
     <Sidebar back={from || '/'} title={title}>
       {/* {fluid ? <Img fluid={fluid} /> : ''} */}
-      <Date>{date}</Date>
+      {/* <Date>{date}</Date> */}
       <LongDesc>{longdesc}</LongDesc>
     </Sidebar>
   );

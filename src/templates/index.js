@@ -53,11 +53,12 @@ const Main = styled.div`
 
   @media ${size.medium} {
     display: block;
+    height: 100%;
     & > div:first-child {
       display: block;
       position: relative;
       width: 100%;
-      height: 100%;
+      height: auto;
     }
     & > div:last-child {
       display: block;
