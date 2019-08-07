@@ -16,8 +16,9 @@ const IndexPage = props => {
   const from = state ? state.from || null : null;
 
   // getting data
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const {
+    markdownRemark: { frontmatter, html },
+  } = data;
   const { descGroup } = frontmatter;
 
   const seo = frontmatter.title;

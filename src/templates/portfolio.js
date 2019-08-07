@@ -7,7 +7,7 @@ import Container from '.';
 import PortfolioSidebar from '../fragments/Portfolio/Sidebar';
 import PortfolioMain from '../fragments/Portfolio';
 
-const seo = "Angelo Dia's Portfolio";
+const seo = "Angelo Dias' Portfolio";
 
 const Portfolio = props => {
   const {
@@ -24,10 +24,24 @@ const Portfolio = props => {
     },
   } = props;
 
+  const items = edges.map(({ node }) => {
+    const { frontmatter } = node;
+    const { fullPath } = node.fields;
+    const image = images.filter(each => {
+      const imageId = each.node.frontmatter.image.childImageSharp.id;
+      return frontmatter.image.childImageSharp.id === imageId;
+    });
+    frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
+    return {
+      frontmatter,
+      fullPath,
+    };
+  });
+
   return (
     <Container seo={seo}>
-      <PortfolioSidebar />
-      <PortfolioMain edges={edges} from={pathname} images={images} />
+      <PortfolioSidebar from={pathname} />
+      <PortfolioMain items={items} from={pathname} />
     </Container>
   );
 };
