@@ -6,6 +6,7 @@ descGroup:
   longdesc: >-
     Journalists visited several world locations to show climate change impact
     through human stories
+live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
   - react
   - javascript
