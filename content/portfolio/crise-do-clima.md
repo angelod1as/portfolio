@@ -1,6 +1,6 @@
 ---
 date: 2019-07-05T15:49:35.155Z
-title: Crise do Clima
+title: Climate crisis
 descGroup:
   desc: Special page about climate change
   longdesc: >-
@@ -14,20 +14,18 @@ tags:
   - special
 image: /assets/clima.jpg
 ---
-![Imagem de](/assets/clima.jpg)
-
-<figure class="small">
-
-![imagem](https://images.unsplash.com/photo-1565095221488-c61973ab49d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80)
-
-</figure>
-
-## About the project
+![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/clima.jpg)
 
 Evidence of global climate change is increasingly irrefutable, with the accumulation of carbon dioxide (CO2) and other greenhouse gases in the atmosphere.
 
 Folha visited three continents to explore the impact of climate change on people’s lives. The resulting nine-part series assesses the costs of adapting to a new reality — before it is too late.
 
-Published in English, Spanish and Portuguese. Photos used in this portfolio by [Lalo de Almeida](http://lalodealmeida.com.br/site_pt/)
+Published in English, Spanish and Portuguese. Photos used in this portfolio are by [Lalo de Almeida](http://lalodealmeida.com.br/site_pt/).
 
-[See it live here](http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/introduction/)
+## Development details
+
+Made using a team-built React boilerplate at Folha, the main issue of this project (and others alike) is making content available for Google's crawlers, while being able to deploy changes using Folha's internal system.
+
+The solution was mix a few technologies. The pages are built with their latest changes as fixed HTML and, after loading the JS script, updated with new changes — coming through JSON files. When the team is available, the project is redeployed so the new changes can get fixed too.
+
+Youtube's API is used in the autoplaying video infographics and a heavily adapted New York Times' [AI2HTML](http://ai2html.org/) is used generating infographics from Adobe Illustrator.
