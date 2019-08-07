@@ -2,15 +2,15 @@
 date: 2019-07-13T20:23:52.315Z
 title: Colophon
 descGroup:
-  desc: Testando
-  longdesc: Testando
+  desc: How I made this website possible
+  longdesc: How I made this website possible
 menu: false
 order: 1
 ---
-<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"             title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+These pages were built using the power of [**React**](https://reactjs.org/) and [**Gatsby**](https://gatsbyjs.org). The content is managed and hosted by [**Netlify**](https://www.netlify.com/).
 
-COLOPHON
+You can see the public project [here](https://github.com/angelod1as/portfolio). Feel free to fork the repository.
 
-[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+Check the Gatsby's plugins I use to make this possible. I'm in love with Gatsby, even if working with images is *painful as hell*.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/angelod1as/portfolio?color=%2319006A)
+Icons made by [Freepik](https://www.freepik.com/ "Freepik") (from [www.flaticon.com](https://www.flaticon.com/ "Flaticon")). They are licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/ "Creative Commons BY 3.0")
