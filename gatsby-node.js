@@ -103,6 +103,7 @@ exports.createPages = async ({ actions, graphql }) => {
                     desc
                     longdesc
                   }
+                  live
                   image {
                     childImageSharp {
                       id

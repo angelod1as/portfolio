@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import { graphql } from 'gatsby';
-// import uuid from 'uuid/v1';
 
 import Main from '../../layouts/Main';
-// import Portfolio from '../Portfolio';
 
 const Html = styled.div`
+  padding-bottom: 100px;
   height: 100%;
   & > * {
     max-width: 920px;
@@ -54,7 +52,6 @@ const Html = styled.div`
     }
   }
 `;
-// const Port = styled.div``;
 
 const Item = props => {
   const { html } = props;
@@ -67,11 +64,6 @@ const Item = props => {
 
 Item.propTypes = {
   html: PropTypes.string.isRequired,
-  // query: PropTypes.string,
 };
-
-// Item.defaultProps = {
-//   query: null,
-// };
 
 export default Item;

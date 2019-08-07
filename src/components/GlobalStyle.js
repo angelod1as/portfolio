@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     line-height: 1.4em;
     margin-bottom: 1em;
+    margin-top: 1em;
   }
 
   h1 {

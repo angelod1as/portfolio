@@ -44,6 +44,7 @@ export const pageQuery = graphql`
           longdesc
         }
         tags
+        live
       }
     }
   }
