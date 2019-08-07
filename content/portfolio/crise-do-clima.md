@@ -3,16 +3,16 @@ date: 2019-07-05T15:49:35.155Z
 title: Crise do Clima
 descGroup:
   desc: Special page about climate change
-  longdesc: Journalists visited several world locations to show climate change impact through human stories
+  longdesc: >-
+    Journalists visited several world locations to show climate change impact
+    through human stories
 tags:
   - react
   - javascript
   - stylus
   - folha
   - special
-image: "../../static/assets/clima.jpg"
-others:
-  menu: true
+image: /assets/clima.jpg
 ---
 ![Imagem de](/assets/clima.jpg)
 
