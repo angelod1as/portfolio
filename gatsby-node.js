@@ -1,8 +1,10 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+  fmImagesToRelative(node);
 
   // select only markdown
   if (node.internal.type === `MarkdownRemark`) {
@@ -92,6 +94,7 @@ exports.createPages = async ({ actions, graphql }) => {
           ) {
             edges {
               node {
+                id
                 frontmatter {
                   date(formatString: "MMMM DD, YYYY")
                   title
@@ -100,7 +103,11 @@ exports.createPages = async ({ actions, graphql }) => {
                     desc
                     longdesc
                   }
-                  image
+                  image {
+                    childImageSharp {
+                      id
+                    }
+                  }
                 }
                 fields {
                   type

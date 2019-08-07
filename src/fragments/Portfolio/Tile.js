@@ -1,24 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import { graphql } from 'gatsby';
-// import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import Link from '../../components/Link';
 
 const Container = styled.div`
   * {
-    transition: all 0.2s;
+    transition: all 0.2s !important;
   }
   figure {
     background-color: ${p => p.theme.color.color};
     line-height: 0;
   }
+  a {
+    width: 100%;
+  }
   &:hover {
     a {
       transform: none;
-      img {
-        /* transform: scale(0.97); */
-        transform: translate(10px, -10px);
+      figure {
+        div {
+          /* transform: scale(0.95); */
+          transform: translate(10px, -10px);
+        }
       }
     }
     h2 {
@@ -47,14 +52,19 @@ const Text = styled.div`
   }
 `;
 
+const Figure = styled.figure`
+  max-width: 500px;
+`;
+
 const Tile = props => {
   const { front, fullPath, from } = props;
+  const { fluid } = front.image.childImageSharp;
   return (
     <Container>
       <Link to={fullPath} from={from}>
-        <figure>
-          <img src={front.image} alt="" />
-        </figure>
+        <Figure>
+          <Img fluid={fluid} />
+        </Figure>
         <Text>
           <h2>{front.title}</h2>
           <p>
@@ -72,7 +82,11 @@ Tile.propTypes = {
   fullPath: PropTypes.string.isRequired,
   from: PropTypes.string,
   front: PropTypes.shape({
-    image: PropTypes.string,
+    image: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.shape(),
+      }),
+    }),
     title: PropTypes.string,
     desc: PropTypes.string,
     date: PropTypes.string,

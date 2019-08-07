@@ -5,7 +5,9 @@ import Fade from 'react-reveal/Fade';
 import Back from './Back';
 
 const H2 = styled.h2`
+  font-weight: 700;
   margin: 30px 0;
+  line-height: 1.3em;
 `;
 
 const Sidebar = ({ back, title, children }) => {

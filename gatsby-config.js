@@ -7,9 +7,6 @@ module.exports = {
     author: `@_cronofobico`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,9 +35,11 @@ module.exports = {
         path: path.join(__dirname, `content`),
       },
     },
-
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {

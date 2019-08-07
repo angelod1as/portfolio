@@ -43,7 +43,6 @@ export const pageQuery = graphql`
           longdesc
         }
         tags
-        image
       }
     }
   }

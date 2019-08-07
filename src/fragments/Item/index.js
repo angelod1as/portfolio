@@ -34,7 +34,24 @@ const Html = styled.div`
   img {
     width: 100%;
     height: auto;
+  }
+
+  figure {
     margin: 30px 0;
+    max-width: 920px;
+
+    &.small {
+      max-width: 300px;
+    }
+
+    &.medium {
+      max-width: 600px;
+    }
+
+    &.big,
+    &.full {
+      max-width: 100%;
+    }
   }
 `;
 // const Port = styled.div``;

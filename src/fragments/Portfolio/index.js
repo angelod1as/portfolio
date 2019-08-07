@@ -23,13 +23,19 @@ const Mosaic = styled.div`
 `;
 
 const PortfolioMain = props => {
-  const { edges, from } = props;
+  const { edges, from, images } = props;
   return (
     <Fade>
       <Mosaic className="portfolio">
         {edges.map(({ node }) => {
           const { frontmatter } = node;
           const { fullPath } = node.fields;
+          const image = images.filter(each => {
+            const imageId = each.node.frontmatter.image.childImageSharp.id;
+            return frontmatter.image.childImageSharp.id === imageId;
+          });
+          // inserting image in frontmatter
+          frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
           return <Tile key={uuid()} front={frontmatter} from={from} fullPath={fullPath} />;
         })}
       </Mosaic>
@@ -48,6 +54,7 @@ PortfolioMain.propTypes = {
       }),
     })
   ).isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   from: PropTypes.string,
 };
 

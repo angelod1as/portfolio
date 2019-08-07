@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
 import Container from '.';
 
@@ -18,14 +19,42 @@ const Portfolio = props => {
         },
       },
     },
+    data: {
+      allMarkdownRemark: { edges: images },
+    },
   } = props;
+
   return (
     <Container seo={seo}>
       <PortfolioSidebar />
-      <PortfolioMain edges={edges} from={pathname} />
+      <PortfolioMain edges={edges} from={pathname} images={images} />
     </Container>
   );
 };
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { fields: { type: { eq: "portfolio" } } }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            image {
+              childImageSharp {
+                id
+                fluid(maxWidth: 800, maxHeight: 800, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 Portfolio.propTypes = {
   pageContext: PropTypes.shape({
@@ -46,6 +75,11 @@ Portfolio.propTypes = {
           ),
         }),
       }),
+    }),
+  }).isRequired,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape()),
     }),
   }).isRequired,
   location: PropTypes.shape({

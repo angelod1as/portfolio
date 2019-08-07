@@ -25,11 +25,11 @@ collections:
           - { name: desc, label: Descrição curta, widget: string }
           - { name: longdesc, label: Descrição sidebar, widget: text }
       - { name: tags, label: Tags, widget: list }
-      - { name: image, label: Imagem do menu, widget: image }
+      - { name: image, label: Imagem do menu, widget: image, required: false }
       - { name: body, label: Texto, widget: markdown }
-      - name: others
-        label: Outras
-        widget: object
+      # - name: others
+      #   label: Outras
+      #   widget: object
   - name: pages
     label: pages
     folder: content

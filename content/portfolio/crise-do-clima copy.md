@@ -10,10 +10,18 @@ tags:
   - stylus
   - folha
   - special
-image: https://source.unsplash.com/random/600x600
+image: "../../static/assets/photo.jpg"
 others:
   menu: true
 ---
+![Imagem de](/assets/clima.jpg)
+
+<figure class="small">
+
+![imagem](https://images.unsplash.com/photo-1565095221488-c61973ab49d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80)
+
+</figure>
+
 ## About the project
 
 Evidence of global climate change is increasingly irrefutable, with the accumulation of carbon dioxide (CO2) and other greenhouse gases in the atmosphere.
@@ -23,5 +31,3 @@ Folha visited three continents to explore the impact of climate change on people
 Published in English, Spanish and Portuguese. Photos used in this portfolio by [Lalo de Almeida](http://lalodealmeida.com.br/site_pt/)
 
 [See it live here](http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/introduction/)
-
-![](https://f.i.uol.com.br/fotografia/2018/04/19/15241606755ad8d8a3886e7_1524160675_3x2_rt.jpg)
