@@ -24,6 +24,7 @@ collections:
         fields:
           - { name: desc, label: Descrição curta, widget: string }
           - { name: longdesc, label: Descrição sidebar, widget: text }
+      - { name: live, label: Live link, widget: string }
       - { name: tags, label: Tags, widget: list }
       - { name: image, label: Imagem do menu, widget: image }
       - { name: body, label: Texto, widget: markdown }
