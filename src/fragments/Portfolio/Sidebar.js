@@ -3,11 +3,10 @@ import Sidebar from '../../components/Sidebar';
 
 const PortfolioSidebar = () => {
   return (
-    <Sidebar back="/" title="Title">
+    <Sidebar back="/" title="Portfolio">
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat consequuntur, alias hic
-        deleniti provident quas eveniet voluptatem corrupti vero delectus earum labore, sapiente
-        explicabo maiores sit aut sint at eos?
+        From web development to science fiction writing. Here you can find Angelo's latest work.
+        Click on the tiles to see each project. Trust me, they're very nice.
       </p>
     </Sidebar>
   );

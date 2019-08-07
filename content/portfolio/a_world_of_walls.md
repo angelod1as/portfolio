@@ -17,7 +17,7 @@ tags:
   - stylus
 image: /assets/muros.jpeg
 ---
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/s6-UB4SiB8I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/s6-UB4SiB8I?color=blue" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 With heavy focus on photography and video documentaries, 'A World of Walls' is a prize-winning feature from Folha de S.Paulo. From it's summary:
 

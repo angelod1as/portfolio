@@ -70,6 +70,47 @@ const GlobalStyle = createGlobalStyle`
     max-width: 300px;
   }
 
+  /* blockquote */
+
+  blockquote {
+    padding-left: 15px;
+    border-left: 5px solid ${p => p.theme.color.darkgray};
+    font-style: italic;
+  }
+
+  /* LISTS */
+
+  ul, ol {
+    li {
+      padding-left: 25px;
+      position: relative;
+      &:before {
+        font-weight: 700;
+        top: -1px;
+        left: 5px;
+        position: absolute;
+        color: ${p => p.theme.color.color};
+      }
+    }
+  }
+
+  ul {
+    li {
+      &:before {
+        content: '\\203A';
+      }
+    }
+  }
+
+  ol {
+    li {
+      counter-increment: step-counter;
+      &:before {
+        content: counter(step-counter) '.';
+      }
+    }
+  }
+
   /* Changing prism styles */
   .gatsby-highlight {
     margin: 50px 0;

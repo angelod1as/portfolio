@@ -34,6 +34,12 @@ const Html = styled.div`
     height: auto;
   }
 
+  iframe {
+    width: 100%;
+    max-width: 920px;
+    height: 517px;
+  }
+
   figure {
     margin: 30px 0;
     max-width: 920px;
