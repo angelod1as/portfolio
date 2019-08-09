@@ -1,6 +1,6 @@
 ---
 date: 2019-08-09T10:56:29.030Z
-title: Restaurant quiz
+title: Quiz - best São Paulo restaurants
 descGroup:
   desc: Which restaurant in São Paulo should you go to?
   longdesc: >-
@@ -8,12 +8,14 @@ descGroup:
     out!
 live: 'https://arte.folha.uol.com.br/saopaulo/2019/06/30/quiz-melhor-sp/'
 tags:
-  - tool
+  - javascript
   - react
+  - folha
+  - tool
   - embed
 image: /assets/hoje.png
 ---
-<figure class="mosaic three">
+<figure class="mosaic full">
 
 ![](/assets/quiz1.png)
 
@@ -22,6 +24,8 @@ image: /assets/hoje.png
 ![](/assets/quiz3.png)
 
 </figure>
+
+# About the project
 
 Interactive quiz made for 'O Melhor de saopaulo' magazine (at Folha de S.Paulo).
 
@@ -37,8 +41,8 @@ If the user chooses a 5 star restaurant but wants to bring kids and family, mayb
 
 [You can check the repo here](https://github.com/angelod1as/quiz-folha).
 
-# Credits
+## Credits
 
 * Code and planning by me
 * Design by Irapuan Campos
-* Thanks to FSP interactive crew: Rubens Alencar, Pilker and Thiago Almeida.
+* Thanks to FSP interactive crew: [Rubens Alencar](https://github.com/rubensfernando), Pilker and [Thiago Almeida](https://github.com/thiagoloal).

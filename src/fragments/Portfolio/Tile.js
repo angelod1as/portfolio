@@ -44,6 +44,7 @@ const Text = styled.div`
   }
   p {
     font-size: 1em;
+    margin: 0;
     span {
       font-size: 0.9em;
       font-weight: 700;
@@ -69,7 +70,6 @@ const Tile = props => {
           <h2>{front.title}</h2>
           <p>
             {front.desc}
-            &nbsp;
             <span>{front.date}</span>
           </p>
         </Text>

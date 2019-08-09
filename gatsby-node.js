@@ -104,6 +104,7 @@ exports.createPages = async ({ actions, graphql }) => {
                     longdesc
                   }
                   live
+                  tags
                   image {
                     childImageSharp {
                       id

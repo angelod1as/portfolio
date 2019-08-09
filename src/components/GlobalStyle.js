@@ -84,6 +84,7 @@ const GlobalStyle = createGlobalStyle`
     li {
       padding-left: 25px;
       position: relative;
+      line-height: 1.2em;
       &:before {
         font-weight: 700;
         top: -1px;

@@ -56,6 +56,15 @@ const Html = styled.div`
     &.full {
       max-width: 100%;
     }
+
+    &.mosaic {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      img {
+        border: 1px solid ${p => p.theme.color.gray};
+      }
+    }
   }
 `;
 

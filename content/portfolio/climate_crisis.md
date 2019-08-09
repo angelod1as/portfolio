@@ -8,14 +8,16 @@ descGroup:
     through human stories
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - react
   - javascript
-  - stylus
+  - react
   - folha
-  - special
+  - feature
+  - stylus
 image: /assets/clima.jpg
 ---
 ![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/clima.jpg)
+
+# About the project
 
 Evidence of global climate change is increasingly irrefutable, with the accumulation of carbon dioxide (CO2) and other greenhouse gases in the atmosphere.
 

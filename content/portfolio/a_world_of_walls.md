@@ -10,14 +10,16 @@ descGroup:
     families around the world
 live: 'https://arte.folha.uol.com.br/mundo/2017/a-world-of-walls/'
 tags:
+  - javascript
+  - react
   - folha
   - feature
-  - special
-  - react
   - stylus
 image: /assets/muros.jpeg
 ---
 <iframe src="https://www.youtube.com/embed/s6-UB4SiB8I?color=blue" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# About the project
 
 With heavy focus on photography and video documentaries, 'A World of Walls' is a prize-winning feature from Folha de S.Paulo. From it's summary:
 

@@ -45,7 +45,7 @@ const Main = styled.div`
   }
   & > div:last-child {
     grid-column-start: 2;
-    height: 100%;
+    /* height: 100%; */
 
     background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};
     color: ${p => (p.center ? p.theme.color.white : p.theme.color.black)};
@@ -63,7 +63,7 @@ const Main = styled.div`
     & > div:last-child {
       display: block;
       width: 100%;
-      height: 100%;
+      /* height: 100%; */
     }
   }
 `;

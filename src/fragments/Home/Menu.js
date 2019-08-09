@@ -9,9 +9,13 @@ import Categorized from './menu/categorized';
 import Lists from './menu/lists';
 
 const MenuItem = styled.div`
-  margin: 80px 0;
+  margin: 50px 0;
   &:first-child {
     margin: 0;
+  }
+
+  p {
+    margin-bottom: 5px;
   }
 
   a,
@@ -49,9 +53,13 @@ const MenuItem = styled.div`
     }
   }
 
+  ul {
+    margin: 0;
+  }
+
   li {
     font-size: 1.2em;
-    line-height: 1em;
+    margin: 10px 0;
     & > a {
       font-size: 1em;
       &:before {
