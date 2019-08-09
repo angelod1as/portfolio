@@ -13,6 +13,16 @@ tags:
   - embed
 image: /assets/hoje.png
 ---
+<figure class="mosaic three">
+
+![](/assets/quiz1.png)
+
+![](/assets/quiz2.png)
+
+![](/assets/quiz3.png)
+
+</figure>
+
 Interactive quiz made for 'O Melhor de saopaulo' magazine (at Folha de S.Paulo).
 
 [(You can see it live here if Folha's paywall blocks you)](https://arte.folha.uol.com.br/saopaulo/2019/06/30/quiz-melhor-sp/)
@@ -29,6 +39,6 @@ If the user chooses a 5 star restaurant but wants to bring kids and family, mayb
 
 # Credits
 
-- Code and planning by me
-- Design by Irapuan Campos
-- Thanks to FSP interactive crew: Rubens Alencar, Pilker and Thiago Almeida.
+* Code and planning by me
+* Design by Irapuan Campos
+* Thanks to FSP interactive crew: Rubens Alencar, Pilker and Thiago Almeida.
