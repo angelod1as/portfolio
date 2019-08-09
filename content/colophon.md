@@ -9,6 +9,8 @@ order: 1
 ---
 These pages were built using the power of [**React**](https://reactjs.org/) and [**Gatsby**](https://gatsbyjs.org). The content is managed and hosted by [**Netlify**](https://www.netlify.com/).
 
+[Delicious JAMstack!](https://jamstack.org/)
+
 You can see the public project [here](https://github.com/angelod1as/portfolio). Feel free to fork the repository.
 
 Check the Gatsby's plugins I use to make this possible. I'm in love with Gatsby, even if working with images is *painful as hell*.
