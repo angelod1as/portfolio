@@ -34,8 +34,13 @@ const MenuItem = styled.div`
 
   li > a {
     padding-left: 0;
+    margin: 0;
+    line-height: 1.2em;
     &:before {
       left: -30px;
+    }
+    &:visited {
+      color: ${p => p.theme.color.white};
     }
   }
 
@@ -79,6 +84,9 @@ const MenuItem = styled.div`
   @media ${size.medium} {
     max-width: 600px;
     margin: 0 auto;
+    &:first-child {
+      margin: 0 auto;
+    }
   }
 `;
 

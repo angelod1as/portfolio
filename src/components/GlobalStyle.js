@@ -57,6 +57,9 @@ const GlobalStyle = createGlobalStyle`
     &:hover {
       color: ${p => p.theme.color.gray};
     }
+    &:visited {
+      color: ${p => p.theme.color.darkgray};
+    }
   }
 
   svg {

@@ -11,6 +11,10 @@ import Linkedin from '../../svg/social/linkedin.svg';
 import Whatsapp from '../../svg/social/whatsapp.svg';
 
 const Container = styled.div`
+  & > * {
+    margin: 10px 0;
+  }
+
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -22,6 +26,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
+  margin-top: 0;
   font-size: 3em;
   font-weight: 700;
   color: ${p => p.theme.color.color};
@@ -52,8 +57,8 @@ const Social = styled.figure`
 `;
 
 const List = styled.div`
-  margin-top: 20px;
   font-size: 1.2em;
+  margin-bottom: 0;
   a {
     /* color: ${p => p.theme.color.black}; */
     display: block;
@@ -89,7 +94,7 @@ const Opening = () => {
             Portfolio
           </Link>
           <Link direction="left" to="/about">
-            About me
+            About
           </Link>
         </List>
       </Container>
