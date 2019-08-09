@@ -26,3 +26,9 @@ The mais issue was the math behind the curtains. Different from 'personality' ty
 If the user chooses a 5 star restaurant but wants to bring kids and family, maybe his first choice won't be the _best_ place in SP, but a _very nice_ place with a playground for kids.
 
 [You can check the repo here](https://github.com/angelod1as/quiz-folha).
+
+# Credits
+
+- Code and planning by me
+- Design by Irapuan Campos
+- Thanks to FSP interactive crew: Rubens Alencar, Pilker and Thiago Almeida.
