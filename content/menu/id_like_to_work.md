@@ -5,5 +5,5 @@ order: 98
 ---
 - remotely
 - at a startup
-- as a nude model
-- as a video-game reviewer
+- as a model
+- as a writer
