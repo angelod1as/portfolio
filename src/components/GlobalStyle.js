@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
       color: ${p => p.theme.color.gray};
     }
     &:visited {
-      color: ${p => p.theme.color.darkgray};
+      color: ${p => p.theme.color.white};
     }
   }
 
@@ -71,6 +71,14 @@ const GlobalStyle = createGlobalStyle`
 
   .sidebar {
     max-width: 300px;
+  }
+
+  b, strong {
+    font-weight: 700;
+  }
+
+  i, em {
+    font-style: italic;
   }
 
   /* blockquote */
