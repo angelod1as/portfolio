@@ -13,13 +13,13 @@ Before going technical, I like to *go philosophical*.
 
 At first, I thought about building that awesome portfolio, with killer design, neat interactions and a lot of things that would get the 'wow' from visitors.
 
-Then, I decided that my work should do that, not my portfolio by itself.
+Then, I realised that my work should do that, not my portfolio by itself.
 
 That's why I chose to build a Gatsby website (read more below). Fast page loading, indexed content, lightweight and easy editable. I chose to make something easily updatable and *good to navigate*. My mind focused on me, the writer, and you, the reader.
 
 So you want to see some hard-to-execute and prize winning projects? [Nice, I made some, click here to see them](/portfolio). Want to see fast and customizable personal websites? You are visting one of them right now.
 
-You know what? I could make one of these for you.
+You know what? I could make one of these for you. Email me at angelo\[at\]angelodias.com.br.
 
 ## How
 

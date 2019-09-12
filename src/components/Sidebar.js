@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Back from './Back';
 
-const H2 = styled.h2`
+const H1 = styled.h1`
   font-weight: 700;
   margin: 30px 0;
   line-height: 1.3em;
+  font-size: 24px;
 `;
 
 const Sidebar = ({ back, title, children }) => {
@@ -15,7 +16,7 @@ const Sidebar = ({ back, title, children }) => {
     <Fade>
       <div>
         <Back to={back} />
-        <H2>{title}</H2>
+        <H1>{title}</H1>
         {children}
       </div>
     </Fade>

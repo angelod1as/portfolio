@@ -5,5 +5,5 @@ order: 2
 ---
 - React Native
 - GraphQL, MongoDB
-- Adobe XD, UX and UI introduction
+- Adobe XD
 - Ableton Live

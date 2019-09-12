@@ -72,7 +72,8 @@ const MenuItem = styled.div`
       }
     }
     &:before {
-      content: '∙';
+      content: '-';
+      color: ${p => p.theme.color.white};
     }
     &.listlink {
       &:before {

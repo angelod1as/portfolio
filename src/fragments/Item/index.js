@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import parse from 'html-react-parser';
 
 import Main from '../../layouts/Main';
 
@@ -72,7 +73,7 @@ const Item = props => {
   const { html } = props;
   return (
     <Main>
-      <Html dangerouslySetInnerHTML={{ __html: html }} />
+      <Html>{parse(html)}</Html>
     </Main>
   );
 };

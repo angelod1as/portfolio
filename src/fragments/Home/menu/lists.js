@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v1';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
 const Lists = ({ MenuItem }) => {
   return (
@@ -30,13 +31,19 @@ const Lists = ({ MenuItem }) => {
         const print = item.map(list => (
           <MenuItem order={list[2]} key={uuid()}>
             <p>{list[0]}</p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: list[1]
-                  .replace('<li><a href=', '<li class="listlink"><a href=')
-                  .replace('<a href=', '<a class="bg" href='),
-              }}
-            />
+            {parse(list[1], {
+              replace: node => {
+                if (node.type === 'tag' && node.name === 'li') {
+                  const isLink = node.children.filter(children => children.name === 'a');
+                  if (isLink.length > 0) {
+                    const linkNode = node;
+                    linkNode.attribs = { class: 'listlink' };
+                    return linkNode;
+                  }
+                }
+                return node;
+              },
+            })}
           </MenuItem>
         ));
 
