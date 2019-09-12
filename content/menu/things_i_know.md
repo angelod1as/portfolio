@@ -3,9 +3,7 @@ date: 2019-08-09T15:57:00.798Z
 title: things I know
 order: 1
 ---
-* react
-* node
-* gatsby
-* SASS/Stylus
-* adobe apps
-* [much more](/portfolio)
+* [Web development with react, redux, node and other technologies](/)
+* [Print and digital layout design, from project to execution](/)
+* [Adobe Suite: a handfull of apps, from visual to audio](/)
+* [A *lot* of other things](/portfolio)

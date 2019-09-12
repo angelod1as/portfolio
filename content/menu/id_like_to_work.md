@@ -3,7 +3,7 @@ date: 2019-08-07T19:25:20.455Z
 title: i'd like to work
 order: 98
 ---
+- mixing design, coding and journalism.
 - remotely
-- at a startup
-- as a model
-- as a writer
+- as an alternative model (everyone can dream)
+- as a fulltime fiction writer (everyone can dream, right?)
