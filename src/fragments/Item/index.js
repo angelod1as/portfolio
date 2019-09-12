@@ -21,6 +21,11 @@ const Html = styled.div`
     margin: 0 0 40px 0;
   }
 
+  iframe + h1,
+  picture + h1 {
+    margin-top: 20px;
+  }
+
   h2 {
     font-weight: 700;
     margin: 40px 0 20px 0;

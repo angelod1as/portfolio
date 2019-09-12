@@ -23,9 +23,9 @@ image: /assets/muros.jpeg
 
 With heavy focus on photography and video documentaries, 'A World of Walls' is a prize-winning feature from Folha de S.Paulo. From it's summary:
 
-> A more and more interconnected world is raising walls and fences to keep out those it considers undesirable. The number of physical barriers that existed in 2001 was 17: the figure has presently jumped up to 70*. 
+> A more and more interconnected world is raising walls and fences to keep out those it considers undesirable. The number of physical barriers that existed in 2001 was 17: the figure has presently jumped up to 70*.
 >
-> Some of them reinforce borders. Others divide the same population. Some seek to stop the refugee flow. Others hide poverty. Or fear. Or war. Or inequality. Or climate change. 
+> Some of them reinforce borders. Others divide the same population. Some seek to stop the refugee flow. Others hide poverty. Or fear. Or war. Or inequality. Or climate change.
 >
 > Folha went to four different continents to uncover what - and who - lies behind them.
 

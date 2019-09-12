@@ -7,6 +7,8 @@ descGroup:
 menu: false
 order: 1
 ---
+<!-- done, lacks images -->
+
 ## Why
 
 Before going technical, I like to *go philosophical*.

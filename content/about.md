@@ -6,6 +6,8 @@ descGroup:
   longdesc: This page is kinda self explanatory, isn't it?
 ---
 
+<!-- done, lacks images -->
+
 Angelo is a morning person — opposed to his mostly nocturnal peers. This characteristic can be seen as simply uncommon or, when living with him and noticing his smiling joy at 6 am, almost psychopatic.
 
 His time, from ungodly early to late at night, is invested, as he says, "making stuff".
