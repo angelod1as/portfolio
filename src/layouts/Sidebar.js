@@ -13,7 +13,7 @@ const Sidebar = ({ back, title, children }) => {
   return (
     <Fade>
       <div>
-        <Back to={back} />
+        {/* <Back to={back} /> */}
         <H2>{title}</H2>
         {children}
       </div>

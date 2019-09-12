@@ -46,9 +46,26 @@ const Html = styled.div`
     height: 517px;
   }
 
+  & > figure:first-child {
+    margin-top: 0;
+  }
+
   figure {
     margin: 30px 0;
     max-width: 920px;
+
+    &.margin {
+      picture {
+        span {
+          margin: 20px 0;
+        }
+        &:first-child {
+          span {
+            margin-top: 0;
+          }
+        }
+      }
+    }
 
     &.small {
       max-width: 300px;
