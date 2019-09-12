@@ -16,7 +16,7 @@ const Html = styled.div`
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 700;
     margin: 0 0 40px 0;
   }
@@ -63,6 +63,18 @@ const Html = styled.div`
       max-width: 100%;
     }
 
+    &.large {
+      max-width: 920px;
+    }
+
+    &.center {
+      margin: 0 auto;
+      text-align: center;
+      & > p {
+        text-align: center;
+      }
+    }
+
     &.mosaic {
       display: grid;
       grid-gap: 10px;
@@ -70,6 +82,31 @@ const Html = styled.div`
       img {
         border: 1px solid ${p => p.theme.color.gray};
       }
+      &.nobg {
+        img {
+          border: none;
+        }
+      }
+
+      &.medium {
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      }
+
+      &.large {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      &.four {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      &.five {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      }
+    }
+
+    & > p {
+      font-style: italic;
     }
   }
 `;
