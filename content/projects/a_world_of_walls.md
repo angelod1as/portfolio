@@ -1,13 +1,8 @@
 ---
 date: 2019-08-07T18:21:28.580Z
 title: A World of Walls
-descGroup:
-  desc: >-
-    Folha's feature about walls that divide countries, territories and even
-    families around the world
-  longdesc: >-
-    Folha's feature about walls that divide countries, territories and even
-    families around the world
+desc: >-
+  Folha's feature about walls that divide countries, territories and even families around the world
 live: 'https://arte.folha.uol.com.br/mundo/2017/a-world-of-walls/'
 tags:
   - coding

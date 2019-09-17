@@ -43,12 +43,12 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     display: inline-block;
-    color: ${p => p.theme.color.color};
-    font-weight: 700;
-    transition: color .2s, transform .2s;
-    text-decoration: none;
+    color: ${p => p.theme.color.black};
+    font-weight: 500;
+    transition: all .2s;
+    text-decoration: underline;
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
       color: ${p => p.theme.color.black};
     }
   }

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Container from '../components/container';
 
 import Sidebar from '../components/Sidebar';
-import Mosaic from '../fragments/Portfolio';
+import Mosaic from '../fragments/Mosaic';
 import Html from '../components/html-styles';
 import size from '../components/breakpoints';
 
@@ -98,7 +98,7 @@ const Page = props => {
             <Sidebar title={title} excerpt={excerpt} />
           </SidebarHolder>
           <Content>
-            <Mosaic items={collection} />
+            <Mosaic items={collection} color={color} />
           </Content>
         </Grid>
       </Container>
@@ -136,6 +136,8 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
+            date(formatString: "MMM D, YYYY")
+            desc
             title
             color
             tags

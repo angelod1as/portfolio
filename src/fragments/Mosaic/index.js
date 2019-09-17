@@ -4,23 +4,15 @@ import uuid from 'uuid/v1';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 // import { Link } from 'gatsby';
-import size from '../../components/breakpoints';
+// import size from '../../components/breakpoints';
 
 import Tile from './Tile';
 import Filter from './Filter';
 
-const Mosaic = styled.div`
+const MosaicHolder = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 50px;
-
-  @media ${size.medium} {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media ${size.small} {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 20px;
-  }
 `;
 
 const tagger = items => {
@@ -31,7 +23,7 @@ const tagger = items => {
   return [...new Set(tags)];
 };
 
-class PortfolioMain extends Component {
+class Mosaic extends Component {
   constructor(props) {
     super(props);
     const { items } = this.props;
@@ -58,7 +50,7 @@ class PortfolioMain extends Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, color } = this.props;
     const { tags } = this.state;
     const checkedTags = Object.keys(tags).filter(tag => tags[tag] === true);
     const hasTrue = Object.values(tags).includes(true);
@@ -66,7 +58,7 @@ class PortfolioMain extends Component {
     return (
       <Fade>
         <Filter tags={tags} check={this.handleCheckbox} />
-        <Mosaic className="portfolio">
+        <MosaicHolder className="portfolio">
           {items
             .filter(each => {
               if (hasTrue) {
@@ -76,21 +68,26 @@ class PortfolioMain extends Component {
               return each;
             })
             .map(({ frontmatter, fullPath }) => {
-              return <Tile key={uuid()} front={frontmatter} fullPath={fullPath} />;
+              return <Tile color={color} key={uuid()} front={frontmatter} fullPath={fullPath} />;
             })}
-        </Mosaic>
+        </MosaicHolder>
       </Fade>
     );
   }
 }
 
-PortfolioMain.propTypes = {
+Mosaic.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       frontmatter: PropTypes.shape(),
       fullPath: PropTypes.string,
     })
   ).isRequired,
+  color: PropTypes.string,
 };
 
-export default PortfolioMain;
+Mosaic.defaultProps = {
+  color: 'black',
+};
+
+export default Mosaic;

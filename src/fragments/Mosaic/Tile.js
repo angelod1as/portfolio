@@ -10,24 +10,22 @@ const Container = styled.div`
     transition: all 0.2s !important;
   }
   figure {
-    background-color: ${p => p.theme.color.color};
+    background-color: ${p => p.color};
     line-height: 0;
   }
   a {
     width: 100%;
+    color: ${p => p.theme.color.black};
+    text-decoration: none;
   }
   &:hover {
     a {
-      transform: none;
+      text-decoration: underline;
       figure {
         div {
-          /* transform: scale(0.95); */
           transform: translate(10px, -10px);
         }
       }
-    }
-    h2 {
-      transform: skewX(-15deg);
     }
   }
   img {
@@ -41,14 +39,16 @@ const Text = styled.div`
   h2 {
     font-size: 1.3em;
     margin-bottom: 5px;
+    font-weight: 700;
   }
   p {
     font-size: 1em;
     margin: 0;
     span {
       font-size: 0.9em;
-      font-weight: 700;
+      font-style: italic;
       color: ${p => p.theme.color.darkgray};
+      margin-left: 5px;
     }
   }
 `;
@@ -58,10 +58,10 @@ const Figure = styled.figure`
 `;
 
 const Tile = props => {
-  const { front, fullPath, from } = props;
+  const { front, fullPath, from, color } = props;
   const { fluid } = front.image.childImageSharp;
   return (
-    <Container>
+    <Container color={color}>
       <Link to={fullPath} from={from}>
         <Figure>
           <Img fluid={fluid} />
@@ -79,6 +79,7 @@ const Tile = props => {
 };
 
 Tile.propTypes = {
+  color: PropTypes.string.isRequired,
   fullPath: PropTypes.string.isRequired,
   from: PropTypes.string,
   front: PropTypes.shape({

@@ -1,11 +1,8 @@
 ---
 date: 2019-08-09T10:56:29.030Z
 title: Quiz - best São Paulo restaurants
-descGroup:
-  desc: Which restaurant in São Paulo should you go to?
-  longdesc: >-
-    Which restaurant in São Paulo should you go to? Answer the quiz and find
-    out!
+desc: >-
+  Which restaurant in São Paulo should you go to? Answer the quiz and find out!
 live: 'https://arte.folha.uol.com.br/saopaulo/2019/06/30/quiz-melhor-sp/'
 tags:
   - coding

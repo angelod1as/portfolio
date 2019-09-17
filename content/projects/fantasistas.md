@@ -1,11 +1,8 @@
 ---
 date: 2019-09-12T14:35:00.000Z
 title: Fantasistas
-descGroup:
-  desc: Fantasistas' fair application slides
-  longdesc: >-
-    Fantasistas, a literary collective, needed fair application slides with information about all projects and people involved
-# live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
+desc: >-
+  Fantasistas, a literary collective, needed fair application slides with information about all projects and people involved
 tags:
   - design
   - layout
