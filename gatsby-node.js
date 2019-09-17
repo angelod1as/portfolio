@@ -2,6 +2,36 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
+// hardcoding slugfy because of ES6 issue
+const slugfy = (word, options = { hyphens: true, url: true }) => {
+  const hyphens = typeof options.hyphens !== 'undefined' ? options.hyphens : true;
+  const url = typeof options.url !== 'undefined' ? options.url : true;
+  const from = 'ªãàáäâẽèéëêìíïîºõòóöôøùúüûñç';
+  const to = 'aaaaaaeeeeeiiiiooooooouuuunc';
+
+  let w = word
+    .toLowerCase()
+    .trim()
+    .replace(/\$/g, 's');
+
+  if (url) {
+    w = w
+      .replace(/1º/g, 'primeiro')
+      .replace(/2º/g, 'segundo')
+      .replace(/(\d)%/g, '$1-por-cento')
+      .replace(/%/g, 'porcentagem');
+  }
+
+  for (let i = 0, l = from.length; i < l; i += 1) {
+    w = w.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+  if (hyphens) {
+    return w.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+  return w.replace(/[^a-z0-9]+/g, '');
+};
+
 exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   fmImagesToRelative(node);
@@ -17,7 +47,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
       } else {
         type = 'pages';
       }
-      return type;
+      return slugfy(type);
     };
 
     const makeSlug = () => {
@@ -28,7 +58,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
       } else {
         slug = split;
       }
-      return slug.replace('.mdx', '').replace('.md', '');
+      return slugfy(slug.replace('.mdx', '').replace('.md', ''));
     };
 
     // create slugs
@@ -53,7 +83,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     await createNodeField({
       node,
       name: `fullPath`,
-      value: fullPath,
+      value: slugfy(fullPath),
     });
   }
 };
@@ -140,7 +170,6 @@ exports.createPages = async ({ actions, graphql }) => {
                 frontmatter {
                   date(formatString: "MMMM DD, YYYY")
                   title
-                  menu
                   descGroup {
                     desc
                     longdesc

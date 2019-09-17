@@ -65,9 +65,10 @@ const Home = ({
           const {
             frontmatter: { title, color },
           } = node;
+          const link = `/${title}`;
           if (title === 'stuff') {
             return (
-              <Tile to={title} key={uuid()}>
+              <Tile to={link} key={uuid()}>
                 <Inside color={color}>
                   <Big>I'm angelo</Big>
                   <Big>
@@ -81,7 +82,7 @@ const Home = ({
             );
           }
           return (
-            <Tile to={title} key={uuid()}>
+            <Tile to={link} key={uuid()}>
               <Inside color={color}>
                 <Small>I do</Small>
                 <Big>{title}</Big>

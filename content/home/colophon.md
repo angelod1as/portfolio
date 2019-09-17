@@ -1,12 +1,11 @@
 ---
-date: 2019-07-13T20:23:52.315Z
-title: Colophon
-descGroup:
-  desc: How I made this website possible
-  longdesc: How I made this website possible
-menu: false
-order: 1
+title: colophon
+order: 99
+color: '#118315'
+type: portfolio
+no-i-do: true
 ---
+
 >>> FALTAM IMAGENS
 
 ## Why

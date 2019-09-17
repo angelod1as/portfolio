@@ -1,9 +1,9 @@
 ---
-date: 2019-07-05T17:27:10.185Z
-title: About
-descGroup:
-  desc: This page is kinda self explanatory, isn't it?
-  longdesc: This page is kinda self explanatory, isn't it?
+title: about
+order: 98
+color: '#118315'
+type: portfolio
+no-i-do: true
 ---
 
 >>> FALTAM IMAGENS
@@ -39,3 +39,10 @@ This website is meant to be his 'all I do' place but, as he's always so freaking
 I hope you can get in touch with him sending an email through angelo\[at\]angelodias.com.br or clicking his social media buttons at the [home](/) page.
 
 He's always eager to chat and find what kind of *stuff* he can make with people.
+
+## I'd like to work:
+
+- Mixing design, coding and journalism.
+- Remotely
+- As an alternative model (everyone can dream)
+- As a fulltime fiction writer (everyone can dream, right?)

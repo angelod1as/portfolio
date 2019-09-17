@@ -2,6 +2,7 @@
 title: management
 order: 4
 color: '#F2CA04'
+type: text
 ---
 
 Exercitation ut nulla ut pariatur eiusmod in magna ipsum non velit tempor Lorem ea aliquip. Reprehenderit enim et aute nisi quis esse reprehenderit Lorem. Dolor deserunt eu quis elit veniam anim. Id mollit nulla veniam laboris laborum. Tempor sunt irure Lorem officia dolore culpa dolor velit ut voluptate et eu deserunt.

@@ -32,13 +32,13 @@ const Main = styled.div`
 
   & > div {
     padding: 40px;
-    display: ${p => (p.center ? 'flex' : 'block')};
+    display: block;
   }
 
   & > div:first-child {
     position: fixed;
-    width: ${p => (p.center ? '50%' : '20%')};
-    height: ${p => (p.center ? '100vh' : '100%')};
+    width: 20%;
+    height: 100%;
 
     background-color: ${p => p.color};
     color: ${p => p.theme.color.white};
@@ -88,14 +88,16 @@ const Container = ({ children, home, seo, color }) => {
 };
 
 Container.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+    .isRequired,
   home: PropTypes.bool,
   seo: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 Container.defaultProps = {
   home: false,
+  color: '',
 };
 
 export default Container;
