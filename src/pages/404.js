@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import Container from '../templates';
+import Container from '../components/container';
 
 import Sidebar from '../components/Sidebar';
 

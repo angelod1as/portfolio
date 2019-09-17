@@ -135,27 +135,15 @@ exports.createPages = async ({ actions, graphql }) => {
       fields: { fullPath },
     } = node;
 
-    console.log(type);
-
-    if (type === 'projects') {
-      createPage({
-        path: fullPath,
-        component: path.resolve(`src/templates/projects.js`),
-        context: {
-          id,
-          title,
-        },
-      });
-    } else {
-      createPage({
-        path: fullPath,
-        component: path.resolve(`src/templates/item.js`),
-        context: {
-          id,
-          title,
-        },
-      });
-    }
+    createPage({
+      path: fullPath,
+      component: path.resolve(`src/templates/page.js`),
+      context: {
+        id,
+        title,
+        type,
+      },
+    });
   });
 
   // #########
@@ -171,6 +159,9 @@ exports.createPages = async ({ actions, graphql }) => {
           edges {
             node {
               id
+              frontmatter {
+                title
+              }
               fields {
                 fullPath
               }
@@ -187,11 +178,18 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // creating each project page
   projectsQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const {
+      id,
+      frontmatter: { title, type },
+      fields: { fullPath },
+    } = node;
     createPage({
-      path: node.fields.fullPath,
-      component: path.resolve(`src/templates/item.js`),
+      path: fullPath,
+      component: path.resolve(`src/templates/page.js`),
       context: {
-        content: node,
+        id,
+        title,
+        type,
       },
     });
   });

@@ -1,11 +1,4 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import parse from 'html-react-parser';
-import Sidebar from '../components/Sidebar';
-
-import Container from '.';
 
 const Html = styled.div`
   padding-bottom: 100px;
@@ -130,49 +123,4 @@ const Html = styled.div`
   }
 `;
 
-const IndexPage = props => {
-  const {
-    data: {
-      markdownRemark: {
-        html,
-        frontmatter: { title },
-      },
-    },
-  } = props;
-
-  const seo = `Angelo Dias does ${title}`;
-
-  // returning
-  return (
-    <Container seo={seo}>
-      <Sidebar title={title} />
-      <Html>{parse(html)}</Html>
-    </Container>
-  );
-};
-
-export const pageQuery = graphql`
-  query($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        title
-        tags
-        live
-      }
-    }
-  }
-`;
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape(),
-      html: PropTypes.string,
-    }),
-  }).isRequired,
-};
-
-IndexPage.defaultProps = {};
-
-export default IndexPage;
+export default Html;

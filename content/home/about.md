@@ -3,7 +3,7 @@ title: about
 order: 98
 color: '#118315'
 type: text
-no-i-do: true
+noIDo: true
 ---
 
 >>> FALTAM IMAGENS

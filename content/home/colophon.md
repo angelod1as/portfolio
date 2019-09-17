@@ -3,7 +3,7 @@ title: colophon
 order: 99
 color: '#118315'
 type: text
-no-i-do: true
+noIDo: true
 ---
 
 >>> FALTAM IMAGENS

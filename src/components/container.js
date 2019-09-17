@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
-import GlobalStyle from '../components/GlobalStyle';
-import SEO from '../components/seo';
-
-import size from '../components/breakpoints';
+import GlobalStyle from './GlobalStyle';
+import SEO from './seo';
+import size from './breakpoints';
 
 const theme = {
   color: {
@@ -74,14 +73,7 @@ const Container = ({ children, home, seo, color }) => {
       <>
         <GlobalStyle />
         <SEO title={seo} />
-        {home ? (
-          <div>{children}</div>
-        ) : (
-          <Main color={color}>
-            <div>{children[0]}</div>
-            <div>{children[1]}</div>
-          </Main>
-        )}
+        {children}
       </>
     </ThemeProvider>
   );

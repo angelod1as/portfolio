@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import uuid from 'uuid/v1';
 
-import Container from '.';
+import Container from '../components/container';
 
 const Grid = styled.div`
   display: grid;
@@ -63,7 +63,7 @@ const Home = ({
       <Grid>
         {nodes.map((node, i) => {
           const {
-            frontmatter: { title, color },
+            frontmatter: { title, color, noIDo },
             fields: { fullPath },
           } = node;
           const link = `/${fullPath}`;
@@ -85,7 +85,7 @@ const Home = ({
           return (
             <Tile to={link} key={uuid()}>
               <Inside color={color}>
-                <Small>I do</Small>
+                {noIDo ? '' : <Small>I do</Small>}
                 <Big>{title}</Big>
               </Inside>
             </Tile>
@@ -111,6 +111,7 @@ export const query = graphql`
           title
           order
           color
+          noIDo
         }
       }
     }
