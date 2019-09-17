@@ -89,7 +89,9 @@ exports.createPages = async ({ actions, graphql }) => {
 
   if (homeTiles.errors) throw new Error(homeTiles.errors);
 
-  // creating each sub pages
+  // #########
+  // SUBPAGES
+  // #########
   homeTiles.data.allMarkdownRemark.nodes.forEach(node => {
     createPage({
       path: node.frontmatter.title,
@@ -101,99 +103,93 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
+  // #########
+  // PORTFOLIO
+  // #########
+  const checkQuery = async query => {
+    const ql = await graphql(query);
+    return ql.data.allMarkdownRemark.edges.length > 0;
+  };
+  // check if pages exist
+  if (
+    await checkQuery(`
+    query {
+      allMarkdownRemark(
+        filter: { fields: { type: { eq: "portfolio" } } }
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `)
+  ) {
+    const getPortfolio = () => {
+      return graphql(`
+        query {
+          allMarkdownRemark(
+            filter: { fields: { type: { eq: "portfolio" } } }
+            sort: { order: DESC, fields: frontmatter___date }
+          ) {
+            edges {
+              node {
+                id
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  menu
+                  descGroup {
+                    desc
+                    longdesc
+                  }
+                  live
+                  tags
+                  image {
+                    childImageSharp {
+                      id
+                    }
+                  }
+                }
+                fields {
+                  type
+                  slug
+                  fullPath
+                }
+              }
+            }
+          }
+        }
+      `);
+    };
+
+    const portfolioQl = await getPortfolio();
+
+    if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+
+    // creating each portfolio page
+    portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.fullPath,
+        component: path.resolve(`src/templates/item.js`),
+        context: {
+          content: node,
+        },
+      });
+    });
+  }
+
+  // #########
+  // HOME
+  // #########
   // creating main home page
   // has to be last in order
   createPage({
     path: '/',
     component: path.resolve('src/templates/home.js'),
   });
-
-  // // #########
-  // // PORTFOLIO
-  // // #########
-  // const checkQuery = async query => {
-  //   const ql = await graphql(query);
-  //   return ql.data.allMarkdownRemark.edges.length > 0;
-  // };
-  // // check if pages exist
-  // if (
-  //   await checkQuery(`
-  //   query {
-  //     allMarkdownRemark(
-  //       filter: { fields: { type: { eq: "portfolio" } } }
-  //       sort: { order: DESC, fields: frontmatter___date }
-  //     ) {
-  //       edges {
-  //         node {
-  //           id
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-  // ) {
-  //   const getPortfolio = () => {
-  //     return graphql(`
-  //       query {
-  //         allMarkdownRemark(
-  //           filter: { fields: { type: { eq: "portfolio" } } }
-  //           sort: { order: DESC, fields: frontmatter___date }
-  //         ) {
-  //           edges {
-  //             node {
-  //               id
-  //               frontmatter {
-  //                 date(formatString: "MMMM DD, YYYY")
-  //                 title
-  //                 menu
-  //                 descGroup {
-  //                   desc
-  //                   longdesc
-  //                 }
-  //                 live
-  //                 tags
-  //                 image {
-  //                   childImageSharp {
-  //                     id
-  //                   }
-  //                 }
-  //               }
-  //               fields {
-  //                 type
-  //                 slug
-  //                 fullPath
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `);
-  //   };
-
-  //   const portfolioQl = await getPortfolio();
-
-  //   if (portfolioQl.errors) throw new Error(portfolioQl.errors);
-
-  //   // creating main portfolio page
-  //   createPage({
-  //     path: '/portfolio',
-  //     component: path.resolve('src/templates/portfolio.js'),
-  //     context: {
-  //       content: portfolioQl,
-  //     },
-  //   });
-
-  //   // creating each portfolio page
-  //   portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-  //     createPage({
-  //       path: node.fields.fullPath,
-  //       component: path.resolve(`src/templates/item.js`),
-  //       context: {
-  //         content: node,
-  //       },
-  //     });
-  //   });
-  // }
 
   // // #########
   // // PAGES
