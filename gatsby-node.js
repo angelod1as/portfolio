@@ -108,6 +108,7 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               title
               order
+              type
             }
           }
         }
@@ -123,92 +124,103 @@ exports.createPages = async ({ actions, graphql }) => {
   // SUBPAGES
   // #########
   homeTiles.data.allMarkdownRemark.nodes.forEach(node => {
-    createPage({
-      path: node.frontmatter.title,
-      component: path.resolve(`src/templates/portfolio.js`),
-      context: {
-        id: node.id,
-        title: node.frontmatter.title,
-      },
-    });
-  });
-
-  // #########
-  // PORTFOLIO
-  // #########
-  const checkQuery = async query => {
-    const ql = await graphql(query);
-    return ql.data.allMarkdownRemark.edges.length > 0;
-  };
-  // check if pages exist
-  if (
-    await checkQuery(`
-    query {
-      allMarkdownRemark(
-        filter: { fields: { type: { eq: "portfolio" } } }
-        sort: { order: DESC, fields: frontmatter___date }
-      ) {
-        edges {
-          node {
-            id
-          }
-        }
-      }
-    }
-  `)
-  ) {
-    const getPortfolio = () => {
-      return graphql(`
-        query {
-          allMarkdownRemark(
-            filter: { fields: { type: { eq: "portfolio" } } }
-            sort: { order: DESC, fields: frontmatter___date }
-          ) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  date(formatString: "MMMM DD, YYYY")
-                  title
-                  descGroup {
-                    desc
-                    longdesc
-                  }
-                  live
-                  tags
-                  image {
-                    childImageSharp {
-                      id
-                    }
-                  }
-                }
-                fields {
-                  type
-                  slug
-                  fullPath
-                }
-              }
-            }
-          }
-        }
-      `);
-    };
-
-    const portfolioQl = await getPortfolio();
-
-    if (portfolioQl.errors) throw new Error(portfolioQl.errors);
-
-    // creating each portfolio page
-    portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    if (node.frontmatter.type === 'portfolio') {
       createPage({
-        path: node.fields.fullPath,
-        component: path.resolve(`src/templates/item.js`),
+        path: node.frontmatter.title,
+        component: path.resolve(`src/templates/portfolio.js`),
         context: {
-          content: node,
+          id: node.id,
+          title: node.frontmatter.title,
         },
       });
-    });
-  }
+    } else {
+      createPage({
+        path: node.frontmatter.title,
+        component: path.resolve(`src/templates/item.js`),
+        context: {
+          id: node.id,
+          title: node.frontmatter.title,
+        },
+      });
+    }
+  });
+
+  // // #########
+  // // PORTFOLIO
+  // // #########
+  // const checkQuery = async query => {
+  //   const ql = await graphql(query);
+  //   return ql.data.allMarkdownRemark.edges.length > 0;
+  // };
+  // // check if pages exist
+  // if (
+  //   await checkQuery(`
+  //   query {
+  //     allMarkdownRemark(
+  //       filter: { fields: { type: { eq: "portfolio" } } }
+  //       sort: { order: DESC, fields: frontmatter___date }
+  //     ) {
+  //       edges {
+  //         node {
+  //           id
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  // ) {
+  //   const getPortfolio = () => {
+  //     return graphql(`
+  //       query {
+  //         allMarkdownRemark(
+  //           filter: { fields: { type: { eq: "portfolio" } } }
+  //           sort: { order: DESC, fields: frontmatter___date }
+  //         ) {
+  //           edges {
+  //             node {
+  //               id
+  //               frontmatter {
+  //                 date(formatString: "MMMM DD, YYYY")
+  //                 title
+  //                 descGroup {
+  //                   desc
+  //                   longdesc
+  //                 }
+  //                 live
+  //                 tags
+  //                 image {
+  //                   childImageSharp {
+  //                     id
+  //                   }
+  //                 }
+  //               }
+  //               fields {
+  //                 type
+  //                 slug
+  //                 fullPath
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     `);
+  //   };
+
+  //   const portfolioQl = await getPortfolio();
+
+  //   if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+
+  //   // creating each portfolio page
+  //   portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //     createPage({
+  //       path: node.fields.fullPath,
+  //       component: path.resolve(`src/templates/item.js`),
+  //       context: {
+  //         content: node,
+  //       },
+  //     });
+  //   });
+  // }
 
   // #########
   // HOME

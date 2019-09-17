@@ -27,7 +27,7 @@ const Main = styled.div`
   font-family: ${props => props.theme.font.display};
 
   display: grid;
-  grid-template-columns: '20%' auto;
+  grid-template-columns: 20% auto;
   height: 100%;
 
   & > div {

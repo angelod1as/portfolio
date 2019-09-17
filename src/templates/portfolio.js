@@ -53,7 +53,7 @@ const Portfolio = props => {
 };
 
 export const query = graphql`
-  query($id: String, $title: String) {
+  query($id: String!, $title: String!) {
     pageInfo: markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
