@@ -3,7 +3,6 @@ import React from 'react';
 
 import Container from '../templates';
 
-import Main from '../layouts/Main';
 import Sidebar from '../components/Sidebar';
 
 const seo = 'Erro 404';
@@ -11,8 +10,8 @@ const seo = 'Erro 404';
 const IndexPage = () => {
   return (
     <Container seo={seo}>
-      <Sidebar back="/" title="Erro 404" />
-      <Main>
+      <Sidebar title="Erro 404" />
+      <div>
         <h1>Oops, acho que você chegou em uma página que não existe!</h1>
         <img
           src="https://img.shields.io/github/last-commit/angelod1as/portfolio?color=%2319006A"
@@ -20,7 +19,7 @@ const IndexPage = () => {
           target="_blank"
           rel="noreferrer noopener"
         />
-      </Main>
+      </div>
     </Container>
   );
 };

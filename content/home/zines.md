@@ -2,7 +2,7 @@
 title: zines
 order: 6
 color: '#F26D6D'
-type: portfolio
+type: projects
 ---
 
 Coding: Exercitation ut nulla ut pariatur eiusmod in magna ipsum non velit tempor Lorem ea aliquip. Reprehenderit enim et aute nisi quis esse reprehenderit Lorem. Dolor deserunt eu quis elit veniam anim. Id mollit nulla veniam laboris laborum. Tempor sunt irure Lorem officia dolore culpa dolor velit ut voluptate et eu deserunt.

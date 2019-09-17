@@ -64,8 +64,9 @@ const Home = ({
         {nodes.map((node, i) => {
           const {
             frontmatter: { title, color },
+            fields: { fullPath },
           } = node;
-          const link = `/${title}`;
+          const link = `/${fullPath}`;
           if (title === 'stuff') {
             return (
               <Tile to={link} key={uuid()}>
@@ -103,6 +104,9 @@ export const query = graphql`
     ) {
       nodes {
         id
+        fields {
+          fullPath
+        }
         frontmatter {
           title
           order

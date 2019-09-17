@@ -78,12 +78,13 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     const basePath = `content`;
 
     // create fullPaths
-    const fullPath = createFilePath({ node, getNode, basePath });
+    const filePath = createFilePath({ node, getNode, basePath });
+    const fullPath = filePath.includes('/home/') ? filePath.replace('/home/', '') : filePath;
 
     await createNodeField({
       node,
       name: `fullPath`,
-      value: slugfy(fullPath),
+      value: fullPath,
     });
   }
 };
@@ -95,7 +96,9 @@ exports.createPages = async ({ actions, graphql }) => {
   // The context is passed as props to the component as well
   // as into the component's GraphQL query.
 
-  // creating home subpages
+  // #########
+  // SUBPAGES
+  // #########
   const getHomeTiles = () => {
     return graphql(`
       query {
@@ -105,6 +108,11 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           nodes {
             id
+            fields {
+              slug
+              type
+              fullPath
+            }
             frontmatter {
               title
               order
@@ -120,164 +128,82 @@ exports.createPages = async ({ actions, graphql }) => {
 
   if (homeTiles.errors) throw new Error(homeTiles.errors);
 
-  // #########
-  // SUBPAGES
-  // #########
   homeTiles.data.allMarkdownRemark.nodes.forEach(node => {
-    if (node.frontmatter.type === 'portfolio') {
+    const {
+      id,
+      frontmatter: { type, title },
+      fields: { fullPath },
+    } = node;
+
+    console.log(type);
+
+    if (type === 'projects') {
       createPage({
-        path: node.frontmatter.title,
-        component: path.resolve(`src/templates/portfolio.js`),
+        path: fullPath,
+        component: path.resolve(`src/templates/projects.js`),
         context: {
-          id: node.id,
-          title: node.frontmatter.title,
+          id,
+          title,
         },
       });
     } else {
       createPage({
-        path: node.frontmatter.title,
+        path: fullPath,
         component: path.resolve(`src/templates/item.js`),
         context: {
-          id: node.id,
-          title: node.frontmatter.title,
+          id,
+          title,
         },
       });
     }
   });
 
-  // // #########
-  // // PORTFOLIO
-  // // #########
-  // const checkQuery = async query => {
-  //   const ql = await graphql(query);
-  //   return ql.data.allMarkdownRemark.edges.length > 0;
-  // };
-  // // check if pages exist
-  // if (
-  //   await checkQuery(`
-  //   query {
-  //     allMarkdownRemark(
-  //       filter: { fields: { type: { eq: "portfolio" } } }
-  //       sort: { order: DESC, fields: frontmatter___date }
-  //     ) {
-  //       edges {
-  //         node {
-  //           id
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-  // ) {
-  //   const getPortfolio = () => {
-  //     return graphql(`
-  //       query {
-  //         allMarkdownRemark(
-  //           filter: { fields: { type: { eq: "portfolio" } } }
-  //           sort: { order: DESC, fields: frontmatter___date }
-  //         ) {
-  //           edges {
-  //             node {
-  //               id
-  //               frontmatter {
-  //                 date(formatString: "MMMM DD, YYYY")
-  //                 title
-  //                 descGroup {
-  //                   desc
-  //                   longdesc
-  //                 }
-  //                 live
-  //                 tags
-  //                 image {
-  //                   childImageSharp {
-  //                     id
-  //                   }
-  //                 }
-  //               }
-  //               fields {
-  //                 type
-  //                 slug
-  //                 fullPath
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `);
-  //   };
+  // #########
+  // PROJECTS
+  // #########
+  const getProjects = () => {
+    return graphql(`
+      query {
+        allMarkdownRemark(
+          filter: { fields: { type: { eq: "projects" } } }
+          sort: { order: DESC, fields: frontmatter___date }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                fullPath
+              }
+            }
+          }
+        }
+      }
+    `);
+  };
 
-  //   const portfolioQl = await getPortfolio();
+  const projectsQl = await getProjects();
 
-  //   if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+  if (projectsQl.errors) throw new Error(projectsQl.errors);
 
-  //   // creating each portfolio page
-  //   portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-  //     createPage({
-  //       path: node.fields.fullPath,
-  //       component: path.resolve(`src/templates/item.js`),
-  //       context: {
-  //         content: node,
-  //       },
-  //     });
-  //   });
-  // }
+  // creating each project page
+  projectsQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.fullPath,
+      component: path.resolve(`src/templates/item.js`),
+      context: {
+        content: node,
+      },
+    });
+  });
 
   // #########
   // HOME
   // #########
+
   // creating main home page
   // has to be last in order
   createPage({
     path: '/',
     component: path.resolve('src/templates/home.js'),
   });
-
-  // // #########
-  // // PAGES
-  // // #########
-  // const getHome = () => {
-  //   return graphql(`
-  //     {
-  //       allMarkdownRemark(
-  //         filter: { fields: { type: { eq: "pages" } } }
-  //         sort: { order: DESC, fields: frontmatter___date }
-  //       ) {
-  //         edges {
-  //           node {
-  //             frontmatter {
-  //               title
-  //               date(formatString: "MMMM DD, YYYY")
-  //               menu
-  //               descGroup {
-  //                 desc
-  //                 longdesc
-  //               }
-  //               order
-  //             }
-  //             fields {
-  //               slug
-  //               type
-  //               fullPath
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `);
-  // };
-
-  // const homeQl = await getHome();
-
-  // if (homeQl.errors) throw new Error(homeQl.errors);
-
-  // // creating each sub pages
-  // homeQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-  //   createPage({
-  //     path: node.fields.fullPath,
-  //     component: path.resolve(`src/templates/item.js`),
-  //     context: {
-  //       content: node,
-  //     },
-  //   });
-  // });
 };

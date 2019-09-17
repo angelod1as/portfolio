@@ -2,7 +2,7 @@
 title: design
 order: 3
 color: '#F26D6D'
-type: portfolio
+type: projects
 ---
 
 I don't just 'know softwares'. **I'm a professional Layout Designer**.
