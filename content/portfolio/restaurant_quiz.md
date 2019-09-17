@@ -8,6 +8,7 @@ descGroup:
     out!
 live: 'https://arte.folha.uol.com.br/saopaulo/2019/06/30/quiz-melhor-sp/'
 tags:
+  - coding
   - javascript
   - react
   - folha

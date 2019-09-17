@@ -11,12 +11,12 @@ const seo = "Angelo Dias' Portfolio";
 
 const Portfolio = props => {
   const {
-    location: { pathname },
     data: {
-      markdownRemark: {
+      pageInfo: {
         frontmatter: { title, color },
         excerpt,
       },
+      items,
     },
     // pageContext: {
     //   content: {
@@ -30,38 +30,61 @@ const Portfolio = props => {
     // },
   } = props;
 
-  // const items = edges.map(({ node }) => {
-  //   const { frontmatter } = node;
-  //   const { fullPath } = node.fields;
-  //   const image = images.filter(each => {
-  //     const imageId = each.node.frontmatter.image.childImageSharp.id;
-  //     return frontmatter.image.childImageSharp.id === imageId;
-  //   });
-  //   frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
-  //   return {
-  //     frontmatter,
-  //     fullPath,
-  //   };
-  // });
+  const collection = items.edges.map(({ node }) => {
+    const { frontmatter } = node;
+    const { fullPath } = node.fields;
+    const image = items.edges.filter(each => {
+      const imageId = each.node.frontmatter.image.childImageSharp.id;
+      return frontmatter.image.childImageSharp.id === imageId;
+    });
+    frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
+    return {
+      frontmatter,
+      fullPath,
+    };
+  });
 
   return (
     <Container color={color} seo={seo}>
       <Sidebar title={title} excerpt={excerpt} />
-      <div>oi</div>
-      {/* <PortfolioMain items={items} from={pathname} /> */}
+      <PortfolioMain items={collection} />
     </Container>
   );
 };
 
 export const query = graphql`
-  query($id: String) {
-    markdownRemark(id: { eq: $id }) {
+  query($id: String, $title: String) {
+    pageInfo: markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
         title
         color
       }
       excerpt(format: HTML)
+    }
+    items: allMarkdownRemark(filter: { frontmatter: { tags: { in: [$title] } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            color
+            tags
+            image {
+              childImageSharp {
+                id
+                fluid(maxWidth: 800, maxHeight: 800, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          fields {
+            slug
+            type
+            fullPath
+          }
+        }
+      }
     }
   }
 `;
@@ -75,15 +98,7 @@ export const query = graphql`
 //       edges {
 //         node {
 //           frontmatter {
-//             image {
-//               childImageSharp {
-//                 id
-//                 fluid(maxWidth: 800, maxHeight: 800, cropFocus: CENTER) {
-//                   ...GatsbyImageSharpFluid
-//                 }
-//               }
-//             }
-//           }
+
 //         }
 //       }
 //     }
@@ -91,7 +106,6 @@ export const query = graphql`
 // `;
 
 Portfolio.propTypes = {
-  location: PropTypes.shape().isRequired,
   data: PropTypes.shape().isRequired,
 };
 

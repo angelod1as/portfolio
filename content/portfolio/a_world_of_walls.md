@@ -10,6 +10,7 @@ descGroup:
     families around the world
 live: 'https://arte.folha.uol.com.br/mundo/2017/a-world-of-walls/'
 tags:
+  - coding
   - javascript
   - react
   - folha

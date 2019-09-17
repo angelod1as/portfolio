@@ -14,6 +14,7 @@ const H1 = styled.h1`
 const Sidebar = ({ title, excerpt }) => {
   return (
     <>
+      <p>==some menu?==</p>
       <H1>{title}</H1>
       {excerpt ? parse(excerpt) : ''}
       <p>==read more button==</p>

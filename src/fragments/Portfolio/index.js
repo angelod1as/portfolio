@@ -58,7 +58,7 @@ class PortfolioMain extends Component {
   }
 
   render() {
-    const { from, items } = this.props;
+    const { items } = this.props;
     const { tags } = this.state;
     const checkedTags = Object.keys(tags).filter(tag => tags[tag] === true);
     const hasTrue = Object.values(tags).includes(true);
@@ -76,7 +76,7 @@ class PortfolioMain extends Component {
               return each;
             })
             .map(({ frontmatter, fullPath }) => {
-              return <Tile key={uuid()} front={frontmatter} from={from} fullPath={fullPath} />;
+              return <Tile key={uuid()} front={frontmatter} fullPath={fullPath} />;
             })}
         </Mosaic>
       </Fade>
@@ -85,17 +85,12 @@ class PortfolioMain extends Component {
 }
 
 PortfolioMain.propTypes = {
-  from: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       frontmatter: PropTypes.shape(),
       fullPath: PropTypes.string,
     })
   ).isRequired,
-};
-
-PortfolioMain.defaultProps = {
-  from: null,
 };
 
 export default PortfolioMain;

@@ -8,6 +8,8 @@ descGroup:
     through human stories
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
+  - coding
+  - management
   - javascript
   - react
   - folha
