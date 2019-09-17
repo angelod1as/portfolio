@@ -61,120 +61,23 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  // #########
-  // PORTFOLIO
-  // #########
-  const checkQuery = async query => {
-    const ql = await graphql(query);
-    return ql.data.allMarkdownRemark.edges.length > 0;
-  };
-  // check if pages exist
-  if (
-    await checkQuery(`
-    query {
-      allMarkdownRemark(
-        filter: { fields: { type: { eq: "portfolio" } } }
-        sort: { order: DESC, fields: frontmatter___date }
-      ) {
-        edges {
-          node {
-            id
-          }
-        }
-      }
-    }
-  `)
-  ) {
-    const getPortfolio = () => {
-      return graphql(`
-        query {
-          allMarkdownRemark(
-            filter: { fields: { type: { eq: "portfolio" } } }
-            sort: { order: DESC, fields: frontmatter___date }
-          ) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  date(formatString: "MMMM DD, YYYY")
-                  title
-                  menu
-                  descGroup {
-                    desc
-                    longdesc
-                  }
-                  live
-                  tags
-                  image {
-                    childImageSharp {
-                      id
-                    }
-                  }
-                }
-                fields {
-                  type
-                  slug
-                  fullPath
-                }
-              }
-            }
-          }
-        }
-      `);
-    };
+  // Important:
+  // The context is passed as props to the component as well
+  // as into the component's GraphQL query.
 
-    const portfolioQl = await getPortfolio();
-
-    if (portfolioQl.errors) throw new Error(portfolioQl.errors);
-
-    // creating main portfolio page
-    createPage({
-      path: '/portfolio',
-      component: path.resolve('src/templates/portfolio.js'),
-      context: {
-        content: portfolioQl,
-      },
-    });
-
-    // creating each portfolio page
-    portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.fullPath,
-        component: path.resolve(`src/templates/item.js`),
-        context: {
-          content: node,
-        },
-      });
-    });
-  }
-
-  // #########
-  // PAGES
-  // #########
-  const getHome = () => {
+  // creating home subpages
+  const getHomeTiles = () => {
     return graphql(`
-      {
+      query {
         allMarkdownRemark(
-          filter: { fields: { type: { eq: "pages" } } }
-          sort: { order: DESC, fields: frontmatter___date }
+          filter: { fields: { type: { eq: "home" } } }
+          sort: { fields: frontmatter___order, order: ASC }
         ) {
-          edges {
-            node {
-              frontmatter {
-                title
-                date(formatString: "MMMM DD, YYYY")
-                menu
-                descGroup {
-                  desc
-                  longdesc
-                }
-                order
-              }
-              fields {
-                slug
-                type
-                fullPath
-              }
+          nodes {
+            id
+            frontmatter {
+              title
+              order
             }
           }
         }
@@ -182,27 +85,162 @@ exports.createPages = async ({ actions, graphql }) => {
     `);
   };
 
-  const homeQl = await getHome();
+  const homeTiles = await getHomeTiles();
 
-  if (homeQl.errors) throw new Error(homeQl.errors);
-
-  // creating main home page
-  createPage({
-    path: '/',
-    component: path.resolve('src/templates/home.js'),
-    context: {
-      content: homeQl,
-    },
-  });
+  if (homeTiles.errors) throw new Error(homeTiles.errors);
 
   // creating each sub pages
-  homeQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  homeTiles.data.allMarkdownRemark.nodes.forEach(node => {
     createPage({
-      path: node.fields.fullPath,
-      component: path.resolve(`src/templates/item.js`),
+      path: node.frontmatter.title,
+      component: path.resolve(`src/templates/portfolio.js`),
       context: {
-        content: node,
+        id: node.id,
+        title: node.frontmatter.title,
       },
     });
   });
+
+  // creating main home page
+  // has to be last in order
+  createPage({
+    path: '/',
+    component: path.resolve('src/templates/home.js'),
+  });
+
+  // // #########
+  // // PORTFOLIO
+  // // #########
+  // const checkQuery = async query => {
+  //   const ql = await graphql(query);
+  //   return ql.data.allMarkdownRemark.edges.length > 0;
+  // };
+  // // check if pages exist
+  // if (
+  //   await checkQuery(`
+  //   query {
+  //     allMarkdownRemark(
+  //       filter: { fields: { type: { eq: "portfolio" } } }
+  //       sort: { order: DESC, fields: frontmatter___date }
+  //     ) {
+  //       edges {
+  //         node {
+  //           id
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  // ) {
+  //   const getPortfolio = () => {
+  //     return graphql(`
+  //       query {
+  //         allMarkdownRemark(
+  //           filter: { fields: { type: { eq: "portfolio" } } }
+  //           sort: { order: DESC, fields: frontmatter___date }
+  //         ) {
+  //           edges {
+  //             node {
+  //               id
+  //               frontmatter {
+  //                 date(formatString: "MMMM DD, YYYY")
+  //                 title
+  //                 menu
+  //                 descGroup {
+  //                   desc
+  //                   longdesc
+  //                 }
+  //                 live
+  //                 tags
+  //                 image {
+  //                   childImageSharp {
+  //                     id
+  //                   }
+  //                 }
+  //               }
+  //               fields {
+  //                 type
+  //                 slug
+  //                 fullPath
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     `);
+  //   };
+
+  //   const portfolioQl = await getPortfolio();
+
+  //   if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+
+  //   // creating main portfolio page
+  //   createPage({
+  //     path: '/portfolio',
+  //     component: path.resolve('src/templates/portfolio.js'),
+  //     context: {
+  //       content: portfolioQl,
+  //     },
+  //   });
+
+  //   // creating each portfolio page
+  //   portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //     createPage({
+  //       path: node.fields.fullPath,
+  //       component: path.resolve(`src/templates/item.js`),
+  //       context: {
+  //         content: node,
+  //       },
+  //     });
+  //   });
+  // }
+
+  // // #########
+  // // PAGES
+  // // #########
+  // const getHome = () => {
+  //   return graphql(`
+  //     {
+  //       allMarkdownRemark(
+  //         filter: { fields: { type: { eq: "pages" } } }
+  //         sort: { order: DESC, fields: frontmatter___date }
+  //       ) {
+  //         edges {
+  //           node {
+  //             frontmatter {
+  //               title
+  //               date(formatString: "MMMM DD, YYYY")
+  //               menu
+  //               descGroup {
+  //                 desc
+  //                 longdesc
+  //               }
+  //               order
+  //             }
+  //             fields {
+  //               slug
+  //               type
+  //               fullPath
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `);
+  // };
+
+  // const homeQl = await getHome();
+
+  // if (homeQl.errors) throw new Error(homeQl.errors);
+
+  // // creating each sub pages
+  // homeQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //   createPage({
+  //     path: node.fields.fullPath,
+  //     component: path.resolve(`src/templates/item.js`),
+  //     context: {
+  //       content: node,
+  //     },
+  //   });
+  // });
 };

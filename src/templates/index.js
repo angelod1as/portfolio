@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -10,7 +10,7 @@ import size from '../components/breakpoints';
 const theme = {
   color: {
     color: '#19006A',
-    white: '#F4F4F4',
+    white: '#FFFFFF',
     black: '#333333',
     gray: '#CCCCCC',
     darkgray: '#A9A9A9',
@@ -27,7 +27,7 @@ const Main = styled.div`
   font-family: ${props => props.theme.font.display};
 
   display: grid;
-  grid-template-columns: ${p => (p.center ? '50%' : '20%')} auto;
+  grid-template-columns: '20%' auto;
   height: 100%;
 
   & > div {
@@ -40,15 +40,15 @@ const Main = styled.div`
     width: ${p => (p.center ? '50%' : '20%')};
     height: ${p => (p.center ? '100vh' : '100%')};
 
-    background-color: ${p => (p.center ? p.theme.color.white : p.theme.color.color)};
-    color: ${p => (p.center ? p.theme.color.black : p.theme.color.white)};
+    background-color: ${p => p.color};
+    color: ${p => p.theme.color.white};
   }
   & > div:last-child {
     grid-column-start: 2;
     /* height: 100%; */
 
-    background-color: ${p => (p.center ? p.theme.color.color : p.theme.color.white)};
-    color: ${p => (p.center ? p.theme.color.white : p.theme.color.black)};
+    background-color: ${p => p.theme.color.white};
+    color: ${p => p.theme.color.black};
   }
 
   @media ${size.medium} {
@@ -68,29 +68,34 @@ const Main = styled.div`
   }
 `;
 
-const Container = ({ children, center, seo }) => {
+const Container = ({ children, home, seo, color }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
+      <>
         <GlobalStyle />
         <SEO title={seo} />
-        <Main center={center}>
-          <div>{children[0]}</div>
-          <div>{children[1]}</div>
-        </Main>
-      </Fragment>
+        {home ? (
+          <div>{children}</div>
+        ) : (
+          <Main color={color}>
+            <div>{children[0]}</div>
+            <div>{children[1]}</div>
+          </Main>
+        )}
+      </>
     </ThemeProvider>
   );
 };
 
 Container.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  center: PropTypes.bool,
+  home: PropTypes.bool,
   seo: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 Container.defaultProps = {
-  center: false,
+  home: false,
 };
 
 export default Container;
