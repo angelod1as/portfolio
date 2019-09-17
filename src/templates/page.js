@@ -9,6 +9,7 @@ import Container from '../components/container';
 import Sidebar from '../components/Sidebar';
 import Mosaic from '../fragments/Portfolio';
 import Html from '../components/html-styles';
+import size from '../components/breakpoints';
 
 const width = '20%';
 
@@ -22,14 +23,11 @@ const Grid = styled.div`
   grid-template-areas: 'sidebar content';
   grid-template-columns: ${width} auto;
   position: relative;
-`;
 
-const Content = styled.div`
-  grid-area: content;
-
-  padding: 40px;
-  background-color: ${p => p.theme.color.white};
-  color: ${p => p.theme.color.black};
+  @media ${size.medium} {
+    display: block;
+    height: 100%;
+  }
 `;
 
 const SidebarHolder = styled.div`
@@ -42,6 +40,26 @@ const SidebarHolder = styled.div`
 
   background-color: ${p => p.color};
   color: ${p => p.theme.color.white};
+
+  @media ${size.medium} {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const Content = styled.div`
+  grid-area: content;
+
+  padding: 40px;
+  background-color: ${p => p.theme.color.white};
+  color: ${p => p.theme.color.black};
+
+  @media ${size.medium} {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const Page = props => {

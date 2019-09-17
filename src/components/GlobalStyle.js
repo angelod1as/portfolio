@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     transition: color .2s, transform .2s;
     text-decoration: none;
     &:hover {
-      transform: skewX(-15deg);
+      text-decoration: underline;
       color: ${p => p.theme.color.black};
     }
   }

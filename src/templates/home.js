@@ -17,8 +17,8 @@ const Tile = styled(Link)`
   padding-bottom: 100%;
   position: relative;
   color: ${p => p.theme.color.white};
+  background-color: ${p => p.theme.color.white};
   &:hover {
-    transform: none;
     color: ${p => p.theme.color.white};
   }
 `;
@@ -61,7 +61,7 @@ const Home = ({
   return (
     <Container seo="Angelo Dias's Portfolio" home>
       <Grid>
-        {nodes.map((node, i) => {
+        {nodes.map(node => {
           const {
             frontmatter: { title, color, noIDo },
             fields: { fullPath },
