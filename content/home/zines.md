@@ -1,7 +1,6 @@
 ---
 title: zines
-order: 6
-color: '#F26D6D'
+order: 7
 type: projects
 ---
 

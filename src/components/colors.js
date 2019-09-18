@@ -9,10 +9,10 @@ const colors = [
   '#298e14', // verdão
   '#3a0e9b', // azul quase roxo
 
-  '#525252', // davy's gray
   '#d81e5b', // rosa brilhante
-  '#1BBC9B', // teal
   '#5F4BB6', // plum purple
+  '#525252', // davy's gray
+  '#1BBC9B', // teal
 
   '#9BC53D', // android green
   '#190E4F', // space cadet

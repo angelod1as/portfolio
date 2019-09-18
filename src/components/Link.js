@@ -29,8 +29,6 @@ CustomLink.propTypes = {
 CustomLink.defaultProps = {
   className: null,
   from: null,
-  // color: null,
-  // direction: 'right',
 };
 
 export default withTheme(CustomLink);

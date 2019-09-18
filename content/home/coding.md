@@ -1,7 +1,6 @@
 ---
 title: coding
 order: 2
-color: '#118315'
 type: projects
 ---
 

@@ -1,7 +1,6 @@
 ---
-title: sci-fi newspaper
-order: 7
-color: '#118315'
+title: sci-fi newspapers
+order: 5
 type: text
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: design
 order: 3
-color: '#F26D6D'
 type: projects
 ---
 

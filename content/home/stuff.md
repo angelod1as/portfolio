@@ -1,7 +1,6 @@
 ---
 title: stuff
 order: 1
-color: '#000000'
 type: text
 ---
 

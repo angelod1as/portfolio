@@ -1,7 +1,6 @@
 ---
 title: management
 order: 4
-color: '#F2CA04'
 type: text
 ---
 

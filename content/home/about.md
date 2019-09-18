@@ -1,7 +1,6 @@
 ---
 title: about
 order: 98
-color: '#118315'
 type: text
 noIDo: true
 ---

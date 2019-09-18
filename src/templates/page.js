@@ -127,7 +127,6 @@ export const query = graphql`
       id
       frontmatter {
         title
-        color
         tags
         live
         type
@@ -142,7 +141,6 @@ export const query = graphql`
             date(formatString: "MMM D, YYYY")
             desc
             title
-            color
             tags
             image {
               childImageSharp {

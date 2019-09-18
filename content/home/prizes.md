@@ -1,8 +1,8 @@
 ---
-title: winning prizes
-order: 90
-color: '#118315'
+title: prizes
+order: 95
 type: text
+noIDo: true
 ---
 
 List of all my prizes

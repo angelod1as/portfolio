@@ -111,7 +111,6 @@ export const query = graphql`
         frontmatter {
           title
           order
-          color
           noIDo
         }
       }

@@ -1,7 +1,6 @@
 ---
 title: music
-order: 90
-color: '#118315'
+order: 9
 type: projects
 ---
 
