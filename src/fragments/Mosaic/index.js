@@ -57,7 +57,7 @@ class Mosaic extends Component {
 
     return (
       <Fade>
-        <Filter tags={tags} check={this.handleCheckbox} />
+        <Filter tags={tags} check={this.handleCheckbox} color={color} />
         <MosaicHolder className="portfolio">
           {items
             .filter(each => {

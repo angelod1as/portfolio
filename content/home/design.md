@@ -7,9 +7,11 @@ type: projects
 
 I don't just 'know softwares'. **I'm a professional Layout Designer**.
 
-Five years at Folha de S.Paulo, Latin America's bigger newspaper, taught me a lot about organizing content in limited spaces, being those the margins of a page or the kb limit on a file. [You can read about my digital work here](/websites).
+Five years at Folha de S.Paulo, Latin America's bigger newspaper, taught me a lot about organizing content in limited spaces, being those the margins of a page or the kb limit on a file.
 
 <!-- end -->
+
+[You can read about my digital work here](/websites).
 
 ## Work
 

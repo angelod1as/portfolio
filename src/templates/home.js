@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby';
 import uuid from 'uuid/v1';
 
 import Container from '../components/container';
+import colors from '../components/colors';
 
 const Grid = styled.div`
   display: grid;
@@ -61,16 +62,16 @@ const Home = ({
   return (
     <Container seo="Angelo Dias's Portfolio" home>
       <Grid>
-        {nodes.map(node => {
+        {nodes.map((node, i) => {
           const {
-            frontmatter: { title, color, noIDo },
+            frontmatter: { title, noIDo },
             fields: { fullPath },
           } = node;
           const link = `/${fullPath}`;
           if (title === 'stuff') {
             return (
               <Tile to={link} key={uuid()}>
-                <Inside color={color}>
+                <Inside color={colors[i % colors.length]}>
                   <Big>I'm angelo</Big>
                   <Big>
                     and I do <i>stuff</i>
@@ -84,7 +85,7 @@ const Home = ({
           }
           return (
             <Tile to={link} key={uuid()}>
-              <Inside color={color}>
+              <Inside color={colors[i % colors.length]}>
                 {noIDo ? '' : <Small>I do</Small>}
                 <Big>{title}</Big>
               </Inside>

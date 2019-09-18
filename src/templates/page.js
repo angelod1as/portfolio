@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar';
 import Mosaic from '../fragments/Mosaic';
 import Html from '../components/html-styles';
 import size from '../components/breakpoints';
+import colors from '../components/colors';
 
 const width = '20%';
 
@@ -66,7 +67,7 @@ const Page = props => {
   const {
     data: {
       pageInfo: {
-        frontmatter: { title, color, type },
+        frontmatter: { title, type },
         excerpt,
         html,
       },
@@ -90,12 +91,14 @@ const Page = props => {
     };
   });
 
+  const color = colors[Math.floor(Math.random() * colors.length)];
+
   if (type === 'projects') {
     return (
       <Container seo={seo}>
         <Grid>
           <SidebarHolder color={color}>
-            <Sidebar title={title} excerpt={excerpt} />
+            <Sidebar title={title} excerpt={excerpt} color={color} />
           </SidebarHolder>
           <Content>
             <Mosaic items={collection} color={color} />
@@ -108,10 +111,10 @@ const Page = props => {
     <Container seo={seo}>
       <Grid>
         <SidebarHolder color={color}>
-          <Sidebar title={title} />
+          <Sidebar title={title} color={color} />
         </SidebarHolder>
         <Content>
-          <Html>{parse(html)}</Html>
+          <Html color={color}>{parse(html)}</Html>
         </Content>
       </Grid>
     </Container>

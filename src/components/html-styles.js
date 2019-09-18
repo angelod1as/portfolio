@@ -10,10 +10,15 @@ const Html = styled.div`
     max-width: 100%;
   }
 
+  a {
+    color: ${p => p.color};
+  }
+
   h1 {
     font-size: 2.5em;
     font-weight: 700;
     margin: 0 0 40px 0;
+    color: ${p => p.color};
   }
 
   iframe + h1,
@@ -22,6 +27,7 @@ const Html = styled.div`
   }
 
   h2 {
+    color: ${p => p.color};
     font-weight: 700;
     margin: 40px 0 20px 0;
   }

@@ -38,7 +38,7 @@ const Tag = styled.div`
   transition: all 0.1s;
   user-select: none;
   padding: 10px;
-  border: 1px solid ${p => p.theme.color.color};
+  border: 1px solid ${p => p.color};
   border-radius: 15px;
   text-align: center;
   margin: 3px;
@@ -51,9 +51,9 @@ const Tag = styled.div`
     border-color: ${p => p.theme.color.gray};
   }
   &.checked {
-    background-color: ${p => p.theme.color.color};
+    background-color: ${p => p.color};
     color: ${p => p.theme.color.white};
-    border-color: ${p => p.theme.color.color};
+    border-color: ${p => p.color};
     &:hover {
       background-color: ${p => p.theme.color.darkgray};
       border-color: ${p => p.theme.color.darkgray};
@@ -63,7 +63,7 @@ const Tag = styled.div`
 
 const Show = styled.div`
   font-weight: 700;
-  color: ${p => p.theme.color.color};
+  color: ${p => p.color};
   cursor: pointer;
 
   padding-left: 20px;
@@ -106,11 +106,13 @@ export default class Filter extends Component {
   }
 
   render() {
-    const { tags } = this.props;
+    const { tags, color } = this.props;
     const { show } = this.state;
     return (
       <Tags>
-        <Show onClick={this.handleClick}>{show ? 'Hide' : 'Show'} filter</Show>
+        <Show color={color} onClick={this.handleClick}>
+          {show ? 'Hide' : 'Show'} filter
+        </Show>
         <Fade collapse when={show}>
           <Grid>
             <h3>Tags:</h3>
@@ -120,6 +122,7 @@ export default class Filter extends Component {
                   .sort()
                   .map(each => (
                     <Tag
+                      color={color}
                       key={uuid()}
                       onClick={() => this.handleCheckbox(each)}
                       className={tags[each] ? 'checked' : ''}
