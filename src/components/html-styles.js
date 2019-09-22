@@ -96,7 +96,7 @@ const Html = styled.div`
     &.mosaic {
       display: grid;
       grid-gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       img {
         border: 1px solid ${p => p.theme.color.gray};
       }
@@ -107,19 +107,19 @@ const Html = styled.div`
       }
 
       &.medium {
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       }
 
       &.large {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
 
       &.four {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       }
 
       &.five {
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
       }
     }
 

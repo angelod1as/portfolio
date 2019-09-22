@@ -28,8 +28,6 @@ const Grid = styled.div`
     & > div {
       display: flex;
       flex-wrap: wrap;
-      /* grid-template-columns: repeat(auto-fit, minmax(100px, auto)); */
-      /* grid-gap: 10px; */
     }
   }
 `;
