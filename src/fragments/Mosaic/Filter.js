@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import uuid from 'uuid/v1';
+import PropTypes from 'prop-types';
 
 import size from '../../components/breakpoints';
 
@@ -35,11 +36,11 @@ const Grid = styled.div`
 const Tag = styled.div`
   transition: all 0.1s;
   user-select: none;
-  padding: 10px;
+  padding: 7px 10px;
   border: 1px solid ${p => p.color};
-  border-radius: 15px;
+  /* border-radius: 15px; */
   text-align: center;
-  margin: 3px;
+  margin: 4px;
   cursor: pointer;
   input {
     display: none;
@@ -83,7 +84,6 @@ const Show = styled.div`
 export default class Filter extends Component {
   constructor(props) {
     super(props);
-    const { items } = this.props;
 
     this.state = {
       show: false,
@@ -139,3 +139,9 @@ export default class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  check: PropTypes.func.isRequired,
+  tags: PropTypes.shape().isRequired,
+  color: PropTypes.string.isRequired,
+};

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
-import Fade from 'react-reveal/Fade';
 import { Link } from 'gatsby';
 
 const H1 = styled.h1`
@@ -53,7 +52,19 @@ const Back = styled(Link)`
   }
 `;
 
-const ReadMore = styled(Link)``;
+const ReadMore = styled(Link)`
+  background-color: ${p => p.theme.color.white};
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  /* border-radius: 5px; */
+  &:hover {
+    transform: translate(5px, -5px);
+    box-shadow: -5px 5px 0px 0px rgba(0, 0, 0, 0.75);
+  }
+`;
 
 const Sidebar = ({ from, type, title, excerpt, live, path }) => {
   if (type === 'projects') {
@@ -62,7 +73,7 @@ const Sidebar = ({ from, type, title, excerpt, live, path }) => {
         <Back to="/">back</Back>
         <H1>{title}</H1>
         {excerpt ? parse(excerpt) : ''}
-        <ReadMore to={`${path}about`}>Read more</ReadMore>
+        <ReadMore to={`${path}about`}>Know more</ReadMore>
       </>
     );
   }
@@ -98,11 +109,13 @@ Sidebar.propTypes = {
   path: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
   live: PropTypes.string,
+  from: PropTypes.string,
 };
 
 Sidebar.defaultProps = {
   excerpt: null,
   live: null,
+  from: null,
 };
 
 export default Sidebar;
