@@ -50,7 +50,7 @@ class Mosaic extends Component {
   }
 
   render() {
-    const { items, color } = this.props;
+    const { items, color, path } = this.props;
     const { tags } = this.state;
     const checkedTags = Object.keys(tags).filter(tag => tags[tag] === true);
     const hasTrue = Object.values(tags).includes(true);
@@ -68,7 +68,15 @@ class Mosaic extends Component {
               return each;
             })
             .map(({ frontmatter, fullPath }) => {
-              return <Tile color={color} key={uuid()} front={frontmatter} fullPath={fullPath} />;
+              return (
+                <Tile
+                  fromPath={path}
+                  color={color}
+                  front={frontmatter}
+                  fullPath={fullPath}
+                  key={uuid()}
+                />
+              );
             })}
         </MosaicHolder>
       </Fade>

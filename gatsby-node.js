@@ -144,6 +144,16 @@ exports.createPages = async ({ actions, graphql }) => {
         type,
       },
     });
+
+    createPage({
+      path: `${fullPath}about`,
+      component: path.resolve(`src/templates/page.js`),
+      context: {
+        id,
+        title,
+        type: 'about',
+      },
+    });
   });
 
   // #########
@@ -180,7 +190,7 @@ exports.createPages = async ({ actions, graphql }) => {
   projectsQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const {
       id,
-      frontmatter: { title, type },
+      frontmatter: { title },
       fields: { fullPath },
     } = node;
     createPage({
@@ -189,7 +199,7 @@ exports.createPages = async ({ actions, graphql }) => {
       context: {
         id,
         title,
-        type,
+        type: 'project',
       },
     });
   });

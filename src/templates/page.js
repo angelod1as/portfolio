@@ -65,15 +65,24 @@ const Content = styled.div`
 
 const Page = props => {
   const {
+    pageContext: { type: contextType },
+    location,
     data: {
       pageInfo: {
-        frontmatter: { title, type },
+        frontmatter: { title, live },
         excerpt,
         html,
       },
       items,
     },
+    path,
   } = props;
+
+  const { state } = location;
+  let from = null;
+  if (state) {
+    from = state.from;
+  }
 
   const seo = `Angelo Dias does ${title}`;
 
@@ -93,29 +102,26 @@ const Page = props => {
 
   const color = colors[Math.floor(Math.random() * colors.length)];
 
-  if (type === 'projects') {
-    return (
-      <Container seo={seo}>
-        <Grid>
-          <SidebarHolder color={color}>
-            <Sidebar title={title} excerpt={excerpt} color={color} />
-          </SidebarHolder>
-          <Content>
-            <Mosaic items={collection} color={color} />
-          </Content>
-        </Grid>
-      </Container>
-    );
-  }
+  const getContent = pageType => {
+    if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
+    return <Html color={color}>{parse(html)}</Html>;
+  };
+
   return (
     <Container seo={seo}>
       <Grid>
         <SidebarHolder color={color}>
-          <Sidebar title={title} color={color} />
+          <Sidebar
+            excerpt={excerpt}
+            live={live}
+            path={path}
+            type={contextType}
+            title={title}
+            color={color}
+            from={from}
+          />
         </SidebarHolder>
-        <Content>
-          <Html color={color}>{parse(html)}</Html>
-        </Content>
+        <Content>{getContent(contextType)}</Content>
       </Grid>
     </Container>
   );
@@ -164,9 +170,23 @@ export const query = graphql`
 
 Page.propTypes = {
   data: PropTypes.shape().isRequired,
+  path: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      from: PropTypes.string,
+    }),
+  }),
   pageContext: PropTypes.shape({
     type: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+Page.defaultProps = {
+  location: {
+    state: {
+      from: null,
+    },
+  },
 };
 
 export default Page;

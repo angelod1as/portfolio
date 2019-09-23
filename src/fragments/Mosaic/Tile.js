@@ -58,11 +58,11 @@ const Figure = styled.figure`
 `;
 
 const Tile = props => {
-  const { front, fullPath, from, color } = props;
+  const { front, fullPath, color, fromPath } = props;
   const { fluid } = front.image.childImageSharp;
   return (
     <Container color={color}>
-      <Link to={fullPath} from={from}>
+      <Link to={fullPath} from={fromPath}>
         <Figure>
           <Img fluid={fluid} />
         </Figure>
@@ -81,7 +81,7 @@ const Tile = props => {
 Tile.propTypes = {
   color: PropTypes.string.isRequired,
   fullPath: PropTypes.string.isRequired,
-  from: PropTypes.string,
+  fromPath: PropTypes.string,
   front: PropTypes.shape({
     image: PropTypes.shape({
       childImageSharp: PropTypes.shape({
@@ -95,7 +95,7 @@ Tile.propTypes = {
 };
 
 Tile.defaultProps = {
-  from: null,
+  fromPath: null,
 };
 
 export default Tile;
