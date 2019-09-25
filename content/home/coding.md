@@ -4,26 +4,37 @@ order: 2
 type: projects
 ---
 
-Coding: Exercitation ut nulla ut pariatur eiusmod in magna ipsum non velit tempor Lorem ea aliquip. Reprehenderit enim et aute nisi quis esse reprehenderit Lorem. Dolor deserunt eu quis elit veniam anim. Id mollit nulla veniam laboris laborum. Tempor sunt irure Lorem officia dolore culpa dolor velit ut voluptate et eu deserunt.
+Angelo identified the lack of programmers amongst his community and decided to learn it by himself. It's safe to say he learnt coding by doing.
+
+This makes him versatile and eager to learn new languages and workflows. His path points to web development, mainly front-end, but he wouldn't say no to a different proposal and would love to be part of a multidisciplinar and multicultural team.
 
 <!-- end -->
 
-things i know
+## Things he knows
 
-* [Web development with React, Redux, Node and other technologies](/)
-* [Print and digital layout design, from project to execution](/)
-* [Adobe Suite: a handfull of apps, from visual to audio](/)
-* [A *lot* of other things](/projects)
+* Javascript
+  * React
+  * Redux
+  * Node
+* CSS
+  * SCSS
+  * SASS
+  * Stylus
+* HTML
+  * JSX
+  * Pug
+* Adobe softwares
+  * Illustrator
+  * Photoshop
+  * [more](/)
 
-things i'd love to learn
-
-- Python, PHP, D3, Threejs
-- Data science/journalism
-- Making money from hobbies
-
-things i'm learning
+## Things he's learning
 
 - React Native
 - GraphQL, MongoDB
 - Adobe XD
-- Ableton Live
+
+## Things he'd love to learn
+
+- Python, PHP, D3, Threejs
+- Data science/journalism

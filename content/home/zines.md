@@ -4,10 +4,14 @@ order: 7
 type: projects
 ---
 
-Coding: Exercitation ut nulla ut pariatur eiusmod in magna ipsum non velit tempor Lorem ea aliquip. Reprehenderit enim et aute nisi quis esse reprehenderit Lorem. Dolor deserunt eu quis elit veniam anim. Id mollit nulla veniam laboris laborum. Tempor sunt irure Lorem officia dolore culpa dolor velit ut voluptate et eu deserunt.
+Angelo's zines talk about... anything. He has one about his first date with a girl, another about death and a small one about some translated ancient chinese script — obviously false.
+
+While working at many projects, Angelo found himself in need of artistic expression without traditional boundaries. As he's not so good with this "zero boundaries" thing, he created his own.
 
 <!-- end -->
 
-Quis cillum excepteur Lorem esse nisi ipsum culpa ut reprehenderit non magna ipsum excepteur. Ullamco nulla eu sunt do ut. Enim veniam nostrud ullamco mollit incididunt veniam est irure consectetur. Cupidatat officia eiusmod sit pariatur aliquip consequat deserunt consectetur voluptate.
+The chosen format was two A4 papers folded and stapled — A5 result. After meeting Márcio Sno, Angelo started doing minizines — A7 sized, 16 pages. Printed at home or at the cheap xerox place, his zines express thoughts and ideas that *could* be better expressed... but lack the time and money needed.
 
-Qui sint officia commodo pariatur ullamco consequat veniam proident irure cupidatat culpa occaecat. Sit amet et qui sit. Anim quis cillum duis quis esse ullamco tempor ea mollit eiusmod minim velit occaecat. Aute Lorem nisi minim minim cillum ea magna esse ad velit esse quis nisi. Non enim consequat nisi et sit excepteur ullamco culpa eiusmod est.
+He plans to make a 12 issue collections — inspired by Aline Valek — but couldn't find the time yet. On a second thought, he should do a zine about not finding time. Nice.
+
+Download for free or (please) buy his work at [cronofobia.com](https://cronofobia.com).

@@ -32,6 +32,11 @@ const Html = styled.div`
     margin: 40px 0 20px 0;
   }
 
+  h3 {
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+  }
+
   p {
     font-weight: 300;
   }

@@ -4,41 +4,20 @@ order: 3
 type: projects
 ---
 
-I don't just 'know softwares'. **I'm a professional Layout Designer**.
+Angelo doesn't just 'know softwares'. **He's a professional Layout Designer**.
 
-Five years at Folha de S.Paulo, Latin America's bigger newspaper, taught me a lot about organizing content in limited spaces, being those the margins of a page or the kb limit on a file.
+Five years at Folha de S.Paulo, Latin America's bigger newspaper, taught him a lot about organizing content in limited spaces, being those the margins of a page or the kb limit on a file.
 
 <!-- end -->
 
-[You can read about my digital work here](/websites).
-
 ## Work
 
-Before moving to coding, I built *a lot* of pages at Folha de S.Paulo. This link showcases some of the pages I liked to design at the time. They are a few years old, before Folha's new graphic project, but show that I already knew what I wanted to work with: sharp colors, whitespace, contrast.
+Before moving to coding, Angelo built *a lot* of pages at Folha de S.Paulo. You can see his (very amateur) beginner work [here](/http://be.net/angelod1as). They are a few years old, before Folha's new graphic project, but shows that he already knew what he wanted to work with: **sharp colors**, **whitespace** and **contrast**.
 
-After moving my focus to coding, I kept those keyords in mind. As I didn't want to loose what was a growing passion, I did what I could to keep designing [*stuff*](/about).
+After moving his focus to coding, he kept those keyords in mind. As he didn't want to loose what was a growing passion, he did what he could to keep designing [*stuff*](/stuff).
 
-My current layout design job is [Tempos Fantásticos](/tf). Using Adobe InDesign, I plan and execute each issue, with fixed and moving parts. Check some of the pages below:
+His current layout design job is [Tempos Fantásticos](/newspaper). Using Adobe InDesign, he plans and executes each issue, with fixed and moving parts, variable article lenghts and multiple illustrations direction.
 
-- PÁGINAS DO TF COM EXPLICAÇÕES
+He also does smaller jobs, like folders and [slides](/). Actually, he does whatever he identifies with, being that a large project for a mega company or a small hobby project with friends.
 
-I also do smaller jobs, like folders and slides — which, I know, are not *print*, but their design is closer to print than coding a website. Some examples below.
-
-<figure>
-
-![](/assets/fantasistas1.jpg)
-
-[Fantasistas' slides](/portfolio/fantasistas)
-
-</figure>
-
-<!-- <figure>
-
-![]()
-
-[Tempos Fantásticos' portfolio](/)
-
-</figure> -->
-
-- EXEMPLO TF PORTIF
-- ???? q mais?
+Design is something he'll never stop loving, no matter where the world takes him.
