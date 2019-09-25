@@ -4,7 +4,7 @@ order: 5
 type: text
 ---
 
-> *[Tempos Fantásticos](https://www.temposfantasticos.com/)* is a satirical sci-fi and fantasy newspaper, with features about the alternative features, presents and pasts.
+> *[Tempos Fantásticos](https://www.temposfantasticos.com/)* is a satirical sci-fi and fantasy newspaper, with features about the alternative futures, presents and pasts.
 >
 > It's possible to find news, ads, comic strips, illustration, opinion pieces — like the one about tourism in imaginary places and obituaries of people from all time and space — and interviews with universal personalities — like lovecraftian Cthulhu and demonic Devil.
 >

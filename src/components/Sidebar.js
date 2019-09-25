@@ -6,9 +6,12 @@ import { Link } from 'gatsby';
 
 const H1 = styled.h1`
   font-weight: 700;
-  margin: 30px 0;
+  margin: 30px 0 0 0;
   line-height: 1.3em;
   font-size: 24px;
+  & + p {
+    margin-top: 30px;
+  }
 `;
 
 const Live = styled.div`

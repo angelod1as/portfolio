@@ -6,6 +6,7 @@ import uuid from 'uuid/v1';
 
 import Container from '../components/container';
 import colors from '../components/colors';
+import sizes from '../components/breakpoints';
 
 const Grid = styled.div`
   display: grid;
@@ -15,6 +16,9 @@ const Grid = styled.div`
 const Tile = styled(Link)`
   display: block;
   width: 100%;
+  @media ${sizes.medium} {
+    width: 100vw;
+  }
   padding-bottom: 100%;
   position: relative;
   color: ${p => p.theme.color.white};
@@ -33,6 +37,11 @@ const Inside = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 10%;
+  @media ${sizes.medium} {
+    padding: 0;
+    align-items: center;
+    text-align: center;
+  }
   transition: 0.2s transform;
 
   &:hover {
@@ -50,9 +59,16 @@ const Text = styled.p`
 
 const Small = styled(Text)`
   font-size: 1.5em;
+  @media ${sizes.medium} {
+    font-size: 1.2em;
+  }
 `;
 
-const Big = styled(Text)``;
+const Big = styled(Text)`
+  @media ${sizes.medium} {
+    font-size: 2.3em;
+  }
+`;
 
 const Home = ({
   data: {
