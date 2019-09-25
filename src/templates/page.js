@@ -65,6 +65,7 @@ const Content = styled.div`
 
 const Page = props => {
   const {
+    notFound,
     pageContext: { type: contextType },
     location,
     data: {
@@ -86,27 +87,47 @@ const Page = props => {
 
   const seo = `Angelo Dias does ${title}`;
 
-  const collection = items.edges.map(({ node }) => {
-    const { frontmatter } = node;
-    const { fullPath } = node.fields;
-    const image = items.edges.filter(each => {
-      const imageId = each.node.frontmatter.image.childImageSharp.id;
-      return frontmatter.image.childImageSharp.id === imageId;
-    });
-    frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
-    return {
-      frontmatter,
-      fullPath,
-    };
-  });
-
   const color = colors[Math.floor(Math.random() * colors.length)];
 
-  const getContent = pageType => {
-    if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
-    return <Html color={color}>{parse(html)}</Html>;
-  };
+  if (!notFound) {
+    const collection = items.edges.map(({ node }) => {
+      const { frontmatter } = node;
+      const { fullPath } = node.fields;
+      const image = items.edges.filter(each => {
+        const imageId = each.node.frontmatter.image.childImageSharp.id;
+        return frontmatter.image.childImageSharp.id === imageId;
+      });
+      frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
+      return {
+        frontmatter,
+        fullPath,
+      };
+    });
 
+    const getContent = pageType => {
+      if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
+      return <Html color={color}>{parse(html)}</Html>;
+    };
+
+    return (
+      <Container seo={seo}>
+        <Grid>
+          <SidebarHolder color={color}>
+            <Sidebar
+              excerpt={excerpt}
+              live={live}
+              path={path}
+              type={contextType}
+              title={title}
+              color={color}
+              from={from}
+            />
+          </SidebarHolder>
+          <Content>{notFound ? 'oi' : getContent(contextType)}</Content>
+        </Grid>
+      </Container>
+    );
+  }
   return (
     <Container seo={seo}>
       <Grid>
@@ -121,7 +142,10 @@ const Page = props => {
             from={from}
           />
         </SidebarHolder>
-        <Content>{getContent(contextType)}</Content>
+        <Content>
+          <h2>Page not found</h2>
+          <p>Click on the "back" link to go... well, back.</p>
+        </Content>
       </Grid>
     </Container>
   );
@@ -169,6 +193,7 @@ export const query = graphql`
 `;
 
 Page.propTypes = {
+  notFound: PropTypes.bool,
   data: PropTypes.shape().isRequired,
   path: PropTypes.string.isRequired,
   location: PropTypes.shape({
@@ -182,6 +207,7 @@ Page.propTypes = {
 };
 
 Page.defaultProps = {
+  notFound: false,
   location: {
     state: {
       from: null,

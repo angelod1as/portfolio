@@ -94,6 +94,14 @@ const Sidebar = ({ from, type, title, excerpt, live, path }) => {
       </>
     );
   }
+  if (type === '404') {
+    return (
+      <>
+        <Back to="/">back</Back>
+        <H1>{title}</H1>
+      </>
+    );
+  }
   const backPath = path.replace('/about', '');
   return (
     <>

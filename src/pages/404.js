@@ -1,30 +1,30 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import Container from '../components/container';
+import Page from '../templates/page';
 
-import Sidebar from '../components/Sidebar';
-
-const seo = 'Erro 404';
-
-const IndexPage = () => {
+const notFound = () => {
   return (
-    <Container seo={seo}>
-      <Sidebar title="Erro 404" />
-      <div>
-        <h1>Oops, acho que você chegou em uma página que não existe!</h1>
-        <img
-          src="https://img.shields.io/github/last-commit/angelod1as/portfolio?color=%2319006A"
-          alt=""
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-      </div>
-    </Container>
+    <Page
+      type="notFound"
+      notFound
+      pageContext={{ type: 'notFound' }}
+      data={{
+        pageInfo: {
+          frontmatter: {
+            title: '404',
+            live: null,
+          },
+          excerpt: null,
+          html: null,
+        },
+      }}
+      path="/"
+    />
   );
 };
 
-// IndexPage.propTypes = {
+// notFound.propTypes = {
 //   location: PropTypes.shape({
 //     state: PropTypes.shape({
 //       from: PropTypes.string,
@@ -38,7 +38,7 @@ const IndexPage = () => {
 //   }).isRequired,
 // };
 
-// IndexPage.defaultProps = {
+// notFound.defaultProps = {
 //   location: {
 //     state: {
 //       from: null,
@@ -46,4 +46,4 @@ const IndexPage = () => {
 //   },
 // };
 
-export default IndexPage;
+export default notFound;
