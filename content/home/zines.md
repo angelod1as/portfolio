@@ -4,9 +4,9 @@ order: 7
 type: projects
 ---
 
-Angelo's zines talk about... anything. He has one about his first date with a girl, another about death and a small one about some translated ancient chinese script — obviously false.
+Angelo's zines talk about... anything. He has one about his first date with a girl, another one about death and a small one about some translated ancient chinese script — obviously false.
 
-While working at many projects, Angelo found himself in need of artistic expression without traditional boundaries. As he's not so good with this "zero boundaries" thing, he created his own.
+While working on many projects, Angelo found himself in need of artistic expression without traditional boundaries. As he's not so good with this "zero boundaries" thing, he created his own.
 
 <!-- end -->
 
