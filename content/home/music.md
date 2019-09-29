@@ -4,11 +4,11 @@ order: 9
 type: projects
 ---
 
-Bits and bytes, beeps and blops (what a terrible start). Lacking the skills required to play analogic instruments — and with enough knowledge in music theory, Angelo found *electronic music* as a last resort in his search of a musical career.
+Bits and bytes, beeps and blops (what a terrible start). Lacking the required skills to play traditional musical instruments — and with enough knowledge in music theory, Angelo found *electronic music* as a last resort in his search of a musical career.
 
-He's been failing since then.
+He's been failing ever since.
 
-He keeps making weird music and would love to work composing for videogames.
+He keeps making weird music and would love to work composing for video games.
 
 <!-- end -->
 
