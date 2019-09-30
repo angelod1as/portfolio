@@ -32,7 +32,7 @@ In its current form, *[Tempos Fantásticos](https://www.temposfantasticos.com/)*
 
 ## When
 
-The project started in February 2016 and exists ever since.
+The project started in February 2016 and exists ever since. Unfortunatelly, it's only in portuguese. I'd more than love to translate this project to any language.
 
 <figure class="medium">
 
@@ -41,6 +41,8 @@ The project started in February 2016 and exists ever since.
 Tempos Fantásticos first issue
 
 </figure>
+
+<!-- Adicionar foto mais chamativa e traduzir chamadas -->
 
 ## Where
 

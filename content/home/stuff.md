@@ -26,7 +26,7 @@ His time (from ungodly early to late at night) is invested, as he says, "making 
 
 *Stuff*.
 
-One very singular example of *stuff* he does is his three-year-running satirical newspaper, Tempos Fantásticos. After thinking how to mix journalism, design and science-fiction, he designed, wrote and sold the newspapers' first edition. It was pretty bad. Gladly, three or four years can greatly improve a publication.
+One very singular example of *stuff* he does is his three-year-running satirical newspaper, Tempos Fantásticos. After thinking how to mix journalism, design and science-fiction, he designed, wrote and sold the newspapers' first edition. He did his best to unite passionate people and, after a few issues, he had a team of volunteers working alongside him. The publication improved a lot over three or four years.
 
 Another of this *stuff* is... well, this website. He loves to code and is eager to learn new technologies. Beyond paid work, he likes quizzes, data-driven search tools and storytelling platforms. He's excited to take part in new digital projects, some of them still *very* secret.
 
@@ -54,7 +54,7 @@ Angelo can:
 
 Whoa, that's a big list... and that doesn't even scrach the surface of what he does.
 
-If you read this far, I recommend clicking here and going back to the main page. There you can explore more *stuff* he does and even know him better, like, knowing what he does when he's not working — like, never.
+If you read this far, I recommend clicking [here](/) and going back to the main page. There you can explore more *stuff* he does and even know him better, like, knowing what he does when he's not working — like, never.
 
 ## He'd like to work:
 
