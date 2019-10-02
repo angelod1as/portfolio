@@ -68,4 +68,4 @@ Nowadays the project is maintained by a team of five singular individuals: mysel
 
 ## How
 
-All the newspaper's layout is made usign Adobe InDesign. The texts are written at Google Docs and our (almost endless) tasks are managed through Trello.ore culpa dolor velit ut voluptate et eu deserunt.
+All the newspaper's layout is made usign Adobe InDesign. The texts are written at Google Docs and our (almost endless) tasks are managed through Trello.

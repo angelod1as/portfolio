@@ -14,6 +14,13 @@ const Html = styled.div`
     color: ${p => p.color};
   }
 
+  hr {
+    max-width: 100%;
+    margin: 70px 0;
+    border-top: 1px dashed ${p => p.color};
+    /* opacity: 0.5; */
+  }
+
   h1 {
     font-size: 2.5em;
     font-weight: 700;

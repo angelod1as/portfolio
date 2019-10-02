@@ -4,13 +4,13 @@ order: 2
 type: projects
 ---
 
-Angelo identified the lack of programmers amongst his design community and decided to learn it by himself. It's safe to say he learned coding by doing it.
+I identified the lack of programmers amongst my design community and decided to learn it by myself. It's safe to say I learned coding by doing it.
 
-This makes him versatile, eager and capable to learn new languages and workflows. His path points to web development, mainly front-end, but he wouldn't say no to a different proposal and would love to be a part of a multidisciplinary and multicultural team.
+This makes me versatile, eager and capable to learn new languages and workflows. My path points to web development, mainly front-end, but I wouldn't say no to a different proposal and would love to be a part of a multidisciplinary and multicultural team.
 
 <!-- end -->
 
-## Things he knows
+## Things I knows
 
 * Javascript
   * React
@@ -28,13 +28,13 @@ This makes him versatile, eager and capable to learn new languages and workflows
   * Photoshop
   * [more](/)
 
-## Things he's learning
+## Things I'm learning
 
 - React Native
 - GraphQL, MongoDB
 - Adobe XD
 
-## Things he'd love to learn
+## Things I'd love to learn
 
 - Python, PHP, D3, Threejs
 - Data science/journalism

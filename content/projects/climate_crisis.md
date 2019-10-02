@@ -27,8 +27,6 @@ Published in English, Spanish and Portuguese. Photos used in this portfolio are 
 
 ## Development details
 
-
-
 Made using a team-built React boilerplate at Folha, the main issue of this project is making content available for Google's crawlers, while being able to deploy changes using Folha's internal system.
 
 The solution was to mix a few technologies. The pages are built with their latest changes as static HTML and, after loading the JS script, updated with new changes — coming through JSON files. When the team is available, the project is redeployed so the new changes are made static.

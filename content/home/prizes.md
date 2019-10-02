@@ -6,3 +6,8 @@ noIDo: true
 ---
 
 List of all my prizes
+
+- Petrobrás
+- Rei da Espanha
+- Grande Prêmio Folha
+- Cruz Vermelha
