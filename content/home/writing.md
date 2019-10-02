@@ -4,6 +4,8 @@ order: 6
 type: projects
 ---
 
+<!-- TODO lacking images -->
+
 From serious journalism to not-so-serious fiction, I never stop writing. Even before journalism school I tried to create stories, characters and settings from scratch. From there, I learned how to tell compelling narratives from simple facts, organizing and displaying them harmoniously.
 
 Since then, I wrote a few pieces about comics and games for Folha de S.Paulo, comic scripts about beer for a niche magazine, fake news for his fake newspaper and short stories for himself.

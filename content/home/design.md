@@ -4,6 +4,8 @@ order: 3
 type: projects
 ---
 
+<!-- TODO lacking images -->
+
 I don't just 'know softwares'. **I'm a professional layout designer**.
 
 Five years at Folha de S.Paulo (Latin America's biggest newspaper) taught me a lot about organizing content in limited spaces, being those the margins of a page or the kb limit of a file.

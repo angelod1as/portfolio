@@ -4,6 +4,9 @@ order: 5
 type: text
 ---
 
+<!-- TODO lacking images -->
+<!-- TODO citado na Strange Horizons, pesquisa Nuno e tbm Marcela -->
+
 > *[Tempos Fantásticos](https://www.temposfantasticos.com/)* is a satirical sci-fi and fantasy newspaper, with features about the alternative futures, presents and pasts.
 >
 > It's possible to find news, ads, comic strips, illustrations, opinion pieces — like the one about tourism in imaginary places and obituaries of people from all time and space — and interviews with universal personalities — like the lovecraftian Cthulhu and the demonic Devil.

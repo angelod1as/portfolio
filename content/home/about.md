@@ -5,7 +5,11 @@ type: text
 noIDo: true
 ---
 
+<!-- TODO lacking images -->
+
 Through a specific angle, this whole website is an *About* page. Everything I do can be characterized as *work*, in a way, so this page will only talk about what I do that isn't working.
+
+<!-- TODO: Currículo "oficial" e BORING em PDF -->
 
 ## All work and no play
 

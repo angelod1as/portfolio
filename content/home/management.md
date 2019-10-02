@@ -4,6 +4,8 @@ order: 4
 type: text
 ---
 
+<!-- TODO lacking images -->
+
 I like taking part in new projects, but what I really love is managing them. I had a hunch about this while playing games — base-building, complex-systems, intricate-strategies games — but only after studying on a Project Management post-grad course at Mackenzie University, in São Paulo, I figured out this was another one of my passions.
 
 My most recent management activity is my sci-fi satirical newspaper [Tempos Fantásticos](/). My tasks range from managing finances to building and maintaining publishing schedules. I also travels to fairs and events as one of the project's faces. You can read more about my role at Tempos Fantásticos [here](/newspaper).

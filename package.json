@@ -18,6 +18,7 @@
     "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sharp": "^2.2.21",
     "gatsby-plugin-styled-components": "^3.1.5",
+    "gatsby-remark-autolink-headers": "^2.1.13",
     "gatsby-remark-custom-blocks": "^2.1.9",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.1.21",

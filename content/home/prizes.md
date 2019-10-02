@@ -12,7 +12,7 @@ List of all my prizes
 - Grande Prêmio Folha
 - Cruz Vermelha
 
-
+<!-- TODO lacking images -->
 
 
 * [King of Spain prize - digital journalism](https://www.agenciaefe.es/premios-rey-espana/)

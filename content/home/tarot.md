@@ -4,6 +4,8 @@ order: 8
 type: text
 ---
 
+<!-- TODO lacking images -->
+
 I define myself as an agnostic tarot reader. I'm not into crystals, candles or aliens. I'm deep into understanding tarot meanings and symbology, as a means to understand ourselves in our present moment — as if the cards were asking the unwanted questions.
 
 ## Agnosticism

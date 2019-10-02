@@ -4,6 +4,8 @@ order: 1
 type: text
 ---
 
+<!-- TODO lacking images -->
+
 According to Merriam-Webster:
 
 > **Stuff - noun**
