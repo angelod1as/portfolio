@@ -16,7 +16,7 @@ const Grid = styled.div`
 const Tile = styled(Link)`
   display: block;
   width: 100%;
-  @media ${sizes.medium} {
+  @media ${sizes.large} {
     width: 100vw;
   }
   padding-bottom: 100%;
@@ -59,13 +59,13 @@ const Text = styled.p`
 
 const Small = styled(Text)`
   font-size: 1.5em;
-  @media ${sizes.medium} {
+  @media ${sizes.large} {
     font-size: 1.2em;
   }
 `;
 
 const Big = styled(Text)`
-  @media ${sizes.medium} {
+  @media ${sizes.large} {
     font-size: 2.3em;
   }
 `;

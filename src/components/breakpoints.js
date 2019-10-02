@@ -1,6 +1,7 @@
 const size = {
-  medium: `(max-width: 1200px)`,
-  small: `(max-width: 500px)`,
+  large: `(max-width: 1200px)`,
+  medium: `(max-width: 900px)`,
+  small: `(max-width: 600px)`,
 };
 
 export default size;
