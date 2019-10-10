@@ -67,6 +67,7 @@ const Content = styled.div`
 const Page = props => {
   const {
     notFound,
+    pageContext,
     pageContext: { type: contextType },
     location,
     data: {
@@ -79,6 +80,8 @@ const Page = props => {
     },
     path,
   } = props;
+
+  console.log(pageContext);
 
   const { state } = location;
   let from = null;
@@ -95,7 +98,6 @@ const Page = props => {
       const { frontmatter } = node;
       const { fullPath } = node.fields;
       const image = items.edges.filter(each => {
-        console.log(each);
         const imageId = each.node.frontmatter.image.childImageSharp.id;
         return frontmatter.image.childImageSharp.id === imageId;
       });
@@ -125,7 +127,16 @@ const Page = props => {
               from={from}
             />
           </SidebarHolder>
-          <Content>{notFound ? 'Page not found' : getContent(contextType)}</Content>
+          <Content>
+            {notFound ? (
+              <>
+                <h2>Page not found</h2>
+                <p>Click on the "back" link to go... well, back.</p>
+              </>
+            ) : (
+              getContent(contextType)
+            )}
+          </Content>
         </Grid>
       </Container>
     );
@@ -154,7 +165,7 @@ const Page = props => {
 };
 
 export const query = graphql`
-  query($id: String!, $title: String!) {
+  query($id: String!, $tag: [String]) {
     pageInfo: markdownRemark(id: { eq: $id }) {
       id
       frontmatter {
@@ -166,7 +177,7 @@ export const query = graphql`
       excerpt(format: HTML)
       html
     }
-    items: allMarkdownRemark(filter: { frontmatter: { tags: { in: [$title] } } }) {
+    items: allMarkdownRemark(filter: { frontmatter: { tags: { in: $tag } } }) {
       edges {
         node {
           frontmatter {

@@ -6,7 +6,7 @@ desc: >-
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
   - writing
-  - zine
+  - zines
   - comics
 image: /assets/opening/dezoito.jpg
 ---

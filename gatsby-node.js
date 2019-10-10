@@ -117,6 +117,7 @@ exports.createPages = async ({ actions, graphql }) => {
               title
               order
               type
+              tag
             }
           }
         }
@@ -131,7 +132,7 @@ exports.createPages = async ({ actions, graphql }) => {
   homeTiles.data.allMarkdownRemark.nodes.forEach(node => {
     const {
       id,
-      frontmatter: { type, title },
+      frontmatter: { type, title, tag },
       fields: { fullPath },
     } = node;
 
@@ -142,6 +143,7 @@ exports.createPages = async ({ actions, graphql }) => {
         id,
         title,
         type,
+        tag: tag === null ? [title] : tag,
       },
     });
 

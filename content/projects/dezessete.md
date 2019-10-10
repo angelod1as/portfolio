@@ -6,7 +6,7 @@ desc: >-
 live: ''
 tags:
   - writing
-  - zine
+  - zines
 image: /assets/opening/dezessete.jpg
 ---
 

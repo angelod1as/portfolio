@@ -4,14 +4,22 @@ order: 99
 type: text
 noIDo: true
 ---
+- [About](#about)
+  - [Games](#games)
+  - [Books](#books)
+  - [Music](#music)
+  - [Travel](#travel)
+  - [What else?](#what-else)
+- [Colophon](#colophon)
+  - [Why](#why)
+  - [How](#how)
 
 <!-- TODO lacking images -->
-
-Through a specific angle, this whole website is an *About* page. Everything I do can be characterized as *work*, in a way, so this page will only talk about what I do that isn't working.
-
 <!-- TODO: Currículo "oficial" e BORING em PDF -->
 
-## All work and no play
+# About
+
+Through a specific angle, this whole website is an *About* page. Everything I do can be characterized as *work*, in a way, so this page will only talk about what I do that isn't working.
 
 I live in downtown São Paulo, Brazil, in a non-monogamic relationship with my significant other — we are very outspoken about it. Two cute dogs accompany us on our journey.
 

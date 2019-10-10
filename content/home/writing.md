@@ -1,5 +1,8 @@
 ---
 title: writing & comics
+tag:
+- writing
+- comics
 order: 6
 type: projects
 ---

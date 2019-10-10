@@ -8,6 +8,12 @@ type: text
 
 I define myself as an agnostic tarot reader. I'm not into crystals, candles or aliens. I'm deep into understanding tarot meanings and symbology, as a means to understand ourselves in our present moment — as if the cards were asking the unwanted questions.
 
+<figure>
+
+![Illustration of Angelo reading cards](/o-ledor.jpg)
+
+</figure>
+
 ## Agnosticism
 
 Thomas Henry Huxley coined the term *agnostic* with the meaning we know now in 1869. In his view, everything lacking ways of proving should't be confirmed — not meaning the subject doesn't exists, only that we should research the researchable and let the not researchable just *be*.
