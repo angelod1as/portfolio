@@ -83,7 +83,10 @@ const Home = ({
             frontmatter: { title, noIDo },
             fields: { fullPath },
           } = node;
-          const link = `/${fullPath}`;
+          let link = `/${fullPath}`;
+          if (node.frontmatter.redir) {
+            link = node.frontmatter.redir;
+          }
           if (title === 'stuff') {
             return (
               <Tile to={link} key={uuid()}>
@@ -128,6 +131,7 @@ export const query = graphql`
           title
           order
           noIDo
+          redir
         }
       }
     }
