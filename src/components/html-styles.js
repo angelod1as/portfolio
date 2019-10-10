@@ -63,6 +63,12 @@ const Html = styled.div`
     margin-top: 0;
   }
 
+  pre[class*='language-'] {
+    & > code {
+      border-color: ${p => p.color};
+    }
+  }
+
   figure {
     margin: 30px 0;
     max-width: 920px;

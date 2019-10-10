@@ -133,7 +133,7 @@ const GlobalStyle = createGlobalStyle`
         content: none;
       }
       & > code {
-        border-color: ${p => p.theme.color.color};
+        border-color: ${p => p.theme.color.black};
         box-shadow: none;
         background-color: ${p => p.theme.color.white};
         background-image: none;

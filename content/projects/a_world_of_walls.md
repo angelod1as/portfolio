@@ -5,13 +5,8 @@ desc: >-
   Folha's feature about walls that divide countries, territories and even families around the world
 live: 'https://arte.folha.uol.com.br/mundo/2017/a-world-of-walls/'
 tags:
-  - coding
-  - javascript
-  - react
-  - folha
-  - feature
-  - stylus
-image: /assets/muros.jpeg
+  - talking
+image: /assets/opening/placeholder.png
 ---
 <iframe src="https://www.youtube.com/embed/s6-UB4SiB8I?color=blue" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

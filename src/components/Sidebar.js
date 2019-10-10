@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { Link } from 'gatsby';
 
+import parserOptions from './parser';
+
 const H1 = styled.h1`
   font-weight: 700;
   margin: 30px 0 0 0;
@@ -75,7 +77,7 @@ const Sidebar = ({ from, type, title, excerpt, live, path }) => {
       <>
         <Back to="/">back</Back>
         <H1>{title}</H1>
-        {excerpt ? parse(excerpt) : ''}
+        {excerpt ? parse(excerpt, parserOptions) : ''}
         <ReadMore to={`${path}about`}>Know more</ReadMore>
       </>
     );

@@ -6,13 +6,7 @@ desc: >-
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
   - coding
-  - management
-  - javascript
-  - react
-  - folha
-  - feature
-  - stylus
-image: /assets/clima.jpg
+image: /assets/opening/placeholder.png
 ---
 ![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/clima.jpg)
 

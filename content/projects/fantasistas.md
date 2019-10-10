@@ -6,7 +6,7 @@ desc: >-
 tags:
   - design
   - layout
-image: /assets/fantasistas-square.jpg
+image: /assets/opening/placeholder.png
 ---
 
 <figure class="margin">

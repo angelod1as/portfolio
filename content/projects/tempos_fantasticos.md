@@ -6,13 +6,7 @@ desc: >-
 live: ''
 tags:
   - coding
-  - management
-  - javascript
-  - react
-  - folha
-  - feature
-  - stylus
-image: /assets/clima.jpg
+image: /assets/opening/placeholder.png
 ---
 
 <!-- TODO: solve information location -->

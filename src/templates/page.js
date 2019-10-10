@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
 import styled from 'styled-components';
 
+import parserOptions from '../components/parser';
 import Container from '../components/container';
 
 import Sidebar from '../components/Sidebar';
@@ -94,6 +95,7 @@ const Page = props => {
       const { frontmatter } = node;
       const { fullPath } = node.fields;
       const image = items.edges.filter(each => {
+        console.log(each);
         const imageId = each.node.frontmatter.image.childImageSharp.id;
         return frontmatter.image.childImageSharp.id === imageId;
       });
@@ -106,7 +108,7 @@ const Page = props => {
 
     const getContent = pageType => {
       if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
-      return <Html color={color}>{parse(html)}</Html>;
+      return <Html color={color}>{parse(html, parserOptions())}</Html>;
     };
 
     return (
@@ -123,7 +125,7 @@ const Page = props => {
               from={from}
             />
           </SidebarHolder>
-          <Content>{notFound ? 'oi' : getContent(contextType)}</Content>
+          <Content>{notFound ? 'Page not found' : getContent(contextType)}</Content>
         </Grid>
       </Container>
     );

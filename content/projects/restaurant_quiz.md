@@ -6,12 +6,7 @@ desc: >-
 live: 'https://arte.folha.uol.com.br/saopaulo/2019/06/30/quiz-melhor-sp/'
 tags:
   - coding
-  - javascript
-  - react
-  - folha
-  - tool
-  - embed
-image: /assets/hoje.png
+image: /assets/opening/placeholder.png
 ---
 <figure class="mosaic full">
 
