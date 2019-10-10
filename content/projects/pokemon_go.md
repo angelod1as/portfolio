@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2016-10-05T09:00:00.000Z
 title: Pokemon go
 desc: >-
-  desc
+  Journalistic opinion piece on Nintendo's mobile game at launch date
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - journalism
+image: /assets/opening/pokemon.jpg
 ---
 
 Pokemon Go's review from October 2016, just after the app's release, requested by Folha de S.Paulo technology desk. In portuguese only, [original here](https://www1.folha.uol.com.br/mercado/2016/08/1799155-pokemon-go-e-uma-experiencia-rasa-e-alimentada-pela-nostalgia.shtml).

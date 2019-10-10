@@ -1,12 +1,14 @@
 ---
-date: 2019-07-05T15:49:35.155Z
-title: Comics H Alt
+date: 2019-07-05T02:00:00.000Z
+title: Comics H-alt
 desc: >-
-  desc
+  Short stories written in comics format for a portuguese magazine
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - comics
+  - script
+image: /assets/opening/h-alt.jpg
 ---
 
 I wrote the script of a few short comics for the portuguese magazine H-alt. Below, a few words about them. Sadly, all comics are in portuguese, except the first one.

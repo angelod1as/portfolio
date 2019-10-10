@@ -1,19 +1,20 @@
 ---
-date: 2019-07-05T15:49:35.155Z
-title: Moon short story
+date: 2016-07-01T02:00:00.000Z
+title: Naked Moon
 desc: >-
-  desc
+  Short story about individuals in a moon base
 live: ''
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - short
+image: /assets/opening/moon.jpg
 ---
 
 A short story from 2016.
 
 ## Naked Moon
 
-Her shift had ended at nine-twenty, but an hour and a half later, she was still inside the mines, her clothes covered in moon dust and tools full powered. There was no sound, but every time the hammer struck the rocks, vibrations shot through her arms to her head, and she could swear she heard the cracking.
+Her shift had ended at nine-twenty, but an hour and a half later, she was still inside the mines, her clothes covered in moon dust and tools fully powered. There was no sound, but every time the hammer struck the rocks, vibrations shot through her arms to her head, and she could swear she heard the cracking.
 
 The rock exploded but there was no mineral inside. Instead of gleaming red crystals, there was only worthless moon rock. Accounting summed a disappointing zero profit at the end of her shift. A sound on her comm meant she had to call it a day. She clicked a button on the side of the helmet and a staticky voice came through. “Jill, don’t let SHHH here, come SHHHH, it’s time.” She didn’t need the full message to get it; dinner was served and the ‘entertainment’ was missing.
 

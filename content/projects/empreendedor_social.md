@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2018-11-08T02:00:00.000Z
 title: Empreendedor Social
 desc: >-
-  desc...
+  Folha's prize for social entrepreneurs, designed and coded by me
 live: 'http://arte.folha.uol.com.br/empreendedorsocial/2018/premio/'
 tags:
   - coding
-image: /assets/opening/placeholder.png
+  - folha
+image: /assets/opening/empreendedor.jpg
 ---
 
 Every year, Folha de S.Paulo runs an event that awards social entrepreneurs. I've been responsible with this project's website — that differs from Folha's graphic project.

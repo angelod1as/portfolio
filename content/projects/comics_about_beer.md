@@ -1,12 +1,14 @@
 ---
-date: 2019-07-05T15:49:35.155Z
-title: Comics about beer
+date: 2017-04-05T02:00:00.000Z
+title: History in sips
 desc: >-
-  desc
+  Comics about the story of beer for WBeer magazine
 live: ''
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - script
+  - comics
+image: /assets/opening/beer.jpg
 ---
 
 "História em Goles" (History in Sips) is a comics section from WBeer magazine, a publication focused on beer enthusiasts.

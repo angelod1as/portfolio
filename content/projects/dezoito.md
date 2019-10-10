@@ -1,12 +1,14 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2019-01-01T02:00:00.000Z
 title: Dezoito
 desc: >-
-  desc
+  Comics about my yearly calendar project
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - zine
+  - comics
+image: /assets/opening/dezoito.jpg
 ---
 
 

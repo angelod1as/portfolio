@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2018-01-01T02:00:00.000Z
 title: Dezessete
 desc: >-
-  desc
+  Text about my father's death, illustrated by Manu Serra
 live: ''
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - zine
+image: /assets/opening/dezessete.jpg
 ---
 
 Dezessete is a zine about 2017 (DEZESSETE in english is SEVENTEEN), organized by Stefano Maccarini.

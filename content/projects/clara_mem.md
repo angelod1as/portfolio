@@ -1,12 +1,14 @@
 ---
-date: 2019-07-05T15:49:35.155Z
-title: Clara mem
+date: 2017-07-22T02:00:00.000Z
+title: Clara.mem
 desc: >-
-  desc
+  Alberto is caught in a time loop in this sci-fi short film
 live:
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - script
+  - audiovisual
+image: /assets/opening/claramem.jpg
 ---
 
 I wrote a script for MIS's (Museum of Image and Sound) experimental cinema division alongside Daguito Rodrigues. The result was Clara.mem, a short film about memory, traumas and technology.

@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2019-07-05T02:00:00.000Z
 title: Overwatch
 desc: >-
-  desc
+  Journalistic opinion piece on Blizzard's game at launch date
 live: ''
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - journalism
+image: /assets/opening/overwatch.jpg
 ---
 
 Overwatch's review from May 2015, just after it was released, requested by Folha de S.Paulo technology desk. In portuguese only, [original here](https://www1.folha.uol.com.br/mercado/2016/05/1773817-jogo-tem-a-violencia-como-tema-mas-o-sangue-logo-desaparece.shtml).

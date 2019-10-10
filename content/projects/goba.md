@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2019-09-16T02:00:00.000Z
 title: Goba and the magician
 desc: >-
   desc
 live: ''
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - short
+image: /assets/opening/goba.jpg
 ---
 
 Short story sent to Strange Horizon's Brazil issue but sadly rejected.

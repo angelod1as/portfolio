@@ -1,12 +1,14 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2016-29-03T02:00:00.000Z
 title: Shots between fangs
 desc: >-
-  desc
+  Violent, visceral and gritty short comic
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - script
+  - comics
+image: /assets/opening/shots-between-fangs.jpg
 ---
 
 *Shots Between Fangs* was originally published in the portuguese magazine H-Alt. With only seven pages, it's violent and visceral, with geometric shapes and dark colors.

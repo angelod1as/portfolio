@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2019-07-05T02:00:00.000Z
 title: Monsieur Jabot
 desc: >-
-  desc
+  Journalistic piece about one of the world's first graphic novels
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
-  - coding
-image: /assets/opening/placeholder.png
+  - writing
+  - journalism
+image: /assets/opening/jabot.jpg
 ---
 
 Journalistic piece for Folha de S.Paulo's culture desk, Ilustrada. Monsieur Jabot, one of the world's first graphic novels, was being published for the first time in Brazil and I had the opportunity to read it and talk about it.

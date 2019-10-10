@@ -1,12 +1,17 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2019-01-01T02:00:00.000Z
 title: Tempos Fantásticos
 desc: >-
-  desc...
+  A satirical sci-fi newspaper about the multiple past, present and future
 live: ''
 tags:
+  - writing
   - coding
-image: /assets/opening/placeholder.png
+  - journalism
+  - design
+  - layout
+  - print
+image: /assets/opening/tf.jpg
 ---
 
 <!-- TODO: solve information location -->

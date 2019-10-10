@@ -1,11 +1,12 @@
 ---
-date: 2019-08-07T18:21:28.580Z
+date: 2018-01-01T02:00:00.000Z
 title: Folha Boilerplate
-desc: bla bla
+desc: Projects using Folha's Art desk boilerplate and how we built it
 live: ''
 tags:
   - coding
-image: /assets/opening/placeholder.png
+  - folha
+image: /assets/opening/boilerplate.jpg
 ---
 
 Folha de S.Paulo's main online editorial software is bulky and full of features but, in many projects, Folha's journalists needed a different approach on reporting some subjects.

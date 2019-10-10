@@ -6,7 +6,8 @@ desc: >-
 tags:
   - design
   - layout
-image: /assets/opening/placeholder.png
+  - digital
+image: /assets/opening/fantasistas.jpg
 ---
 
 <figure class="margin">

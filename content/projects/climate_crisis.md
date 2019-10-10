@@ -1,12 +1,13 @@
 ---
-date: 2019-07-05T15:49:35.155Z
+date: 2018-04-22T02:00:00.000Z
 title: Climate crisis
 desc: >-
   Journalists visited several world locations to show climate change impact through human stories
 live: 'http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/'
 tags:
   - coding
-image: /assets/opening/placeholder.png
+  - folha
+image: /assets/opening/clima.jpg
 ---
 ![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/clima.jpg)
 
