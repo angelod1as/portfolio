@@ -15,9 +15,10 @@ tags:
 image: /assets/clima.jpg
 ---
 
-<!-- Todo: solve information location -->
+<!-- TODO: solve information location -->
 <!-- Will we put ALL TF INFO in one page or multiple? -->
 <!-- Is it valid to separate as projects? -->
+<!-- TODO solve redirects -->
 
 What do you want to see?
 
