@@ -56,7 +56,9 @@ const Html = styled.div`
   iframe {
     width: 100%;
     max-width: 920px;
-    height: 517px;
+    &.soundcloud {
+      height: initial;
+    }
   }
 
   & > figure:first-child {

@@ -81,8 +81,6 @@ const Page = props => {
     path,
   } = props;
 
-  console.log(pageContext);
-
   const { state } = location;
   let from = null;
   if (state) {
@@ -95,17 +93,20 @@ const Page = props => {
 
   if (!notFound) {
     const collection = items.edges.map(({ node }) => {
-      const { frontmatter } = node;
-      const { fullPath } = node.fields;
-      const image = items.edges.filter(each => {
-        const imageId = each.node.frontmatter.image.childImageSharp.id;
-        return frontmatter.image.childImageSharp.id === imageId;
-      });
-      frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
-      return {
-        frontmatter,
-        fullPath,
-      };
+      if (contextType === 'projects') {
+        const { frontmatter } = node;
+        const { fullPath } = node.fields;
+        const image = items.edges.filter(each => {
+          const imageId = each.node.frontmatter.image.childImageSharp.id;
+          return frontmatter.image.childImageSharp.id === imageId;
+        });
+        frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
+        return {
+          frontmatter,
+          fullPath,
+        };
+      }
+      return null;
     });
 
     const getContent = pageType => {

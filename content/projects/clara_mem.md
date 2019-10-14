@@ -19,4 +19,4 @@ In this short, Alberto (Igor Armucho) wakes up feeling a bit odd. He dresses-up,
 
 Watch the trailer:
 
-<div class="video" title="Título descritivo do vídeo para acessibilidade" data-video="Mpm5SqiSbmg"></div>
+<div class="video" title="Trailer Clara.mem" data-video="Mpm5SqiSbmg"></div>

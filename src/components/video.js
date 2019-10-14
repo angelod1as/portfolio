@@ -24,6 +24,7 @@ const Video = ({ id, title }) => {
   `;
 
   const Iframe = styled.iframe`
+    height: 517px;
     @media ${sizes.small} {
       height: 300px !important;
     }
