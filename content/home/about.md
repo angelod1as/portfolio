@@ -27,6 +27,8 @@ My parents are dead, sadly, but I has a lot of siblings, some of them 20 years y
 
 I love what most 30-somethings love nowadays: graphic novels, movies, tv series, occasional partying followed by a killer hangover, etc.
 
+![](/photo.jpg)
+
 Want to go deeper? Ok, then.
 
 ## Games

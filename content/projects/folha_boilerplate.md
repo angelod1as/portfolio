@@ -44,7 +44,7 @@ Darwin's 'Origin of the Species' was written after his trip to the archipelago.
 
 There's even a video made by myself.
 
-<div class="video" title="Título descritivo do vídeo para acessibilidade" data-video="jv2oYhIdbxo"></div>
+<div class="video" title="" data-video="jv2oYhIdbxo"></div>
 
 [Click it here to see it live — in portuguese](https://arte.folha.uol.com.br/ciencia/2017/arquipelago/historia/)
 

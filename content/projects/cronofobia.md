@@ -3,7 +3,7 @@ date: 2019-10-01T02:00:00.000Z
 title: Cronofobia
 desc: >-
   Zines about life, death and other stuff
-live: 'http://www.cronofobia.com/'
+live: 'https://www.cronofobia.com/'
 tags:
   - writing
   - zines
@@ -19,11 +19,11 @@ Looking for an escape from traditional publishing standards — while working at
 
 <figure class="mosaic full">
 
-![](http://www.cronofobia.com/images/nipple.jpg)
+![](https://www.cronofobia.com/images/nipple.jpg)
 
-![](http://www.cronofobia.com/images/lembrancas.jpg)
+![](https://www.cronofobia.com/images/lembrancas.jpg)
 
-![](http://www.cronofobia.com/images/euficoputo.jpg)
+![](https://www.cronofobia.com/images/euficoputo.jpg)
 
 </figure>
 

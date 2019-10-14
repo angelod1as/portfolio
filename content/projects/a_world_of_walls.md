@@ -9,7 +9,8 @@ tags:
   - folha
 image: /assets/opening/muros.jpg
 ---
-<iframe src="https://www.youtube.com/embed/s6-UB4SiB8I?color=blue" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="video" title="Título descritivo do vídeo para acessibilidade" data-video="s6-UB4SiB8I"></div>
 
 # About the project
 

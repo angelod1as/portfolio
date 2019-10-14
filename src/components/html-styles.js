@@ -33,6 +33,13 @@ const Html = styled.div`
     margin-top: 20px;
   }
 
+  picture {
+    span {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
   h2 {
     color: ${p => p.color};
     font-weight: 700;

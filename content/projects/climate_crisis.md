@@ -9,7 +9,7 @@ tags:
   - folha
 image: /assets/opening/clima.jpg
 ---
-![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/clima.jpg)
+![Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama - Lalo de Almeida/Folhapress](/assets/panama.jpg)
 
 # About the project
 
