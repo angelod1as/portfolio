@@ -115,7 +115,7 @@ const Page = props => {
     };
 
     return (
-      <Container seo={seo}>
+      <Container seo={seo} color={color}>
         <Grid>
           <SidebarHolder color={color}>
             <Sidebar

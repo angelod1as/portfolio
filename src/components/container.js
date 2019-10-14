@@ -7,7 +7,7 @@ import SEO from './seo';
 
 const theme = {
   color: {
-    color: '#19006A',
+    color: '#333333',
     white: '#FFFFFF',
     black: '#333333',
     gray: '#CCCCCC',
@@ -19,7 +19,9 @@ const theme = {
   },
 };
 
-const Container = ({ children, seo }) => {
+const Container = ({ children, seo, color }) => {
+  theme.color.color = color;
+
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -35,6 +37,7 @@ Container.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
     .isRequired,
   seo: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Container;

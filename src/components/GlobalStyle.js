@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
         top: -1px;
         left: 5px;
         position: absolute;
-        color: ${p => p.theme.color.color};
+        color: ${p => p.theme.color.black};
       }
     }
   }

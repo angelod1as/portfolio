@@ -147,6 +147,30 @@ const Html = styled.div`
       font-style: italic;
     }
   }
+
+  ul {
+    &.toc {
+      &:before {
+        content: 'What do you want to read about?';
+        font-size: 0.9em;
+      }
+      li {
+        margin: 5px 0;
+        p,
+        ul {
+          margin: 0;
+        }
+        a {
+          font-size: 0.9em;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      margin-bottom: 30px;
+    }
+  }
 `;
 
 export default Html;

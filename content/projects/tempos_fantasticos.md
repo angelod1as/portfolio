@@ -34,8 +34,6 @@ image: /assets/opening/tf.jpg
   - [Coding](#coding)
 - [Media and academy](#media-and-academy)
 
----
-
 <!-- TODO lacking images -->
 <!-- TODO citado na Strange Horizons, pesquisa Nuno e tbm Marcela -->
 
