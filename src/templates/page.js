@@ -177,7 +177,10 @@ export const query = graphql`
       excerpt(format: HTML)
       html
     }
-    items: allMarkdownRemark(filter: { frontmatter: { tags: { in: $tag } } }) {
+    items: allMarkdownRemark(
+      filter: { frontmatter: { tags: { in: $tag } } }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
           frontmatter {

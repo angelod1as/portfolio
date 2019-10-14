@@ -65,6 +65,7 @@ const Small = styled(Text)`
 `;
 
 const Big = styled(Text)`
+  line-height: 1.1em;
   @media ${sizes.large} {
     font-size: 2.3em;
   }
