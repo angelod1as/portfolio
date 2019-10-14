@@ -17,20 +17,23 @@ const H1 = styled.h1`
 `;
 
 const Live = styled.div`
-  color: ${p => p.theme.color.color};
-  background-color: ${p => p.theme.color.darkgray};
+  margin-top: 30px;
+  color: ${p => p.theme.color.black};
+  background-color: ${p => p.theme.color.black};
   font-size: 1.3em;
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
   a {
+    color: ${p => p.theme.color.black};
     width: 100%;
     padding: 10px 20px;
     background-color: ${p => p.theme.color.white};
+    text-decoration: none;
   }
   &:hover {
     a {
-      color: ${p => p.theme.color.color};
+      color: ${p => p.theme.color.black};
       transform: translate(5px, -5px);
     }
   }
