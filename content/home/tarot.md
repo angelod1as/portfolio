@@ -44,4 +44,4 @@ I understand and respects my religious peers. I even recommend that, if looking 
 
 ## Booking
 
-At the moment, I give *in loco* and online readings. You can contact him through [angelo\[at\]angelodias.com.br](mailto:angelo@angelodias.com.br) with 'Tarot' as subject.
+At the moment, I give *in loco* and online readings. You can contact me through [angelo\[at\]angelodias.com.br](mailto:angelo@angelodias.com.br) with 'Tarot' as subject.
