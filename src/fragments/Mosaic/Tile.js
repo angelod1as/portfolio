@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Link from '../../components/Link';
 
