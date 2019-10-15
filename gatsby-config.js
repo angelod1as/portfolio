@@ -5,6 +5,7 @@ module.exports = {
     title: `Angelo Dias' Portfolio`,
     description: `I do a lot of stuff and I'd like to show them`,
     author: `@_cronofobico`,
+    social: `./static/assets/social.png`,
   },
   plugins: [
     {
