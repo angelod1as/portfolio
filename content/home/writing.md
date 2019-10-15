@@ -9,11 +9,13 @@ type: projects
 
 <!-- TODO lacking images -->
 
+Writing is a hard passion to follow, but I'm resilient. I'll keep crunching those digits, typing those letters and forming those sentences.
+
+<!-- end -->
+
 From serious journalism to not-so-serious fiction, I never stop writing. Even before journalism school I tried to create stories, characters and settings from scratch. From there, I learned how to tell compelling narratives from simple facts, organizing and displaying them harmoniously.
 
 Since then, I wrote a few pieces about comics and games for Folha de S.Paulo, comic scripts about beer for a niche magazine, fake news for his fake newspaper and short stories for myself.
-
-<!-- end -->
 
 Writing a full-fledged novel is still on my plans. I'm still deciding if it will involve space travel or urban fantasy. Or both. Or neither.
 

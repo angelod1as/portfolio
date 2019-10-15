@@ -8,11 +8,11 @@ type: projects
 <!-- TODO revision -->
 <!-- TODO links -->
 
-I used to teach english, at 18, to people from 12 to 60 (yes) years old. At college, I loved to do presentations and videos.
-
 Talking in front of people (or cameras) was always a part of my life and I hone this skill whenever I can.
 
 <!-- end -->
+
+I used to teach english, at 18, to people from 12 to 60 (yes) years old. At college, I loved to do presentations and videos.
 
 According to Lucas Dias, lawyer, businessman and *my brother*:
 
