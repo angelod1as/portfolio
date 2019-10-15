@@ -58,6 +58,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:url`,
+          content: `https://www.angelodias.com.br`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
