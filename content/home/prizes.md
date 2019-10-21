@@ -17,6 +17,7 @@ Below, a list of projects and prizes they won. I have a major part in all of the
 
 [See it live](/projects/a_world_of_walls)
 
+* [Grande Prêmio Petrobras de Jornalismo 2018](https://www1.folha.uol.com.br/poder/2018/11/folha-vence-grande-premio-petrobras-de-jornalismo-2018.shtml)
 * [King of Spain prize - digital journalism](https://www.agenciaefe.es/premios-rey-espana/)
   > Otorgado por unanimidad a Patrícia Toledo de Campos Mello, de Brasil, por el trabajo «Un mundo de muros», publicado en la Folha de S.Paulo el 26 de junio de 2017. El jurado valora la buena factura del trabajo con un diseño muy atractivo y todos los contenidos -foto, vídeo 360º e infografías-, de una gran calidad y perfectamente integrados. El trabajo multimedia versa sobre la construcción de muros en distintos lugares del mundo y sus consecuencias en el día a día para emigrantes, refugiados, personas con menor poder adquisitivo y zonas afectadas por otros motivos.
 * [International Humanitary Coverage prize - Red Cross](https://www.icrc.org/pt/document/brasil-cerimonia-premio-cicv-de-cobertura-humanitaria-internacional)
