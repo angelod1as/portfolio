@@ -87,7 +87,7 @@ const Page = props => {
     from = state.from;
   }
 
-  const seo = `Angelo Dias does ${title}`;
+  const seo = `Angelo Dias > ${title}`;
 
   const color = colors[Math.floor(Math.random() * colors.length)];
 

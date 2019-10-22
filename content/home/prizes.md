@@ -11,6 +11,8 @@ As once said by Alan Rickman — Hans Gruber (Die Hard), Metatron (Dogma), and t
 
 That said, a few projects I've worked on were nominated for a number of national and international prizes.
 
+[I was at 4th place amongst the most awarded journalists of 2018](https://www.portaldosjornalistas.com.br/fernando-rodrigues-e-o-premiado-jornalista-de-2018/), below two of my bosses (2nd and 3rd places) and alongside coworkers (from 4th to 23rd places).
+
 Below, a list of projects and prizes they won. I have a major part in all of them.
 
 ## A World of Walls - Folha de S.Paulo, 2017
