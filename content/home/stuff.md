@@ -65,3 +65,7 @@ If you read this far, I recommend clicking [here](/) and going back to the main 
 - Abroad — I'm from Brazil;
 - As an alternative model (one can dream);
 - As a fulltime fiction writer (one can dream, *right*?).
+
+# Resume
+
+If you want a *boring* PDF resume, you can download it [here (in English)](https://angelodias.com.br/assets/docs/angelo-en.pdf) and here [(in Brazilian Portuguese)](https://angelodias.com.br/assets/docs/angelo-ptbr.pdf), but I guarantee this website is *way better*.

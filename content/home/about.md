@@ -1,9 +1,10 @@
 ---
-title: about & colophon
+title: about & colophon & resume
 order: 99
 type: text
 noIDo: true
 ---
+- [Resume](#resume)
 - [About](#about)
   - [Games](#games)
   - [Books](#books)
@@ -14,8 +15,9 @@ noIDo: true
   - [Why](#why)
   - [How](#how)
 
-<!-- TODO lacking images -->
-<!-- TODO: Currículo "oficial" e BORING em PDF -->
+# Resume
+
+If you want a *boring* PDF resume, you can download it [here (in English)](https://angelodias.com.br/assets/docs/angelo-en.pdf) and here [(in Brazilian Portuguese)](https://angelodias.com.br/assets/docs/angelo-ptbr.pdf), but I guarantee this website is *way better*.
 
 # About
 

@@ -40,3 +40,7 @@ This makes me versatile, eager and capable to learn new languages and workflows.
 
 - Python, PHP, D3, Threejs
 - Data science/journalism
+
+# Resume
+
+If you want a *boring* PDF resume, you can download it [here (in English)](https://angelodias.com.br/assets/docs/angelo-en.pdf) and here [(in Brazilian Portuguese)](https://angelodias.com.br/assets/docs/angelo-ptbr.pdf), but I guarantee this website is *way better*.
