@@ -16,7 +16,7 @@ const parseOptions = () => {
 
           const loop = item => {
             // if next is null is last item!
-            if (item.data !== '\n') {
+            if (item.data && item.data !== '\n') {
               if (item.next === null) {
                 if (item.name === 'a') {
                   if (item.attribs && item.attribs.href) {

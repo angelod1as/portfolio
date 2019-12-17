@@ -8,7 +8,7 @@ import Container from '../components/container';
 import colors from '../components/colors';
 import sizes from '../components/breakpoints';
 
-import Newsletter from '../components/newsletter';
+import NewsSlip from '../components/newsletter-slip';
 
 const Grid = styled.div`
   display: grid;
@@ -80,7 +80,7 @@ const Home = ({
 }) => {
   return (
     <Container seo="Angelo Dias's Portfolio" home>
-      <Newsletter />
+      <NewsSlip />
       <Grid>
         {nodes.map((node, i) => {
           const {
