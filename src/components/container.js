@@ -19,9 +19,7 @@ const theme = {
   },
 };
 
-const Container = ({ children, seo, color }) => {
-  theme.color.color = color;
-
+const Container = ({ children, seo }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -37,7 +35,6 @@ Container.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
     .isRequired,
   seo: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
 };
 
 export default Container;

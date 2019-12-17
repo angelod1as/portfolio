@@ -66,6 +66,7 @@ const Content = styled.div`
 
 const Page = props => {
   const {
+    children,
     notFound,
     pageContext,
     pageContext: { type: contextType },
@@ -91,7 +92,7 @@ const Page = props => {
 
   const color = colors[Math.floor(Math.random() * colors.length)];
 
-  if (!notFound) {
+  if (contextType === 'projects' || contextType === 'project' || contextType === 'text') {
     const collection = items.edges.map(({ node }) => {
       if (contextType === 'projects') {
         const { frontmatter } = node;
@@ -115,7 +116,7 @@ const Page = props => {
     };
 
     return (
-      <Container seo={seo} color={color}>
+      <Container seo={seo}>
         <Grid>
           <SidebarHolder color={color}>
             <Sidebar
@@ -142,6 +143,30 @@ const Page = props => {
       </Container>
     );
   }
+  if (contextType === 'notFound') {
+    return (
+      <Container seo={seo}>
+        <Grid>
+          <SidebarHolder color={color}>
+            <Sidebar
+              excerpt={excerpt}
+              live={live}
+              path={path}
+              type={contextType}
+              title={title}
+              color={color}
+              from={from}
+            />
+          </SidebarHolder>
+          <Content>
+            <h2>Page not found</h2>
+            <p>Click on the "back" link to go... well, back.</p>
+          </Content>
+        </Grid>
+      </Container>
+    );
+  }
+  // if single page
   return (
     <Container seo={seo}>
       <Grid>
@@ -154,12 +179,10 @@ const Page = props => {
             title={title}
             color={color}
             from={from}
+            singlePage
           />
         </SidebarHolder>
-        <Content>
-          <h2>Page not found</h2>
-          <p>Click on the "back" link to go... well, back.</p>
-        </Content>
+        <Content>{children}</Content>
       </Grid>
     </Container>
   );
@@ -210,6 +233,7 @@ export const query = graphql`
 `;
 
 Page.propTypes = {
+  children: PropTypes.node,
   notFound: PropTypes.bool,
   data: PropTypes.shape().isRequired,
   path: PropTypes.string.isRequired,
@@ -224,6 +248,7 @@ Page.propTypes = {
 };
 
 Page.defaultProps = {
+  children: null,
   notFound: false,
   location: {
     state: {
