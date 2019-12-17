@@ -8,6 +8,8 @@ import Container from '../components/container';
 import colors from '../components/colors';
 import sizes from '../components/breakpoints';
 
+import NewsSlip from '../components/newsletter-slip';
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -78,6 +80,7 @@ const Home = ({
 }) => {
   return (
     <Container seo="Angelo Dias's Portfolio" home>
+      <NewsSlip />
       <Grid>
         {nodes.map((node, i) => {
           const {

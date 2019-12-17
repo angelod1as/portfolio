@@ -44,7 +44,7 @@ const Back = styled(Link)`
   position: relative;
   color: ${p => p.theme.color.white};
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   &:before {
     content: '‹';
     top: -6px;
@@ -74,7 +74,7 @@ const ReadMore = styled(Link)`
   }
 `;
 
-const Sidebar = ({ from, type, title, excerpt, live, path }) => {
+const Sidebar = ({ from, type, title, excerpt, live, path, singlePage }) => {
   if (type === 'projects') {
     return (
       <>
@@ -114,7 +114,7 @@ const Sidebar = ({ from, type, title, excerpt, live, path }) => {
   return (
     <>
       <Back to={backPath}>back</Back>
-      <H1>About: {title}</H1>
+      {singlePage ? <H1>{title}</H1> : <H1>About: {title}</H1>}
     </>
   );
 };
@@ -126,9 +126,11 @@ Sidebar.propTypes = {
   excerpt: PropTypes.string,
   live: PropTypes.string,
   from: PropTypes.string,
+  singlePage: PropTypes.bool,
 };
 
 Sidebar.defaultProps = {
+  singlePage: false,
   excerpt: null,
   live: null,
   from: null,
