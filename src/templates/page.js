@@ -92,57 +92,6 @@ const Page = props => {
 
   const color = colors[Math.floor(Math.random() * colors.length)];
 
-  if (contextType === 'projects' || contextType === 'project' || contextType === 'text') {
-    const collection = items.edges.map(({ node }) => {
-      if (contextType === 'projects') {
-        const { frontmatter } = node;
-        const { fullPath } = node.fields;
-        const image = items.edges.filter(each => {
-          const imageId = each.node.frontmatter.image.childImageSharp.id;
-          return frontmatter.image.childImageSharp.id === imageId;
-        });
-        frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
-        return {
-          frontmatter,
-          fullPath,
-        };
-      }
-      return null;
-    });
-
-    const getContent = pageType => {
-      if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
-      return <Html color={color}>{parse(html, parserOptions())}</Html>;
-    };
-
-    return (
-      <Container seo={seo}>
-        <Grid>
-          <SidebarHolder color={color}>
-            <Sidebar
-              excerpt={excerpt}
-              live={live}
-              path={path}
-              type={contextType}
-              title={title}
-              color={color}
-              from={from}
-            />
-          </SidebarHolder>
-          <Content>
-            {notFound ? (
-              <>
-                <h2>Page not found</h2>
-                <p>Click on the "back" link to go... well, back.</p>
-              </>
-            ) : (
-              getContent(contextType)
-            )}
-          </Content>
-        </Grid>
-      </Container>
-    );
-  }
   if (contextType === 'notFound') {
     return (
       <Container seo={seo}>
@@ -166,7 +115,51 @@ const Page = props => {
       </Container>
     );
   }
-  // if single page
+
+  if (contextType === 'singlepage') {
+    return (
+      <Container seo={seo}>
+        <Grid>
+          <SidebarHolder color={color}>
+            <Sidebar
+              excerpt={excerpt}
+              live={live}
+              path={path}
+              type={contextType}
+              title={title}
+              color={color}
+              from={from}
+              singlePage
+            />
+          </SidebarHolder>
+          <Content>{children}</Content>
+        </Grid>
+      </Container>
+    );
+  }
+
+  const collection = items.edges.map(({ node }) => {
+    if (contextType === 'projects') {
+      const { frontmatter } = node;
+      const { fullPath } = node.fields;
+      const image = items.edges.filter(each => {
+        const imageId = each.node.frontmatter.image.childImageSharp.id;
+        return frontmatter.image.childImageSharp.id === imageId;
+      });
+      frontmatter.image.childImageSharp = image[0].node.frontmatter.image.childImageSharp;
+      return {
+        frontmatter,
+        fullPath,
+      };
+    }
+    return null;
+  });
+
+  const getContent = pageType => {
+    if (pageType === 'projects') return <Mosaic items={collection} color={color} path={path} />;
+    return <Html color={color}>{parse(html, parserOptions())}</Html>;
+  };
+
   return (
     <Container seo={seo}>
       <Grid>
@@ -179,10 +172,18 @@ const Page = props => {
             title={title}
             color={color}
             from={from}
-            singlePage
           />
         </SidebarHolder>
-        <Content>{children}</Content>
+        <Content>
+          {notFound ? (
+            <>
+              <h2>Page not found</h2>
+              <p>Click on the "back" link to go... well, back.</p>
+            </>
+          ) : (
+            getContent(contextType)
+          )}
+        </Content>
       </Grid>
     </Container>
   );

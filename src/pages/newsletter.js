@@ -83,7 +83,7 @@ const Newsletter = () => {
   return (
     <Page
       type="newsletter"
-      pageContext={{ type: 'newsletter' }}
+      pageContext={{ type: 'singlepage' }}
       data={{
         pageInfo: {
           frontmatter: {
