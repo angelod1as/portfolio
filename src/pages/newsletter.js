@@ -28,13 +28,21 @@ const Form = styled(Mailchimp)`
   margin: 50px 0;
   display: grid;
   grid-template-areas:
-    'email name button'
-    'message message message';
+    'email name lname button'
+    'message message message message';
   grid-gap: 10px;
+  @media ${size.small} {
+    grid-template-areas:
+      'email email'
+      'name lname'
+      'button button'
+      'message message';
+  }
   @media ${size.small} {
     grid-template-areas:
       'email'
       'name'
+      'lname'
       'button'
       'message';
   }
@@ -49,6 +57,9 @@ const Form = styled(Mailchimp)`
   }
   input[name='FNAME'] {
     grid-area: name;
+  }
+  input[name='LNAME'] {
+    grid-area: lname;
   }
   button {
     grid-area: button;
@@ -126,12 +137,18 @@ const Newsletter = () => {
             type: 'text',
             required: true,
           },
+          {
+            name: 'LNAME',
+            placeholder: 'sobrenome',
+            type: 'text',
+            required: true,
+          },
         ]}
         // Change predetermined language
         messages={{
           sending: 'Enviando...',
           success: 'Obrigado por assinar!',
-          error: 'Ih, deu alguma zica no servidor. Tente de novo.',
+          error: 'Ih, deu alguma zica no servidor. Será que você já se inscreveu? Tente de novo.',
           empty: 'Tem algum campo vazio ou errado, não tem?',
           duplicate: 'Tentaram assinar vezes demais com esse email',
           button: 'bora!',
