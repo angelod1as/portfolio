@@ -7,7 +7,7 @@ tags:
   - design
   - layout
   - print
-image: /assets/opening/fantasistas.jpg
+image: /assets/opening/layout.jpg
 ---
 
 I began working at Folha de S.Paulo as a layout designer. My main job was to plan photo, text and infographic location in a newspaper standard sized page. Using InDesign and proprietary software, I did that job for a good time and have a lot of stories to tell — like the one that I did the layout from concept to finish of the entire 40-something pages monday edition by myself.

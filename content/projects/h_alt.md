@@ -15,7 +15,9 @@ I wrote the script of a few short comics for the portuguese magazine H-alt. Belo
 
 ## Shots between Fangs
 
-[See about this particular story clicking here.](/shots_between_fangs)
+Shots Between Fangs was originally published in the portuguese magazine H-Alt. With only seven pages, it's violent and visceral, with geometric shapes and dark colors.
+
+[See about this particular story clicking here.](/projects/shots_between_fangs/)
 
 ## Loteria
 
