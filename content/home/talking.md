@@ -31,4 +31,4 @@ I can talk in english and portuguese, standing or seated, always energetic and c
 - Do hands-on workshops
 - Teach, like, anything I know
 
-Let's do something together? Hit me at [angelo\[at\]angelodias.com.br](mailto:angelo@angelodias.com.br) and let's... well, talk.
+Let's do something together? Hit me at [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com) and let's... well, talk.

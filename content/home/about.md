@@ -29,7 +29,7 @@ My parents are dead, sadly, but I has a lot of siblings, some of them 20 years y
 
 I love what most 30-somethings love nowadays: graphic novels, movies, tv series, occasional partying followed by a killer hangover, etc.
 
-Just want to stalk? [LinkedIn](https://www.linkedin.com/in/angelod1as/), [Facebook](https://www.facebook.com/cronofobico), [Instagram](https://instagram.com/cronofobico/), [Twitter](https://twitter.com/_cronofobico).
+Just want to stalk? [LinkedIn](https://www.linkedin.com/in/angelod1as/), [Instagram](https://instagram.com/cronofobico/), [Twitter](https://twitter.com/_cronofobico). No Facebook for me (Sorry mr. Zuck).
 
 ![](/photo.jpg)
 
@@ -78,7 +78,7 @@ My absolute favorites were Italy and Turkey.
 
 This website is meant to be my 'all Angelo does' place but, as I'm always so freaking busy, it's probably outdated and lacking a few words.
 
-I hope you can get in touch with me by sending an email through [angelo\[at\]angelodias.com.br](mailto:angelo@angelodias.com.br) or clicking my social media buttons at the [home](/) page.
+I hope you can get in touch with me by sending an email through [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com) or clicking my social media buttons at the [home](/) page.
 
 I'm always eager to chat and find what kind of *stuff* I can do with people.
 
@@ -98,7 +98,7 @@ That's why I chose to build a Gatsby website (read more below). Fast page loadin
 
 So, you want to see some hard-to-execute and prize winning projects? [Cool, I made something like that, click here to see them](/coding). Want to see fast and customizable personal websites? You are visting one of them right now.
 
-You know what? I could make one of these for you. Email me at [angelo\[at\]angelodias.com.br](mailto:angelo@angelodias.com.br).
+You know what? I could make one of these for you. Email me at [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com).
 
 ## How
 

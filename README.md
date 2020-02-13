@@ -12,11 +12,11 @@ Then pleeeease hire me!
 
 (That's the whole point of the portfolio).
 
-JS, React, Redux, and more. Hit me on [angelo at angelodias.com.br](mailto:angelo@angelodias.com.br).
+JS, React, Redux, and more. Hit me on [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com).
 
 (I prefer remote jobs and short to medium length projects, but will happily consider any offer)
 
-## But... I want to clone this repo!
+## I want to clone this repo!
 
 Nice, you can do it. Just PLEASE let me know. It took a while to figure out this design and I really like it.
 

@@ -1,8 +1,8 @@
 {
   "name": "angelo-dias-portfolio",
   "description": "I make a lot of things and I want to show them all",
-  "version": "0.1.0",
-  "author": "Angelo Dias <angelo@angelodias.com>",
+  "version": "1.0.0",
+  "author": "Angelo Dias <oiangelodias@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "2.15.14",
