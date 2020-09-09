@@ -22,6 +22,16 @@ With heavy focus on photography and video documentaries, 'A World of Walls' is a
 >
 > Folha went to four different continents to uncover what - and who - lies behind them.
 
+<figure class="mosaic large">
+
+![](/assets/summary-coding-walls-1.png)
+
+![](/assets/summary-coding-walls-2.png)
+
+![](/assets/summary-coding-walls-3.png)
+
+</figure>
+
 'A World of Walls' is available in [Portuguese](https://arte.folha.uol.com.br/mundo/2017/um-mundo-de-muros/), [English](https://arte.folha.uol.com.br/mundo/2017/a-world-of-walls/) and [Spanish](https://arte.folha.uol.com.br/mundo/2017/un-mundo-de-muros/)
 
 ## Prizes

@@ -10,6 +10,10 @@ const Html = styled.div`
     max-width: 100%;
   }
 
+  *:first-child {
+    margin-top: 0;
+  }
+
   a {
     color: ${p => p.color};
   }
@@ -24,7 +28,7 @@ const Html = styled.div`
   h1 {
     font-size: 2.5em;
     font-weight: 700;
-    margin: 0 0 40px 0;
+    margin: 50px 0 40px 0;
     color: ${p => p.color};
   }
 

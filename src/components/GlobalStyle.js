@@ -15,13 +15,16 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-
   body {
     /* @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap'); */
     font-family: 'Montserrat', sans-serif;
   }
   * {
     box-sizing: border-box;
+    &:focus {
+      outline-offset: 3px;
+      outline: ${p => p.theme.color.black} auto 1px;
+    }
   }
 
   p, ul, li {
@@ -38,7 +41,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
+    margin: 40px 0 20px 0;
     font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    margin: 40px 0 20px 0;
+    font-weight: 700;
   }
 
   a {
