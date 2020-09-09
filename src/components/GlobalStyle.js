@@ -41,7 +41,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
+    margin: 40px 0 20px 0;
     font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    margin: 40px 0 20px 0;
+    font-weight: 700;
   }
 
   a {

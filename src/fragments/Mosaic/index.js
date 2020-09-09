@@ -49,14 +49,14 @@ class Mosaic extends Component {
   }
 
   render() {
-    const { items, color, path } = this.props;
+    const { items, color, path, summary } = this.props;
     const { tags } = this.state;
     const checkedTags = Object.keys(tags).filter(tag => tags[tag] === true);
     const hasTrue = Object.values(tags).includes(true);
 
     return (
       <Fade>
-        <Summary color={color} />
+        {summary && <Summary summary={summary} color={color} />}
         <Filter tags={tags} check={this.handleCheckbox} color={color} />
         <MosaicHolder className="portfolio">
           {items
@@ -93,6 +93,7 @@ Mosaic.propTypes = {
   ).isRequired,
   color: PropTypes.string,
   path: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
 };
 
 Mosaic.defaultProps = {

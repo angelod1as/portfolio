@@ -10,8 +10,7 @@ const Html = styled.div`
     max-width: 100%;
   }
 
-  h1:first-child,
-  p:first-child {
+  *:first-child {
     margin-top: 0;
   }
 

@@ -16,6 +16,8 @@ image: /assets/opening/escolha.jpg
 
 Design by Irapuan Campos, coding by me — with help from Rubens Fernandes.
 
+![](/assets/coding-summary-schools.png)
+
 ## Development
 
 [See the code at GitHub](https://github.com/angelod1as/escolha-escola-folha).

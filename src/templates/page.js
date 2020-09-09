@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -14,6 +14,7 @@ const Page = ({
   pageContext: { type: contextType },
   location,
   data: {
+    summaryItems,
     pageInfo: {
       frontmatter: { title, live },
       excerpt,
@@ -28,10 +29,19 @@ const Page = ({
   if (state) {
     from = state.from;
   }
-
   const seo = `Angelo Dias > ${title}`;
 
   const color = colors[Math.floor(Math.random() * colors.length)];
+
+  const getSummaryHTML = useCallback(pageTitle => {
+    const thisSummary = summaryItems.edges.filter(({ node }) => {
+      return node.frontmatter.title === pageTitle;
+    });
+    if (thisSummary.length === 0) {
+      return '';
+    }
+    return thisSummary[0].node.html;
+  }, []);
 
   if (notFound || contextType === 'notFound') {
     return (
@@ -82,6 +92,7 @@ const Page = ({
         from,
         html,
         items,
+        summary: getSummaryHTML(title),
       }}
     />
   );
@@ -125,6 +136,16 @@ export const query = graphql`
             type
             fullPath
           }
+        }
+      }
+    }
+    summaryItems: allMarkdownRemark(filter: { frontmatter: { type: { eq: "summary" } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          html
         }
       }
     }

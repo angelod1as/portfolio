@@ -18,9 +18,6 @@ const Grid = styled.div`
 const Tile = styled(Link)`
   display: block;
   width: 100%;
-  @media ${sizes.large} {
-    width: 100vw;
-  }
   padding-bottom: 100%;
   position: relative;
   color: ${p => p.theme.color.white};
@@ -80,7 +77,7 @@ const Home = ({
 }) => {
   return (
     <Container seo="Angelo Dias's Portfolio" home>
-      <NewsSlip />
+      {/* <NewsSlip /> */}
       <Grid>
         {nodes.map((node, i) => {
           const {

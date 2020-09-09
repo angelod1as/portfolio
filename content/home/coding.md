@@ -2,6 +2,7 @@
 title: coding
 order: 2
 type: projects
+summary: true
 ---
 
 <!-- TODO lacking images -->

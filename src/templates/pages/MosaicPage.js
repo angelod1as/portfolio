@@ -11,7 +11,7 @@ import Sidebar from '../../components/Sidebar';
 import { Content, Grid, SidebarHolder } from '../page.styles';
 
 const NotFound = ({
-  info: { seo, color, excerpt, live, path, contextType, title, from, html, items },
+  info: { seo, color, excerpt, live, path, contextType, title, from, html, items, summary },
 }) => {
   const collection = items.edges.map(({ node }) => {
     if (contextType === 'projects') {
@@ -32,7 +32,7 @@ const NotFound = ({
 
   const getContent = useCallback(pageType => {
     if (pageType === 'projects') {
-      return <Mosaic items={collection} color={color} path={path} />;
+      return <Mosaic items={collection} color={color} path={path} summary={summary} />;
     }
     return <Html color={color}>{parse(html, parserOptions())}</Html>;
   }, []);
@@ -69,6 +69,7 @@ NotFound.propTypes = {
     from: PropTypes.string,
     html: PropTypes.string,
     items: PropTypes.array,
+    summary: PropTypes.string,
   }).isRequired,
 };
 
