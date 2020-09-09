@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
-// import { Link } from 'gatsby';
-// import size from '../../components/breakpoints';
 
 import Tile from './Tile';
+import Summary from '../Summary';
 import Filter from './Filter';
 
 const MosaicHolder = styled.div`
@@ -57,6 +56,7 @@ class Mosaic extends Component {
 
     return (
       <Fade>
+        <Summary color={color} />
         <Filter tags={tags} check={this.handleCheckbox} color={color} />
         <MosaicHolder className="portfolio">
           {items
@@ -92,6 +92,7 @@ Mosaic.propTypes = {
     })
   ).isRequired,
   color: PropTypes.string,
+  path: PropTypes.string.isRequired,
 };
 
 Mosaic.defaultProps = {
