@@ -1,6 +1,6 @@
 ---
 date: 2020-04-05T02:00:00.000Z
-title: Stories from victims of the Coronavirus
+title: Feijão Memories
 desc: >-
   Locals share their views of how Brumadinho was before the the dam rupture tragedy from 2019
 live: 'https://arte.folha.uol.com.br/cotidiano/2020/01/memorias-do-feijao/'
