@@ -3,7 +3,7 @@ date: 2019-01-01T02:00:00.000Z
 title: Tempos Fantásticos
 desc: >-
   A satirical sci-fi newspaper about the multiple past, present and future
-live: ''
+live: 'https://www.temposfantasticos.com/'
 tags:
   - writing
   - coding
@@ -13,12 +13,6 @@ tags:
   - print
 image: /assets/opening/tf.jpg
 ---
-
-<!-- TODO: solve information location -->
-<!-- Will we put ALL TF INFO in one page or multiple? -->
-<!-- Is it valid to separate as projects? -->
-<!-- TODO solve redirects -->
-<!-- PESQUISAS PERIÓDICOS -->
 
 - [About the project](#about-the-project)
   - [What](#what)
