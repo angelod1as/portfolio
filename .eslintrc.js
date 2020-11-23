@@ -1,13 +1,5 @@
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
   settings: {
     react: {
       version: 'detect'
@@ -15,11 +7,11 @@ module.exports = {
   },
   env: {
     browser: true,
-    amd: true,
+    es2021: true,
     node: true
   },
-  plugins: ['simple-import-sort'],
   extends: [
+    'standard',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
@@ -29,12 +21,23 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended' // Make sure this is always the last element in the array.
   ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2020,
+    sourceType: 'module'
+  },
+  plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
+    semi: ['error', 'never'],
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     'simple-import-sort/imports': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -44,4 +47,4 @@ module.exports = {
       }
     ]
   }
-};
+}
