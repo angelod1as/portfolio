@@ -2,13 +2,13 @@ module.exports = {
   root: true,
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
     'standard',
@@ -19,15 +19,15 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'prettier/@typescript-eslint',
-    'plugin:prettier/recommended' // Make sure this is always the last element in the array.
+    'plugin:prettier/recommended', // Make sure this is always the last element in the array.
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2020,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
@@ -36,15 +36,14 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'simple-import-sort/imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton']
-      }
-    ]
-  }
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+  },
 }

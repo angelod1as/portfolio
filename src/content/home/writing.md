@@ -1,0 +1,24 @@
+---
+title: writing & comics
+tag:
+- writing
+- comics
+order: 6
+type: projects
+---
+
+<!-- TODO lacking images -->
+
+Writing is a hard passion to follow, but I'm resilient. I'll keep crunching those digits, typing those letters and forming those sentences.
+
+<!-- end -->
+
+From serious journalism to not-so-serious fiction, I never stop writing. Even before journalism school I tried to create stories, characters and settings from scratch. From there, I learned how to tell compelling narratives from simple facts, organizing and displaying them harmoniously.
+
+Since then, I wrote a few pieces about comics and games for Folha de S.Paulo, comic scripts about beer for a niche magazine, fake news for his fake newspaper and short stories for myself.
+
+Writing a full-fledged novel is still on my plans. I'm still deciding if it will involve space travel or urban fantasy. Or both. Or neither.
+
+At the moment, I write for [Tempos Fantásticos](/newspaper), and is slowly getting back to fiction writing. I'd love to write on demand and produce journalistic content, mainly if the subject is around graphic novels and videogames. I surely can write about other [*stuff*](/stuff) too.
+
+This portfolio is a clear example as I can go on for ages putting word after word. Some people told me to write less... but I didn't listen. I preferred to show off this skill by doing it.
