@@ -1,26 +1,24 @@
-import getData from '@lib/getData'
+import getData from '@utils/getData'
 
 import { TileProp } from './index'
+import Category from '@sections/category'
 
-function Mosaic({ project }: { project: TileProp }) {
-  return <div>Teste de Projeto</div>
+function CategoryGenerator({ category }: { category: TileProp }) {
+  return <Category category={category} />
 }
 
 export async function getStaticPaths() {
-  const projects = getData<TileProp[]>({ type: 'home' })
-
-  const paths = projects.map((item) => ({
+  const categories = getData<TileProp[]>({ type: 'home' })
+  const paths = categories.map((item) => ({
     params: { id: item.id },
   }))
-
   return { paths, fallback: false }
 }
 
-// This also gets called at build time
 export async function getStaticProps({ params }) {
-  const projects = getData<TileProp[]>({ type: 'home' })
-  const project = projects.filter((item) => item.id === params.id)
-  return { props: { project } }
+  const categories = getData<TileProp[]>({ type: 'home' })
+  const category = categories.find((item) => item.id === params.id)
+  return { props: { category } }
 }
 
-export default Mosaic
+export default CategoryGenerator

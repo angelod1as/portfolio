@@ -1,5 +1,5 @@
-import Index from 'src/components/sections/index/index'
-import getData from '@lib/getData'
+import Home from '@sections/home/index'
+import getData from '@utils/getData'
 
 export interface TileProp {
   id: string
@@ -10,8 +10,8 @@ export interface TileProp {
   redir?: string
 }
 
-export default function Home({ homeData }: { homeData: TileProp[] }) {
-  return <Index homeData={homeData} />
+export default function Index({ homeData }: { homeData: TileProp[] }) {
+  return <Home homeData={homeData} />
 }
 
 export async function getStaticProps() {

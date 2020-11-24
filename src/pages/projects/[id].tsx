@@ -1,4 +1,4 @@
-import getData from '@lib/getData'
+import getData from '@utils/getData'
 
 interface ProjectData {
   id: string
