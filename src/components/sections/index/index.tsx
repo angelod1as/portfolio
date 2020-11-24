@@ -4,20 +4,7 @@ import { Big, Grid, Inside, Small, Text, Tile } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
 
-interface TileProp {
-  id: string
-  noIDo: boolean
-  order: number
-  title: string
-  type: string
-  redir?: string
-}
-
-interface HomeProps {
-  homeData: TileProp[]
-}
-
-export default function Home({ homeData }: HomeProps) {
+export default function Home({ homeData }) {
   const colors = theme.tileColors
   return (
     <Container seo="Angelo Dias's Portfolio">

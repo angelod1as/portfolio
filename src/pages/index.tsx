@@ -1,12 +1,21 @@
 import Index from 'src/components/sections/index/index'
-import getHomeData from '@lib/getHomeData'
+import getData from '@lib/getData'
 
-export default function Home({ homeData }) {
+export interface TileProp {
+  id: string
+  noIDo: boolean
+  order: number
+  title: string
+  type: string
+  redir?: string
+}
+
+export default function Home({ homeData }: { homeData: TileProp[] }) {
   return <Index homeData={homeData} />
 }
 
 export async function getStaticProps() {
-  const homeData = getHomeData()
+  const homeData = getData<TileProp[]>({ type: 'home' })
   return {
     props: {
       homeData: homeData,
