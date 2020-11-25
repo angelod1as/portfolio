@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
 import reset from 'styled-reset'
+import { ThemeProps } from './theme'
+
+interface P {
+  theme: ThemeProps
+}
 
 const GlobalStyle = createGlobalStyle`
   /* reset and normalize */
@@ -8,12 +13,9 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   /* gatsby 100% */
-  /* div[role="group"][tabindex] {
+  html, body {
     height: 100%;
   }
-  html, body, #___gatsby {
-    height: 100%;
-  } */
 
   body {
     font-family: 'Montserrat', sans-serif;
@@ -22,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     &:focus {
       outline-offset: 3px;
-      outline: ${(p) => p.theme.color.black} auto 1px;
+      outline: ${(p: P) => p.theme.color.black} auto 1px;
     }
   }
 
@@ -53,22 +55,22 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     display: inline-block;
-    color: ${(p) => p.theme.color.black};
+    color: ${(p: P) => p.theme.color.black};
     font-weight: 500;
     transition: all .2s;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
-      color: ${(p) => p.theme.color.black};
+      color: ${(p: P) => p.theme.color.black};
     }
   }
   &.bg {
-    color: ${(p) => p.theme.color.white};
+    color: ${(p: P) => p.theme.color.white};
     &:hover {
-      color: ${(p) => p.theme.color.gray};
+      color: ${(p: P) => p.theme.color.gray};
     }
     &:visited {
-      color: ${(p) => p.theme.color.white};
+      color: ${(p: P) => p.theme.color.white};
     }
   }
 
@@ -95,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
 
   blockquote {
     padding-left: 15px;
-    border-left: 5px solid ${(p) => p.theme.color.darkgray};
+    border-left: 5px solid ${(p: P) => p.theme.color.darkgray};
     font-style: italic;
   }
 
@@ -111,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
         top: -1px;
         left: 5px;
         position: absolute;
-        color: ${(p) => p.theme.color.black};
+        color: ${(p: P) => p.theme.color.black};
       }
     }
   }
@@ -143,9 +145,9 @@ const GlobalStyle = createGlobalStyle`
         content: none;
       }
       & > code {
-        border-color: ${(p) => p.theme.color.black};
+        border-color: ${(p: P) => p.theme.color.black};
         box-shadow: none;
-        background-color: ${(p) => p.theme.color.white};
+        background-color: ${(p: P) => p.theme.color.white};
         background-image: none;
       }
     }

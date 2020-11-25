@@ -1,5 +1,5 @@
 import { theme } from '@styles/theme'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import styled from 'styled-components'
 
 const { size } = theme
@@ -9,11 +9,16 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 `
 
-export const Tile = styled(Link)`
+export const Link = styled(NextLink)`
+  cursor: pointer;
+`
+
+export const Tile = styled.a`
   display: block;
   width: 100%;
   padding-bottom: 100%;
   position: relative;
+  cursor: pointer;
   color: ${(p) => p.theme.color.white};
   background-color: ${(p) => p.theme.color.white};
   &:hover {
