@@ -2,7 +2,6 @@
 import { Big, Grid, Inside, Small, Tile, Link } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
-import Container from 'src/components/Container'
 import { useCallback } from 'react'
 
 // TODO: Head & SEO
@@ -12,7 +11,7 @@ export default function Home({ homeData }) {
   }, [])
   const colors = theme.tileColors
   return (
-    <Container seo="Angelo Dias's Portfolio">
+    <>
       {/* <NewsSlip /> */}
       <Grid>
         {homeData.sort(sortHome).map((item, i) => {
@@ -45,6 +44,6 @@ export default function Home({ homeData }) {
           )
         })}
       </Grid>
-    </Container>
+    </>
   )
 }

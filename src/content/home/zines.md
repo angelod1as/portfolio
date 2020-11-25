@@ -8,7 +8,7 @@ type: projects
 
 While working on many projects, I found myself in need of artistic expression without traditional boundaries. As I'm not so good with this "zero boundaries" thing, I created his own.
 
-<!-- end -->
+<!-- excerpt -->
 
 My zines talk about... anything. I have one about his first date with a girl, another one about death and a small one about some translated ancient chinese script — obviously false.
 

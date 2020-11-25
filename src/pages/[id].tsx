@@ -3,12 +3,13 @@ import getData from '@utils/getData'
 import { TileProp } from './index'
 import Category from '@sections/category'
 
-function CategoryGenerator({ category }: { category: TileProp }) {
-  return <Category category={category} />
+function CategoryGenerator({ content }: { content: TileProp }) {
+  return <Category content={content} />
 }
 
 export async function getStaticPaths() {
-  const categories = getData<TileProp[]>({ type: 'home' })
+  const categories = getData({ type: 'home', fullContent: true })
+
   const paths = categories.map((item) => ({
     params: { id: item.id },
   }))
@@ -16,9 +17,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const categories = getData<TileProp[]>({ type: 'home' })
-  const category = categories.find((item) => item.id === params.id)
-  return { props: { category } }
+  const categories: TileProp[] = getData({ type: 'home', fullContent: true })
+  const content = categories.find((item) => item.id === params.id)
+  return { props: { content } }
 }
 
 export default CategoryGenerator

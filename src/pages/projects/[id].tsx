@@ -19,7 +19,7 @@ function Project({ project }: ProjectsProps) {
 }
 
 export async function getStaticPaths() {
-  const projects = getData<ProjectData[]>({ type: 'projects' })
+  const projects = getData({ type: 'projects' })
 
   const paths = projects.map((item) => ({
     params: { id: item.id },
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  const projects = getData<ProjectData[]>({ type: 'projects' })
+  const projects = getData({ type: 'projects' })
   const project = projects.filter((item) => item.id === params.id)
   return { props: { project } }
 }

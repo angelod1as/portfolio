@@ -15,7 +15,7 @@ export default function Index({ homeData }: { homeData: TileProp[] }) {
 }
 
 export async function getStaticProps() {
-  const homeData = getData<TileProp[]>({ type: 'home' })
+  const homeData = getData({ type: 'home' })
   return {
     props: {
       homeData: homeData,

@@ -1,8 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import parseMarkdown from './parseMarkdown'
 
-export function getData<T>({ type }: { type: 'home' | 'projects' }): T {
+interface getDataProps {
+  type: 'home' | 'projects'
+  fullContent?: boolean
+}
+
+export function getData({ type, fullContent }: getDataProps): any {
   const directory = path.join(process.cwd(), 'src', 'content', type)
   // Get file names under /home
   const fileNames = fs.readdirSync(directory)
@@ -13,26 +19,33 @@ export function getData<T>({ type }: { type: 'home' | 'projects' }): T {
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     const matterResult = matter(fileContents)
-    const { data } = matterResult
+    const { data, content } = matterResult
     if (data.date) {
       data.date = data.date.toString()
     }
-    const returned = {
-      id,
-      ...data,
+
+    let returned: {
+      [key: string]: any
     }
+
+    if (fullContent) {
+      const parsedContent = parseMarkdown(content)
+      returned = {
+        id,
+        ...data,
+        content: parsedContent.text,
+        excerpt: parsedContent.excerpt,
+      }
+    } else {
+      returned = {
+        id,
+        ...data,
+      }
+    }
+
     return returned
   })
-
-  // Sort home by date
   return allData
-  // .sort((a, b) => {
-  //   if (a.date < b.date) {
-  //     return 1
-  //   } else {
-  //     return -1
-  //   }
-  // })
 }
 
 export default getData

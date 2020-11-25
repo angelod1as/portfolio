@@ -8,7 +8,7 @@ type: projects
 
 Bits and bytes, beeps and blops (what a terrible start). Lacking the required skills to play traditional musical instruments — and with enough knowledge in music theory, I found *electronic music* as a last resort in my search of a musical career.
 
-<!-- end -->
+<!-- excerpt -->
 
 I've been failing ever since.
 

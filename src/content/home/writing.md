@@ -11,7 +11,7 @@ type: projects
 
 Writing is a hard passion to follow, but I'm resilient. I'll keep crunching those digits, typing those letters and forming those sentences.
 
-<!-- end -->
+<!-- excerpt -->
 
 From serious journalism to not-so-serious fiction, I never stop writing. Even before journalism school I tried to create stories, characters and settings from scratch. From there, I learned how to tell compelling narratives from simple facts, organizing and displaying them harmoniously.
 

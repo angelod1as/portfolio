@@ -1,3 +1,7 @@
+import Text from './text'
+import Projects from './project'
+import theme from '@styles/theme'
+
 interface CategoryProp {
   id: string
   order: number
@@ -5,20 +9,14 @@ interface CategoryProp {
   type: string
 }
 
-export default function Category({ category }: { category: CategoryProp }) {
-  const { type } = category
+export default function Category({ content }: { content: CategoryProp }) {
+  const { type } = content
+
+  const colors = theme.tileColors
+  const color = colors[Math.floor(Math.random() * colors.length)]
+
   if (type === 'text') {
-    return (
-      <div>
-        <h1>{category.id}</h1>
-        <p>TEXT</p>
-      </div>
-    )
+    return <Text content={content} color={color} />
   }
-  return (
-    <div>
-      <h1>{category.id}</h1>
-      <p>PROJECT</p>
-    </div>
-  )
+  return <Projects content={content} />
 }
