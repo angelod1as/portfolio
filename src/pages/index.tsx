@@ -1,5 +1,5 @@
+import { fetchContent } from '@build/fetchContent'
 import Home from '@sections/home/index'
-import getData from '@utils/getData'
 
 export interface TileProp {
   id: string
@@ -15,10 +15,22 @@ export default function Index({ homeData }: { homeData: TileProp[] }) {
 }
 
 export async function getStaticProps() {
-  const homeData = getData({ type: 'home' })
+  const homeData = await fetchContent(`
+  {
+    tileCollection{
+      items {
+        slug
+        title
+        order
+        hasido
+        redir
+      }
+    }
+  }
+  `)
   return {
     props: {
-      homeData: homeData,
+      homeData: homeData.tileCollection.items,
     },
   }
 }

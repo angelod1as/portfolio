@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/uuid": "^8.3.0",
+    "contentful": "^7.15.0",
     "gray-matter": "^4.0.2",
     "html-react-parser": "^0.14.2",
     "next": "10.0.2",

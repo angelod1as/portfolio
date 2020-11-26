@@ -35,11 +35,11 @@ export const Inside = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 10%;
-  @media ${size.medium} {
+  /* @media ${size.medium} {
     padding: 0;
     align-items: center;
     text-align: center;
-  }
+  } */
   transition: 0.2s transform;
 
   &:hover {
