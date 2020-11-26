@@ -6,7 +6,8 @@
       "@sections/*": ["./src/components/sections/*"],
       "@build/*": ["src/build/*"],
       "@components/*":["./src/components/*"],
-      "@data/*":["./data/*"]
+      "@data/*":["./data/*"],
+      "@pages/*":["./src/pages/*"]
     },
     "target": "es5",
     "lib": [
