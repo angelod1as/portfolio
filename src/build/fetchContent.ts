@@ -1,7 +1,7 @@
 const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
 const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
-export async function fetchContent(query: string) {
+export async function fetchContent<T>(query: string): Promise<T> {
   console.log('\n\nFetching data')
   try {
     const res = await fetch(`https://graphql.contentful.com/content/v1/spaces/${space}`, {
