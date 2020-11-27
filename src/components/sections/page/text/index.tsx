@@ -1,39 +1,54 @@
-import { Content, Grid, SidebarHolder } from './styles'
-import Sidebar from '@components/sidebar'
+import { Content, Grid } from './styles'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { ITileFields } from 'src/@types/generated/contentful'
-import { useCallback } from 'react'
+import { ITile } from 'src/@types/generated/contentful'
 
 interface TextProps {
   color: string
-  content: ITileFields
+  content: ITile
 }
 
-export default function Text({ color, content: { title, content } }: TextProps) {
+export default function Text({
+  color,
+  content: {
+    fields: { title, content, cloudinary },
+  },
+}: TextProps) {
   // REFACTOR: colors should transition between them, nice effect
 
-  const block = (content as any).json.content
-  const contentReact = documentToReactComponents((content as any).json)
+  const exportImageNode = (node) => {
+    if (node && node.data && node.data.target && node.data.target.fields) {
+      const { file } = node.data.target.fields
+      if (file?.contentType.includes('image')) {
+        let url = file.url
+        // parsing cloudinary
+        if (cloudinary) {
+          const photoName = file.fileName.split('.')[0]
+          const foundImage = cloudinary.find((item) => {
+            const cloudNameSplit = item.public_id.split('/')
+            const cloudName = cloudNameSplit[cloudNameSplit.length - 1]
+            return cloudName === photoName
+          })
+          if (foundImage) {
+            url = foundImage.url
+          }
+        }
+        return <img src={url} alt={title} />
+      }
+    }
+  }
+
+  const dtrOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => exportImageNode(node),
+    },
+  }
+
+  const contentReact = documentToReactComponents(content, dtrOptions)
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <div>{contentReact}</div>
-    </div>
-    // <Grid>
-    //   <SidebarHolder color={color}>
-    //     <Sidebar
-    //       excerpt={excerpt}
-    //       live={live}
-    //       path={path}
-    //       type={type}
-    //       title={title}
-    //       from={from}
-    //       singlePage
-    //     />
-    //   </SidebarHolder>
-    //   <Content dangerouslySetInnerHTML={{ __html: content }} />
-    // </Grid>
+    <Grid>
+      <Content>{contentReact}</Content>
+    </Grid>
   )
 }

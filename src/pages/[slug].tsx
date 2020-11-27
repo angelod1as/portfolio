@@ -1,5 +1,4 @@
 import Page from '@sections/page'
-import { fetchContent } from '@build/fetchGraphQL'
 import { ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@build/fetchContentful'
 
@@ -7,55 +6,21 @@ function PageGenerator({ content }: { content: ITileFields }) {
   return <Page content={content} />
 }
 
-interface QueryProps {
-  tileCollection: {
-    items: ITileFields[]
-  }
-}
-
 export async function getStaticPaths() {
-  const query: QueryProps = await fetchContent(`
-  {
-    tileCollection{
-      items {
-        title
-        slug
-        type
-        cloudinary
-        content {
-          json
-        }
-      } 
-    }
-  }
-  `)
+  const tiles = await fetchContentful<ITileFields>({ type: 'tile' })
 
-  const paths = query.tileCollection.items.map((item) => {
+  const paths = tiles.map((item) => {
     return {
-      params: { slug: item.slug, item },
+      params: { slug: item.fields.slug },
     }
   })
   return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
-  const query: QueryProps = await fetchContent(`
-  {
-    tileCollection{
-      items {
-        title
-        slug
-        type
-        cloudinary
-        content {
-          json
-        }
-      } 
-    }
-  }
-  `)
-  const tiles = query.tileCollection.items
-  const content = tiles.find((item) => item.slug === params.slug)
+  const tiles = await fetchContentful<ITileFields>({ type: 'tile' })
+
+  const content = tiles.find((item) => item.fields.slug === params.slug)
   return { props: { content } }
 }
 

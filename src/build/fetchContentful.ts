@@ -7,17 +7,25 @@ interface FetchProps {
   type: 'tile' | 'projects'
 }
 
-const fetchContentful = async ({ type }: FetchProps) => {
-  console.log('fetch')
+interface OptionProps {
+  order?: string
+}
+
+const fetchContentful = async <T>({ type }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
   })
 
+  let order = ''
+  if (type === 'tile') {
+    order = 'fields.order'
+  }
+
   try {
-    const entries = await client.getEntries({
+    const entries = await client.getEntries<T>({
       content_type: type,
-      order: 'fields.order',
+      order: order,
     })
     return entries.items
   } catch (error) {
