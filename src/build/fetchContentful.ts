@@ -4,7 +4,7 @@ const Space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
 const Token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
-  type: 'tile' | 'projects'
+  type: 'tile' | 'project'
 }
 
 interface OptionProps {
@@ -30,6 +30,7 @@ const fetchContentful = async <T>({ type }: FetchProps) => {
     return entries.items
   } catch (error) {
     console.log(error)
+    console.log(error.details)
   }
 }
 
