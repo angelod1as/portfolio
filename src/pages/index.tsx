@@ -1,36 +1,15 @@
-import { fetchContent } from '@build/fetchContent'
+import fetchContentful from '@build/fetchContentful'
 import Home from '@sections/home/index'
 
-export interface TileProp {
-  id: string
-  noIDo: boolean
-  order: number
-  title: string
-  type: string
-  redir?: string
-}
-
-export default function Index({ homeData }: { homeData: TileProp[] }) {
+export default function Index({ homeData }) {
   return <Home homeData={homeData} />
 }
 
 export async function getStaticProps() {
-  const homeData = await fetchContent(`
-  {
-    tileCollection{
-      items {
-        slug
-        title
-        order
-        hasido
-        redir
-      }
-    }
-  }
-  `)
+  const items = await fetchContentful({ type: 'tile' })
   return {
     props: {
-      homeData: homeData.tileCollection.items,
+      homeData: items,
     },
   }
 }

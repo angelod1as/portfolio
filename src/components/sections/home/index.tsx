@@ -2,7 +2,6 @@
 import { Big, Grid, Inside, Small, Tile, Link } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
-import { useCallback } from 'react'
 
 interface ItemProps {
   slug: string
@@ -12,23 +11,25 @@ interface ItemProps {
   redir?: string
 }
 
+interface HomeProps {
+  homeData: [
+    {
+      fields: ItemProps
+    }
+  ]
+}
+
 // TODO: Head & SEO
-export default function Home({ homeData }) {
-  console.log(homeData)
-
-  const sortHome = useCallback((a, b) => {
-    return a.order - b.order
-  }, [])
-
+export default function Home({ homeData }: HomeProps) {
   const colors = theme.tileColors
 
   return (
     <>
       {/* <NewsSlip /> */}
       <Grid>
-        {homeData.sort(sortHome).map((item: ItemProps, i: number) => {
-          const { title, hasido, slug } = item
-          const link = item.redir ? item.redir : `/${slug}`
+        {homeData.map((each, i: number) => {
+          const { title, hasido, slug, redir } = each.fields
+          const link = redir || `/${slug}`
           if (title === 'stuff') {
             return (
               <Link href={link} key={uuid()}>
