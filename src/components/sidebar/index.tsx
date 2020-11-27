@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import parse from 'html-react-parser'
 import Link from 'next/link'
 
-import parserOptions from '@utils/parser'
-
 // TODO: Review or entirely redesign
 
 const H1 = styled.h1`

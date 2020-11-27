@@ -7,10 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@contentful/rich-text-types": "^14.1.2",
     "@types/uuid": "^8.3.0",
+    "contentful": "^7.15.0",
+    "contentful-management": "^7.3.0",
+    "contentful-typescript-codegen": "^3.2.1",
+    "dotenv": "^8.2.0",
     "gray-matter": "^4.0.2",
     "html-react-parser": "^0.14.2",
     "next": "10.0.2",
