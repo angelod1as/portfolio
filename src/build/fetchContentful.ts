@@ -7,9 +7,9 @@ interface FetchProps {
   type: 'tile' | 'project'
 }
 
-interface OptionProps {
-  order?: string
-}
+// interface OptionProps {
+//   order?: string
+// }
 
 const fetchContentful = async <T>({ type }: FetchProps) => {
   const client = createClient({

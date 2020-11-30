@@ -4,7 +4,6 @@ import theme from '@styles/theme'
 import { ITile } from 'src/@types/generated/contentful'
 
 export default function Category({ content }: { content: ITile }) {
-  console.log(content)
   const { type } = content.fields
 
   const colors = theme.tileColors

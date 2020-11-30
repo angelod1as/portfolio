@@ -3,12 +3,69 @@
 import { Asset, Entry } from 'contentful'
 import { Document } from '@contentful/rich-text-types'
 
+export interface ICloudinaryFields {
+  /** Contentful */
+  contentful: Record<string, any>
+
+  /** Title */
+  title: string
+
+  /** Alt description */
+  altDescription: string
+}
+
+/** Cloudinary references */
+
+export interface ICloudinary extends Entry<ICloudinaryFields> {
+  sys: {
+    id: string
+    type: string
+    createdAt: string
+    updatedAt: string
+    locale: string
+    contentType: {
+      sys: {
+        id: 'cloudinary'
+        linkType: 'ContentType'
+        type: 'Link'
+      }
+    }
+  }
+}
+
+export interface ITagsFields {
+  /** Title */
+  title: string
+}
+
+/** Project tags */
+
+export interface ITags extends Entry<ITagsFields> {
+  sys: {
+    id: string
+    type: string
+    createdAt: string
+    updatedAt: string
+    locale: string
+    contentType: {
+      sys: {
+        id: 'tags'
+        linkType: 'ContentType'
+        type: 'Link'
+      }
+    }
+  }
+}
+
 export interface IProjectFields {
   /** date */
   date: string
 
   /** Title */
   title: string
+
+  /** Slug */
+  slug: string
 
   /** Description */
   description: string
@@ -17,7 +74,7 @@ export interface IProjectFields {
   live?: string | undefined
 
   /** Tags */
-  tags: Entry<{ [fieldId: string]: unknown }>[]
+  tags: ITags[]
 
   /** Card Image */
   image: Asset
@@ -27,9 +84,6 @@ export interface IProjectFields {
 
   /** Cloudinary */
   cloudinary?: Record<string, any> | undefined
-
-  /** Slug */
-  slug: string
 }
 
 /** Project entry */
@@ -96,7 +150,7 @@ export interface ITile extends Entry<ITileFields> {
   }
 }
 
-export type CONTENT_TYPE = 'project' | 'tile'
+export type CONTENT_TYPE = 'cloudinary' | 'project' | 'tags' | 'tile'
 
 export type LOCALE_CODE = 'en-US'
 

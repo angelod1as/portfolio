@@ -48,12 +48,14 @@ export default function Home({ homeData }: HomeProps) {
             )
           }
           return (
-            <Tile href={link} key={uuid()}>
-              <Inside color={colors[i % colors.length]}>
-                {hasido ? <Small>I do</Small> : ''}
-                <Big>{title}</Big>
-              </Inside>
-            </Tile>
+            <Link href={link} key={uuid()}>
+              <Tile>
+                <Inside color={colors[i % colors.length]}>
+                  {hasido ? <Small>I do</Small> : ''}
+                  <Big>{title}</Big>
+                </Inside>
+              </Tile>
+            </Link>
           )
         })}
       </Grid>
