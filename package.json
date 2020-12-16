@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts"
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
@@ -40,11 +42,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/react": "^6.1.11",
     "@types/node": "^14.14.9",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
+    "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",

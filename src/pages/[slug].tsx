@@ -1,8 +1,17 @@
 import Page from '@sections/page'
-import { ITile, ITileFields } from 'src/@types/generated/contentful'
+import { IProject, ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@build/fetchContentful'
 
-function PageGenerator({ content }: { content: ITile }) {
+interface PageGeneratorProps {
+  content: {
+    fields: {
+      type: string
+      content: IProject
+    }
+  }
+}
+
+function PageGenerator({ content }: PageGeneratorProps) {
   return <Page content={content} />
 }
 
