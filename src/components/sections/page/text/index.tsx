@@ -1,19 +1,15 @@
 import { Content, Grid } from './styles'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { ITile, ICloudinary } from 'src/@types/generated/contentful'
+import { ITile, ICloudinary, IProject } from 'src/@types/generated/contentful'
 
 interface TextProps {
   color: string
-  content: ITile
+  content: IProject
 }
 
-export default function Text({
-  color,
-  content: {
-    fields: { title, content, cloudinary },
-  },
-}: TextProps) {
+export default function Text({ color, content }: TextProps) {
+  const htmlContent = content.fields.content
   // REFACTOR: colors should transition between them, nice effect
   const handleEmbedded = ({ data: { target } }: { data: { target: ICloudinary } }) => {
     if (target.sys.contentType.sys.id === 'cloudinary') {
@@ -36,7 +32,7 @@ export default function Text({
     },
   }
 
-  const contentReact = documentToReactComponents(content, dtrOptions)
+  const contentReact = documentToReactComponents(htmlContent, dtrOptions)
 
   return (
     <Grid>

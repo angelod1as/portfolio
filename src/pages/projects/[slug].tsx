@@ -1,8 +1,10 @@
+import Page from '@sections/page'
 import fetchContentful from '@build/fetchContentful'
-import { IProject, IProjectFields } from 'src/@types/generated/contentful'
+import { IProject, IProjectFields, ITile } from 'src/@types/generated/contentful'
 
 function ProjectGenerator({ content }: { content: IProject }) {
-  return <div>Teste de Projeto</div>
+  console.log('project')
+  return <Page content={content} />
 }
 
 export async function getStaticPaths() {

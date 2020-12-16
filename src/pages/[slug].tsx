@@ -21,6 +21,7 @@ export async function getStaticProps({ params }) {
   const query = await fetchContentful<ITileFields>({ type: 'tile' })
 
   const content = query.find((item) => item.fields.slug === params.slug)
+
   return { props: { content } }
 }
 
