@@ -1,11 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const ButtonWrapper = styled.div`
   position: relative;
   max-width: 300px;
 `
+interface StyledProps {
+  backgroundColor: string
+  borderless: boolean
+  inverted: boolean
+}
 
-export const ButtonStyle = styled.button<{ backgroundColor: string }>`
+export const ButtonStyle = styled.button<StyledProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,15 +21,38 @@ export const ButtonStyle = styled.button<{ backgroundColor: string }>`
   font-size: 20px;
   line-height: 20px;
   text-align: center;
-  color: ${(p) => p.backgroundColor};
+  color: ${p => p.backgroundColor};
 
   z-index: 1;
   padding: 20px;
   width: 100%;
 
-  border: 2px solid ${(p) => p.backgroundColor};
-  border-radius: ${(p) => p.theme.numbers.radius};
-  background-color: ${(p) => p.theme.color.white};
+  ${p => {
+    if (p.borderless && p.inverted) {
+      return css<StyledProps>`
+        border: 2px solid ${p => p.backgroundColor};
+        background-color: ${p => p.backgroundColor};
+        color: ${p => p.theme.color.white};
+      `
+    } else if (p.borderless) {
+      return css<StyledProps>`
+        border: 2px solid ${p => p.theme.color.white};
+        background-color: ${p => p.theme.color.white};
+      `
+    } else if (p.inverted) {
+      return css<StyledProps>`
+        border: 2px solid ${p => p.theme.color.white};
+        background-color: ${p => p.backgroundColor};
+        color: ${p => p.theme.color.white};
+      `
+    } else {
+      return css<StyledProps>`
+        border: 2px solid ${p => p.backgroundColor};
+        border-radius: ${p => p.theme.numbers.radius};
+        background-color: ${p => p.theme.color.white};
+      `
+    }
+  }}
 
   transition: transform 0.1s;
 
@@ -32,16 +60,24 @@ export const ButtonStyle = styled.button<{ backgroundColor: string }>`
     transform: translate(10px, -10px);
   }
 `
-export const ButtonBg = styled.div<{ backgroundColor: string }>`
+export const ButtonBg = styled.div<StyledProps>`
   z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid ${(p) => p.backgroundColor};
-  border-radius: ${(p) => p.theme.numbers.radius};
-  background-color: ${(p) => p.backgroundColor};
+  border-radius: ${p => p.theme.numbers.radius};
+  ${p =>
+    p.inverted
+      ? css<StyledProps>`
+          border: 2px solid ${p => p.theme.color.white};
+          background-color: ${p => p.theme.color.white};
+        `
+      : css<StyledProps>`
+          border: 2px solid ${p => p.backgroundColor};
+          background-color: ${p => p.backgroundColor};
+        `}
 `
 
 export const Icon = styled.div`

@@ -11,18 +11,24 @@ export interface ButtonProps {
   onClick?: () => void
   // Optional icon
   icon: string
+  // Borderless?
+  borderless: boolean
+  // Light font color?
+  inverted: boolean
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ label, icon, backgroundColor, ...props }: ButtonProps) => {
-  let iconColor = backgroundColor
-  if (backgroundColor === 'fixed-black') {
-    iconColor = theme.color.white
-  } else if (backgroundColor === 'fixed-white') {
-    iconColor = theme.color.black
-  }
+export const Button = ({
+  label,
+  icon,
+  backgroundColor,
+  borderless,
+  inverted,
+  ...props
+}: ButtonProps) => {
+  const iconColor = inverted ? theme.color.white : backgroundColor
 
   const setIcon = () => {
     switch (icon) {
@@ -35,11 +41,15 @@ export const Button = ({ label, icon, backgroundColor, ...props }: ButtonProps) 
 
   return (
     <ButtonWrapper>
-      <ButtonStyle backgroundColor={backgroundColor} type="button" {...props}>
-        {icon ? <Icon>{setIcon()}</Icon> : ''}
+      <ButtonStyle
+        {...{ backgroundColor, borderless, inverted }}
+        type="button"
+        {...props}
+      >
+        {icon && icon !== 'none' ? <Icon>{setIcon()}</Icon> : ''}
         {label}
       </ButtonStyle>
-      <ButtonBg backgroundColor={backgroundColor} />
+      <ButtonBg {...{ backgroundColor, borderless, inverted }} />
     </ButtonWrapper>
   )
 }

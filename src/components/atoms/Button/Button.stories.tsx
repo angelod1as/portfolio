@@ -6,30 +6,47 @@ import { Button, ButtonProps } from './index'
 export default {
   title: 'Portfolio/Button',
   component: Button,
+  argTypes: {
+    backgroundColor: {
+      control: 'color',
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: ['none', 'github'],
+      },
+    },
+  },
 } as Meta
 
 const backgroundColor = '#000000'
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
+const Template: Story<ButtonProps> = args => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  buttonType: 'default',
   label: 'Button',
   backgroundColor,
 }
 
 export const Borderless = Template.bind({})
 Borderless.args = {
-  buttonType: 'borderless',
+  borderless: true,
   label: 'Button',
   backgroundColor,
 }
 
 export const Icon = Template.bind({})
 Icon.args = {
-  buttonType: 'default',
   icon: 'github',
   label: 'Button',
   backgroundColor,
+}
+
+export const Inverted = Template.bind({})
+Inverted.args = {
+  icon: 'github',
+  label: 'Button',
+  backgroundColor,
+  inverted: true,
 }
