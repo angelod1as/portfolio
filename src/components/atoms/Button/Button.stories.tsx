@@ -1,37 +1,35 @@
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { Button, ButtonProps } from './Button'
+import { Button, ButtonProps } from './index'
 
 export default {
-  title: 'Example/Button',
+  title: 'Portfolio/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as Meta
+
+const backgroundColor = '#000000'
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  primary: true,
+  buttonType: 'default',
   label: 'Button',
+  backgroundColor,
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
+export const Borderless = Template.bind({})
+Borderless.args = {
+  buttonType: 'borderless',
   label: 'Button',
+  backgroundColor,
 }
 
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
+export const Icon = Template.bind({})
+Icon.args = {
+  buttonType: 'default',
+  icon: 'github',
   label: 'Button',
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
-  label: 'Button',
+  backgroundColor,
 }

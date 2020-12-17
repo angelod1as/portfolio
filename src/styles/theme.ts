@@ -1,7 +1,7 @@
 const color = {
   color: '#333333',
   white: '#FFFFFF',
-  black: '#333333',
+  black: '#000000',
   gray: '#CCCCCC',
   darkgray: '#A9A9A9',
 }
@@ -12,7 +12,7 @@ const font = {
 }
 
 const tileColors = [
-  'black', // preto
+  '#000000', // preto
   '#9b11c1', // roxo
   '#F2B705', // amarelão
   '#DF2935', // rose madder
@@ -39,11 +39,16 @@ const size = {
   small: `(max-width: 600px)`,
 }
 
+const numbers = {
+  radius: 0,
+}
+
 export interface ThemeProps {
   size: { [key in keyof typeof size]: string }
   color: { [key in keyof typeof color]: string }
   font: { [key in keyof typeof font]: string }
   tileColors: string[]
+  numbers: { [key in keyof typeof numbers]: string | number }
 }
 
 export const theme: ThemeProps = {
@@ -51,6 +56,7 @@ export const theme: ThemeProps = {
   color,
   font,
   tileColors,
+  numbers,
 }
 
 export default theme

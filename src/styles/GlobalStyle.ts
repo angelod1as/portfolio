@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
   }
+
   * {
     box-sizing: border-box;
     &:focus {
