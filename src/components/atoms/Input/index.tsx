@@ -54,3 +54,5 @@ export const Input = ({
     </Container>
   )
 }
+
+export default Input

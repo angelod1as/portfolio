@@ -4,24 +4,24 @@ import theme from '@styles/theme'
 
 export interface ButtonProps {
   // What background color to use
-  backgroundColor: string | 'fixed-black' | 'fixed-white'
+  backgroundColor: string
   // Content
-  label: string
+  children: string
   // Optional click hander
   onClick?: () => void
   // Optional icon
-  icon: string
+  icon?: string
   // Borderless?
-  borderless: boolean
+  borderless?: boolean
   // Light font color?
-  inverted: boolean
+  inverted?: boolean
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  label,
+  children,
   icon,
   backgroundColor,
   borderless,
@@ -47,9 +47,11 @@ export const Button = ({
         {...props}
       >
         {icon && icon !== 'none' ? <Icon>{setIcon()}</Icon> : ''}
-        {label}
+        {children}
       </ButtonStyle>
       <ButtonBg {...{ backgroundColor, borderless, inverted }} />
     </ButtonWrapper>
   )
 }
+
+export default Button

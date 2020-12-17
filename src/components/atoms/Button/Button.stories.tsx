@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Button, ButtonProps } from './index'
 
 export default {
-  title: 'Portfolio/Button',
+  title: 'Portfolio/Atoms/Button',
   component: Button,
   argTypes: {
     backgroundColor: {
@@ -25,28 +25,28 @@ const Template: Story<ButtonProps> = args => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  label: 'Button',
+  children: 'Button',
   backgroundColor,
 }
 
 export const Borderless = Template.bind({})
 Borderless.args = {
   borderless: true,
-  label: 'Button',
+  children: 'Button',
   backgroundColor,
 }
 
 export const Icon = Template.bind({})
 Icon.args = {
   icon: 'github',
-  label: 'Button',
+  children: 'Button',
   backgroundColor,
 }
 
 export const Inverted = Template.bind({})
 Inverted.args = {
   icon: 'github',
-  label: 'Button',
+  children: 'Button',
   backgroundColor,
   inverted: true,
 }

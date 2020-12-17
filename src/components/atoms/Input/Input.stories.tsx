@@ -1,10 +1,9 @@
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Input, InputProps } from './index'
 
 export default {
-  title: 'Portfolio/Input',
+  title: 'Portfolio/Atoms/Input',
   component: Input,
   argTypes: {
     backgroundColor: {

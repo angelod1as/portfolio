@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const ButtonWrapper = styled.div`
   position: relative;
-  max-width: 300px;
+  max-width: 400px;
 `
 interface StyledProps {
   backgroundColor: string
@@ -11,10 +11,12 @@ interface StyledProps {
 }
 
 export const ButtonStyle = styled.button<StyledProps>`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
   font-weight: 400;
@@ -61,7 +63,7 @@ export const ButtonStyle = styled.button<StyledProps>`
   }
 `
 export const ButtonBg = styled.div<StyledProps>`
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
