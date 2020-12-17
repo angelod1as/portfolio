@@ -15,7 +15,7 @@
     "gatsby-plugin-netlify-cms": "^4.1.14",
     "gatsby-plugin-offline": "^3.0.6",
     "gatsby-plugin-react-helmet": "^3.1.7",
-    "gatsby-plugin-react-svg": "^2.1.1",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.2.21",
     "gatsby-plugin-styled-components": "^3.1.5",
     "gatsby-remark-autolink-headers": "^2.1.13",
