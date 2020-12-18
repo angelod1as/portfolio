@@ -15,4 +15,21 @@ export const decorators = [
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  backgrounds: {
+    default: 'gray',
+    values: [
+      {
+        name: 'white',
+        value: '#fff'
+      },
+      {
+        name: 'black',
+        value: '#000'
+      },
+      {
+        name: 'gray',
+        value: '#a9a9a9'
+      }
+    ]
+  }
 }
