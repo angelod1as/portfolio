@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts",
+    "type": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

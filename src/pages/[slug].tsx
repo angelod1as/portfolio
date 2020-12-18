@@ -6,6 +6,7 @@ interface PageGeneratorProps {
   content: {
     fields: {
       type: string
+      title: string
       content: IProject
     }
   }
@@ -18,7 +19,7 @@ function PageGenerator({ content }: PageGeneratorProps) {
 export async function getStaticPaths() {
   const query = await fetchContentful<ITileFields>({ type: 'tile' })
 
-  const paths = query.map((item) => {
+  const paths = query.map(item => {
     return {
       params: { slug: item.fields.slug },
     }
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const query = await fetchContentful<ITileFields>({ type: 'tile' })
 
-  const content = query.find((item) => item.fields.slug === params.slug)
+  const content = query.find(item => item.fields.slug === params.slug)
 
   return { props: { content } }
 }

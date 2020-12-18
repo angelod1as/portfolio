@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { StyledBack } from './styles'
 
 export interface BackProps {
@@ -9,7 +10,12 @@ export interface BackProps {
  * Back button
  */
 export const Back = ({ inverted }: BackProps) => {
-  return <StyledBack {...{ inverted }}>back</StyledBack>
+  const router = useRouter()
+  return (
+    <StyledBack onClick={() => router.back()} {...{ inverted }}>
+      back
+    </StyledBack>
+  )
 }
 
 export default Back

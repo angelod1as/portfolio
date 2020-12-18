@@ -18,9 +18,11 @@ export interface HeaderProps {
   // Has "I'm angelo and I do..."
   hasIDo?: boolean
   // Excerpt
-  excerpt: string
+  excerpt?: string
+  // Slug to build excerpt link
+  slug?: string
   // Slim header
-  slim: boolean
+  slim?: boolean
 }
 
 /**
@@ -32,6 +34,7 @@ export const Header = ({
   excerpt,
   title,
   slim,
+  slug,
 }: HeaderProps) => {
   return (
     <Container {...{ backgroundColor, slim }}>
@@ -40,14 +43,19 @@ export const Header = ({
       </BackWrapper>
       <Title {...{ slim }}>
         {hasIDo && !slim && "I'm angelo and I do "}
-        <span>{title}</span>
+        <span>{title.toLowerCase()}</span>
       </Title>
       {excerpt && !slim ? (
         <ExcerptWrapper>
           <ExcerptTitle>Time is short</ExcerptTitle>
           <ExcerptSubtitle>Read this first</ExcerptSubtitle>
           <ExcerptText>{excerpt}</ExcerptText>
-          <Button backgroundColor={backgroundColor} borderless inverted>
+          <Button
+            to={`${slug}/about`}
+            backgroundColor={backgroundColor}
+            borderless
+            inverted
+          >
             click to continue reading
           </Button>
         </ExcerptWrapper>

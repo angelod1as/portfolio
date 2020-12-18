@@ -4,7 +4,8 @@ const Space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
 const Token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
-  type: 'tile' | 'project'
+  type?: 'tile' | 'project'
+  slug?: string
 }
 
 // interface OptionProps {

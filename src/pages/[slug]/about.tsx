@@ -1,24 +1,23 @@
 import Page from '@sections/page'
 import fetchContentful from '@build/fetchContentful'
-import { IProject, IProjectFields } from 'src/@types/generated/contentful'
+import { useRouter } from 'next/router'
+import { ITileFields } from 'src/@types/generated/contentful'
 
-function ProjectGenerator({
+function AboutGenerator({
   content,
 }: {
   content: {
     fields: {
       type: string
       title: string
-      content: IProject
     }
   }
 }) {
-  console.log('project')
   return <Page content={content} />
 }
 
 export async function getStaticPaths() {
-  const query = await fetchContentful<IProjectFields>({ type: 'project' })
+  const query = await fetchContentful<ITileFields>({ type: 'project' })
 
   const paths = query.map(item => {
     return {
@@ -29,10 +28,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query = await fetchContentful<IProjectFields>({ type: 'project' })
+  const query = await fetchContentful<ITileFields>({
+    type: 'project',
+    slug: params.slug,
+  })
+  console.log(query)
 
   const content = query.find(item => item.fields.slug === params.slug)
   return { props: { content } }
 }
 
-export default ProjectGenerator
+export default AboutGenerator

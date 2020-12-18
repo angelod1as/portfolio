@@ -5,9 +5,9 @@ const { size } = theme
 const width = '20%'
 
 export const Grid = styled.div`
-  color: ${(props) => props.theme.color.black};
-  background-color: ${(props) => props.theme.color.white};
-  font-family: ${(props) => props.theme.font.display};
+  color: ${props => props.theme.color.black};
+  background-color: ${props => props.theme.color.white};
+  font-family: ${props => props.theme.font.display};
   height: 100%;
 
   display: grid;
@@ -29,8 +29,8 @@ export const SidebarHolder = styled.div`
   width: 20%;
   height: 100%;
 
-  background-color: ${(p) => p.color};
-  color: ${(p) => p.theme.color.white};
+  background-color: ${p => p.color};
+  color: ${p => p.theme.color.white};
 
   @media ${size.medium} {
     display: block;
@@ -44,8 +44,8 @@ export const Content = styled.div`
   grid-area: content;
 
   padding: 40px;
-  background-color: ${(p) => p.theme.color.white};
-  color: ${(p) => p.theme.color.black};
+  background-color: ${p => p.theme.color.white};
+  color: ${p => p.theme.color.black};
 
   @media ${size.medium} {
     display: block;
