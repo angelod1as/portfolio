@@ -1,18 +1,10 @@
-import Text from './text'
+import Text, { ContentFieldsProps } from './text'
 import Projects from './projects'
 import theme from '@styles/theme'
 import Header from '@components/atoms/Header'
-import { Document } from '@contentful/rich-text-types'
 import { IProject } from 'src/@types/generated/contentful'
 
 import { Wrapper } from './styles'
-
-export interface ContentFieldsProps {
-  excerpt: string
-  title: string
-  slug: string
-  content: Document
-}
 
 export interface PageProps {
   content: {
@@ -42,7 +34,7 @@ export default function Page(props: PageProps) {
 
   const rendered = () => {
     if (type === 'projects') {
-      return <Projects items={props.items} />
+      return <Projects backgroundColor={color} items={props.items} />
     } else {
       return <Text content={content} backgroundColor={color} />
     }

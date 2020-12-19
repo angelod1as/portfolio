@@ -38,20 +38,24 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 1em;
   }
 
+  h1, h2, h3 {
+    font-family: 'Montserrat Alternates', 'Montseerat', sans-serif;
+    font-weight: 700;
+  }
+
   h1 {
-    line-height: 1.3em;
+    font-size: 48px;
+    line-height: 110%;
   }
 
   h2 {
-    margin: 40px 0 20px 0;
-    font-size: 1.5em;
-    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
   }
 
   h3 {
-    font-size: 1.2em;
-    margin: 40px 0 20px 0;
-    font-weight: 700;
+    font-size: 20px;
+    line-height: 35px;
   }
 
   a {

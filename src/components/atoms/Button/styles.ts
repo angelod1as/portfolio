@@ -1,14 +1,21 @@
 import styled, { css } from 'styled-components'
 
 export const ButtonWrapper = styled.div`
+  margin: 0 0 20px 0;
   position: relative;
   max-width: 400px;
+  width: 100%;
 `
 interface StyledProps {
   backgroundColor: string
   borderless: boolean
   inverted: boolean
 }
+
+export const ExternalLink = styled.a`
+  text-decoration: none;
+  display: block;
+`
 
 export const ButtonStyle = styled.button<StyledProps>`
   position: relative;

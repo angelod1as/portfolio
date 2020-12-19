@@ -10,7 +10,9 @@ export const Container = styled.div<{ backgroundColor: string; slim: boolean }>`
   color: ${p => p.theme.color.white};
 
   height: 480px;
-  padding: 40px;
+  padding-left: 40px;
+
+  margin-bottom: 50px;
 
   ${p =>
     p.slim &&

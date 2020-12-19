@@ -5,20 +5,24 @@ import { Wrapper, H2, Mosaic, ProjectHolder } from './styles'
 
 interface ProjectsProps {
   items: IProject[]
+  backgroundColor: string
 }
 
-export default function Projects({ items }: ProjectsProps) {
+export default function Projects({ items, backgroundColor }: ProjectsProps) {
   return (
     <Wrapper>
-      <H2>Latest projects</H2>
+      <H2 {...{ backgroundColor }}>Latest projects</H2>
       <Mosaic>
         {items.map(
-          ({ fields: { date, description, slug, title, coverImage } }, i) => {
+          (
+            { fields: { safeDate, description, slug, title, coverImage } },
+            i
+          ) => {
             return (
               <ProjectHolder key={`${slug}-${i}`}>
                 <Project
                   title={title}
-                  date={date}
+                  safeDate={safeDate}
                   to={slug}
                   lead={description}
                   image={coverImage as ImageProps[]}

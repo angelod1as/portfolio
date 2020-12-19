@@ -9,7 +9,7 @@ export interface ProjectProps {
   image: ImageProps[]
   title: string
   lead: string
-  date: string
+  safeDate: string
   to: string
 }
 
@@ -17,7 +17,7 @@ export default function Project({
   image,
   title,
   lead,
-  date,
+  safeDate,
   to,
 }: ProjectProps) {
   return (
@@ -27,7 +27,7 @@ export default function Project({
         <Caption>
           <H3>{title}</H3>
           <Lead>
-            {lead} <span>{date}</span>
+            {lead} <span>{safeDate}</span>
           </Lead>
         </Caption>
       </Wrapper>

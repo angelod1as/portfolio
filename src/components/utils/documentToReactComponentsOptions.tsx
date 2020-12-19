@@ -20,6 +20,7 @@ const handleEmbedded = (node: { data: { target: ICloudinary } }) => {
   return <div data-error="content-type not configured for display"></div>
 }
 
+// TODO: transport video tags
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: node => handleEmbedded(node),

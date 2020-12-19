@@ -1,6 +1,7 @@
 import Page, { PageProps } from '@sections/page'
 import { ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@build/fetchContentful'
+import makeSafeDate from '@components/utils/makeSafeDate'
 
 function PageGenerator({ content, items }: PageProps) {
   return <Page content={content} items={items} />
@@ -26,20 +27,13 @@ export async function getStaticProps({ params }) {
   const content = query.content.find(item => item.fields.slug === params.slug)
 
   const dateSafeItems = query.items.map(each => {
-    const locale = 'en'
     const date = new Date(each.fields.date)
-    const options = {
-      dateStyle: 'short',
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    }
-    const safeDate = new Intl.DateTimeFormat(locale, options).format(date)
+    const safeDate = makeSafeDate(date)
     return {
       ...each,
       fields: {
         ...each.fields,
-        date: safeDate,
+        safeDate: safeDate,
       },
     }
   })

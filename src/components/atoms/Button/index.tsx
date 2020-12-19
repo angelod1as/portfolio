@@ -1,4 +1,10 @@
-import { ButtonWrapper, ButtonStyle, ButtonBg, Icon } from './styles'
+import {
+  ButtonWrapper,
+  ExternalLink,
+  ButtonStyle,
+  ButtonBg,
+  Icon,
+} from './styles'
 import { VscGithubInverted } from 'react-icons/vsc'
 import theme from '@styles/theme'
 import Link from 'next/link'
@@ -17,7 +23,9 @@ export interface ButtonProps {
   // Light font color?
   inverted?: boolean
   // URL direction
-  to: string
+  to?: string
+  // External Href
+  href?: string
 }
 
 /**
@@ -30,6 +38,7 @@ export const Button = ({
   borderless,
   inverted,
   to,
+  href,
   ...props
 }: ButtonProps) => {
   const iconColor = inverted ? theme.color.white : backgroundColor
@@ -43,8 +52,8 @@ export const Button = ({
     }
   }
 
-  return (
-    <Link href={to}>
+  const rendered = () => {
+    return (
       <ButtonWrapper>
         <ButtonStyle
           {...{ backgroundColor, borderless, inverted }}
@@ -56,8 +65,19 @@ export const Button = ({
         </ButtonStyle>
         <ButtonBg {...{ backgroundColor, borderless, inverted }} />
       </ButtonWrapper>
-    </Link>
-  )
+    )
+  }
+
+  if (to) {
+    return <Link href={to}>{rendered()}</Link>
+  } else if (href) {
+    return (
+      <ExternalLink href={href} target="_blank" rel="noreferrer">
+        {rendered()}
+      </ExternalLink>
+    )
+  }
+  return <div />
 }
 
 export default Button
