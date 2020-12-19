@@ -2,17 +2,21 @@ import Text from './text'
 import Projects from './project'
 import theme from '@styles/theme'
 import Header from '@components/atoms/Header'
+import { Document } from '@contentful/rich-text-types'
+
+export interface ContentFieldsProps {
+  excerpt: string
+  title: string
+  slug: string
+  content: Document
+}
 
 interface PageProps {
   content: {
     fields: {
       type: string
       content: {
-        fields: {
-          excerpt: string
-          title: string
-          slug: string
-        }
+        fields: ContentFieldsProps
       }
     }
   }

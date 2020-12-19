@@ -1,24 +1,19 @@
 import { Content, Grid } from './styles'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Document } from '@contentful/rich-text-types'
 import dtrOptions from '@components/utils/documentToReactComponentsOptions'
+import { ContentFieldsProps } from '..'
 
 interface TextProps {
   backgroundColor: string
   content: {
-    fields: {
-      content: Document
-    }
+    fields: ContentFieldsProps
   }
 }
 
 export default function Text({ backgroundColor, content }: TextProps) {
+  console.log(content)
   const htmlContent = content.fields.content
 
-  // let htmlContent = content
-  // if (content?.fields?.content) {
-  //   htmlContent = content.fields.content
-  // }
   // REFACTOR: colors should transition between them, nice effect
   const contentReact = documentToReactComponents(htmlContent, dtrOptions)
 

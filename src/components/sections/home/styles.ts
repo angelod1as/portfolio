@@ -19,15 +19,15 @@ export const Tile = styled.a`
   padding-bottom: 100%;
   position: relative;
   cursor: pointer;
-  color: ${(p) => p.theme.color.white};
-  background-color: ${(p) => p.theme.color.white};
+  color: ${p => p.theme.color.white};
+  background-color: ${p => p.theme.color.white};
   &:hover {
-    color: ${(p) => p.theme.color.white};
+    color: ${p => p.theme.color.white};
   }
 `
 
 export const Inside = styled.div`
-  background-color: ${(p) => p.color};
+  background-color: ${p => p.color};
   position: absolute;
   width: 100%;
   height: 100%;
@@ -52,7 +52,7 @@ export const Text = styled.p`
   padding: 0;
   font-weight: bold;
   font-size: 3em;
-  font-family: ${(p) => p.theme.font.display};
+  font-family: ${p => p.theme.font.display};
 `
 
 export const Small = styled(Text)`

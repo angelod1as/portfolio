@@ -1,6 +1,5 @@
 import Page from '@sections/page'
 import fetchContentful from '@build/fetchContentful'
-import { useRouter } from 'next/router'
 import { ITileFields } from 'src/@types/generated/contentful'
 
 function AboutGenerator({ content }: { content }) {
