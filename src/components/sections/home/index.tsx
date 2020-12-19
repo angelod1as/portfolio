@@ -9,6 +9,11 @@ interface ItemProps {
   order: number
   hasido: boolean
   redir?: string
+  internalRedirect?: {
+    fields: {
+      slug: string
+    }
+  }
 }
 
 interface HomeProps {
@@ -30,8 +35,15 @@ export default function Home({ homeData }: HomeProps) {
       {/* <NewsSlip /> */}
       <Grid>
         {homeData.content.map((each, i: number) => {
-          const { title, hasido, slug, redir } = each.fields
-          const link = redir || `/${slug}`
+          const { title, hasido, slug, redir, internalRedirect } = each.fields
+          let link = `/${slug}`
+
+          if (redir) {
+            link = redir
+          } else if (internalRedirect) {
+            link = `projects/${internalRedirect.fields.slug}`
+          }
+
           if (title === 'stuff') {
             return (
               <Link href={link} key={uuid()}>

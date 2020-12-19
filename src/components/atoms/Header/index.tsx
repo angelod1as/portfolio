@@ -45,8 +45,8 @@ export const Header = ({
         <Back inverted />
       </BackWrapper>
       <Title {...{ slim }}>
-        {hasIDo && !slim && "I'm angelo and I do "}
-        <span>{title.toLowerCase()}</span>
+        {hasIDo && !slim && type && "I'm angelo and I do "}
+        <span>{type ? title.toLowerCase() : title}</span>
       </Title>
       {type && excerpt && !slim ? (
         <ExcerptWrapper>

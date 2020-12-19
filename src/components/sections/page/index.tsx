@@ -38,14 +38,18 @@ export default function Page(props: PageProps) {
   const colors = theme.tileColors
   const color = colors[Math.floor(Math.random() * colors.length)]
 
+  const rendered = () => {
+    if (type === 'projects') {
+      return <Projects items={props.items} />
+    } else {
+      return <Text content={content} backgroundColor={color} />
+    }
+  }
+
   return (
     <Wrapper>
       <Header backgroundColor={color} {...{ title, excerpt, slug, type }} />
-      {type === 'projects' ? (
-        <Projects items={props.items} />
-      ) : (
-        <Text content={content} backgroundColor={color} />
-      )}
+      {rendered()}
     </Wrapper>
   )
 }

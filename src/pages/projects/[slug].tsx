@@ -1,6 +1,6 @@
 import Page, { PageProps } from '@sections/page'
 import fetchContentful from '@build/fetchContentful'
-import { IProject, IProjectFields } from 'src/@types/generated/contentful'
+import { IProjectFields } from 'src/@types/generated/contentful'
 
 function ProjectGenerator({ content }: PageProps) {
   return <Page content={content} />
@@ -21,7 +21,8 @@ export async function getStaticProps({ params }) {
   const query = await fetchContentful<IProjectFields>({ type: 'project' })
 
   const content = query.content.find(item => item.fields.slug === params.slug)
-  return { props: { content } }
+
+  return { props: { content: { fields: { content } } } }
 }
 
 export default ProjectGenerator
