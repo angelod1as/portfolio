@@ -23,6 +23,8 @@ export interface HeaderProps {
   slug?: string
   // Slim header
   slim?: boolean
+  // Type of content. If undefined, no excerpt
+  type: string | undefined
 }
 
 /**
@@ -35,6 +37,7 @@ export const Header = ({
   title,
   slim,
   slug,
+  type,
 }: HeaderProps) => {
   return (
     <Container {...{ backgroundColor, slim }}>
@@ -45,7 +48,7 @@ export const Header = ({
         {hasIDo && !slim && "I'm angelo and I do "}
         <span>{title.toLowerCase()}</span>
       </Title>
-      {excerpt && !slim ? (
+      {type && excerpt && !slim ? (
         <ExcerptWrapper>
           <ExcerptTitle>Time is short</ExcerptTitle>
           <ExcerptSubtitle>Read this first</ExcerptSubtitle>

@@ -1,37 +1,42 @@
 import Text from './text'
 import Projects from './project'
 import theme from '@styles/theme'
-import { IProject } from 'src/@types/generated/contentful'
 import Header from '@components/atoms/Header'
 
 interface PageProps {
   content: {
     fields: {
       type: string
-      title: string
-      content: IProject
+      content: {
+        fields: {
+          excerpt: string
+          title: string
+          slug: string
+        }
+      }
     }
   }
 }
 
-export default function Page({
-  content: {
-    fields: { type, title, content },
-  },
-}: PageProps) {
-  const excerpt = content?.fields?.excerpt
-  const slug = content?.fields?.slug
+export default function Page(props: PageProps) {
+  const {
+    content,
+    type,
+    content: {
+      fields: { title, excerpt, slug },
+    },
+  } = props.content.fields
 
   const colors = theme.tileColors
   const color = colors[Math.floor(Math.random() * colors.length)]
 
   return (
     <>
-      <Header backgroundColor={color} {...{ title, excerpt, slug }} />
-      {type === 'text' ? (
-        <Text content={content} color={color} />
-      ) : (
+      <Header backgroundColor={color} {...{ title, excerpt, slug, type }} />
+      {type === 'projects' ? (
         <Projects content={content} />
+      ) : (
+        <Text content={content} backgroundColor={color} />
       )}
     </>
   )

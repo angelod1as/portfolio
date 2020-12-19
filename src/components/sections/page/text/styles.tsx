@@ -4,7 +4,7 @@ const { size } = theme
 
 const width = '20%'
 
-export const Grid = styled.div`
+export const Grid = styled.div<{ backgroundColor: string }>`
   color: ${props => props.theme.color.black};
   background-color: ${props => props.theme.color.white};
   font-family: ${props => props.theme.font.display};

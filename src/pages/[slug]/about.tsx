@@ -3,16 +3,7 @@ import fetchContentful from '@build/fetchContentful'
 import { useRouter } from 'next/router'
 import { ITileFields } from 'src/@types/generated/contentful'
 
-function AboutGenerator({
-  content,
-}: {
-  content: {
-    fields: {
-      type: string
-      title: string
-    }
-  }
-}) {
+function AboutGenerator({ content }: { content }) {
   return <Page content={content} />
 }
 
@@ -32,10 +23,9 @@ export async function getStaticProps({ params }) {
     type: 'project',
     slug: params.slug,
   })
-  console.log(query)
 
   const content = query.find(item => item.fields.slug === params.slug)
-  return { props: { content } }
+  return { props: { content: { fields: { content } } } }
 }
 
 export default AboutGenerator
