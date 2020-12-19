@@ -18,6 +18,7 @@ export interface PageProps {
   content: {
     fields: {
       type: string
+      hasido: boolean
       content: {
         fields: ContentFieldsProps
       }
@@ -30,6 +31,7 @@ export default function Page(props: PageProps) {
   const {
     content,
     type,
+    hasido: hasIDo,
     content: {
       fields: { title, excerpt, slug },
     },
@@ -48,7 +50,10 @@ export default function Page(props: PageProps) {
 
   return (
     <Wrapper>
-      <Header backgroundColor={color} {...{ title, excerpt, slug, type }} />
+      <Header
+        backgroundColor={color}
+        {...{ title, excerpt, slug, type, hasIDo }}
+      />
       {rendered()}
     </Wrapper>
   )
