@@ -8,6 +8,27 @@ interface FetchProps {
   tag?: string
 }
 
+interface ImageEntry {
+  fields?: {
+    content?: {
+      fields?: {
+        content?: {
+          content: Array<{
+            nodeType: string
+            data?: {
+              target?: {
+                sys?: {
+                  id?: string
+                }
+              }
+            }
+          }>
+        }
+      }
+    }
+  }
+}
+
 const fetchContentful = async <T>({ type, tag }: FetchProps) => {
   const client = createClient({
     space: Space,
@@ -30,6 +51,23 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
         content_type: type,
         order: order,
       })
+
+      // Getting right image information
+      entries.items.forEach((each: ImageEntry) => {
+        if (each.fields?.content?.fields?.content?.content) {
+          const content = each.fields.content.fields.content.content
+          content.map(async eachContent => {
+            if (eachContent.nodeType === 'embedded-entry-block') {
+              const id = eachContent?.data?.target?.sys?.id
+              if (id) {
+                const asset = await client.getEntry(id)
+                eachContent.data.target = asset
+              }
+            }
+          })
+        }
+      })
+
       returned.content = entries.items
     } catch (error) {
       console.log(error)

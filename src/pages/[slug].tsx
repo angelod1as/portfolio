@@ -1,5 +1,5 @@
 import Page, { PageProps } from '@sections/page'
-import { IProject, ITileFields } from 'src/@types/generated/contentful'
+import { ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@build/fetchContentful'
 
 function PageGenerator({ content, items }: PageProps) {
