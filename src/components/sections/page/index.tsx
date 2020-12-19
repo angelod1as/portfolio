@@ -3,6 +3,9 @@ import Projects from './projects'
 import theme from '@styles/theme'
 import Header from '@components/atoms/Header'
 import { Document } from '@contentful/rich-text-types'
+import { IProject } from 'src/@types/generated/contentful'
+
+import { Wrapper } from './styles'
 
 export interface ContentFieldsProps {
   excerpt: string
@@ -11,7 +14,7 @@ export interface ContentFieldsProps {
   content: Document
 }
 
-interface PageProps {
+export interface PageProps {
   content: {
     fields: {
       type: string
@@ -20,6 +23,7 @@ interface PageProps {
       }
     }
   }
+  items?: IProject[]
 }
 
 export default function Page(props: PageProps) {
@@ -35,13 +39,13 @@ export default function Page(props: PageProps) {
   const color = colors[Math.floor(Math.random() * colors.length)]
 
   return (
-    <>
+    <Wrapper>
       <Header backgroundColor={color} {...{ title, excerpt, slug, type }} />
       {type === 'projects' ? (
-        <Projects content={content} />
+        <Projects items={props.items} />
       ) : (
         <Text content={content} backgroundColor={color} />
       )}
-    </>
+    </Wrapper>
   )
 }

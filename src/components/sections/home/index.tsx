@@ -12,11 +12,13 @@ interface ItemProps {
 }
 
 interface HomeProps {
-  homeData: [
-    {
-      fields: ItemProps
-    }
-  ]
+  homeData: {
+    content: [
+      {
+        fields: ItemProps
+      }
+    ]
+  }
 }
 
 // TODO: Head & SEO
@@ -27,7 +29,7 @@ export default function Home({ homeData }: HomeProps) {
     <>
       {/* <NewsSlip /> */}
       <Grid>
-        {homeData.map((each, i: number) => {
+        {homeData.content.map((each, i: number) => {
           const { title, hasido, slug, redir } = each.fields
           const link = redir || `/${slug}`
           if (title === 'stuff') {

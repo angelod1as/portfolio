@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.a`
-  max-width: 300px;
   transition: opacity 0.2s ease;
   text-decoration: none;
   cursor: pointer;
+  width: 100%;
+  height: auto;
 
   &:hover {
     opacity: 0.6;
@@ -16,7 +17,7 @@ export const Image = styled.img`
   height: auto;
 `
 
-export const Caption = styled.caption`
+export const Caption = styled.div`
   display: block;
   text-align: left;
 `

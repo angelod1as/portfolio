@@ -1,15 +1,15 @@
-import Page from '@sections/page'
+import Page, { PageProps } from '@sections/page'
 import fetchContentful from '@build/fetchContentful'
 import { ITileFields } from 'src/@types/generated/contentful'
 
-function AboutGenerator({ content }: { content }) {
+function AboutGenerator({ content }: PageProps) {
   return <Page content={content} />
 }
 
 export async function getStaticPaths() {
   const query = await fetchContentful<ITileFields>({ type: 'project' })
 
-  const paths = query.map(item => {
+  const paths = query.content.map(item => {
     return {
       params: { slug: item.fields.slug },
     }
@@ -20,10 +20,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const query = await fetchContentful<ITileFields>({
     type: 'project',
-    slug: params.slug,
   })
 
-  const content = query.find(item => item.fields.slug === params.slug)
+  const content = query.content.find(item => item.fields.slug === params.slug)
   return { props: { content: { fields: { content } } } }
 }
 

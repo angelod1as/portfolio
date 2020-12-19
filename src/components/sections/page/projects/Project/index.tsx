@@ -1,8 +1,12 @@
 import Link from 'next/link'
 import { Wrapper, Image, Caption, H3, Lead } from './styles'
 
+export interface ImageProps {
+  url: string
+}
+
 export interface ProjectProps {
-  image: string
+  image: ImageProps[]
   title: string
   lead: string
   date: string
@@ -17,17 +21,15 @@ export default function Project({
   to,
 }: ProjectProps) {
   return (
-    <Link href={to}>
+    <Link href={`projects/${to}`}>
       <Wrapper>
-        <figure>
-          <Image src={image} alt="" />
-          <Caption>
-            <H3>{title}</H3>
-            <Lead>
-              {lead} <span>{date}</span>
-            </Lead>
-          </Caption>
-        </figure>
+        {image && image.length > 0 && <Image src={image[0].url} alt="" />}
+        <Caption>
+          <H3>{title}</H3>
+          <Lead>
+            {lead} <span>{date}</span>
+          </Lead>
+        </Caption>
       </Wrapper>
     </Link>
   )

@@ -5,14 +5,10 @@ const Token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
   type?: 'tile' | 'project'
-  slug?: string
+  tag?: string
 }
 
-// interface OptionProps {
-//   order?: string
-// }
-
-const fetchContentful = async <T>({ type }: FetchProps) => {
+const fetchContentful = async <T>({ type, tag }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
@@ -23,16 +19,53 @@ const fetchContentful = async <T>({ type }: FetchProps) => {
     order = 'fields.order'
   }
 
-  try {
-    const entries = await client.getEntries<T>({
-      content_type: type,
-      order: order,
-    })
-    return entries.items
-  } catch (error) {
-    console.log(error)
-    console.log(error.details)
+  const returned = {
+    content: [],
+    items: [],
   }
+
+  if (type) {
+    try {
+      const entries = await client.getEntries<T>({
+        content_type: type,
+        order: order,
+      })
+      returned.content = entries.items
+    } catch (error) {
+      console.log(error)
+      console.log(error.details)
+    }
+  }
+
+  if (tag) {
+    try {
+      const entries = await client.getEntries<T>({
+        content_type: 'project',
+        limit: 1000,
+      })
+
+      const filtered = entries.items
+        .filter((eachItem: any) => {
+          const it = eachItem.fields.tags.filter(
+            (eachTag: any) => eachTag.fields.title === tag
+          )
+          return it.length > 0
+        })
+        .sort((a: any, b: any) => {
+          return (
+            new Date(b.fields.date).getTime() -
+            new Date(a.fields.date).getTime()
+          )
+        })
+
+      returned.items = filtered
+    } catch (error) {
+      console.log(error)
+      console.log(error.details)
+    }
+  }
+
+  return returned
 }
 
 export default fetchContentful

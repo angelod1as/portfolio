@@ -11,7 +11,6 @@ interface TextProps {
 }
 
 export default function Text({ backgroundColor, content }: TextProps) {
-  console.log(content)
   const htmlContent = content.fields.content
 
   // REFACTOR: colors should transition between them, nice effect
