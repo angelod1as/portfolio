@@ -1,5 +1,5 @@
 import Text from './text'
-import Projects from './project'
+import Projects from './projects'
 import theme from '@styles/theme'
 import Header from '@components/atoms/Header'
 import { Document } from '@contentful/rich-text-types'

@@ -1,3 +1,4 @@
+import { withNextRouter } from 'storybook-addon-next-router';
 import { ThemeProvider } from 'styled-components';
 import theme from '../src/styles/theme'
 import GlobalStyle from '../src/styles/GlobalStyle'
@@ -10,7 +11,7 @@ export const decorators = [
         <Story/>
       </ThemeProvider>
     )
-  }
+  }, withNextRouter()
 ];
 
 export const parameters = {
