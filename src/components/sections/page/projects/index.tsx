@@ -4,7 +4,11 @@ import Project, { ImageProps } from './Project'
 import { Wrapper, H2, Mosaic, ProjectHolder } from './styles'
 
 interface ProjectsProps {
-  items: IProject[]
+  items: Array<{
+    fields: IProject['fields'] & {
+      safeDate: string
+    }
+  }>
   backgroundColor: string
 }
 

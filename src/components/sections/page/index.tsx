@@ -16,7 +16,11 @@ export interface PageProps {
       }
     }
   }
-  items?: IProject[]
+  items?: Array<{
+    fields: IProject['fields'] & {
+      safeDate: string
+    }
+  }>
 }
 
 export default function Page(props: PageProps) {

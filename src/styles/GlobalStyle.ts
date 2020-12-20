@@ -3,11 +3,11 @@ import normalize from 'styled-normalize'
 import reset from 'styled-reset'
 import { ThemeProps } from './theme'
 
-interface P {
+interface GlobalProps {
   theme: ThemeProps
 }
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<GlobalProps>`
   /* reset and normalize */
   ${reset}
   ${normalize}
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     &:focus {
       outline-offset: 3px;
-      outline: ${(p: P) => p.theme.color.black} auto 1px;
+      outline: ${p => p.theme.color.black} auto 1px;
     }
   }
 
@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3 {
     margin: 60px 0 30px 0;
     padding: 0;
-    font-family: 'Montserrat Alternates', 'Montseerat', sans-serif;
+    font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
     font-weight: 700;
   }
 
@@ -70,22 +70,22 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     display: inline-block;
-    color: ${(p: P) => p.theme.color.black};
+    color: ${p => p.theme.color.black};
     font-weight: 500;
     transition: all .2s;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
-      color: ${(p: P) => p.theme.color.black};
+      color: ${p => p.theme.color.black};
     }
   }
   &.bg {
-    color: ${(p: P) => p.theme.color.white};
+    color: ${p => p.theme.color.white};
     &:hover {
-      color: ${(p: P) => p.theme.color.gray};
+      color: ${p => p.theme.color.gray};
     }
     &:visited {
-      color: ${(p: P) => p.theme.color.white};
+      color: ${p => p.theme.color.white};
     }
   }
 
@@ -96,10 +96,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .sidebar {
-    max-width: 300px;
-  }
-
   b, strong {
     font-weight: 700;
   }
@@ -108,15 +104,34 @@ const GlobalStyle = createGlobalStyle`
     font-style: italic;
   }
 
+  hr {
+    margin: 0;
+  }
+
   /* blockquote */
 
   blockquote {
     padding-left: 15px;
-    border-left: 5px solid ${(p: P) => p.theme.color.darkgray};
+    border-left: 5px solid ${p => p.theme.color.darkgray};
     font-style: italic;
   }
 
-  /* LISTS */
+  /* image caption */
+
+  figcaption {
+    &:before {
+      content: '\\203A';
+      font-style: normal;
+      font-weight: 700;
+      padding-right: 15px;
+    }
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* lists */
 
   ul, ol {
     li {
@@ -128,7 +143,7 @@ const GlobalStyle = createGlobalStyle`
         top: -1px;
         left: 5px;
         position: absolute;
-        color: ${(p: P) => p.theme.color.black};
+        color: ${p => p.theme.color.black};
       }
     }
   }
@@ -150,22 +165,127 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* Changing prism styles */
-  .gatsby-highlight {
-    margin: 50px 0;
-  }
-  pre[class*="language-"] {
-      &:before,
-      &:after {
-        content: none;
-      }
-      & > code {
-        border-color: ${(p: P) => p.theme.color.black};
-        box-shadow: none;
-        background-color: ${(p: P) => p.theme.color.white};
-        background-image: none;
-      }
+  /* Highlighting */
+
+  pre {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4em;
+    margin-bottom: 1em;
+    max-width: 620px;
+    white-space: pre-wrap;
+    &.inline {
+      display: inline;
+      white-space: normal;
     }
+    &.block {
+      padding-left: 15px;
+    border-left: 5px solid ${p => p.theme.color.gray};
+    }
+  }
+
+  code {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    color: ${p => p.theme.color.darkergray};
+  }
+
+  /* Comment */
+  .hljs-comment,
+  .hljs-quote {
+    color: ${p => p.theme.color.darkgray};
+  }
+
+  /* Red */
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag,
+  .hljs-name,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-regexp,
+  .hljs-deletion {
+    color: ${p => p.theme.tileColors[5]};
+  }
+
+  /* Orange */
+  .hljs-number,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-literal,
+  .hljs-type,
+  .hljs-params,
+  .hljs-meta,
+  .hljs-link {
+    color: ${p => p.theme.tileColors[2]};
+  }
+
+  /* Yellow */
+  .hljs-attribute {
+    color: ${p => p.theme.tileColors[5]};
+  }
+
+  /* Green */
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-addition {
+    color: ${p => p.theme.tileColors[6]};
+  }
+
+  /* Blue */
+  .hljs-title,
+  .hljs-section {
+    color: ${p => p.theme.tileColors[4]};
+  }
+
+  /* Purple */
+  .hljs-keyword,
+  .hljs-selector-tag {
+    color: ${p => p.theme.tileColors[1]};
+  }
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    background: ${p => p.theme.color.white};
+    color: ${p => p.theme.color.darkergray};
+    padding: 0.5em;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .hljs-addition,
+    .hljs-attribute,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-bullet,
+    .hljs-comment,
+    .hljs-link,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-params,
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-type,
+    .hljs-quote {
+          color: highlight;
+      }
+
+      .hljs-keyword,
+      .hljs-selector-tag {
+          font-weight: bold;
+      }
+  }
+
 `
 
 export default GlobalStyle
