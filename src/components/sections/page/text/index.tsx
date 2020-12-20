@@ -47,9 +47,12 @@ export default function Text({ backgroundColor, content }: TextProps) {
             Explore the repository
           </Button>
         )}
-        <p>{description}</p>
-
-        <p>Published on {safeDate}</p>
+        {description !== '-tile' && (
+          <>
+            <p>{description}</p>
+            <p>Published on {safeDate}</p>
+          </>
+        )}
       </Sidebar>
       <Content>{documentToReactComponents(htmlContent, dtrOptions)}</Content>
     </Grid>

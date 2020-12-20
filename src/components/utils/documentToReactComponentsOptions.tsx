@@ -46,6 +46,8 @@ const handleSummary = (node, prefix) => {
 
 // TODO: transport video tags
 // TODO: Make summary # links automatically
+// TODO: Embed content type
+// TODO: Image decorators
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: node => handleEmbedded(node),

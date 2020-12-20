@@ -11,6 +11,7 @@ export const Container = styled.div<{ backgroundColor: string; slim: boolean }>`
 
   height: 480px;
   padding-left: 40px;
+  padding-right: 40px;
 
   margin-bottom: 50px;
 

@@ -56,7 +56,6 @@ export const Header = ({
           <Button
             to={`${slug}/about`}
             backgroundColor={backgroundColor}
-            borderless
             inverted
           >
             click to continue reading
