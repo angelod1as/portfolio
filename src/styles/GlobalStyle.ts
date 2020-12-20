@@ -29,16 +29,26 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  p, ul, li {
+  p {
     font-family: Montserrat, sans-serif;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.4em;
     margin-bottom: 1em;
-    margin-top: 1em;
+  }
+
+  // clean UL and LI
+  ul, li {
+    margin: 0;
+
+    li, p {
+      margin: 5px 0;
+    }
   }
 
   h1, h2, h3 {
+    margin: 60px 0 30px 0;
+    padding: 0;
     font-family: 'Montserrat Alternates', 'Montseerat', sans-serif;
     font-weight: 700;
   }

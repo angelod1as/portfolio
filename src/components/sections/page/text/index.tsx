@@ -5,25 +5,22 @@ import dtrOptions from '@components/utils/documentToReactComponentsOptions'
 import Button from '@components/atoms/Button'
 
 export interface ContentFieldsProps {
-  excerpt?: string
   title: string
-  slug: string
+  description: string
   content: Document
+  slug: string
   safeDate: string
+  excerpt?: string
   live?: string
   repository?: string
+  summary?: Document
 }
 
 interface TextProps {
   backgroundColor: string
+  type: string
   content: {
-    fields: {
-      content: Document
-      safeDate: string
-      description: string
-      live: string
-      repository: string
-    }
+    fields: ContentFieldsProps
   }
 }
 
@@ -32,7 +29,6 @@ export default function Text({ backgroundColor, content }: TextProps) {
   const { safeDate, description, live, repository } = content.fields
 
   // REFACTOR: colors should transition between them, nice effect
-  const contentReact = documentToReactComponents(htmlContent, dtrOptions)
 
   return (
     <Grid backgroundColor={backgroundColor}>
@@ -52,9 +48,10 @@ export default function Text({ backgroundColor, content }: TextProps) {
           </Button>
         )}
         <p>{description}</p>
+
         <p>Published on {safeDate}</p>
       </Sidebar>
-      <Content>{contentReact}</Content>
+      <Content>{documentToReactComponents(htmlContent, dtrOptions)}</Content>
     </Grid>
   )
 }

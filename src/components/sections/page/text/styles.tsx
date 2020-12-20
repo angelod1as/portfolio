@@ -23,8 +23,24 @@ export const Grid = styled.div<{ backgroundColor: string }>`
 
 export const Sidebar = styled.div``
 
+export const Summary = styled.div`
+  p,
+  ul,
+  li,
+  a {
+    color: ${p => p.theme.color.darkergray};
+  }
+`
+
 export const Content = styled.div`
   grid-area: content;
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  p:first-child {
+    margin-top: 0px;
+  }
 
   * {
     max-width: 620px;

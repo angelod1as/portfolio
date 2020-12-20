@@ -36,7 +36,7 @@ export default function Page(props: PageProps) {
     if (type === 'projects') {
       return <Projects backgroundColor={color} items={props.items} />
     } else {
-      return <Text content={content} backgroundColor={color} />
+      return <Text content={content} type={type} backgroundColor={color} />
     }
   }
 

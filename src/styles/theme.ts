@@ -4,6 +4,7 @@ const color = {
   black: '#000000',
   gray: '#CCCCCC',
   darkgray: '#A9A9A9',
+  darkergray: '#8B8B8B',
 }
 
 const font = {
