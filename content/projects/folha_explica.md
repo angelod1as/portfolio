@@ -17,9 +17,9 @@ I hosted some episodes, seen below.
 
 My favorite (and less hard-news-ish) is a tutorial about how to make videos with your cellphone.
 
-The videos were directed and edited by TF Folha's crew: Daigo Oliva, Edson Sales, Marina Garcia, Giovanni Bello, William Mur, Gustavo Simon
+The videos were directed and edited by TF Folha's crew: Daigo Oliva, Edson Sales, Liel Marín, Giovanni Bello, William Mur, Gustavo Simon
 
-Special thanks to Giovanni Bello and William Mur — that shaped the format, Daigo Oliva — TV Folha's editor back then, and always ready Edson Sales and Marina Garcia.
+Special thanks to Giovanni Bello and William Mur — that shaped the format, Daigo Oliva — TV Folha's editor back then, and always ready Edson Sales and Liel Marín.
 
 <div class="video" title="Folha Explica" data-video="cZOQt3atBAQ"></div>
 
