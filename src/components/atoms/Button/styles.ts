@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { VscGithubInverted } from 'react-icons/vsc'
 
 export const ButtonWrapper = styled.div`
   margin: 0 0 20px 0;
@@ -6,11 +7,15 @@ export const ButtonWrapper = styled.div`
   max-width: 400px;
   width: 100%;
 `
+
 interface StyledProps {
-  backgroundColor: string
   borderless: boolean
   inverted: boolean
 }
+
+export const GithubIcon = styled(VscGithubInverted)<StyledProps>`
+  ${p => (p.inverted ? 'color: white' : p.theme.loop.colorLoop('color'))};
+`
 
 export const ExternalLink = styled.a`
   text-decoration: none;
@@ -30,17 +35,20 @@ export const ButtonStyle = styled.button<StyledProps>`
   font-size: 20px;
   line-height: 20px;
   text-align: center;
-  color: ${p => p.backgroundColor};
 
   z-index: 1;
   padding: 20px;
   width: 100%;
 
+  span {
+    ${p => !p.inverted && p.theme.loop.colorLoop('color')}
+  }
+
   ${p => {
     if (p.borderless && p.inverted) {
       return css<StyledProps>`
-        border: 2px solid ${p => p.backgroundColor};
-        background-color: ${p => p.backgroundColor};
+        ${p => p.theme.loop.colorLoop('border-color, background-color')}
+        border: 2px solid;
         color: ${p => p.theme.color.white};
       `
     } else if (p.borderless) {
@@ -51,12 +59,13 @@ export const ButtonStyle = styled.button<StyledProps>`
     } else if (p.inverted) {
       return css<StyledProps>`
         border: 2px solid ${p => p.theme.color.white};
-        background-color: ${p => p.backgroundColor};
+        ${p => p.theme.loop.colorLoop('background-color')}
         color: ${p => p.theme.color.white};
       `
     } else {
       return css<StyledProps>`
-        border: 2px solid ${p => p.backgroundColor};
+        ${p => p.theme.loop.colorLoop('border-color')}
+        border: 2px solid;
         border-radius: ${p => p.theme.numbers.radius};
         background-color: ${p => p.theme.color.white};
       `
@@ -84,8 +93,8 @@ export const ButtonBg = styled.div<StyledProps>`
           background-color: ${p => p.theme.color.white};
         `
       : css<StyledProps>`
-          border: 2px solid ${p => p.backgroundColor};
-          background-color: ${p => p.backgroundColor};
+          ${p => p.theme.loop.colorLoop('border-color, background-color')}
+          border: 2px solid;
         `}
 `
 

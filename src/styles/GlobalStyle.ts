@@ -284,43 +284,43 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
           font-weight: bold;
       }
   }
+
+ /* Looping colors */
+  @keyframes background-color {
+    ${p => {
+      const colors = p.theme.tileColors
+        .map((each, i) => {
+          const percent = (100 / p.theme.tileColors.length) * i
+          return `${percent}% { background-color: ${each}}`
+        })
+        .join(';')
+      return colors
+    }}
+  }
+
+  @keyframes color {
+    ${p => {
+      const colors = p.theme.tileColors
+        .map((each, i) => {
+          const percent = (100 / p.theme.tileColors.length) * i
+          return `${percent}% { color: ${each}}`
+        })
+        .join(';')
+      return colors
+    }}
+  }
+
+  @keyframes border-color {
+    ${p => {
+      const colors = p.theme.tileColors
+        .map((each, i) => {
+          const percent = (100 / p.theme.tileColors.length) * i
+          return `${percent}% { border-color: ${each}}`
+        })
+        .join(';')
+      return colors
+    }}
+  }
 `
-
-// /* Looping colors */
-// @keyframes backgroundColorLoop {
-//   ${p => {
-//     const colors = p.theme.tileColors
-//       .map((each, i) => {
-//         const percent = (100 / p.theme.tileColors.length) * i
-//         return `${percent}% { background-color: ${each}}`
-//       })
-//       .join(';')
-//     return colors
-//   }}
-// }
-
-// @keyframes colorLoop {
-//   ${p => {
-//     const colors = p.theme.tileColors
-//       .map((each, i) => {
-//         const percent = (100 / p.theme.tileColors.length) * i
-//         return `${percent}% { color: ${each}}`
-//       })
-//       .join(';')
-//     return colors
-//   }}
-// }
-
-// @keyframes borderColorLoop {
-//   ${p => {
-//     const colors = p.theme.tileColors
-//       .map((each, i) => {
-//         const percent = (100 / p.theme.tileColors.length) * i
-//         return `${percent}% { border-color: ${each}}`
-//       })
-//       .join(';')
-//     return colors
-//   }}
-// }
 
 export default GlobalStyle

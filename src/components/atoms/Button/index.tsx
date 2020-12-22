@@ -4,14 +4,12 @@ import {
   ButtonStyle,
   ButtonBg,
   Icon,
+  GithubIcon,
 } from './styles'
-import { VscGithubInverted } from 'react-icons/vsc'
 import theme from '@styles/theme'
 import Link from 'next/link'
 
 export interface ButtonProps {
-  // What background color to use
-  backgroundColor: string
   // Content
   children: string
   // Optional click hander
@@ -34,19 +32,18 @@ export interface ButtonProps {
 export const Button = ({
   children,
   icon,
-  backgroundColor,
   borderless,
   inverted,
   to,
   href,
   ...props
 }: ButtonProps) => {
-  const iconColor = inverted ? theme.color.white : backgroundColor
-
   const setIcon = () => {
     switch (icon) {
       case 'github':
-        return <VscGithubInverted size={20} color={iconColor} />
+        return (
+          <GithubIcon inverted={inverted} borderless={borderless} size={20} />
+        )
       default:
         return ''
     }
@@ -55,15 +52,11 @@ export const Button = ({
   const rendered = () => {
     return (
       <ButtonWrapper>
-        <ButtonStyle
-          {...{ backgroundColor, borderless, inverted }}
-          type="button"
-          {...props}
-        >
+        <ButtonStyle {...{ borderless, inverted }} type="button" {...props}>
           {icon && icon !== 'none' ? <Icon>{setIcon()}</Icon> : ''}
-          {children}
+          <span>{children}</span>
         </ButtonStyle>
-        <ButtonBg {...{ backgroundColor, borderless, inverted }} />
+        <ButtonBg {...{ borderless, inverted }} />
       </ButtonWrapper>
     )
   }
