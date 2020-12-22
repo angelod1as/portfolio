@@ -17,7 +17,7 @@ export interface FooterProps {
   // What background color to use
   backgroundColor: string
   // Latest blog posts
-  blogPosts: Post[] // TODO: type
+  blogPosts: Post[]
   // Has newsletter
   newsletter: boolean
   // Include social links

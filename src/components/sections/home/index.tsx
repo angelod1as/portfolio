@@ -26,7 +26,6 @@ interface HomeProps {
   }
 }
 
-// TODO: Head & SEO
 export default function Home({ homeData }: HomeProps) {
   const colors = theme.tileColors
 

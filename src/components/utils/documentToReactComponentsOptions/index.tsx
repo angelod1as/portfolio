@@ -15,7 +15,8 @@ interface NodeProps {
 // TODO: transport video tags
 // TODO: Make summary # links automatically
 // TODO: Embed content type
-// TODO: Image decorators
+// TODO: Assure ALL <a>s are target blank
+// TODO: Handle inline references and/or URLs (shots between fangs)
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: NodeProps) => {

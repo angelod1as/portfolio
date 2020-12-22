@@ -34,6 +34,13 @@ const tileColors = [
   '#55917F', // wintergreen dream
 ]
 
+// const colorLoop = animationName => `
+//   animation-direction: normal;
+//   animation-duration: 200s;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: ease-in-out;
+//   animation-name: ${animationName};
+// `
 const size = {
   large: `(max-width: 1400px)`,
   medium: `(max-width: 1100px)`,
@@ -50,6 +57,9 @@ export interface ThemeProps {
   font: { [key in keyof typeof font]: string }
   tileColors: string[]
   numbers: { [key in keyof typeof numbers]: string | number }
+  // loop: {
+  //   colorLoop: (animationName: string) => string
+  // }
 }
 
 export const theme: ThemeProps = {
@@ -58,6 +68,9 @@ export const theme: ThemeProps = {
   font,
   tileColors,
   numbers,
+  // loop: {
+  //   colorLoop,
+  // },
 }
 
 export default theme

@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
   ${reset}
   ${normalize}
 
-  /* gatsby 100% */
   html, body {
     height: 100%;
   }
@@ -285,7 +284,43 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
           font-weight: bold;
       }
   }
-
 `
+
+// /* Looping colors */
+// @keyframes backgroundColorLoop {
+//   ${p => {
+//     const colors = p.theme.tileColors
+//       .map((each, i) => {
+//         const percent = (100 / p.theme.tileColors.length) * i
+//         return `${percent}% { background-color: ${each}}`
+//       })
+//       .join(';')
+//     return colors
+//   }}
+// }
+
+// @keyframes colorLoop {
+//   ${p => {
+//     const colors = p.theme.tileColors
+//       .map((each, i) => {
+//         const percent = (100 / p.theme.tileColors.length) * i
+//         return `${percent}% { color: ${each}}`
+//       })
+//       .join(';')
+//     return colors
+//   }}
+// }
+
+// @keyframes borderColorLoop {
+//   ${p => {
+//     const colors = p.theme.tileColors
+//       .map((each, i) => {
+//         const percent = (100 / p.theme.tileColors.length) * i
+//         return `${percent}% { border-color: ${each}}`
+//       })
+//       .join(';')
+//     return colors
+//   }}
+// }
 
 export default GlobalStyle

@@ -21,7 +21,7 @@ export default {
 
 const backgroundColor = '#000000'
 
-const Template: Story<ButtonProps> = args => <Button {...args} />
+const Template: Story<ButtonProps> = args => <Button {...args} href={'#'} />
 
 export const Primary = Template.bind({})
 Primary.args = {
