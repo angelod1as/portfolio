@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 
-interface StyledProps {
-  backgroundColor: string
-}
-
 export const Wrapper = styled.div`
   margin: 0 50px;
 `
-export const H2 = styled.h2<StyledProps>`
-  color: ${p => p.backgroundColor};
+export const H2 = styled.h2`
+  ${p => p.theme.loop.colorLoop('color')}
   margin-bottom: 40px;
 `
 

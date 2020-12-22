@@ -5,20 +5,13 @@ import { Footer, FooterProps } from './index'
 export default {
   title: 'Portfolio/Footer',
   component: Footer,
-  argTypes: {
-    backgroundColor: {
-      control: 'color',
-    },
-  },
+  argTypes: {},
 } as Meta
-
-const backgroundColor = '#000000'
 
 const Template: Story<FooterProps> = args => <Footer {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  backgroundColor,
   blogPosts: [
     {
       title: 'Stories from the victims of the Coronavirus',

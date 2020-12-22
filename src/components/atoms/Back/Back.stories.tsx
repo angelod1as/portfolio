@@ -12,11 +12,7 @@ export default {
   },
 } as Meta
 
-const backgroundColor = '#000000'
-
 const Template: Story<BackProps> = args => <Back {...args} />
 
 export const Primary = Template.bind({})
-Primary.args = {
-  backgroundColor,
-}
+Primary.args = {}

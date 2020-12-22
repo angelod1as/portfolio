@@ -14,8 +14,6 @@ interface Post {
 }
 
 export interface FooterProps {
-  // What background color to use
-  backgroundColor: string
   // Latest blog posts
   blogPosts: Post[]
   // Has newsletter
@@ -29,14 +27,9 @@ export interface FooterProps {
 /**
  * Page footer with latest blog posts, newsletter and social icons
  */
-export const Footer = ({
-  backgroundColor,
-  blogPosts,
-  newsletter,
-  social,
-}: FooterProps) => {
+export const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
   return (
-    <FooterWrapper {...{ backgroundColor }}>
+    <FooterWrapper>
       {blogPosts?.length > 0 && (
         <BlogPosts>
           <Title>

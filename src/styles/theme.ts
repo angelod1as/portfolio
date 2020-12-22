@@ -36,7 +36,7 @@ const tileColors = [
 
 const colorLoop = (animationName: string) => `
   animation-direction: normal;
-  animation-duration: 10s;
+  animation-duration: ${tileColors.length * 10}s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-name: ${animationName};

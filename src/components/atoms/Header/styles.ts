@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div<{ backgroundColor: string; slim: boolean }>`
+export const Container = styled.div<{ slim: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background-color: ${p => p.backgroundColor};
+  ${p => p.theme.loop.colorLoop('background-color')};
   color: ${p => p.theme.color.white};
 
   height: 480px;

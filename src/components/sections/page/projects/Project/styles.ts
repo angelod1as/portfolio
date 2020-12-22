@@ -26,6 +26,7 @@ export const H3 = styled.h3`
   font-size: 21px;
   line-height: 25px;
   margin: 15px 0 0 0;
+  ${p => p.theme.loop.colorLoop('color')}
 `
 
 export const Lead = styled.p`

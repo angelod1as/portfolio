@@ -11,8 +11,6 @@ import {
 } from './styles'
 
 export interface HeaderProps {
-  // What background color to use
-  backgroundColor: string
   // Title
   title: string
   // Has "I'm angelo and I do..."
@@ -31,7 +29,6 @@ export interface HeaderProps {
  * Page header with optional excerpt
  */
 export const Header = ({
-  backgroundColor,
   hasIDo = true,
   excerpt,
   title,
@@ -40,7 +37,7 @@ export const Header = ({
   type,
 }: HeaderProps) => {
   return (
-    <Container {...{ backgroundColor, slim }}>
+    <Container {...{ slim }}>
       <BackWrapper {...{ slim }}>
         <Back inverted />
       </BackWrapper>
@@ -53,11 +50,7 @@ export const Header = ({
           <ExcerptTitle>Time is short</ExcerptTitle>
           <ExcerptSubtitle>Read this first</ExcerptSubtitle>
           <ExcerptText>{excerpt}</ExcerptText>
-          <Button
-            to={`${slug}/about`}
-            backgroundColor={backgroundColor}
-            inverted
-          >
+          <Button to={`${slug}/about`} inverted>
             click to continue reading
           </Button>
         </ExcerptWrapper>

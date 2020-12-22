@@ -6,7 +6,6 @@ import {
   Icon,
   GithubIcon,
 } from './styles'
-import theme from '@styles/theme'
 import Link from 'next/link'
 
 export interface ButtonProps {

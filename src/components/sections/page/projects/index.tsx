@@ -9,13 +9,12 @@ interface ProjectsProps {
       safeDate: string
     }
   }>
-  backgroundColor: string
 }
 
-export default function Projects({ items, backgroundColor }: ProjectsProps) {
+export default function Projects({ items }: ProjectsProps) {
   return (
     <Wrapper>
-      <H2 {...{ backgroundColor }}>Latest projects</H2>
+      <H2>Latest projects</H2>
       <Mosaic>
         {items.map(
           (

@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 
-interface StyleProps {
-  backgroundColor: string
-}
-
-export const FooterWrapper = styled.div<StyleProps>`
+export const FooterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${p => p.backgroundColor};
+  ${p => p.theme.loop.colorLoop('background-color')}
   padding: 0 20px;
   & > * {
     max-width: 350px;
@@ -19,6 +15,7 @@ export const Title = styled.h3`
   font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 48px;
+  line-height: 48px;
   color: ${p => p.theme.color.white};
   margin-bottom: 30px;
   span {

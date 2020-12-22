@@ -2,7 +2,7 @@ import { theme } from '@styles/theme'
 import styled from 'styled-components'
 const { size } = theme
 
-export const Grid = styled.div<{ backgroundColor: string }>`
+export const Grid = styled.div`
   color: ${props => props.theme.color.black};
   background-color: ${props => props.theme.color.white};
   font-family: ${props => props.theme.font.display};

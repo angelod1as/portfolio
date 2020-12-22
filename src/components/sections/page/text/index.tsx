@@ -17,33 +17,22 @@ export interface ContentFieldsProps {
 }
 
 interface TextProps {
-  backgroundColor: string
   type: string
   content: {
     fields: ContentFieldsProps
   }
 }
 
-export default function Text({ backgroundColor, content }: TextProps) {
+export default function Text({ content }: TextProps) {
   const htmlContent = content.fields.content
   const { safeDate, description, live, repository } = content.fields
 
-  // REFACTOR: colors should transition between them, nice effect
-
   return (
-    <Grid backgroundColor={backgroundColor}>
+    <Grid>
       <Sidebar>
-        {live && (
-          <Button backgroundColor={backgroundColor} href={live}>
-            Visit the project's website
-          </Button>
-        )}
+        {live && <Button href={live}>Visit the project's website</Button>}
         {repository && (
-          <Button
-            backgroundColor={backgroundColor}
-            href={repository}
-            icon="github"
-          >
+          <Button href={repository} icon="github">
             Explore the repository
           </Button>
         )}

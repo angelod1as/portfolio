@@ -7,20 +7,20 @@ export default function Custom404() {
   const color = colors[Math.floor(Math.random() * colors.length)]
 
   return (
-    <Wrapper backgroundColor={color}>
+    <Wrapper>
       <h1>
         I'm angelo and
         <br />
         <span>this page does not exist</span>
       </h1>
-      <Button inverted backgroundColor={color} to="/">
+      <Button inverted to="/">
         Click here to go back
       </Button>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div<{ backgroundColor: string }>`
+const Wrapper = styled.div`
   h1 {
     max-width: 620px;
     text-align: center;
@@ -38,5 +38,5 @@ const Wrapper = styled.div<{ backgroundColor: string }>`
   justify-content: center;
   align-items: center;
   color: ${p => p.theme.color.white};
-  background-color: ${p => p.backgroundColor};
+  ${p => p.theme.loop.colorLoop('background-color')}
 `

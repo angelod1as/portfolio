@@ -1,10 +1,18 @@
+import { VscAccount, VscMail } from 'react-icons/vsc'
 import styled, { css } from 'styled-components'
 
 interface StyledProps {
-  backgroundColor: string
   inverted: boolean
   icon: string
 }
+
+export const MailIcon = styled(VscMail)`
+  ${p => p.theme.loop.colorLoop('color')}
+`
+
+export const AccountIcon = styled(VscAccount)`
+  ${p => p.theme.loop.colorLoop('color')}
+`
 
 export const Container = styled.div`
   position: relative;
@@ -35,10 +43,11 @@ export const InputWrapper = styled.div<StyledProps>`
     p.inverted
       ? css<StyledProps>`
           border: 2px solid ${p => p.theme.color.white};
-          background-color: ${p => p.backgroundColor};
+          ${p => p.theme.loop.colorLoop('background-color')}
         `
       : css<StyledProps>`
-          border: 2px solid ${p => p.backgroundColor};
+          ${p => p.theme.loop.colorLoop('border-color')}
+          border: 2px solid;
           background-color: ${p => p.theme.color.white};
         `}
 `
