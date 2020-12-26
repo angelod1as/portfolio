@@ -43,8 +43,9 @@ const colorLoop = (animationName: string) => `
 `
 
 const size = {
-  large: `(max-width: 1400px)`,
-  medium: `(max-width: 1100px)`,
+  largest: `(max-width: 1400px)`,
+  large: `(max-width: 1100px)`,
+  medium: `(max-width: 800px)`,
   small: `(max-width: 600px)`,
 }
 

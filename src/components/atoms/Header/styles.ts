@@ -1,4 +1,6 @@
+import theme from '@styles/theme'
 import styled, { css } from 'styled-components'
+const { size } = theme
 
 export const Container = styled.div<{ slim: boolean }>`
   display: flex;
@@ -22,11 +24,24 @@ export const Container = styled.div<{ slim: boolean }>`
       height: 85px;
       justify-content: flex-start;
     `}
+
+  @media ${size.medium} {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+  }
 `
 
 export const BackWrapper = styled.div<{ slim: boolean }>`
   position: absolute;
   top: 30px;
+  left: 30px;
+  @media ${size.medium} {
+    position: relative;
+    top: unset;
+    left: unset;
+  }
 `
 
 export const Title = styled.div<{ slim: boolean }>`
@@ -39,6 +54,13 @@ export const Title = styled.div<{ slim: boolean }>`
   span {
     font-style: italic;
   }
+
+  @media ${size.medium} {
+    font-size: 40px;
+
+    margin-top: 40px;
+    max-width: 100%;
+  }
 `
 
 export const ExcerptWrapper = styled.div`
@@ -47,18 +69,31 @@ export const ExcerptWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+
+  @media ${size.medium} {
+    display: block;
+  }
 `
 
 export const ExcerptTitle = styled.div`
   font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
   font-size: 48px;
-  line-height: 53px;
+  line-height: 120%;
+
+  @media ${size.medium} {
+    margin-top: 40px;
+    font-size: 30px;
+  }
 `
 
 export const ExcerptSubtitle = styled.div`
   font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
   font-size: 24px;
   line-height: 34px;
+
+  @media ${size.medium} {
+    font-size: 20px;
+  }
 `
 
 export const ExcerptText = styled.div`
@@ -66,6 +101,11 @@ export const ExcerptText = styled.div`
   margin: 15px 0;
   font-weight: 300;
   font-size: 20px;
-  line-height: 25px;
+  line-height: 120%;
   text-align: right;
+
+  @media ${size.medium} {
+    text-align: left;
+    font-size: 18px;
+  }
 `

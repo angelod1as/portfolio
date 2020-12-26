@@ -1,16 +1,38 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
 import reset from 'styled-reset'
-import { ThemeProps } from './theme'
+import theme, { ThemeProps } from './theme'
 
 interface GlobalProps {
   theme: ThemeProps
+}
+
+const { tileColors } = theme
+const keyframes = (property: string) => {
+  const colors = tileColors.map((each, i) => {
+    const percent = (100 / theme.tileColors.length) * i
+    return `${percent}% { ${property}: ${each}}`
+  })
+  colors.push(`100% { ${property}: ${tileColors[0]}}`)
+
+  return colors.join(';')
 }
 
 const GlobalStyle = createGlobalStyle<GlobalProps>`
   /* reset and normalize */
   ${reset}
   ${normalize}
+
+   /* Looping colors */
+  @keyframes background-color {
+    ${keyframes('background-color')}
+  }
+  @keyframes color {
+    ${keyframes('color')}
+  }
+  @keyframes border-color {
+    ${keyframes('border-color')}
+  }
 
   html, body {
     height: 100%;
@@ -287,43 +309,6 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
       .hljs-selector-tag {
           font-weight: bold;
       }
-  }
-
- /* Looping colors */
-  @keyframes background-color {
-    ${p => {
-      const colors = p.theme.tileColors
-        .map((each, i) => {
-          const percent = (100 / p.theme.tileColors.length) * i
-          return `${percent}% { background-color: ${each}}`
-        })
-        .join(';')
-      return colors
-    }}
-  }
-
-  @keyframes color {
-    ${p => {
-      const colors = p.theme.tileColors
-        .map((each, i) => {
-          const percent = (100 / p.theme.tileColors.length) * i
-          return `${percent}% { color: ${each}}`
-        })
-        .join(';')
-      return colors
-    }}
-  }
-
-  @keyframes border-color {
-    ${p => {
-      const colors = p.theme.tileColors
-        .map((each, i) => {
-          const percent = (100 / p.theme.tileColors.length) * i
-          return `${percent}% { border-color: ${each}}`
-        })
-        .join(';')
-      return colors
-    }}
   }
 `
 

@@ -16,7 +16,7 @@ export default function InlineEmbed({
       to={slug}
       lead={description}
       image={coverImage as ImageProps[]}
-      horizontal
+      embed
     />
   )
 }

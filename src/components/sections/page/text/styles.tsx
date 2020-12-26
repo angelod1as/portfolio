@@ -15,7 +15,7 @@ export const Grid = styled.div`
   position: relative;
   margin: 0 40px;
 
-  @media ${size.medium} {
+  @media ${size.large} {
     display: block;
     height: 100%;
   }
@@ -57,7 +57,7 @@ export const Content = styled.div`
     margin-bottom: 40px;
   }
 
-  @media ${size.medium} {
+  @media ${size.large} {
     display: block;
     width: 100%;
   }

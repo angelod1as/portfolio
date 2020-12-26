@@ -1,5 +1,4 @@
 export default function makeSafeDate(date: Date) {
-  console.log(date)
   if (date) {
     const locale = 'en'
     const options = {

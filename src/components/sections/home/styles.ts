@@ -35,11 +35,6 @@ export const Inside = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 10%;
-  /* @media ${size.medium} {
-    padding: 0;
-    align-items: center;
-    text-align: center;
-  } */
   transition: 0.2s transform;
 
   &:hover {
@@ -57,14 +52,14 @@ export const Text = styled.p`
 
 export const Small = styled(Text)`
   font-size: 1.5em;
-  @media ${size.large} {
+  @media ${size.largest} {
     font-size: 1.2em;
   }
 `
 
 export const Big = styled(Text)`
   line-height: 1.1em;
-  @media ${size.large} {
+  @media ${size.largest} {
     font-size: 2.3em;
   }
 `

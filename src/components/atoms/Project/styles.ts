@@ -1,6 +1,8 @@
+import theme from '@styles/theme'
 import styled, { css } from 'styled-components'
+const { size } = theme
 
-export const Wrapper = styled.a<{ horizontal: boolean }>`
+export const Wrapper = styled.a<{ embed: boolean }>`
   transition: opacity 0.2s ease;
   text-decoration: none;
   cursor: pointer;
@@ -10,8 +12,9 @@ export const Wrapper = styled.a<{ horizontal: boolean }>`
   flex-direction: column;
 
   ${p =>
-    p.horizontal &&
+    p.embed &&
     css`
+      margin: 40px 0;
       flex-direction: row;
 
       img {
@@ -19,7 +22,12 @@ export const Wrapper = styled.a<{ horizontal: boolean }>`
         margin-right: 10px;
       }
 
-      div {
+      @media ${size.small} {
+        display: block;
+        img {
+          width: 100%;
+          margin-right: 0;
+        }
       }
     `}
 

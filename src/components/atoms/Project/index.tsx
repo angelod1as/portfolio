@@ -12,7 +12,7 @@ export interface ProjectProps {
   lead: string
   safeDate: string
   to: string
-  horizontal: boolean
+  embed: boolean
 }
 
 export default function Project({
@@ -21,11 +21,11 @@ export default function Project({
   lead,
   safeDate,
   to,
-  horizontal,
+  embed,
 }: ProjectProps) {
   return (
     <Link href={`/projects/${to}`}>
-      <Wrapper {...{ horizontal }}>
+      <Wrapper {...{ embed }}>
         {image ? (
           image.length > 0 && <Image src={image[0].url} alt="" />
         ) : (
