@@ -1,8 +1,9 @@
+import Embed from '@components/atoms/Embed'
 import Video from '@components/atoms/Video'
 import { ICloudinary, IEmbed } from 'src/@types/generated/contentful'
 import { Mosaic, Figure } from './styles'
 
-const handleImage = (node: { data: { target: any } }) => {
+const handleEmbedded = (node: { data: { target: any } }) => {
   const target = node?.data?.target
   const id = target?.sys?.contentType?.sys?.id
   if (id) {
@@ -49,7 +50,7 @@ const handleImage = (node: { data: { target: any } }) => {
       const { embed, youtubeId } = embedded.fields
 
       if (embed) {
-        return <div dangerouslySetInnerHTML={{ __html: embed }}></div>
+        return <Embed embed={embed}></Embed>
       } else if (youtubeId) {
         return <Video id={youtubeId} />
       }
@@ -58,4 +59,4 @@ const handleImage = (node: { data: { target: any } }) => {
   }
 }
 
-export default handleImage
+export default handleEmbedded

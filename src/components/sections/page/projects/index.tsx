@@ -1,5 +1,5 @@
 import { IProject } from 'src/@types/generated/contentful'
-import Project, { ImageProps } from './Project'
+import Project, { ImageProps } from '@components/atoms/Project'
 
 import { Wrapper, H2, Mosaic, ProjectHolder } from './styles'
 

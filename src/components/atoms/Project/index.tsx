@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { Wrapper, Image, Caption, H3, Lead } from './styles'
+import { Wrapper, Image, Caption, H3, Lead, ImageNotFound } from './styles'
+import { VscWarning } from 'react-icons/vsc'
+import Button from '../Button'
 
 export interface ImageProps {
   url: string
@@ -11,6 +13,7 @@ export interface ProjectProps {
   lead: string
   safeDate: string
   to: string
+  horizontal: boolean
 }
 
 export default function Project({
@@ -19,11 +22,18 @@ export default function Project({
   lead,
   safeDate,
   to,
+  horizontal,
 }: ProjectProps) {
   return (
     <Link href={`projects/${to}`}>
-      <Wrapper>
-        {image && image.length > 0 && <Image src={image[0].url} alt="" />}
+      <Wrapper {...{ horizontal }}>
+        {image ? (
+          image.length > 0 && <Image src={image[0].url} alt="" />
+        ) : (
+          <ImageNotFound>
+            <VscWarning size={30} color="white" />
+          </ImageNotFound>
+        )}
         <Caption>
           <H3>{title}</H3>
           <Lead>

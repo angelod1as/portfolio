@@ -1,10 +1,11 @@
-import { BLOCKS } from '@contentful/rich-text-types'
-import handleImage from './handleImage'
+import { BLOCKS, EntryLinkInline } from '@contentful/rich-text-types'
+import handleEmbedded from './handleEmbedded'
 import handleSummary from './handleSummary'
 import { ICloudinary } from '../../../@types/generated/contentful'
-import handleCode from './handleCode'
+import handleParagraph from './handleParagraph'
+import { ReactNode } from 'react'
 
-interface NodeProps {
+export interface NodeProps {
   nodeType: string
   data: {
     target: ICloudinary
@@ -18,10 +19,10 @@ interface NodeProps {
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: NodeProps) => {
-      return handleImage(node)
+      return handleEmbedded(node)
     },
-    [BLOCKS.PARAGRAPH]: (node, children) => {
-      return handleCode(node, children)
+    [BLOCKS.PARAGRAPH]: (node: NodeProps, children: ReactNode) => {
+      return handleParagraph(node, children)
     },
   },
 }

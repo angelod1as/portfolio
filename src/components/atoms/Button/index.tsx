@@ -69,7 +69,7 @@ export const Button = ({
       </ExternalLink>
     )
   }
-  return <div />
+  return rendered()
 }
 
 export default Button
