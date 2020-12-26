@@ -1,7 +1,7 @@
 import { createClient } from 'contentful'
 
-const Space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-const Token = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+const Space = process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
+const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
   type?: 'tile' | 'project'

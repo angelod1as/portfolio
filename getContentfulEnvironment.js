@@ -5,16 +5,16 @@ const contentfulManagement = require('contentful-management')
 module.exports = async () => {
   console.log(
     'token =>>>>>>>>>>>',
-    process.env.NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN
+    process.env.NEXT_SERVER_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN
   )
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN,
+    accessToken: process.env.NEXT_SERVER_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN,
   })
 
   const space = await contentfulClient.getSpace(
-    process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+    process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
   )
   return await space.getEnvironment(
-    process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT
+    process.env.NEXT_SERVER_CONTENTFUL_ENVIRONMENT
   )
 }

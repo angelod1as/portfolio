@@ -1,5 +1,5 @@
-const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+const space = process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
+const accessToken = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 
 export async function fetchContent<T>(query: string): Promise<T> {
   try {
