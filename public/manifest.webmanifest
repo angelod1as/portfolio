@@ -13,8 +13,8 @@
     },
     {
       "src": "/512.png",
-      "sizes": "image/png",
-      "type": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

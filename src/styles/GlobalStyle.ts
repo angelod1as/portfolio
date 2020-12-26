@@ -187,6 +187,10 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
     font-family: 'Fira Code', monospace;
     font-weight: 400;
     color: ${p => p.theme.color.darkergray};
+    &.inline {
+      display: inline;
+      white-space: normal;
+    }
   }
 
   /* Comment */
