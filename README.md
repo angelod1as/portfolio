@@ -1,30 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Angelo Dias's portfolio.	
 
-## Getting Started
+## Description	
 
-First, run the development server:
+The [website](https://angelodias.com.br) is self explanatory. 	
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+There's even a [colophon](https://www.angelodias.com.br/about).	
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Website screen](https://res.cloudinary.com/angelodias/image/upload/v1609026400/portfolio/tiles/readme_nfjxc9.png)	
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Made using Typescript, React, [Next.js](https://nextjs.org/), [Vercel](https://vercel.com), VS Code, and more. See [here](https://www.angelodias.com.br/about/).	
 
-## Learn More
+## Like what you see?	
 
-To learn more about Next.js, take a look at the following resources:
+I'm open for hire.	
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+JS, TS, React, Redux, and more. Hit me on [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com).	
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## I want to clone this repo!	
 
-## Deploy on Vercel
+Nice, you can do it. Just PLEASE let me know. It took a while to figure out this design and I really like it.	
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Clone, `yarn` then `yarn dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Build and host it using Vercel.
