@@ -12,7 +12,6 @@ interface NodeProps {
   content: any[]
 }
 
-// TODO: transport video tags
 // TODO: Make summary # links automatically
 // TODO: Embed content type
 // TODO: Assure ALL <a>s are target blank
