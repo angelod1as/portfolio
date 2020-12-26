@@ -32,6 +32,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
     semi: ['error', 'never'],
+    'react/display-name': 0,
     'react/no-unescaped-entities': 0,
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
