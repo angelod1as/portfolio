@@ -1,11 +1,6 @@
 import Video from '@components/atoms/Video'
-import {
-  ICloudinary,
-  ICloudinaryFields,
-  IEmbed,
-} from 'src/@types/generated/contentful'
+import { ICloudinary, IEmbed } from 'src/@types/generated/contentful'
 import { Mosaic, Figure } from './styles'
-import Embed from 'react-responsive-embed'
 
 const handleImage = (node: { data: { target: any } }) => {
   const target = node?.data?.target
@@ -51,19 +46,13 @@ const handleImage = (node: { data: { target: any } }) => {
       }
     } else if (id === 'embed') {
       const embedded: IEmbed = target
-      const { title, code, embed, youtubeId } = embedded.fields
+      const { embed, youtubeId } = embedded.fields
 
-      if (code) {
-        console.log(code)
-      } else if (embed) {
-        console.log(embed)
+      if (embed) {
+        return <div dangerouslySetInnerHTML={{ __html: embed }}></div>
       } else if (youtubeId) {
         return <Video id={youtubeId} />
       }
-
-      // embed
-      // youtubeId
-      // code
     }
     return <div data-error="content-type not conFigured for display"></div>
   }
