@@ -2,9 +2,18 @@ import Page, { PageProps } from '@sections/page'
 import { ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@build/fetchContentful'
 import makeSafeDate from '@components/utils/makeSafeDate'
+import NewHead from '@components/atoms/NewHead'
 
 function PageGenerator({ content, items }: PageProps) {
-  return <Page content={content} items={items} />
+  return (
+    <>
+      <NewHead
+        title={content?.fields?.content?.fields?.title}
+        description={content?.fields?.content?.fields?.description}
+      />
+      <Page content={content} items={items} />
+    </>
+  )
 }
 
 export async function getStaticPaths() {
