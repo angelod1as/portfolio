@@ -19,11 +19,15 @@ function PageGenerator({ content, items }: PageProps) {
 export async function getStaticPaths() {
   const query = await fetchContentful<ITileFields>({ type: 'tile' })
 
-  const paths = query.content.map(item => {
-    return {
-      params: { slug: item.fields.slug },
-    }
-  })
+  const paths = query.content
+    .filter(item => {
+      return !item.fields.internalRedirect
+    })
+    .map(item => {
+      return {
+        params: { slug: item.fields.slug },
+      }
+    })
   return { paths, fallback: false }
 }
 

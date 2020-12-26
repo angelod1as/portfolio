@@ -1,11 +1,7 @@
 import Button from '@components/atoms/Button'
-import theme from '@styles/theme'
 import styled from 'styled-components'
 
 export default function Custom404() {
-  const colors = theme.tileColors
-  const color = colors[Math.floor(Math.random() * colors.length)]
-
   return (
     <Wrapper>
       <h1>

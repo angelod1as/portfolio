@@ -21,7 +21,7 @@ export interface ProjectProps {
   lead: string
   safeDate: string
   to: string
-  embed: boolean
+  embed?: boolean
 }
 
 export default function Project({

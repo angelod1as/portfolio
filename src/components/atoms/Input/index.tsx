@@ -7,8 +7,6 @@ import {
   MailIcon,
   AccountIcon,
 } from './styles'
-import { VscMail, VscAccount } from 'react-icons/vsc'
-import theme from '@styles/theme'
 
 export interface InputProps {
   // Content

@@ -1,6 +1,9 @@
 import { Content, Grid, Sidebar } from './styles'
 import { Document } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import {
+  documentToReactComponents,
+  Options,
+} from '@contentful/rich-text-react-renderer'
 import dtrOptions from '@components/utils/documentToReactComponentsOptions'
 import Button from '@components/atoms/Button'
 
@@ -43,7 +46,9 @@ export default function Text({ content }: TextProps) {
           </>
         )}
       </Sidebar>
-      <Content>{documentToReactComponents(htmlContent, dtrOptions)}</Content>
+      <Content>
+        {documentToReactComponents(htmlContent, dtrOptions as Options)}
+      </Content>
     </Grid>
   )
 }

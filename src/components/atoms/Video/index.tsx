@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 `
 
 const Video = ({ id }) => {
-  console.log(id)
   return (
     <Wrapper>
       <ResponsiveEmbed

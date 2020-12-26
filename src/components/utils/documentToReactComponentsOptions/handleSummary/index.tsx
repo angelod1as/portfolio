@@ -6,7 +6,6 @@ const handleSummary = (node, prefix) => {
   const loopCompo = (currCompo, run) => {
     if (currCompo?.type === 'a') {
       if (currCompo?.props?.href) {
-        console.log(currCompo.props.href)
         currCompo.props.href = `${prefix}${currCompo?.props?.href}`
       }
     } else {

@@ -1,6 +1,5 @@
 import Text, { ContentFieldsProps } from './text'
 import Projects from './projects'
-import theme from '@styles/theme'
 import Header from '@components/atoms/Header'
 import { IProject } from 'src/@types/generated/contentful'
 
