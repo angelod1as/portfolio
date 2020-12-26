@@ -1,5 +1,14 @@
 import Link from 'next/link'
-import { Wrapper, Image, Caption, H3, Lead, ImageNotFound } from './styles'
+import {
+  Wrapper,
+  Image,
+  ImageWrapper,
+  Caption,
+  H3,
+  Lead,
+  ImageNotFound,
+  Small,
+} from './styles'
 import { VscWarning } from 'react-icons/vsc'
 
 export interface ImageProps {
@@ -26,18 +35,21 @@ export default function Project({
   return (
     <Link href={`/projects/${to}`}>
       <Wrapper {...{ embed }}>
-        {image ? (
-          image.length > 0 && <Image src={image[0].url} alt="" />
-        ) : (
-          <ImageNotFound>
-            <VscWarning size={30} color="white" />
-          </ImageNotFound>
-        )}
+        <ImageWrapper>
+          {image ? (
+            image.length > 0 && <Image src={image[0].url} alt="" />
+          ) : (
+            <ImageNotFound>
+              <VscWarning size={30} color="white" />
+            </ImageNotFound>
+          )}
+        </ImageWrapper>
         <Caption>
           <H3>{title}</H3>
           <Lead>
             {lead} <span>{safeDate}</span>
           </Lead>
+          {embed && <Small>click to visit</Small>}
         </Caption>
       </Wrapper>
     </Link>

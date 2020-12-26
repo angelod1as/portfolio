@@ -14,7 +14,6 @@ export interface NodeProps {
   content: any[]
 }
 
-// TODO: Make summary # links automatically
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: NodeProps) => {

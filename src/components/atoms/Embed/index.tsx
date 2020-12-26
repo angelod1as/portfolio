@@ -4,7 +4,12 @@ interface EmbedProps {
   embed: string
 }
 
-const DangerDiv = styled.div``
+const DangerDiv = styled.div`
+  width: 100%;
+  iframe {
+    width: 100%;
+  }
+`
 
 export default function Embed({ embed }: EmbedProps) {
   return <DangerDiv dangerouslySetInnerHTML={{ __html: embed }}></DangerDiv>
