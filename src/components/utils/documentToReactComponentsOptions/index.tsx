@@ -1,4 +1,4 @@
-import { BLOCKS, EntryLinkInline } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import handleEmbedded from './handleEmbedded'
 import handleSummary from './handleSummary'
 import { ICloudinary } from '../../../@types/generated/contentful'
@@ -14,8 +14,6 @@ export interface NodeProps {
 }
 
 // TODO: Make summary # links automatically
-// TODO: Assure ALL <a>s are target blank
-// TODO: Handle inline references and/or URLs (shots between fangs)
 const dtrOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: NodeProps) => {

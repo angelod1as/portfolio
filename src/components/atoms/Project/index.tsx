@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Wrapper, Image, Caption, H3, Lead, ImageNotFound } from './styles'
 import { VscWarning } from 'react-icons/vsc'
-import Button from '../Button'
 
 export interface ImageProps {
   url: string
@@ -25,7 +24,7 @@ export default function Project({
   horizontal,
 }: ProjectProps) {
   return (
-    <Link href={`projects/${to}`}>
+    <Link href={`/projects/${to}`}>
       <Wrapper {...{ horizontal }}>
         {image ? (
           image.length > 0 && <Image src={image[0].url} alt="" />
