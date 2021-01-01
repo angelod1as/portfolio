@@ -9,12 +9,12 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${p => p.theme.color.white};
 `
 
 export const BG = styled.div`
   display: flex;
-  background-color: ${p => p.theme.color.white};
-  padding: 15px 5px;
+  padding: 15px 0;
 `
 
 export const Flag = styled.div`
@@ -22,10 +22,6 @@ export const Flag = styled.div`
   margin: 0 10px;
   font-size: 20px;
   transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.3);
-  }
 `
 
 export const Slider = styled.span`

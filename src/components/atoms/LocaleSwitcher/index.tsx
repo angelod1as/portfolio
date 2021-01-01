@@ -19,8 +19,12 @@ export default function LocaleSwitcher() {
             🇧🇷
           </span>
         </Flag>
-        <Switch onChange={changeLanguage}>
-          <input type="checkbox" />
+        <Switch>
+          <input
+            type="checkbox"
+            onChange={changeLanguage}
+            checked={locale !== 'pt'}
+          />
           <Slider />
         </Switch>
         <Flag>
