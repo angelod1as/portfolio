@@ -1,5 +1,5 @@
 import Page, { PageProps } from '@sections/page'
-import fetchContentful from '@build/fetchContentful'
+import fetchContentful from '@functions/fetchContentful'
 import { ITileFields } from 'src/@types/generated/contentful'
 import NewHead from '@components/atoms/NewHead'
 
@@ -31,7 +31,9 @@ export async function getStaticProps({ params }) {
     type: 'project',
   })
 
-  const content = query.content.find(item => item.fields.slug === params.slug)
+  const content = query.content.find(item => {
+    return item.fields.slug === params.slug
+  })
   return { props: { content: { fields: { content } } } }
 }
 

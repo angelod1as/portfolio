@@ -1,4 +1,4 @@
-import fetchContentful from '@build/fetchContentful'
+import fetchContentful from '@functions/fetchContentful'
 import Home from '@sections/home/index'
 
 export default function Index({ homeData }) {

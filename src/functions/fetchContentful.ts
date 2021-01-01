@@ -35,6 +35,16 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
     accessToken: Token,
   })
 
+  // URGENT: locale is here
+  // const it = await client.getEntries({
+  //   locale: '*',
+  //   content_type: type,
+  //   'fields.slug': 'coding',
+  // })
+
+  // console.log(it.items[0])
+  // console.log(it.items[1])
+
   let order = ''
   if (type === 'tile') {
     order = 'fields.order'

@@ -1,6 +1,6 @@
 import Page, { PageProps } from '@sections/page'
 import { ITileFields } from 'src/@types/generated/contentful'
-import fetchContentful from '@build/fetchContentful'
+import fetchContentful from '@functions/fetchContentful'
 import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'
 

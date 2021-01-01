@@ -1,5 +1,5 @@
 import Page, { PageProps } from '@sections/page'
-import fetchContentful from '@build/fetchContentful'
+import fetchContentful from '@functions/fetchContentful'
 import { IProjectFields } from 'src/@types/generated/contentful'
 import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'

@@ -4,10 +4,11 @@
     "paths": {
       "@styles/*": ["./src/styles/*"],
       "@sections/*": ["./src/components/sections/*"],
-      "@build/*": ["src/build/*"],
+      "@functions/*": ["./src/functions/*"],
       "@components/*":["./src/components/*"],
       "@data/*":["./data/*"],
-      "@pages/*":["./src/pages/*"]
+      "@pages/*":["./src/pages/*"],
+      "@types/*":["./src/@types/*"]
     },
     "target": "es5",
     "lib": [

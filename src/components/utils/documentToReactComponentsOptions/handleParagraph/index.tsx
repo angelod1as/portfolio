@@ -48,6 +48,7 @@ export default function handleParagraph(node: NodeProps, children: ReactNode) {
             const { description, slug, title, coverImage, date } = content
             return (
               <InlineEmbed
+                key={nanoid()}
                 {...{ description, slug, title, coverImage, date }}
               />
             )
