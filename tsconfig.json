@@ -8,7 +8,8 @@
       "@components/*":["./src/components/*"],
       "@data/*":["./data/*"],
       "@pages/*":["./src/pages/*"],
-      "@types/*":["./src/@types/*"]
+      "@types/*":["./src/@types/*"],
+      "@i18n/*":["./src/i18n/*"]
     },
     "target": "es5",
     "lib": [
