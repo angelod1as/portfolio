@@ -2,7 +2,7 @@
 import { Big, Grid, Inside, Small, Tile, Link } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
-import { translate } from '@i18n/i18n'
+import { useTranslation } from '@i18n/i18n'
 import { useRouter } from 'next/router'
 
 interface ItemProps {
@@ -30,8 +30,9 @@ interface HomeProps {
 
 export default function Home({ homeData }: HomeProps) {
   const { locale } = useRouter()
+  const t = useTranslation(locale)
+
   const colors = theme.tileColors
-  const t = translate(locale)
 
   return (
     <>

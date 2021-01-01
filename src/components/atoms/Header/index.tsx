@@ -9,6 +9,8 @@ import {
   ExcerptSubtitle,
   ExcerptText,
 } from './styles'
+import { useRouter } from 'next/router'
+import { useTranslation } from '@i18n/i18n'
 
 export interface HeaderProps {
   // Title
@@ -36,22 +38,25 @@ export const Header = ({
   slug,
   type,
 }: HeaderProps) => {
+  const { locale } = useRouter()
+  const t = useTranslation(locale)
+
   return (
     <Container {...{ slim }}>
       <BackWrapper {...{ slim }}>
         <Back inverted />
       </BackWrapper>
       <Title {...{ slim }}>
-        {hasIDo && !slim && type && "I'm angelo and I do "}
+        {hasIDo && !slim && type && t("I'm angelo and I do ")}
         <span>{type ? title.toLowerCase() : title}</span>
       </Title>
       {type && excerpt && !slim ? (
         <ExcerptWrapper>
-          <ExcerptTitle>Time is short</ExcerptTitle>
-          <ExcerptSubtitle>Read this first</ExcerptSubtitle>
+          <ExcerptTitle>{t('Time is short')}</ExcerptTitle>
+          <ExcerptSubtitle>{t('Read this first')}</ExcerptSubtitle>
           <ExcerptText>{excerpt}</ExcerptText>
           <Button to={`${slug}/about`} inverted>
-            click to continue reading
+            {t('click to continue reading')}
           </Button>
         </ExcerptWrapper>
       ) : (

@@ -15,7 +15,7 @@ const i18n: i18nData = {
   pt: pt,
 }
 
-export const translate = (locale: string) => {
+export const useTranslation = (locale: string) => {
   return (string: string) => {
     if (i18n[locale] && i18n[locale][string]) {
       return i18n[locale][string]

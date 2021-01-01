@@ -1,3 +1,4 @@
+import { useTranslation } from '@i18n/i18n'
 import { useRouter } from 'next/router'
 import { StyledBack } from './styles'
 
@@ -11,9 +12,11 @@ export interface BackProps {
  */
 export const Back = ({ inverted }: BackProps) => {
   const router = useRouter()
+  const t = useTranslation(router.locale)
+
   return (
     <StyledBack onClick={() => router.back()} {...{ inverted }}>
-      back
+      {t('back')}
     </StyledBack>
   )
 }
