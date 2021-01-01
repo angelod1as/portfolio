@@ -3,13 +3,20 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '@styles/theme'
 import GlobalStyle from '@styles/GlobalStyle'
 import Head from 'next/head'
+import LocaleSwitcher from '@components/atoms/LocaleSwitcher'
+import { useState } from 'react'
+import Loading from '@components/atoms/Loading'
 
 function App({ Component, pageProps }: AppProps) {
+  const [loading, setLoading] = useState(false)
+
   return (
     <>
       <FirstHead />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        {loading && <Loading />}
+        <LocaleSwitcher {...{ setLoading }} />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

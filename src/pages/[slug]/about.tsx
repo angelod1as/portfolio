@@ -23,7 +23,13 @@ export async function getStaticPaths() {
       params: { slug: item.fields.slug },
     }
   })
-  return { paths, fallback: false }
+
+  const localizedPaths = [
+    ...paths.map(path => ({ ...path, locale: 'en' })),
+    ...paths.map(path => ({ ...path, locale: 'pt' })),
+  ]
+
+  return { paths: localizedPaths, fallback: true }
 }
 
 export async function getStaticProps({ params, locale }) {

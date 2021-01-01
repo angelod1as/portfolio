@@ -21,7 +21,11 @@ export const Grid = styled.div`
   }
 `
 
-export const Sidebar = styled.div``
+export const Sidebar = styled.div`
+  @media ${size.large} {
+    margin-bottom: 70px;
+  }
+`
 
 export const Summary = styled.div`
   p,

@@ -1,11 +1,9 @@
 import fetchContentful from '@functions/fetchContentful'
 import Home from '@sections/home/index'
-import LocaleSwitcher from '@components/atoms/LocaleSwitcher'
 
 export default function Index({ homeData }) {
   return (
     <>
-      <LocaleSwitcher />
       <Home homeData={homeData} />
     </>
   )

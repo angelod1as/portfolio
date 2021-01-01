@@ -1,14 +1,22 @@
 import { useRouter } from 'next/router'
+import { Dispatch, SetStateAction } from 'react'
 import { Wrapper, BG, Flag, Switch, Slider } from './styles'
 
-export default function LocaleSwitcher() {
+interface LocaleSwitcherProps {
+  setLoading: Dispatch<SetStateAction<boolean>>
+}
+
+export default function LocaleSwitcher({ setLoading }: LocaleSwitcherProps) {
   const router = useRouter()
 
-  const { locales, locale } = router
+  const { locales, locale, asPath } = router
 
   const changeLanguage = () => {
+    setLoading(true)
     const newLocale = locales.filter(each => each !== locale)[0]
-    router.push(router.route, router.route, { locale: newLocale })
+    router
+      .push(asPath, asPath, { locale: newLocale })
+      .then(() => setLoading(false))
   }
 
   return (

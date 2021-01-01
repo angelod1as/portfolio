@@ -1,5 +1,6 @@
 const translation = {
   back: 'voltar',
+  loading: 'carregando',
   "I'm angelo": 'Sou angelo',
   'and I do': 'e faço',
   stuff: 'coisas',
