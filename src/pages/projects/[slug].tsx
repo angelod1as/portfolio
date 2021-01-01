@@ -27,8 +27,11 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
-  const query = await fetchContentful<IProjectFields>({ type: 'project' })
+export async function getStaticProps({ params, locale }) {
+  const query = await fetchContentful<IProjectFields>({
+    type: 'project',
+    locale: locale,
+  })
 
   const content = query.content.find(item => item.fields.slug === params.slug)
 

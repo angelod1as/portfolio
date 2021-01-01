@@ -43,7 +43,7 @@ export default function Home({ homeData }: HomeProps) {
             link = `projects/${internalRedirect.fields.slug}`
           }
 
-          if (title === 'stuff') {
+          if (slug === 'stuff') {
             return (
               <Link href={link} key={uuid()}>
                 <Tile>

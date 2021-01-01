@@ -28,13 +28,22 @@ export async function getStaticPaths() {
         params: { slug: item.fields.slug },
       }
     })
-  return { paths, fallback: false }
+
+  // This is how Localization works on vanilla nextjs
+  // It even generates the paths automatically
+  const localizedPaths = [
+    ...paths.map(path => ({ ...path, locale: 'en' })),
+    ...paths.map(path => ({ ...path, locale: 'pt' })),
+  ]
+
+  return { paths: localizedPaths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const query = await fetchContentful<ITileFields>({
     type: 'tile',
     tag: params.slug,
+    locale: locale,
   })
 
   const content = query.content.find(item => item.fields.slug === params.slug)

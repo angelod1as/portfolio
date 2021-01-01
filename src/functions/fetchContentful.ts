@@ -6,6 +6,7 @@ const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 interface FetchProps {
   type?: 'tile' | 'project'
   tag?: string
+  locale?: string
 }
 
 interface ImageEntry {
@@ -29,7 +30,7 @@ interface ImageEntry {
   }
 }
 
-const fetchContentful = async <T>({ type, tag }: FetchProps) => {
+const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
@@ -37,13 +38,10 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
 
   // URGENT: locale is here
   // const it = await client.getEntries({
-  //   locale: '*',
+  //   locale: locale,
   //   content_type: type,
   //   'fields.slug': 'coding',
   // })
-
-  // console.log(it.items[0])
-  // console.log(it.items[1])
 
   let order = ''
   if (type === 'tile') {
@@ -60,6 +58,7 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
       const entries = await client.getEntries<T>({
         content_type: type,
         order: order,
+        locale: locale,
       })
 
       // Getting right image information

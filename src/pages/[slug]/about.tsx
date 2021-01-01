@@ -26,9 +26,10 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const query = await fetchContentful<ITileFields>({
     type: 'project',
+    locale: locale,
   })
 
   const content = query.content.find(item => {

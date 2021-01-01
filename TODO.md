@@ -5,6 +5,7 @@ TODO: Localization
   - Anyways, I'll need to study #1 and #3 better. At the moment, I'd prefer to
     write two different contents, each one in its language 
   - UPDATE: I just found out about native i18n routing in next. Will try that.
+    => See `[slug].tsx`
 
 ---
 
