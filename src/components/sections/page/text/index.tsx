@@ -37,7 +37,9 @@ export default function Text({ content }: TextProps) {
   return (
     <Grid>
       <Sidebar>
-        {live && <Button href={live}>Visit the project's website</Button>}
+        {live && (
+          <Button href={live}>{t("Visit the project's website")}</Button>
+        )}
         {repository && (
           <Button href={repository} icon="github">
             Explore the repository

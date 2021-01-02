@@ -10,6 +10,8 @@ import {
   Small,
 } from './styles'
 import { VscWarning } from 'react-icons/vsc'
+import { useRouter } from 'next/router'
+import { useTranslation } from '@i18n/i18n'
 
 export interface ImageProps {
   url: string
@@ -32,6 +34,8 @@ export default function Project({
   to,
   embed,
 }: ProjectProps) {
+  const { locale } = useRouter()
+  const t = useTranslation(locale)
   return (
     <Link href={`/projects/${to}`}>
       <Wrapper {...{ embed }}>
@@ -49,7 +53,7 @@ export default function Project({
           <Lead>
             {lead && lead !== '-tile' && lead} <span>{safeDate}</span>
           </Lead>
-          {embed && <Small>click to visit</Small>}
+          {embed && <Small>{t('click to visit')}</Small>}
         </Caption>
       </Wrapper>
     </Link>

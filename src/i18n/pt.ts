@@ -17,6 +17,8 @@ const translation = {
   'click to continue reading': 'clique para continuar',
   'Latest projects': 'Últimos projetos',
   'Published on': 'Publicado em',
+  "Visit the project's website": 'Visite a página do projeto',
+  'click to visit': 'clique para visitar',
 }
 
 export default translation
