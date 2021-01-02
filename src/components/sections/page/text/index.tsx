@@ -6,6 +6,8 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import dtrOptions from '@components/utils/documentToReactComponentsOptions'
 import Button from '@components/atoms/Button'
+import { useRouter } from 'next/router'
+import { useTranslation } from '@i18n/i18n'
 
 export interface ContentFieldsProps {
   title: string
@@ -27,6 +29,8 @@ interface TextProps {
 }
 
 export default function Text({ content }: TextProps) {
+  const { locale } = useRouter()
+  const t = useTranslation(locale)
   const htmlContent = content.fields.content
   const { safeDate, description, live, repository } = content.fields
 
@@ -42,7 +46,9 @@ export default function Text({ content }: TextProps) {
         {description !== '-tile' && (
           <>
             <p>{description}</p>
-            <p>Published on {safeDate}</p>
+            <p>
+              {t('Published on')} {safeDate}
+            </p>
           </>
         )}
       </Sidebar>

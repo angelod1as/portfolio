@@ -16,6 +16,7 @@ const translation = {
   'Read this first': 'Leia isso primeiro',
   'click to continue reading': 'clique para continuar',
   'Latest projects': 'Últimos projetos',
+  'Published on': 'Publicado em',
 }
 
 export default translation

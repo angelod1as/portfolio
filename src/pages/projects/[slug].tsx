@@ -45,7 +45,7 @@ export async function getStaticProps({ params, locale }) {
   const content = query.content.find(item => item.fields.slug === params.slug)
 
   const date = new Date(content.fields.date)
-  content.fields.safeDate = makeSafeDate(date)
+  content.fields.safeDate = makeSafeDate(date, locale)
 
   return { props: { content: { fields: { content } } } }
 }

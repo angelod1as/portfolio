@@ -1,6 +1,5 @@
-export default function makeSafeDate(date: Date) {
+export default function makeSafeDate(date: Date, locale: string) {
   if (date) {
-    const locale = 'en'
     const options = {
       day: 'numeric',
       month: 'short',

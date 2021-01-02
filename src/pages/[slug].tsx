@@ -53,7 +53,7 @@ export async function getStaticProps({ params, locale }) {
 
   const dateSafeItems = query.items.map(each => {
     const date = new Date(each.fields.date)
-    const safeDate = makeSafeDate(date)
+    const safeDate = makeSafeDate(date, locale)
     return {
       ...each,
       fields: {
