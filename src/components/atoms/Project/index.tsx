@@ -47,7 +47,7 @@ export default function Project({
         <Caption>
           <H3>{title}</H3>
           <Lead>
-            {lead} <span>{safeDate}</span>
+            {lead && lead !== '-tile' && lead} <span>{safeDate}</span>
           </Lead>
           {embed && <Small>click to visit</Small>}
         </Caption>

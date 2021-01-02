@@ -4,12 +4,13 @@ const Space = process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
 const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
+  id?: string
   type?: 'tile' | 'project'
   tag?: string
   locale?: string
 }
 
-interface ImageEntry {
+interface PageEntry {
   fields?: {
     content?: {
       fields?: {
@@ -30,18 +31,11 @@ interface ImageEntry {
   }
 }
 
-const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
+const fetchContentful = async <T>({ id, type, tag, locale }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
   })
-
-  // URGENT: locale is here
-  // const it = await client.getEntries({
-  //   locale: locale,
-  //   content_type: type,
-  //   'fields.slug': 'coding',
-  // })
 
   let order = ''
   if (type === 'tile') {
@@ -62,7 +56,7 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
       })
 
       // Getting right image information
-      entries.items.forEach((each: ImageEntry) => {
+      entries.items.forEach((each: PageEntry) => {
         if (each.fields?.content?.fields?.content?.content) {
           const content = each.fields.content.fields.content.content
           content.map(async eachContent => {
@@ -75,6 +69,23 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
             }
           })
         }
+
+        // if (
+        //   each.fields?.content?.content &&
+        //   Array.isArray(each.fields?.content?.content)
+        // ) {
+        //   const innerArray = each.fields.content.content.map(each => {
+        //     const content = each.content
+        //     content.map(eachContent => {
+        //       if (eachContent.nodeType === 'entry-hyperlink') {
+        //         const tags = eachContent.data.target.fields.tags
+        //         tags.map(tag => {
+        //           // console.log(tag.fields.title)
+        //         })
+        //       }
+        //     })
+        //   })
+        // }
       })
 
       returned.content = entries.items
@@ -110,6 +121,10 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
       console.log(error)
       console.log(error.details)
     }
+  }
+
+  if (id) {
+    console.log(id)
   }
 
   return returned
