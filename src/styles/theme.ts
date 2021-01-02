@@ -34,9 +34,9 @@ const tileColors = [
   '#55917F', // wintergreen dream
 ]
 
-const colorLoop = (animationName: string) => `
+const colorLoop = (animationName: string, time = 10) => `
   animation-direction: normal;
-  animation-duration: ${tileColors.length * 10}s;
+  animation-duration: ${tileColors.length * time}s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-name: ${animationName};
@@ -60,7 +60,7 @@ export interface ThemeProps {
   tileColors: string[]
   numbers: { [key in keyof typeof numbers]: string | number }
   loop: {
-    colorLoop: (animationName: string) => string
+    colorLoop: (animationName: string, time?: number) => string
   }
 }
 

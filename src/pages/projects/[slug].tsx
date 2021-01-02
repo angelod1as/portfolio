@@ -1,19 +1,21 @@
 import Page, { PageProps } from '@sections/page'
-import fetchContentful from '@build/fetchContentful'
+import fetchContentful from '@functions/fetchContentful'
 import { IProjectFields } from 'src/@types/generated/contentful'
-import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'
 
 function ProjectGenerator({ content }: PageProps) {
-  return (
-    <>
-      <NewHead
-        title={content?.fields?.content?.fields?.title}
-        description={content?.fields?.content?.fields?.description}
-      />
-      <Page content={content} />
-    </>
-  )
+  if (content) {
+    return (
+      <>
+        <NewHead
+          title={content?.fields?.content?.fields?.title}
+          description={content?.fields?.content?.fields?.description}
+        />
+        <Page content={content} />
+      </>
+    )
+  }
+  return <div>Content not found</div>
 }
 
 export async function getStaticPaths() {
@@ -24,16 +26,22 @@ export async function getStaticPaths() {
       params: { slug: item.fields.slug },
     }
   })
-  return { paths, fallback: false }
+
+  const localizedPaths = [
+    ...paths.map(path => ({ ...path, locale: 'en' })),
+    ...paths.map(path => ({ ...path, locale: 'pt' })),
+  ]
+
+  return { paths: localizedPaths, fallback: true }
 }
 
-export async function getStaticProps({ params }) {
-  const query = await fetchContentful<IProjectFields>({ type: 'project' })
+export async function getStaticProps({ params, locale }) {
+  const query = await fetchContentful<IProjectFields>({
+    type: 'project',
+    locale: locale,
+  })
 
   const content = query.content.find(item => item.fields.slug === params.slug)
-
-  const date = new Date(content.fields.date)
-  content.fields.safeDate = makeSafeDate(date)
 
   return { props: { content: { fields: { content } } } }
 }

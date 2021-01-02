@@ -1,5 +1,4 @@
 import Project, { ImageProps } from '@components/atoms/Project'
-import makeSafeDate from '@components/utils/makeSafeDate'
 
 export default function InlineEmbed({
   description,
@@ -8,11 +7,10 @@ export default function InlineEmbed({
   coverImage,
   date,
 }) {
-  const newDate = new Date(date)
   return (
     <Project
       title={title}
-      safeDate={makeSafeDate(newDate)}
+      date={date}
       to={slug}
       lead={description}
       image={coverImage as ImageProps[]}

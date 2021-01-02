@@ -9,6 +9,7 @@ const DangerDiv = styled.div`
   iframe {
     width: 100%;
   }
+  margin: 20px 0;
 `
 
 export default function Embed({ embed }: EmbedProps) {

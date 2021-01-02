@@ -6,9 +6,10 @@ const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 interface FetchProps {
   type?: 'tile' | 'project'
   tag?: string
+  locale?: string
 }
 
-interface ImageEntry {
+interface PageEntry {
   fields?: {
     content?: {
       fields?: {
@@ -29,7 +30,7 @@ interface ImageEntry {
   }
 }
 
-const fetchContentful = async <T>({ type, tag }: FetchProps) => {
+const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
@@ -50,10 +51,11 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
       const entries = await client.getEntries<T>({
         content_type: type,
         order: order,
+        locale: locale,
       })
 
       // Getting right image information
-      entries.items.forEach((each: ImageEntry) => {
+      entries.items.forEach((each: PageEntry) => {
         if (each.fields?.content?.fields?.content?.content) {
           const content = each.fields.content.fields.content.content
           content.map(async eachContent => {
@@ -70,8 +72,8 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
 
       returned.content = entries.items
     } catch (error) {
-      console.log(error)
-      console.log(error.details)
+      console.warn(error)
+      console.warn(error.details)
     }
   }
 
@@ -98,8 +100,8 @@ const fetchContentful = async <T>({ type, tag }: FetchProps) => {
 
       returned.items = filtered
     } catch (error) {
-      console.log(error)
-      console.log(error.details)
+      console.warn(error)
+      console.warn(error.details)
     }
   }
 

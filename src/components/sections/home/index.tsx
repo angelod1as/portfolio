@@ -2,6 +2,8 @@
 import { Big, Grid, Inside, Small, Tile, Link } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
+import { useTranslation } from '@i18n/i18n'
+import { useRouter } from 'next/router'
 
 interface ItemProps {
   slug: string
@@ -27,6 +29,9 @@ interface HomeProps {
 }
 
 export default function Home({ homeData }: HomeProps) {
+  const { locale } = useRouter()
+  const t = useTranslation(locale)
+
   const colors = theme.tileColors
 
   return (
@@ -43,17 +48,17 @@ export default function Home({ homeData }: HomeProps) {
             link = `projects/${internalRedirect.fields.slug}`
           }
 
-          if (title === 'stuff') {
+          if (slug === 'stuff') {
             return (
               <Link href={link} key={uuid()}>
                 <Tile>
                   <Inside color={colors[i % colors.length]}>
-                    <Big>I{"'"}m angelo</Big>
+                    <Big>{t("I'm angelo")}</Big>
                     <Big>
-                      and I do <i>stuff</i>
+                      {t('and I do')} <i>{t('stuff')}</i>
                     </Big>
                     <Small>
-                      (<i>please</i> click for more)
+                      (<i>{t('please')}</i> {t('click for more')})
                     </Small>
                   </Inside>
                 </Tile>
@@ -64,7 +69,7 @@ export default function Home({ homeData }: HomeProps) {
             <Link href={link} key={uuid()}>
               <Tile>
                 <Inside color={colors[i % colors.length]}>
-                  {hasido ? <Small>I do</Small> : ''}
+                  {hasido ? <Small>{t('I do')}</Small> : ''}
                   <Big>{title}</Big>
                 </Inside>
               </Tile>
