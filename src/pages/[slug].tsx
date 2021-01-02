@@ -5,15 +5,18 @@ import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'
 
 function PageGenerator({ content, items }: PageProps) {
-  return (
-    <>
-      <NewHead
-        title={content?.fields?.content?.fields?.title}
-        description={content?.fields?.content?.fields?.description}
-      />
-      <Page content={content} items={items} />
-    </>
-  )
+  if (content) {
+    return (
+      <>
+        <NewHead
+          title={content?.fields?.content?.fields?.title}
+          description={content?.fields?.content?.fields?.description}
+        />
+        <Page content={content} items={items} />
+      </>
+    )
+  }
+  return <div>Content not found</div>
 }
 
 export async function getStaticPaths() {
