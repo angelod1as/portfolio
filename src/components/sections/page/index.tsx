@@ -17,7 +17,7 @@ export interface PageProps {
   }
   items?: Array<{
     fields: IProject['fields'] & {
-      safeDate: string
+      date: string
     }
   }>
 }

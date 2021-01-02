@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-console */
 require('dotenv').config()
 const contentfulManagement = require('contentful-management')
 

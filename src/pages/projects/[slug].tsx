@@ -1,7 +1,6 @@
 import Page, { PageProps } from '@sections/page'
 import fetchContentful from '@functions/fetchContentful'
 import { IProjectFields } from 'src/@types/generated/contentful'
-import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'
 
 function ProjectGenerator({ content }: PageProps) {
@@ -43,9 +42,6 @@ export async function getStaticProps({ params, locale }) {
   })
 
   const content = query.content.find(item => item.fields.slug === params.slug)
-
-  const date = new Date(content.fields.date)
-  content.fields.safeDate = makeSafeDate(date, locale)
 
   return { props: { content: { fields: { content } } } }
 }

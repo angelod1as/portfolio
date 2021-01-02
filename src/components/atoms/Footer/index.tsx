@@ -1,3 +1,5 @@
+import makeSafeDate from '@components/utils/makeSafeDate'
+import { useRouter } from 'next/router'
 import {
   FooterWrapper,
   BlogPosts,
@@ -28,6 +30,7 @@ export interface FooterProps {
  * Page footer with latest blog posts, newsletter and social icons
  */
 export const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
+  const { locale } = useRouter()
   return (
     <FooterWrapper>
       {blogPosts?.length > 0 && (
@@ -40,7 +43,7 @@ export const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
               <h4>{title}</h4>
               <p>
                 {lead}
-                <span>{date}</span>
+                <span>{makeSafeDate(date, locale)}</span>
               </p>
             </Post>
           ))}

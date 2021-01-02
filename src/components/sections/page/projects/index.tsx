@@ -7,9 +7,7 @@ import { useTranslation } from '@i18n/i18n'
 
 interface ProjectsProps {
   items: Array<{
-    fields: IProject['fields'] & {
-      safeDate: string
-    }
+    fields: IProject['fields']
   }>
 }
 
@@ -22,15 +20,12 @@ export default function Projects({ items }: ProjectsProps) {
       <H2>{t('Latest projects')}</H2>
       <Mosaic>
         {items.map(
-          (
-            { fields: { safeDate, description, slug, title, coverImage } },
-            i
-          ) => {
+          ({ fields: { date, description, slug, title, coverImage } }, i) => {
             return (
               <ProjectHolder key={`${slug}-${i}`}>
                 <Project
                   title={title}
-                  safeDate={safeDate}
+                  date={date}
                   to={slug}
                   lead={description}
                   image={coverImage as ImageProps[]}

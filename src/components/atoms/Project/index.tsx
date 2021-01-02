@@ -12,6 +12,7 @@ import {
 import { VscWarning } from 'react-icons/vsc'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
+import makeSafeDate from '@components/utils/makeSafeDate'
 
 export interface ImageProps {
   url: string
@@ -21,7 +22,7 @@ export interface ProjectProps {
   image: ImageProps[]
   title: string
   lead: string
-  safeDate: string
+  date: string
   to: string
   embed?: boolean
 }
@@ -30,12 +31,13 @@ export default function Project({
   image,
   title,
   lead,
-  safeDate,
+  date,
   to,
   embed,
 }: ProjectProps) {
   const { locale } = useRouter()
   const t = useTranslation(locale)
+
   return (
     <Link href={`/projects/${to}`}>
       <Wrapper {...{ embed }}>
@@ -51,7 +53,8 @@ export default function Project({
         <Caption>
           <H3>{title}</H3>
           <Lead>
-            {lead && lead !== '-tile' && lead} <span>{safeDate}</span>
+            {lead && lead !== '-tile' && lead}{' '}
+            <span>{makeSafeDate(date, locale)}</span>
           </Lead>
           {embed && <Small>{t('click to visit')}</Small>}
         </Caption>

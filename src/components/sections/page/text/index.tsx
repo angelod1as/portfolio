@@ -8,13 +8,14 @@ import dtrOptions from '@components/utils/documentToReactComponentsOptions'
 import Button from '@components/atoms/Button'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
+import makeSafeDate from '@components/utils/makeSafeDate'
 
 export interface ContentFieldsProps {
   title: string
   description: string
   content: Document
   slug: string
-  safeDate: string
+  date: string
   excerpt?: string
   live?: string
   repository?: string
@@ -32,7 +33,7 @@ export default function Text({ content }: TextProps) {
   const { locale } = useRouter()
   const t = useTranslation(locale)
   const htmlContent = content.fields.content
-  const { safeDate, description, live, repository } = content.fields
+  const { date, description, live, repository } = content.fields
 
   return (
     <Grid>
@@ -49,7 +50,7 @@ export default function Text({ content }: TextProps) {
           <>
             <p>{description}</p>
             <p>
-              {t('Published on')} {safeDate}
+              {t('Published on')} {makeSafeDate(date, locale)}
             </p>
           </>
         )}

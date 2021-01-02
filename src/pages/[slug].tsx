@@ -1,7 +1,6 @@
 import Page, { PageProps } from '@sections/page'
 import { ITileFields } from 'src/@types/generated/contentful'
 import fetchContentful from '@functions/fetchContentful'
-import makeSafeDate from '@components/utils/makeSafeDate'
 import NewHead from '@components/atoms/NewHead'
 
 function PageGenerator({ content, items }: PageProps) {
@@ -51,19 +50,7 @@ export async function getStaticProps({ params, locale }) {
 
   const content = query.content.find(item => item.fields.slug === params.slug)
 
-  const dateSafeItems = query.items.map(each => {
-    const date = new Date(each.fields.date)
-    const safeDate = makeSafeDate(date, locale)
-    return {
-      ...each,
-      fields: {
-        ...each.fields,
-        safeDate: safeDate,
-      },
-    }
-  })
-
-  const items = dateSafeItems
+  const { items } = query
 
   return { props: { content, items } }
 }

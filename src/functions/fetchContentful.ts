@@ -4,7 +4,6 @@ const Space = process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
 const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
 
 interface FetchProps {
-  id?: string
   type?: 'tile' | 'project'
   tag?: string
   locale?: string
@@ -31,7 +30,7 @@ interface PageEntry {
   }
 }
 
-const fetchContentful = async <T>({ id, type, tag, locale }: FetchProps) => {
+const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
   const client = createClient({
     space: Space,
     accessToken: Token,
@@ -69,29 +68,12 @@ const fetchContentful = async <T>({ id, type, tag, locale }: FetchProps) => {
             }
           })
         }
-
-        // if (
-        //   each.fields?.content?.content &&
-        //   Array.isArray(each.fields?.content?.content)
-        // ) {
-        //   const innerArray = each.fields.content.content.map(each => {
-        //     const content = each.content
-        //     content.map(eachContent => {
-        //       if (eachContent.nodeType === 'entry-hyperlink') {
-        //         const tags = eachContent.data.target.fields.tags
-        //         tags.map(tag => {
-        //           // console.log(tag.fields.title)
-        //         })
-        //       }
-        //     })
-        //   })
-        // }
       })
 
       returned.content = entries.items
     } catch (error) {
-      console.log(error)
-      console.log(error.details)
+      console.warn(error)
+      console.warn(error.details)
     }
   }
 
@@ -118,13 +100,9 @@ const fetchContentful = async <T>({ id, type, tag, locale }: FetchProps) => {
 
       returned.items = filtered
     } catch (error) {
-      console.log(error)
-      console.log(error.details)
+      console.warn(error)
+      console.warn(error.details)
     }
-  }
-
-  if (id) {
-    console.log(id)
   }
 
   return returned
