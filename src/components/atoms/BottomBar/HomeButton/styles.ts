@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import { BackProps } from '.'
 
-export const StyledBack = styled.button<BackProps>`
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`
+
+export const StyledHome = styled.button`
   position: relative;
   background-color: transparent;
   border: none;
@@ -9,20 +13,20 @@ export const StyledBack = styled.button<BackProps>`
   font-weight: 700;
   font-size: 16px;
   line-height: 25px;
-  padding-left: 15px;
   cursor: pointer;
-  color: ${p => (p.inverted ? p.theme.color.white : p.theme.color.black)};
+  text-transform: lowercase;
+  color: ${p => p.theme.color.black};
 
   &:before {
     transition: left 0.3s ease;
     content: '‹';
     position: absolute;
-    left: 0;
+    left: -8px;
   }
 
   &:hover {
     &:before {
-      left: 4px;
+      left: -4px;
       content: '«';
     }
   }

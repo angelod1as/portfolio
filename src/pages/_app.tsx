@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '@styles/theme'
 import GlobalStyle from '@styles/GlobalStyle'
 import Head from 'next/head'
-import LocaleSwitcher from '@components/atoms/LocaleSwitcher'
+import BottomBar from '@components/atoms/BottomBar'
 import { useState } from 'react'
 import Loading from '@components/atoms/Loading'
 
@@ -16,7 +16,7 @@ function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         {loading && <Loading />}
-        <LocaleSwitcher {...{ setLoading }} />
+        <BottomBar {...{ setLoading }} />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

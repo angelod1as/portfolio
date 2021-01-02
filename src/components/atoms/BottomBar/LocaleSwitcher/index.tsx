@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { Dispatch, SetStateAction } from 'react'
-import { Wrapper, BG, Flag, Switch, Slider } from './styles'
+import { BG, Flag, Switch, Slider } from './styles'
 
 interface LocaleSwitcherProps {
   setLoading: Dispatch<SetStateAction<boolean>>
@@ -20,27 +20,25 @@ export default function LocaleSwitcher({ setLoading }: LocaleSwitcherProps) {
   }
 
   return (
-    <Wrapper>
-      <BG>
-        <Flag>
-          <span role="img" aria-label="Portuguese">
-            🇧🇷
-          </span>
-        </Flag>
-        <Switch>
-          <input
-            type="checkbox"
-            onChange={changeLanguage}
-            checked={locale !== 'pt'}
-          />
-          <Slider />
-        </Switch>
-        <Flag>
-          <span role="img" aria-label="English">
-            🇬🇧
-          </span>
-        </Flag>
-      </BG>
-    </Wrapper>
+    <BG>
+      <Flag>
+        <span role="img" aria-label="Portuguese">
+          🇧🇷
+        </span>
+      </Flag>
+      <Switch>
+        <input
+          type="checkbox"
+          onChange={changeLanguage}
+          checked={locale !== 'pt'}
+        />
+        <Slider />
+      </Switch>
+      <Flag>
+        <span role="img" aria-label="English">
+          🇬🇧
+        </span>
+      </Flag>
+    </BG>
   )
 }

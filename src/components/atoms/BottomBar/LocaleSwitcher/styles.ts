@@ -1,20 +1,9 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${p => p.theme.color.white};
-`
-
 export const BG = styled.div`
   display: flex;
   padding: 15px 0;
+  justify-content: center;
 `
 
 export const Flag = styled.div`
