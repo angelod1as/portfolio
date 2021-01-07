@@ -19,9 +19,11 @@ const handleEmbedded = (node: { data: { target: any } }) => {
         } = cloudinary.fields
         const alt = altDescription
         const contain = decorators && decorators.includes('contain')
-        const decoratorsString = decorators.reduce((prev, curr) => {
-          return `${prev} ${curr}`
-        })
+        const decoratorsString = decorators
+          ? decorators.reduce((prev, curr) => {
+              return `${prev} ${curr}`
+            })
+          : ''
 
         if (contentful.length === 1) {
           const url = contentful[0].url
