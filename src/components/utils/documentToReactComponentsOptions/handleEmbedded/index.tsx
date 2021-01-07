@@ -19,11 +19,14 @@ const handleEmbedded = (node: { data: { target: any } }) => {
         } = cloudinary.fields
         const alt = altDescription
         const contain = decorators && decorators.includes('contain')
+        const decoratorsString = decorators.reduce((prev, curr) => {
+          return `${prev} ${curr}`
+        })
 
         if (contentful.length === 1) {
           const url = contentful[0].url
           return (
-            <Figure {...{ contain }}>
+            <Figure className={decoratorsString} {...{ contain }}>
               <div>
                 <img src={url} alt={alt} />
               </div>
@@ -34,7 +37,7 @@ const handleEmbedded = (node: { data: { target: any } }) => {
 
         return (
           <Mosaic>
-            <Figure {...{ contain }}>
+            <Figure className={decoratorsString} {...{ contain }}>
               {contentful.map((each: { url: string }, i: any) => (
                 <div key={`img-${alt}-${i}`}>
                   <img src={each.url} alt={alt} />
