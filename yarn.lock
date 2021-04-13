@@ -6498,11 +6498,12 @@ html-parse-stringify2@2.0.1:
   dependencies:
     void-elements "^2.0.1"
 
-html-react-parser@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-1.1.1.tgz#081d309a02aac9ae2683a5d96eb48846940d830b"
-  integrity sha512-z2O8aeh36Bnn17AtRReEZckpzVUaqRMsY8TMIxCyjQhCblQuN8l2D4mWY7V2bdLL7B2/FS4YD/dpndxuHtvYIQ==
+html-react-parser@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-1.2.5.tgz#409316626578d3ea4f4f3df69807330e84e80871"
+  integrity sha512-7f9dI9DVu1OetqyVCEfqPT86S26X0YiFUaLcuQsNJ9mmV9ocO9Ki2OtPbNjd3/hl+3sZERbODV72SbKMQNPNdQ==
   dependencies:
+    domhandler "4.0.0"
     html-dom-parser "1.0.0"
     react-property "1.0.1"
     style-to-js "1.1.0"
