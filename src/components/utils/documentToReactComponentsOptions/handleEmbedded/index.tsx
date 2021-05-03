@@ -30,9 +30,11 @@ const handleEmbedded = (node: { data: { target: any } }) => {
           return (
             <Figure className={decoratorsString} {...{ contain }}>
               <div>
-                <img src={url} alt={alt} />
+                <div>
+                  <img src={url} alt={alt} />
+                </div>
+                {caption && <figcaption>{caption}</figcaption>}
               </div>
-              {caption && <figcaption>{caption}</figcaption>}
             </Figure>
           )
         }
