@@ -2949,7 +2949,7 @@ axe-core@^4.0.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.1.tgz#70a7855888e287f7add66002211a423937063eaf"
   integrity sha512-5Kgy8Cz6LPC9DJcNb3yjAXTu3XihQgEdnIg50c//zOC/MyLP0Clg+Y8Sh9ZjjnvBrDZU4DgXS9C3T9r4/scGZQ==
 
-axios@^0.21.0:
+axios@^0.21.0, axios@^0.21.1:
   version "0.21.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
@@ -4163,12 +4163,12 @@ contentful-typescript-codegen@^3.2.1:
     lodash "^4.17.15"
     meow "^5.0.0"
 
-contentful@^8.1.6:
-  version "8.1.6"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-8.1.6.tgz#cebfa67de46194f3807cad25f925b8672632dfc1"
-  integrity sha512-Tb4SOdAXrWbe7wVKEk0HjvJ0Rz1H2z3tV4UhfuAGcQq8K1g4xmPwm0w8g1mlrLE63Nd/fb92J2YTt5+ZGpcjsA==
+contentful@^8.3.4:
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-8.3.4.tgz#5bd3a1060f82839131d94cfcdcb0f247c0034d33"
+  integrity sha512-r6wq/khxryCinJ3Dx4v22+KeKW6w/m9EfbPNOOsh81O0rOvMVu+tRZ6T9rpbjz3D7Bdx3b71tZ0Gcx6c7IH7Zg==
   dependencies:
-    axios "^0.21.0"
+    axios "^0.21.1"
     contentful-resolve-response "^1.3.0"
     contentful-sdk-core "^6.5.0"
     fast-copy "^2.1.0"
