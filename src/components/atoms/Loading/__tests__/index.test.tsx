@@ -1,9 +1,9 @@
-import { render } from 'test-utils'
+import { render, screen } from '@testing-library/react'
 import Loading from '..'
 
 describe('Loading', () => {
   it('renders properly', () => {
-    const screen = render(<Loading />)
+    render(<Loading />)
     expect(screen.getByText(/loading/)).toBeInTheDocument()
   })
 })
