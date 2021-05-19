@@ -3,7 +3,7 @@ import NewHead from '.'
 
 jest.mock('react-responsive-embed', () => () => <div>ResponsiveEmbed</div>)
 
-describe('Loading', () => {
+describe('NewHead  component', () => {
   it('renders properly', () => {
     render(<NewHead />)
     expect(screen.queryByText(/Title/)).not.toBeInTheDocument()

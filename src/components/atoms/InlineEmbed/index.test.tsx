@@ -3,7 +3,7 @@ import InlineEmbed from '.'
 
 jest.mock('@components/atoms/Project', () => () => <div>ProjectEmbed</div>)
 
-describe('Loading', () => {
+describe('InlineEmbed component', () => {
   it('renders properly', () => {
     render(
       <InlineEmbed

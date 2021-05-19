@@ -14,7 +14,7 @@ export interface InputProps {
   // Optional icon
   icon?: string
   // Light font color?
-  inverted: boolean
+  inverted?: boolean
 }
 
 /**
@@ -33,7 +33,7 @@ export const Input = ({ label, icon, inverted, ...props }: InputProps) => {
   return (
     <Container>
       <InputLabel {...itemProps}>{label}</InputLabel>
-      <InputWrapper {...itemProps}>
+      <InputWrapper data-testid="input-wrapper" {...itemProps}>
         {icon && icon !== 'none' ? (
           <Icon data-testid="icon">{setIcon()}</Icon>
         ) : (

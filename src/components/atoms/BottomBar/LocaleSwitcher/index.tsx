@@ -28,6 +28,7 @@ export default function LocaleSwitcher({ setLoading }: LocaleSwitcherProps) {
       </Flag>
       <Switch>
         <input
+          aria-label="switch language"
           type="checkbox"
           onChange={changeLanguage}
           checked={locale !== 'pt'}

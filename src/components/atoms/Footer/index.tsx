@@ -28,8 +28,9 @@ export interface FooterProps {
 
 /**
  * Page footer with latest blog posts, newsletter and social icons
+ * ==> Ununsed component <==
  */
-export const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
+const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
   const { locale } = useRouter()
   return (
     <FooterWrapper>
@@ -66,3 +67,5 @@ export const Footer = ({ blogPosts, newsletter, social }: FooterProps) => {
     </FooterWrapper>
   )
 }
+
+export default Footer

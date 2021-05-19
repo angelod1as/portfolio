@@ -4,10 +4,6 @@ import { theme } from '@styles/theme'
 import 'jest-styled-components'
 import '@testing-library/jest-dom/extend-expect'
 
-jest.mock('next/router', () => ({
-  useRouter: () => 'pt',
-}))
-
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)
 const Providers = ({ children }) => {

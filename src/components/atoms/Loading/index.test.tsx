@@ -1,9 +1,9 @@
 import { render, screen } from '@test/test-helper'
 import Loading from '.'
 
-describe('Loading', () => {
+describe('Loading component', () => {
   it('renders properly', () => {
     render(<Loading />)
-    expect(screen.getByText(/loading/)).toBeInTheDocument()
+    expect(screen.getByText(/carregando/)).toBeInTheDocument()
   })
 })

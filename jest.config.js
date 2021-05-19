@@ -1,4 +1,5 @@
 module.exports = {
+  collectCoverageFrom: ['src/**/!(*.stories).{ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   // moduleDirectories: ['node_modules', 'src'],

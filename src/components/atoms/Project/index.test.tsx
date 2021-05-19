@@ -5,7 +5,7 @@ jest.mock('react-icons/vsc', () => ({
   VscWarning: () => <div>Icon</div>,
 }))
 
-describe('Loading', () => {
+describe('Project component', () => {
   it('renders properly', () => {
     render(
       <Project
@@ -33,6 +33,6 @@ describe('Loading', () => {
       />
     )
     expect(screen.getByText(/Icon/)).toBeInTheDocument()
-    expect(screen.getByText(/click to visit/)).toBeInTheDocument()
+    expect(screen.getByText(/clique para visitar/)).toBeInTheDocument()
   })
 })
