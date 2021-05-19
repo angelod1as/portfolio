@@ -1,9 +1,5 @@
 import { render, screen } from '@test/test-helper'
-import Loading from '..'
-
-jest.mock('next/router', () => ({
-  useRouter: () => 'pt',
-}))
+import Loading from '.'
 
 describe('Loading', () => {
   it('renders properly', () => {
