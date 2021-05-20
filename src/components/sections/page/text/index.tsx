@@ -43,7 +43,7 @@ export default function Text({ content }: TextProps) {
         )}
         {repository && (
           <Button href={repository} icon="github">
-            Explore the repository
+            {t('Explore the repository')}
           </Button>
         )}
         {description !== '-tile' && (
