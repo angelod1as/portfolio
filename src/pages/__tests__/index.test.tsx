@@ -1,6 +1,5 @@
-import Home, { getStaticProps } from '../index'
-
 import { render, screen } from '@test/test-helper'
+import Home, { getStaticProps } from '../index'
 
 jest.mock('@sections/home/index', () => () => <div>Home</div>)
 jest.mock('@functions/fetchContentful', () => ({ type }) => type)
