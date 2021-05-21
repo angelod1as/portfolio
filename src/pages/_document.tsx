@@ -1,3 +1,7 @@
+/* istanbul ignore file */
+// Ignoring because this file is too specific for NextJS
+// And it's functionality is intrinsic to the app framework
+
 import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 

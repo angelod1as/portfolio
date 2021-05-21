@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as styledComponents from 'styled-components'
 import { ThemedStyledComponentsModule } from 'styled-components'
 

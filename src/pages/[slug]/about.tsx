@@ -15,7 +15,7 @@ function AboutGenerator({ content }: PageProps) {
       </>
     )
   }
-  return <div>content not found</div>
+  return <div>Content not found</div>
 }
 
 export async function getStaticPaths() {
