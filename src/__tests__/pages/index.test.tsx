@@ -2,7 +2,12 @@ import { render, screen } from '@test/test-helper'
 import Home, { getStaticProps } from '../../pages/index'
 
 jest.mock('@sections/home/index', () => () => <div>Home</div>)
-jest.mock('@functions/fetchContentful', () => ({ type }) => type)
+jest.mock(
+  '@functions/fetchContentful',
+  () =>
+    ({ type }) =>
+      type
+)
 
 describe('Home component', () => {
   it('Renders properly', () => {

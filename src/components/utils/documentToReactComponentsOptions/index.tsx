@@ -1,6 +1,6 @@
 import { BLOCKS } from '@contentful/rich-text-types'
 import handleEmbedded from './handleEmbedded'
-import { ICloudinary } from '../../../@types/generated/contentful'
+// import { ICloudinary, IEmbed } from '../../../@types/generated/contentful'
 import handleParagraph from './handleParagraph'
 import { ReactNode } from 'react'
 import { H1, H2, H3, H4, H5 } from '@components/atoms/Typography'
@@ -8,7 +8,7 @@ import { H1, H2, H3, H4, H5 } from '@components/atoms/Typography'
 export interface NodeProps {
   nodeType: string
   data: {
-    target?: ICloudinary
+    target?: any // ICloudinary | IEmbed
   }
   content: any[]
 }
