@@ -1,60 +1,36 @@
-import { ICloudinary } from '../../../@types/generated/contentful'
-import dtrOptions, { NodeProps, summaryOptions } from './'
+import dtrOptions, { NodeProps } from './'
 
-jest.mock('./handleEmbedded/', () => () => 'handleEmbedded')
-jest.mock('./handleSummary/', () => () => 'handleSummary')
-jest.mock('./handleParagraph/', () => () => 'handleParagraph')
-
-const node: NodeProps = {
-  nodeType: 'type',
-  data: {
-    target: {} as ICloudinary,
-  },
-  content: [],
-}
-
-const span = <span>children</span>
+jest.mock('@components/atoms/InlineEmbed', () => () => <div>InlineEmbed</div>)
 
 describe('Cloudinary parser options', () => {
-  describe('Main parser', () => {
-    it('Renders properly', () => {
-      expect(dtrOptions.renderNode['embedded-entry-block'](node)).toBe(
-        'handleEmbedded'
-      )
-      expect(dtrOptions.renderNode.paragraph(node, span)).toBe(
-        'handleParagraph'
-      )
-      expect(
-        dtrOptions.renderNode['heading-1'](node, span).props.children.props
-          .children
-      ).toBe('children')
-      expect(
-        dtrOptions.renderNode['heading-2'](node, span).props.children.props
-          .children
-      ).toBe('children')
-      expect(
-        dtrOptions.renderNode['heading-3'](node, span).props.children.props
-          .children
-      ).toBe('children')
-      expect(
-        dtrOptions.renderNode['heading-4'](node, span).props.children.props
-          .children
-      ).toBe('children')
-      expect(
-        dtrOptions.renderNode['heading-5'](node, span).props.children.props
-          .children
-      ).toBe('children')
-    })
-  })
+  describe('Titles parser', () => {
+    const span = <span>children</span>
+    const node = {} as NodeProps
 
-  describe('Summary parser', () => {
-    it('Renders summary options properly', () => {
-      const fn = summaryOptions({ slug: 'slug', type: 'type' })
-      expect(fn.renderNode['list-item'](node)).toBe('handleSummary')
+    it('Renders h1 properly', () => {
+      const fn = dtrOptions.renderNode['heading-1'](node, span).props.children
+        .props.children
+      expect(fn).toBe('children')
     })
-    it('Renders summary options properly w/o type', () => {
-      const fn = summaryOptions({ slug: 'slug' })
-      expect(fn.renderNode['list-item'](node)).toBe('handleSummary')
+    it('Renders h2 properly', () => {
+      const fn = dtrOptions.renderNode['heading-2'](node, span).props.children
+        .props.children
+      expect(fn).toBe('children')
+    })
+    it('Renders h3 properly', () => {
+      const fn = dtrOptions.renderNode['heading-3'](node, span).props.children
+        .props.children
+      expect(fn).toBe('children')
+    })
+    it('Renders h4 properly', () => {
+      const fn = dtrOptions.renderNode['heading-4'](node, span).props.children
+        .props.children
+      expect(fn).toBe('children')
+    })
+    it('Renders h5 properly', () => {
+      const fn = dtrOptions.renderNode['heading-5'](node, span).props.children
+        .props.children
+      expect(fn).toBe('children')
     })
   })
 })

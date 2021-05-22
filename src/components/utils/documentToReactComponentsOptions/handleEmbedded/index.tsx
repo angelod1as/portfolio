@@ -11,14 +11,11 @@ const handleEmbedded = (node: { data: { target: any } }) => {
       const cloudinary: ICloudinary = target
 
       if (cloudinary.fields.contentful.length) {
-        const {
-          contentful,
-          altDescription,
-          decorators,
-          caption,
-        } = cloudinary.fields
+        const { contentful, altDescription, decorators, caption } =
+          cloudinary.fields
         const alt = altDescription
         const contain = decorators && decorators.includes('contain')
+        // Wouldn't a JOIN make this work?
         const decoratorsString = decorators
           ? decorators.reduce((prev, curr) => {
               return `${prev} ${curr}`

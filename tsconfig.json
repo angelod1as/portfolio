@@ -32,6 +32,7 @@
     "jsx": "preserve",
   },
   "include": [
+    "./src/test/test-helper.tsx",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"

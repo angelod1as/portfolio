@@ -56,6 +56,7 @@ export default function Text({ content }: TextProps) {
         )}
       </Sidebar>
       <Content>
+        {console.log(':DEV htmlContent: ', htmlContent)}
         {documentToReactComponents(htmlContent, dtrOptions as Options)}
       </Content>
     </Grid>

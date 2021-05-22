@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '@styles/theme'
 import 'jest-styled-components'
 import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom'
 
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)

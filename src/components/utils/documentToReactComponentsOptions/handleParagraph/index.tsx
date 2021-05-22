@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 hljs.registerLanguage('javascript', javascript)
 
-interface EachProps {
+interface ChildProps {
   type: string
   props: {
     children: ReactNode
@@ -19,107 +19,111 @@ interface EachProps {
   }
 }
 
-export default function handleParagraph(node: NodeProps, children: ReactNode) {
+export default function handleParagraph(
+  node: NodeProps,
+  children: ReactNode[]
+) {
   let isPre = false
-  if (Array.isArray(children)) {
-    const map = children.map((each: EachProps, i) => {
-      if (
-        typeof each === 'object' &&
-        each?.props?.children &&
-        Array.isArray(each?.props?.children)
-      ) {
-        // Handle URLs
-        if (each.type === 'a') {
-          if (each?.props?.href) {
-            if (
-              each.props.href.includes('http') ||
-              each.props.href.includes('mailto')
-            ) {
-              const compo = each as any
-              const newCompo = cloneElement(compo, {
-                target: '_blank',
-                rel: 'noreferrer',
-              }) as EachProps
-              each = newCompo
-            } else if (each?.props?.href) {
-              return (
-                <Link key={nanoid()} href={each?.props?.href}>
-                  {each.props.children[0]}
-                </Link>
-              )
-            }
-          }
-        }
-
-        // Handle Inline Entries
-        if (Array.isArray(each.props.children)) {
-          if (each.props.children.includes('embedded-entry-inline')) {
-            const content: IProject['fields'] | undefined =
-              node.content[i]?.data?.target?.fields
-
-            if (content) {
-              const { description, slug, title, coverImage, date } = content
-              return (
-                <InlineEmbed
-                  key={nanoid()}
-                  {...{ description, slug, title, coverImage, date }}
-                />
-              )
-            }
-          } else if (each.props.children.includes('entry-hyperlink')) {
-            const content = node.content[i]
-            const values: IProject['fields'] | undefined =
-              content?.data?.target?.fields
-
-            if (values) {
-              const tags = values.tags.map(tag => tag.fields.title)
-              const { slug } = values
-              const string = content.content[0].value
-              let prefix = '/projects/'
-              if (tags.includes('Tile content')) {
-                prefix = '/'
-              }
-
-              return (
-                <Link key={nanoid()} href={prefix + slug}>
-                  {string}
-                </Link>
-              )
-            }
+  let isEmbed = false
+  const map = children.map((child: ChildProps, index) => {
+    if (
+      typeof child === 'object' &&
+      child?.props?.children &&
+      Array.isArray(child?.props?.children)
+    ) {
+      // Handle URLs
+      if (child.type === 'a') {
+        if (child?.props?.href) {
+          if (
+            child.props.href.includes('http') ||
+            child.props.href.includes('mailto')
+          ) {
+            const compo = child as any
+            const newCompo = cloneElement(compo, {
+              target: '_blank',
+              rel: 'noreferrer',
+            }) as ChildProps
+            child = newCompo
+          } else if (child?.props?.href) {
+            return (
+              <Link key={nanoid()} href={child?.props?.href}>
+                {child.props.children[0]}
+              </Link>
+            )
           }
         }
       }
 
-      // Handle code blocks
-      if (each.type && each.type === 'code') {
-        if (children.length > 1) {
-          return (
-            <code
-              key={nanoid()}
-              dangerouslySetInnerHTML={{
-                __html: hljs.highlightAuto(each.props.children).value,
-              }}
-            ></code>
-          )
-        } else {
-          isPre = true
-          return (
-            <pre key={nanoid()} className="block">
-              <code
-                dangerouslySetInnerHTML={{
-                  __html: hljs.highlightAuto(each.props.children).value,
-                }}
-              ></code>
-            </pre>
-          )
+      // Handle Inline Entries
+      if (Array.isArray(child.props.children)) {
+        if (child.props.children.includes('embedded-entry-inline')) {
+          const content: IProject['fields'] | undefined =
+            node.content[index]?.data?.target?.fields
+
+          if (content) {
+            const { description, slug, title, coverImage, date } = content
+            isEmbed = true
+            return (
+              <InlineEmbed
+                key={nanoid()}
+                {...{ description, slug, title, coverImage, date }}
+              />
+            )
+          }
+        } else if (child.props.children.includes('entry-hyperlink')) {
+          const content = node.content[index]
+          const values: IProject['fields'] | undefined =
+            content?.data?.target?.fields
+          if (values) {
+            const tags = values.tags.map(tag => tag.fields.title)
+            const { slug } = values
+            const string = content.content[0].value
+            let prefix = '/projects/'
+            if (tags.includes('Tile content')) {
+              prefix = '/'
+            }
+
+            return (
+              <Link key={nanoid()} href={prefix + slug}>
+                {string}
+              </Link>
+            )
+          }
         }
       }
-      return each
-    })
-
-    if (isPre) {
-      return map
     }
-    return <p key={nanoid()}>{map}</p>
+
+    // Handle code blocks
+    if (child.type && child.type === 'code') {
+      if (children.length > 1) {
+        return (
+          <code
+            data-testid="code"
+            key={nanoid()}
+            dangerouslySetInnerHTML={{
+              __html: hljs.highlightAuto(child.props.children).value,
+            }}
+          />
+        )
+      } else {
+        isPre = true
+        return (
+          <pre key={nanoid()} data-testid="pre" className="block">
+            <code
+              data-testid="code"
+              dangerouslySetInnerHTML={{
+                __html: hljs.highlightAuto(child.props.children).value,
+              }}
+            />
+          </pre>
+        )
+      }
+    }
+    return child
+  })
+
+  if (isPre || isEmbed) {
+    return <div>{map}</div>
   }
+  return <p>{map}</p>
 }
