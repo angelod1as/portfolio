@@ -11,7 +11,7 @@ describe('Footer component', () => {
       {
         title: 'Title',
         lead: 'lead',
-        date: '2021-05-10',
+        date: '2021-05-01T17:00:00Z',
       },
     ]
     render(<Footer blogPosts={blogPosts} newsletter social={[{}]} />)
@@ -19,7 +19,7 @@ describe('Footer component', () => {
     expect(screen.getByText(/blog posts/)).toBeInTheDocument()
     expect(screen.getByText(/Title/)).toBeInTheDocument()
     expect(screen.getByText(/lead/)).toBeInTheDocument()
-    expect(screen.getByText(/9 de mai. de 2021/)).toBeInTheDocument()
+    expect(screen.getByText(/1 de mai. de 2021/)).toBeInTheDocument()
     expect(screen.getByText(/Let's talk about/)).toBeInTheDocument()
   })
 })

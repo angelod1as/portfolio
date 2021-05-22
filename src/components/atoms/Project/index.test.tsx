@@ -12,13 +12,13 @@ describe('Project component', () => {
         image={[{ url: 'http://foo.bar' }]}
         title="Title"
         lead="Lead"
-        date="2020-05-01"
+        date="2021-05-01T17:00:00Z"
         to="/foo"
       />
     )
     expect(screen.getByText(/Title/)).toBeInTheDocument()
     expect(screen.getByText(/Lead/)).toBeInTheDocument()
-    expect(screen.getByText(/30 de abr. de 2020/)).toBeInTheDocument()
+    expect(screen.getByText(/1 de mai. de 2021/)).toBeInTheDocument()
   })
 
   it('renders without image and being embed', () => {
@@ -27,7 +27,7 @@ describe('Project component', () => {
         image={undefined}
         title="Title"
         lead="Lead"
-        date="2020-05-01"
+        date="2021-05-01T17:00:00Z"
         to="/foo"
         embed
       />

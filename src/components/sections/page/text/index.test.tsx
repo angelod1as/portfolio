@@ -13,7 +13,7 @@ const content = {
     description: 'description',
     content: {} as any,
     slug: 'slug',
-    date: '2021-05-01',
+    date: '2021-05-01T17:00:00Z',
     excerpt: 'excerpt',
     live: 'live',
     repository: 'repository',
@@ -27,7 +27,7 @@ describe('Text page', () => {
     expect(screen.getByText(/Visite a página do projeto/)).toBeInTheDocument()
     expect(screen.getByText(/Explore o repositório/)).toBeInTheDocument()
     expect(screen.getByText(/Publicado em/)).toBeInTheDocument()
-    expect(screen.getByText(/30 de abr. de 2021/)).toBeInTheDocument()
+    expect(screen.getByText(/1 de mai. de 2021/)).toBeInTheDocument()
     expect(screen.getByText(/CONTENT/)).toBeInTheDocument()
   })
 })
