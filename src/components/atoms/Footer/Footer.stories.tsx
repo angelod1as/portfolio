@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import Footer, { FooterProps } from './index'

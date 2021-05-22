@@ -3,7 +3,7 @@ import Header from '.'
 
 describe('Header component', () => {
   it('renders properly with minimal info', () => {
-    render(<Header title="Title" type={undefined} />)
+    render(<Header title="Title" slim type={undefined} />)
     expect(screen.getByText(/Title/)).toBeInTheDocument()
   })
   it('renders properly with more info', () => {

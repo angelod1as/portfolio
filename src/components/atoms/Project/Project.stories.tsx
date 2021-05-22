@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Project, { ProjectProps } from '.'
 
