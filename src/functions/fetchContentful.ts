@@ -30,6 +30,9 @@ interface PageEntry {
   }
 }
 
+export const sorter = (a: any, b: any) =>
+  new Date(b.fields.date).getTime() - new Date(a.fields.date).getTime()
+
 const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
   const client = createClient({
     space: Space,
@@ -72,8 +75,7 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
 
       returned.content = entries.items
     } catch (error) {
-      console.warn(error)
-      console.warn(error.details)
+      returned.content = []
     }
   }
 
@@ -91,17 +93,11 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
           )
           return it.length > 0
         })
-        .sort((a: any, b: any) => {
-          return (
-            new Date(b.fields.date).getTime() -
-            new Date(a.fields.date).getTime()
-          )
-        })
+        .sort(sorter)
 
       returned.items = filtered
     } catch (error) {
-      console.warn(error)
-      console.warn(error.details)
+      returned.items = []
     }
   }
 

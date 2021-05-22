@@ -13,5 +13,10 @@ const DangerDiv = styled.div`
 `
 
 export default function Embed({ embed }: EmbedProps) {
-  return <DangerDiv dangerouslySetInnerHTML={{ __html: embed }}></DangerDiv>
+  return (
+    <DangerDiv
+      data-testid="danger-div"
+      dangerouslySetInnerHTML={{ __html: embed }}
+    />
+  )
 }

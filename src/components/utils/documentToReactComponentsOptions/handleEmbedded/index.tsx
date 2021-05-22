@@ -1,24 +1,21 @@
 import Embed from '@components/atoms/Embed'
 import Video from '@components/atoms/Video'
 import { ICloudinary, IEmbed } from 'src/@types/generated/contentful'
+import { NodeProps } from '..'
 import { Mosaic, Figure } from './styles'
 
-const handleEmbedded = (node: { data: { target: any } }) => {
+const handleEmbedded = (node: NodeProps) => {
   const target = node?.data?.target
   const id = target?.sys?.contentType?.sys?.id
   if (id) {
     if (id === 'cloudinary') {
       const cloudinary: ICloudinary = target
-
       if (cloudinary.fields.contentful.length) {
-        const {
-          contentful,
-          altDescription,
-          decorators,
-          caption,
-        } = cloudinary.fields
+        const { contentful, altDescription, decorators, caption } =
+          cloudinary.fields
         const alt = altDescription
         const contain = decorators && decorators.includes('contain')
+        // Wouldn't a JOIN make this work?
         const decoratorsString = decorators
           ? decorators.reduce((prev, curr) => {
               return `${prev} ${curr}`

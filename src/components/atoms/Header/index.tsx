@@ -50,7 +50,7 @@ export const Header = ({
         {hasIDo && !slim && type && t("I'm angelo and I do ")}
         <span>{type ? title.toLowerCase() : title}</span>
       </Title>
-      {type && excerpt && !slim ? (
+      {type && excerpt && !slim && (
         <ExcerptWrapper>
           <ExcerptTitle>{t('Time is short')}</ExcerptTitle>
           <ExcerptSubtitle>{t('Read this first')}</ExcerptSubtitle>
@@ -59,8 +59,6 @@ export const Header = ({
             {t('click to continue reading')}
           </Button>
         </ExcerptWrapper>
-      ) : (
-        ''
       )}
     </Container>
   )

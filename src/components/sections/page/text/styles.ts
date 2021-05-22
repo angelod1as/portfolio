@@ -27,15 +27,6 @@ export const Sidebar = styled.div`
   }
 `
 
-export const Summary = styled.div`
-  p,
-  ul,
-  li,
-  a {
-    color: ${p => p.theme.color.darkergray};
-  }
-`
-
 export const Content = styled.div`
   grid-area: content;
 

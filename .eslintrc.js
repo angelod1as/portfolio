@@ -9,6 +9,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    jest: true,
   },
   extends: [
     'standard',
@@ -18,7 +19,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended', // Make sure this is always the last element in the array.
   ],
   parser: '@typescript-eslint/parser',

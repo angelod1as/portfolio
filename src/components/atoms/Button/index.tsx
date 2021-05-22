@@ -50,7 +50,7 @@ export const Button = ({
 
   const rendered = () => {
     return (
-      <ButtonWrapper>
+      <ButtonWrapper data-testid={to ? 'link' : 'href'}>
         <ButtonStyle {...{ borderless, inverted }} type="button" {...props}>
           {icon && icon !== 'none' ? <Icon>{setIcon()}</Icon> : ''}
           <span>{children}</span>

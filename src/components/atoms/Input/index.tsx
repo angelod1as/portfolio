@@ -12,9 +12,9 @@ export interface InputProps {
   // Content
   label: string
   // Optional icon
-  icon: string
+  icon?: string
   // Light font color?
-  inverted: boolean
+  inverted?: boolean
 }
 
 /**
@@ -22,14 +22,10 @@ export interface InputProps {
  */
 export const Input = ({ label, icon, inverted, ...props }: InputProps) => {
   const setIcon = () => {
-    switch (icon) {
-      case 'email':
-        return <MailIcon size={20} />
-      case 'name':
-        return <AccountIcon size={20} />
-      default:
-        return ''
+    if (icon === 'email') {
+      return <MailIcon size={20} />
     }
+    return <AccountIcon size={20} />
   }
 
   const itemProps = { ...{ inverted, icon } }
@@ -37,8 +33,12 @@ export const Input = ({ label, icon, inverted, ...props }: InputProps) => {
   return (
     <Container>
       <InputLabel {...itemProps}>{label}</InputLabel>
-      <InputWrapper {...itemProps}>
-        {icon && icon !== 'none' ? <Icon>{setIcon()}</Icon> : ''}
+      <InputWrapper data-testid="input-wrapper" {...itemProps}>
+        {icon && icon !== 'none' ? (
+          <Icon data-testid="icon">{setIcon()}</Icon>
+        ) : (
+          ''
+        )}
         <StyledInput {...props} {...itemProps} type="text" />
       </InputWrapper>
     </Container>

@@ -19,6 +19,7 @@ const translation = {
   'Published on': 'Publicado em',
   "Visit the project's website": 'Visite a página do projeto',
   'click to visit': 'clique para visitar',
+  'Explore the repository': 'Explore o repositório',
 }
 
 export default translation

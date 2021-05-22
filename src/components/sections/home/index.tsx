@@ -18,7 +18,7 @@ interface ItemProps {
   }
 }
 
-interface HomeProps {
+export interface HomeProps {
   homeData: {
     content: [
       {
