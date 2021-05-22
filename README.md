@@ -1,5 +1,9 @@
 # Angelo Dias's portfolio.	
 
+![TravisCI Status](https://img.shields.io/travis/com/angelod1as/portfolio?style=flat-square)
+[![Coverage Status](https://img.shields.io/coveralls/github/angelod1as/portfolio?style=flat-square)](https://coveralls.io/github/angelod1as/portfolio?branch=master)
+
+
 ## Description	
 
 The [website](https://angelodias.com.br) is self explanatory. 	
