@@ -1,6 +1,6 @@
 import fetchContentful from '@functions/fetchContentful'
 import { render, screen } from '@test/test-helper'
-import About, { getStaticPaths, getStaticProps } from './about'
+import About, { getStaticPaths, getStaticProps } from '../../pages/[slug]/about'
 
 jest.mock('@components/atoms/NewHead', () => () => <div>NewHead</div>)
 jest.mock('@sections/page', () => () => <div>page</div>)

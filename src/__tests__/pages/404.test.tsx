@@ -1,5 +1,5 @@
 import { render, screen } from '@test/test-helper'
-import NotFound from '../404'
+import NotFound from '../../pages/404'
 
 describe('404 page', () => {
   it('renders properly', () => {

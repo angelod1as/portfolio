@@ -6,7 +6,7 @@ import {
   waitForElementToBeRemoved,
 } from '@test/test-helper'
 
-import AppWrapper from '../_app'
+import AppWrapper from '../../pages/_app'
 
 jest.mock('@components/atoms/Loading', () => () => <div>Loading</div>)
 
