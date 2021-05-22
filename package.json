@@ -11,7 +11,8 @@
     "type": "contentful-typescript-codegen --output ./src/@types/generated/contentful.d.ts",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
