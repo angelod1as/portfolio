@@ -12,7 +12,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
