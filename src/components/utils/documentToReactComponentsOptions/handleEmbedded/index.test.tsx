@@ -10,6 +10,105 @@ jest.mock('@components/atoms/Embed', () => () => <div>Embed</div>)
 jest.mock('@components/atoms/Video', () => () => <div>Video</div>)
 
 describe('Cloudinary parser options', () => {
+  describe('Error cases', () => {
+    it('returns nothing when no ID is found', () => {
+      const htmlContent = {
+        nodeType: 'document',
+        data: {},
+        content: [
+          {
+            nodeType: 'embedded-entry-block',
+            content: [],
+            data: {
+              target: {
+                sys: {
+                  contentType: {
+                    sys: {
+                      id: undefined,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        ],
+      }
+      const fn = documentToReactComponents(
+        htmlContent as Document,
+        dtrOptions as Options
+      )
+      render(fn)
+      expect(screen.queryByText('Embed')).not.toBeInTheDocument()
+    })
+
+    it('Returns error when id is invalid', () => {
+      const htmlContent = {
+        nodeType: 'document',
+        data: {},
+        content: [
+          {
+            nodeType: 'embedded-entry-block',
+            content: [],
+            data: {
+              target: {
+                sys: {
+                  contentType: {
+                    sys: {
+                      id: 'foobar',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        ],
+      }
+      const fn = documentToReactComponents(
+        htmlContent as Document,
+        dtrOptions as Options
+      )
+      render(fn)
+      expect(screen.getByTestId('error')).toBeInTheDocument()
+    })
+
+    it('Renders nothing when contentful is undefined', () => {
+      const htmlContent = {
+        nodeType: 'document',
+        data: {},
+        content: [
+          {
+            nodeType: 'embedded-entry-block',
+            content: [],
+            data: {
+              target: {
+                sys: {
+                  contentType: {
+                    sys: {
+                      id: 'cloudinary',
+                    },
+                  },
+                },
+                fields: {
+                  contentful: undefined,
+                  altDescription: 'alt description',
+                  caption: 'caption',
+                  decorators: ['contain', 'test'],
+                },
+              },
+            },
+          },
+        ],
+      }
+      const fn = documentToReactComponents(
+        htmlContent as Document,
+        dtrOptions as Options
+      )
+      render(fn)
+      const figure = screen.queryByRole('figure')
+      expect(figure).not.toBeInTheDocument()
+    })
+  })
+
   describe('Embeds & images', () => {
     it('Renders single image with caption', () => {
       const htmlContent = {
@@ -177,6 +276,42 @@ describe('Cloudinary parser options', () => {
       )
       render(fn)
       expect(screen.getByText('Video')).toBeInTheDocument()
+    })
+
+    it('renders nothing if embed type is unavailable', () => {
+      const htmlContent = {
+        nodeType: 'document',
+        data: {},
+        content: [
+          {
+            nodeType: 'embedded-entry-block',
+            content: [],
+            data: {
+              target: {
+                sys: {
+                  contentType: {
+                    sys: {
+                      type: 'Link',
+                      linkType: 'ContentType',
+                      id: 'embed',
+                    },
+                  },
+                },
+                fields: {
+                  title: 'embed',
+                },
+              },
+            },
+          },
+        ],
+      }
+      const fn = documentToReactComponents(
+        htmlContent as Document,
+        dtrOptions as Options
+      )
+      render(fn)
+      expect(screen.queryByText('Video')).not.toBeInTheDocument()
+      expect(screen.queryByText('Embed')).not.toBeInTheDocument()
     })
   })
 })
