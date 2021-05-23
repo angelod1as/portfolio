@@ -2,6 +2,7 @@
 
 ![TravisCI Status](https://img.shields.io/travis/com/angelod1as/portfolio?style=flat-square)
 [![Coverage Status](https://img.shields.io/coveralls/github/angelod1as/portfolio?style=flat-square)](https://coveralls.io/github/angelod1as/portfolio?branch=master)
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://60aa90bb595469003b9f5972-elzioehoie.chromatic.com/?path=/story/portfolio-header--with-excerpt)
 
 
 ## Description	
