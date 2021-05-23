@@ -97,6 +97,10 @@ export default function handleParagraph(
   node: NodeProps,
   children: ReactNode[]
 ) {
+  if (isPre || isEmbed) {
+    isPre = false
+    isEmbed = false
+  }
   const map = children.map((child: ChildProps, index) => {
     const nodeContent = node.content[index]
     const fields = nodeContent?.data?.target?.fields
