@@ -1,4 +1,4 @@
-import { createClient } from 'contentful'
+import { ContentfulClientApi, createClient } from 'contentful'
 
 const Space = process.env.NEXT_SERVER_CONTENTFUL_SPACE_ID
 const Token = process.env.NEXT_SERVER_CONTENTFUL_ACCESS_TOKEN
@@ -9,76 +9,123 @@ interface FetchProps {
   locale?: string
 }
 
+type EntryContent = {
+  nodeType: string
+  content?: {
+    nodeType: string
+    value?: string
+    content?: []
+    data?: {
+      target?: {
+        sys?: {
+          id?: string
+        }
+        metadada?: Record<string, unknown>
+        fields?: Record<string, unknown>
+      }
+    }
+  }[]
+  data?: {
+    target?: {
+      sys?: {
+        id?: string
+      }
+    }
+  }
+}
+
 interface PageEntry {
   fields?: {
     content?: {
       fields?: {
         content?: {
-          content: Array<{
-            nodeType: string
-            data?: {
-              target?: {
-                sys?: {
-                  id?: string
-                }
-              }
-            }
-          }>
+          content: EntryContent[]
         }
       }
     }
   }
 }
 
-export const sorter = (a: any, b: any) =>
-  new Date(b.fields.date).getTime() - new Date(a.fields.date).getTime()
+interface GetInfoProps {
+  entryContent?: EntryContent
+  client: ContentfulClientApi
+}
 
-const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
-  const client = createClient({
-    space: Space,
-    accessToken: Token,
-  })
-
-  let order = ''
-  if (type === 'tile') {
-    order = 'fields.order'
+const getFullInformation = async ({ entryContent, client }: GetInfoProps) => {
+  const id = entryContent?.data?.target?.sys?.id
+  if (id) {
+    const target = await client.getEntry(id)
+    entryContent.data.target = target
+    return entryContent
   }
+  return entryContent
+}
 
-  const returned = {
-    content: [],
-    items: [],
+const getInlineEmbedInformation = async ({
+  entryContent,
+  client,
+}: GetInfoProps) => {
+  const { content } = entryContent
+  return {
+    ...entryContent,
+    content: content.map(async item => {
+      const { nodeType } = item
+      if (nodeType === 'embedded-entry-inline') {
+        return await getFullInformation({ entryContent: item, client })
+      }
+      return item
+    }),
   }
+}
 
+interface ContentProps {
+  type?: FetchProps['type']
+  locale?: string
+  client: ContentfulClientApi
+}
+
+const getContent = async <T>({ type, client, locale }: ContentProps) => {
   if (type) {
     try {
       const entries = await client.getEntries<T>({
         content_type: type,
-        order: order,
+        order: type === 'tile' ? 'fields.order' : '',
         locale: locale,
       })
 
-      // Getting right image information
-      entries.items.forEach((each: PageEntry) => {
-        if (each.fields?.content?.fields?.content?.content) {
-          const content = each.fields.content.fields.content.content
-          content.map(async eachContent => {
-            if (eachContent.nodeType === 'embedded-entry-block') {
-              const id = eachContent?.data?.target?.sys?.id
-              if (id) {
-                const asset = await client.getEntry(id)
-                eachContent.data.target = asset
-              }
+      const { items } = entries
+
+      return items.map((entry: PageEntry) => {
+        const content = entry.fields?.content?.fields?.content?.content
+        if (content) {
+          content.map(async entryContent => {
+            const { nodeType } = entryContent
+            // Getting right image information
+            if (nodeType === 'embedded-entry-block') {
+              return await getFullInformation({ entryContent, client })
             }
+            // Getting inline-embed information
+            if (nodeType === 'paragraph') {
+              return await getInlineEmbedInformation({ entryContent, client })
+            }
+            return entryContent
           })
         }
+        return entry
       })
-
-      returned.content = entries.items
     } catch (error) {
-      returned.content = []
+      return []
     }
   }
+  return []
+}
 
+interface ItemProps {
+  tag?: string
+  client: ContentfulClientApi
+}
+
+const getItems = async <T>({ tag, client }: ItemProps) => {
   if (tag) {
     try {
       const entries = await client.getEntries<T>({
@@ -95,13 +142,26 @@ const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
         })
         .sort(sorter)
 
-      returned.items = filtered
+      return filtered
     } catch (error) {
-      returned.items = []
+      return []
     }
   }
+  return []
+}
 
-  return returned
+export const sorter = (a: any, b: any) =>
+  new Date(b.fields.date).getTime() - new Date(a.fields.date).getTime()
+
+const fetchContentful = async <T>({ type, tag, locale }: FetchProps) => {
+  const client = createClient({
+    space: Space,
+    accessToken: Token,
+  })
+  return {
+    content: await getContent<T>({ client, type, locale }),
+    items: await getItems<T>({ client, tag }),
+  }
 }
 
 export default fetchContentful

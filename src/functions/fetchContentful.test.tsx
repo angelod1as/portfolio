@@ -33,6 +33,88 @@ describe('Fetch and parse data from Contentful', () => {
       expect(response).toStrictEqual({ content: [], items: [] })
     })
 
+    it('...when paragraph & embedded-entry-inline', async () => {
+      const implementation = [
+        {
+          fields: {
+            content: {
+              fields: {
+                content: {
+                  content: [
+                    {
+                      nodeType: 'paragraph',
+                      content: [
+                        {
+                          nodeType: 'embedded-entry-inline',
+                        },
+                      ],
+                      data: {
+                        target: {
+                          sys: {
+                            id: 1,
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+      ]
+
+      mockResponse.mockImplementation(() => ({
+        items: implementation,
+      }))
+      const response = await fetchContentful({ type: 'project' })
+      expect(response).toStrictEqual({
+        content: implementation,
+        items: [],
+      })
+    })
+
+    it('...when paragraph & not embedded-entry-inline', async () => {
+      const implementation = [
+        {
+          fields: {
+            content: {
+              fields: {
+                content: {
+                  content: [
+                    {
+                      nodeType: 'paragraph',
+                      content: [
+                        {
+                          nodeType: 'foobar',
+                        },
+                      ],
+                      data: {
+                        target: {
+                          sys: {
+                            id: 1,
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+      ]
+
+      mockResponse.mockImplementation(() => ({
+        items: implementation,
+      }))
+      const response = await fetchContentful({ type: 'tile' })
+      expect(response).toStrictEqual({
+        content: implementation,
+        items: [],
+      })
+    })
+
     it('...when embedded-entry-block', async () => {
       const implementation = [
         {
