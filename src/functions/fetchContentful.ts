@@ -43,6 +43,8 @@ interface PageEntry {
         }
       }
     }
+    slug?: string
+    internalRedirect?: string
   }
 }
 
