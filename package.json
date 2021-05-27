@@ -22,7 +22,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "contentful": "^8.1.6",
-    "contentful-management": "^7.22.3",
+    "contentful-management": "^7.22.4",
     "contentful-typescript-codegen": "^3.2.1",
     "dotenv": "^10.0.0",
     "eslint-plugin-standard": "^5.0.0",
