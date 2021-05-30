@@ -2,7 +2,7 @@ import { NotionProps } from '@functions/fetchNotion'
 import { render, screen } from '@test/test-helper'
 import Doing, { getStaticProps } from '../../pages/doing'
 
-jest.mock('@sections/page/doing', () => () => <div>Doing</div>)
+jest.mock('@sections/doing', () => () => <div>Doing</div>)
 jest.mock('@functions/fetchNotion', () => () => 'fetch')
 
 describe('Home component', () => {

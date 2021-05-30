@@ -1,6 +1,6 @@
 import NewHead from '@components/atoms/NewHead'
 import fetchNotion, { NotionProps } from '@functions/fetchNotion'
-import DoingPage from '@sections/page/doing'
+import DoingPage from '@sections/doing'
 
 type DoingProps = {
   items: NotionProps
