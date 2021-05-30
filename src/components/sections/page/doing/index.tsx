@@ -1,4 +1,4 @@
-import { Content, Grid, Wrapper } from './styles'
+import { Wrapper } from './styles'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
 
@@ -25,9 +25,7 @@ export default function DoingPage({ items }: DoingProps) {
   return (
     <Wrapper>
       <Header {...headerData} />
-      <Grid>
-        <Content>CONTENT</Content>
-      </Grid>
+      <div>CONTENT</div>
     </Wrapper>
   )
 }

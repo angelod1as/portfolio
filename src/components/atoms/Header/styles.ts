@@ -48,7 +48,7 @@ export const Title = styled.div<{ slim: boolean }>`
   font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
   font-size: ${p => (p.slim ? '40px' : '48px')};
   line-height: 53px;
-  max-width: 350px;
+  max-width: 385px;
   margin-left: ${p => (p.slim ? '80px' : 0)};
   margin-bottom: 8px;
   span {
