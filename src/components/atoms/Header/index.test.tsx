@@ -13,4 +13,9 @@ describe('Header component', () => {
     expect(screen.getByText(/O tempo é curto/)).toBeInTheDocument()
     expect(screen.getByText(/excerpt/)).toBeInTheDocument()
   })
+  it('renders properly with doing context', () => {
+    render(<Header title="Title" hasIDo doing type="custom" />)
+    expect(screen.getByText(/Sou angelo e estou/)).toBeInTheDocument()
+    expect(screen.getByText(/title/)).toBeInTheDocument()
+  })
 })

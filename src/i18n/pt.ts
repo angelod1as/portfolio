@@ -12,6 +12,7 @@ const translation = {
   'Click here to go back': 'Clique aqui para voltar',
   "I'm Angelo and I do stuff": 'Sou Angelo e faço coisas',
   "I'm angelo and I do ": 'Sou angelo e faço ',
+  "I'm angelo and I'm ": 'Sou angelo e estou ',
   'Time is short': 'O tempo é curto',
   'Read this first': 'Leia isso primeiro',
   'click to continue reading': 'clique para continuar',
@@ -20,6 +21,8 @@ const translation = {
   "Visit the project's website": 'Visite a página do projeto',
   'click to visit': 'clique para visitar',
   'Explore the repository': 'Explore o repositório',
+  // Doing
+  Doing: 'Fazendo',
 }
 
 export default translation
