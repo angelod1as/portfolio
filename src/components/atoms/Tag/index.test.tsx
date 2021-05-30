@@ -3,7 +3,7 @@ import Tag from '.'
 
 describe('Tag component', () => {
   it('Render properly', () => {
-    render(<Tag tag="string" />)
+    render(<Tag>string</Tag>)
     expect(screen.getByText(/string/)).toBeInTheDocument()
   })
 })

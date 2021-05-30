@@ -42,11 +42,11 @@ type PropertiesProps = {
 export type NotionProps = {
   createdTime: string
   lastEditedTime: string
-  tags: Array<string>
-  status: string
-  quickNote: string
-  image: string
-  title: string
+  tags?: Array<string> | null
+  status?: string | null
+  quickNote?: string | null
+  image?: string | null
+  title?: string | null
 }
 
 const fetchNotion = async () => {
@@ -66,16 +66,17 @@ const fetchNotion = async () => {
 
       const properties = item.properties as unknown as PropertiesProps
       const { Status, Name, Tag, Image } = properties
-      const quickNotes = properties['Quick note'].rich_text
+      const quickNote = properties['Quick note'].rich_text?.[0]?.plain_text
+      const image = Image.rich_text?.[0]?.plain_text
 
       const result: NotionProps = {
         createdTime,
         lastEditedTime,
-        tags: Tag.multi_select.map(tag => tag.name),
-        status: Status.select.name,
-        quickNote: quickNotes[0].plain_text,
-        title: Name.title[0].plain_text,
-        image: Image.rich_text[0].plain_text,
+        tags: Tag?.multi_select?.map(tag => tag.name) || null,
+        status: Status?.select?.name || null,
+        quickNote: quickNote || null,
+        title: Name?.title?.[0]?.plain_text || null,
+        image: image || null,
       }
 
       return result

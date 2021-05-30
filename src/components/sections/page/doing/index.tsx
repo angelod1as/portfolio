@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
 
 import Header from '@components/atoms/Header'
-import { NotionProps } from '@functions/fetchNotion'
+import { NotionProps } from '@functions/fetchNotion/'
 
 type DoingProps = {
   items: NotionProps

@@ -7,7 +7,7 @@ import {
   LinkIcon,
   TagWrapper,
 } from './styles'
-import { NotionProps } from '@functions/fetchNotion'
+import { NotionProps } from '@functions/fetchNotion/'
 import { useTranslation } from '@i18n/i18n'
 import { useRouter } from 'next/router'
 import { VscFileSymlinkFile } from 'react-icons/vsc'

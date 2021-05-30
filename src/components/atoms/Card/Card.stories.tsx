@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Card, { CardProps } from '.'
-import { NotionProps } from '@functions/fetchNotion'
+import { NotionProps } from '@functions/fetchNotion/'
 
 export default {
   title: 'Portfolio/Atoms/Card',

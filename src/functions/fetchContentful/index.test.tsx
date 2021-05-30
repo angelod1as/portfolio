@@ -1,4 +1,4 @@
-import fetchContentful, { sorter } from './fetchContentful'
+import fetchContentful, { sorter } from './index'
 
 const mockResponse = jest.fn()
 
