@@ -1,30 +1,15 @@
 import { Content, Grid, Wrapper } from './styles'
-import { Document } from '@contentful/rich-text-types'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
 
 import Header from '@components/atoms/Header'
+import { NotionProps } from '@functions/fetchNotion'
 
-export interface ContentFieldsProps {
-  title: string
-  description: string
-  content: Document
-  slug: string
-  date: string
-  excerpt?: string
-  live?: string
-  repository?: string
-  summary?: Document
+type DoingProps = {
+  items: NotionProps
 }
 
-interface TextProps {
-  type: string
-  content: {
-    fields: ContentFieldsProps
-  }
-}
-
-export default function DoingPage() {
+export default function DoingPage({ items }: DoingProps) {
   const { locale } = useRouter()
   const t = useTranslation(locale)
 

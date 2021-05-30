@@ -20,6 +20,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
+    "@notionhq/client": "^0.1.8",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "contentful": "^8.1.6",
     "contentful-management": "^7.22.3",
