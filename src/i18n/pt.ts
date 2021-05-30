@@ -23,6 +23,9 @@ const translation = {
   'Explore the repository': 'Explore o repositório',
   // Doing
   Doing: 'Fazendo',
+  "what I'm doing": 'O que estou fazendo',
+  'right ': 'agora ',
+  now: 'mesmo',
 }
 
 export default translation

@@ -1,4 +1,3 @@
-// import Head from 'next/head'
 import { Big, Grid, Inside, Small, Tile, Link } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
@@ -36,7 +35,6 @@ export default function Home({ homeData }: HomeProps) {
 
   return (
     <>
-      {/* <NewsSlip /> */}
       <Grid>
         {homeData.content.map((each, i: number) => {
           const { title, hasido, slug, redir, internalRedirect } = each.fields
@@ -60,6 +58,20 @@ export default function Home({ homeData }: HomeProps) {
                     <Small>
                       (<i>{t('please')}</i> {t('click for more')})
                     </Small>
+                  </Inside>
+                </Tile>
+              </Link>
+            )
+          }
+          if (slug === 'doing') {
+            return (
+              <Link href={link} key={uuid()}>
+                <Tile>
+                  <Inside color={colors[i % colors.length]}>
+                    <Small>{t("what I'm doing")}</Small>
+                    <Big>
+                      <em>{t('right ')}</em> {t('now')}
+                    </Big>
                   </Inside>
                 </Tile>
               </Link>
