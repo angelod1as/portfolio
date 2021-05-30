@@ -44,8 +44,8 @@ export type NotionProps = {
   lastEditedTime: string
   tags: Array<string>
   status: string
-  quickNote: RichTextProps['rich_text']
-  image: RichTextProps['rich_text']
+  quickNote: string
+  image: string
   title: string
 }
 
@@ -73,9 +73,9 @@ const fetchNotion = async () => {
         lastEditedTime,
         tags: Tag.multi_select.map(tag => tag.name),
         status: Status.select.name,
-        quickNote: quickNotes,
+        quickNote: quickNotes[0].plain_text,
         title: Name.title[0].plain_text,
-        image: Image.rich_text,
+        image: Image.rich_text[0].plain_text,
       }
 
       return result

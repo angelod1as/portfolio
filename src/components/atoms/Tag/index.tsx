@@ -1,9 +1,10 @@
+import { ReactNode } from 'react'
 import { TagWrapper } from './styles'
 
 export type TagProps = {
-  tag: string
+  children: ReactNode
 }
 
-export default function Tag({ tag }: TagProps) {
-  return <TagWrapper>{tag}</TagWrapper>
+export default function Tag({ children }: TagProps) {
+  return <TagWrapper>{children}</TagWrapper>
 }

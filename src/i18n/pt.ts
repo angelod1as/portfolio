@@ -26,6 +26,7 @@ const translation = {
   "what I'm doing": 'O que estou fazendo',
   'right ': 'agora ',
   now: 'mesmo',
+  'Thumbnail of': 'Foto miniatura de',
 }
 
 export default translation
