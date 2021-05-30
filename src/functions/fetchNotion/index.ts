@@ -61,7 +61,11 @@ const fetchNotion = async () => {
   })
 
   return results
-    .filter(item => !item.archived && item.properties.Public)
+    .filter(
+      item =>
+        !item.archived &&
+        (item.properties as unknown as PropertiesProps)?.Public?.checkbox
+    )
     .map(item => {
       const { created_time: createdTime, last_edited_time: lastEditedTime } =
         item

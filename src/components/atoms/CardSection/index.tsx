@@ -25,7 +25,7 @@ export default function CardSection({ title, items }: CardSectionProps) {
   }
 
   return (
-    <>
+    <div>
       <Title collapsed={collapsed} onClick={handleCollapse}>
         {title}
       </Title>
@@ -42,6 +42,6 @@ export default function CardSection({ title, items }: CardSectionProps) {
           ))}
         </CardWrapper>
       </StyledAnimateHeight>
-    </>
+    </div>
   )
 }

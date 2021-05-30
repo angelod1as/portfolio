@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle<GlobalProps>`
 
   h3 {
     font-size: 20px;
-    line-height: 35px;
+    line-height: 25px;
   }
 
   a {

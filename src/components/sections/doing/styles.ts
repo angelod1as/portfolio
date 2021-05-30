@@ -1,7 +1,13 @@
-import { theme } from '@styles/theme'
 import styled from 'styled-components'
-const { size } = theme
 
 export const Wrapper = styled.div`
   padding-bottom: 100px;
+`
+
+export const SectionSeparator = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
 `

@@ -1,4 +1,4 @@
-import { Wrapper } from './styles'
+import { Wrapper, SectionSeparator } from './styles'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
 
@@ -31,13 +31,15 @@ export default function DoingPage({ cards }: DoingProps) {
   return (
     <Wrapper>
       <Header {...headerData} />
-      {Object.keys(cards).map(cardGroup => (
-        <CardSection
-          key={cardGroup}
-          title={statusDictionary[cardGroup]}
-          items={cards[cardGroup]}
-        />
-      ))}
+      <SectionSeparator>
+        {Object.keys(cards).map(cardGroup => (
+          <CardSection
+            key={cardGroup}
+            title={statusDictionary[cardGroup]}
+            items={cards[cardGroup]}
+          />
+        ))}
+      </SectionSeparator>
     </Wrapper>
   )
 }
