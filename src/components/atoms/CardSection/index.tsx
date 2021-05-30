@@ -1,4 +1,5 @@
 import { NotionProps } from '@functions/fetchNotion'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Card from '../Card'
 import { CardWrapper, Title, StyledAnimateHeight } from './styles'
@@ -34,11 +35,8 @@ export default function CardSection({ title, items }: CardSectionProps) {
         height={collapsed ? 100 : 'auto'}
       >
         <CardWrapper>
-          {items.map(({ title, tags, image, quickNote, link }, i) => (
-            <Card
-              key={title + i}
-              {...{ title, tags, image, quickNote, link }}
-            />
+          {items.map((item, i) => (
+            <Card key={title + i} item={item} />
           ))}
         </CardWrapper>
       </StyledAnimateHeight>

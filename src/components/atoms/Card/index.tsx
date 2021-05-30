@@ -19,19 +19,20 @@ type NotionWoDates = Omit<
   'createdTime' | 'lastEditedTime' | 'status'
 >
 
-export interface CardProps extends NotionWoDates {
+export interface ItemProps extends NotionWoDates {
   link?: string
 }
 
-export default function Card({
-  title,
-  quickNote,
-  tags,
-  image,
-  link,
-}: CardProps) {
+type CardProps = {
+  item: ItemProps
+}
+
+export default function Card({ item }: CardProps) {
   const { locale } = useRouter()
   const t = useTranslation(locale)
+
+  const { tags, link, image, externalLink } = item
+  const { title, note } = item[locale]
 
   const CardComponent = (
     <CardWrapper link={link}>
@@ -45,7 +46,7 @@ export default function Card({
       </ImageWrapper>
       <Content>
         {title && <Title>{title}</Title>}
-        {quickNote && <Description>{quickNote}</Description>}
+        {note && <Description>{note}</Description>}
         <TagWrapper>
           {tags && tags.map(tag => <Tag key={`${title}-${tag}`}>{tag}</Tag>)}
         </TagWrapper>
@@ -53,6 +54,13 @@ export default function Card({
     </CardWrapper>
   )
 
+  if (externalLink) {
+    return (
+      <a href={externalLink} target="_blank" rel="noreferrer">
+        {CardComponent}
+      </a>
+    )
+  }
   if (link) {
     return <Link href={link}>{CardComponent}</Link>
   }

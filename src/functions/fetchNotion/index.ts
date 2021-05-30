@@ -16,27 +16,26 @@ type RichTextProps = {
 }
 
 type PropertiesProps = {
-  Tag: {
+  public: {
+    checkbox: boolean
+  }
+  title_pt: RichTextProps
+  note_pt: RichTextProps
+  title_en: RichTextProps
+  note_en: RichTextProps
+  image: RichTextProps
+  link: RichTextProps
+  external_link: RichTextProps
+  tag: {
     multi_select: Array<{
       name: string
     }>
   }
-  Status: {
+  status: {
     select: {
       name: string
     }
   }
-  Public: {
-    checkbox: boolean
-  }
-  'Quick note': RichTextProps
-  Name: {
-    title: Array<{
-      plain_text: string
-    }>
-  }
-  Image: RichTextProps
-  Link: RichTextProps
 }
 /* eslint-enable camelcase */
 
@@ -45,11 +44,20 @@ export type NotionProps = {
   lastEditedTime: string
   tags?: Array<string> | null
   status?: string | null
-  quickNote?: string | null
+  en: {
+    title: string | null
+    note: string | null
+  }
+  pt: {
+    title: string | null
+    note: string | null
+  }
   image?: string | null
-  title?: string | null
   link?: string | null
+  externalLink?: string | null
 }
+
+const getValue = (value: any) => value || null
 
 const fetchNotion = async () => {
   const notion = new Client({
@@ -64,27 +72,32 @@ const fetchNotion = async () => {
     .filter(
       item =>
         !item.archived &&
-        (item.properties as unknown as PropertiesProps)?.Public?.checkbox
+        (item.properties as unknown as PropertiesProps)?.public?.checkbox
     )
     .map(item => {
       const { created_time: createdTime, last_edited_time: lastEditedTime } =
         item
 
       const properties = item.properties as unknown as PropertiesProps
-      const { Status, Name, Tag, Image, Link } = properties
-      const quickNote = properties['Quick note']?.rich_text?.[0]?.plain_text
-      const image = Image?.rich_text?.[0]?.plain_text
-      const link = Link?.rich_text?.[0]?.plain_text
 
       const result: NotionProps = {
         createdTime,
         lastEditedTime,
-        tags: Tag?.multi_select?.map(tag => tag.name) || null,
-        status: Status?.select?.name || null,
-        quickNote: quickNote || null,
-        title: Name?.title?.[0]?.plain_text || null,
-        image: image || null,
-        link: link || null,
+        tags: getValue(properties?.tag?.multi_select?.map(tag => tag.name)),
+        status: getValue(properties?.status?.select?.name),
+        en: {
+          title: getValue(properties?.title_en?.rich_text?.[0]?.plain_text),
+          note: getValue(properties?.note_en?.rich_text?.[0]?.plain_text),
+        },
+        pt: {
+          title: getValue(properties?.title_pt?.rich_text?.[0]?.plain_text),
+          note: getValue(properties?.note_pt?.rich_text?.[0]?.plain_text),
+        },
+        image: getValue(properties?.image?.rich_text?.[0]?.plain_text),
+        link: getValue(properties?.link?.rich_text?.[0]?.plain_text),
+        externalLink: getValue(
+          properties?.external_link?.rich_text?.[0]?.plain_text
+        ),
       }
 
       return result

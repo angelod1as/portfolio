@@ -27,43 +27,73 @@ describe('Fetch and parse data from Notion', () => {
               created_time: '123',
               last_edited_time: '123',
               properties: {
-                Public: true,
-                'Quick note': {
+                public: {
+                  checkbox: true,
+                },
+                title_pt: {
                   rich_text: [
                     {
                       plain_text: 'plain',
                     },
                   ],
                 },
-                Image: {
+                note_pt: {
                   rich_text: [
                     {
                       plain_text: 'plain',
                     },
                   ],
                 },
-                Link: {
+                title_en: {
+                  rich_text: [
+                    {
+                      plain_text: 'plain',
+                    },
+                  ],
+                },
+                note_en: {
+                  rich_text: [
+                    {
+                      plain_text: 'plain',
+                    },
+                  ],
+                },
+                image: {
+                  rich_text: [
+                    {
+                      plain_text: 'plain',
+                    },
+                  ],
+                },
+                link: {
                   rich_text: [
                     {
                       plain_text: 'url',
                     },
                   ],
                 },
-                Name: {
+                external_link: {
+                  rich_text: [
+                    {
+                      plain_text: 'url',
+                    },
+                  ],
+                },
+                name: {
                   title: [
                     {
                       plain_text: 'plain',
                     },
                   ],
                 },
-                Tag: {
+                tag: {
                   multi_select: [
                     {
                       name: 'name',
                     },
                   ],
                 },
-                Status: {
+                status: {
                   select: {
                     name: 'name',
                   },

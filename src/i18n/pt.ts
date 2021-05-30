@@ -32,6 +32,10 @@ const translation = {
   Later: 'Para depois',
   Waiting: 'Aguardando',
   Dropped: 'Largado',
+  writing: 'escrita',
+  coding: 'programação',
+  talking: 'comunicação',
+  managing: 'gestão',
 }
 
 export default translation

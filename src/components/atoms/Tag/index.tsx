@@ -1,10 +1,13 @@
-import { ReactNode } from 'react'
+import { useTranslation } from '@i18n/i18n'
+import { useRouter } from 'next/router'
 import { TagWrapper } from './styles'
 
 export type TagProps = {
-  children: ReactNode
+  children: string
 }
 
 export default function Tag({ children }: TagProps) {
-  return <TagWrapper>{children}</TagWrapper>
+  const { locale } = useRouter()
+  const t = useTranslation(locale)
+  return <TagWrapper>{t(children)}</TagWrapper>
 }
