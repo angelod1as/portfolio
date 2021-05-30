@@ -2,15 +2,22 @@ import NewHead from '@components/atoms/NewHead'
 import fetchNotion, { NotionProps } from '@functions/fetchNotion'
 import DoingPage from '@sections/doing'
 
-type DoingProps = {
-  items: NotionProps
+export type DoingProps = {
+  cards: {
+    todo: Array<NotionProps>
+    doing: Array<NotionProps>
+    done: Array<NotionProps>
+    later: Array<NotionProps>
+    waiting: Array<NotionProps>
+    dropped: Array<NotionProps>
+  }
 }
 
-function Doing({ items }: DoingProps) {
+function Doing({ cards }: DoingProps) {
   return (
     <>
       <NewHead title="Doing" description="Desciption" />
-      <DoingPage items={items} />
+      <DoingPage {...{ cards }} />
     </>
   )
 }
@@ -20,7 +27,14 @@ export async function getStaticProps() {
 
   return {
     props: {
-      items,
+      cards: {
+        todo: items.filter(item => item?.status.toLowerCase() === 'to do'),
+        doing: items.filter(item => item?.status.toLowerCase() === 'doing'),
+        done: items.filter(item => item?.status.toLowerCase() === 'done'),
+        later: items.filter(item => item?.status.toLowerCase() === 'later'),
+        waiting: items.filter(item => item?.status.toLowerCase() === 'waiting'),
+        dropped: items.filter(item => item?.status.toLowerCase() === 'dropped'),
+      },
     },
   }
 }

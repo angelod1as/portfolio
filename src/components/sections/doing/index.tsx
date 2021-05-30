@@ -3,15 +3,21 @@ import { useRouter } from 'next/router'
 import { useTranslation } from '@i18n/i18n'
 
 import Header from '@components/atoms/Header'
-import { NotionProps } from '@functions/fetchNotion/'
+import { DoingProps } from '@pages/doing'
+import CardSection from '@components/atoms/CardSection'
 
-type DoingProps = {
-  items: NotionProps
-}
-
-export default function DoingPage({ items }: DoingProps) {
+export default function DoingPage({ cards }: DoingProps) {
   const { locale } = useRouter()
   const t = useTranslation(locale)
+
+  const statusDictionary = {
+    todo: t('To do'),
+    doing: t('Doing'),
+    done: t('Done'),
+    later: t('Later'),
+    waiting: t('Waiting'),
+    dropped: t('Dropped'),
+  }
 
   const headerData = {
     title: t('Doing'),
@@ -25,7 +31,13 @@ export default function DoingPage({ items }: DoingProps) {
   return (
     <Wrapper>
       <Header {...headerData} />
-      <div>CONTENT</div>
+      {Object.keys(cards).map(cardGroup => (
+        <CardSection
+          key={cardGroup}
+          title={statusDictionary[cardGroup]}
+          items={cards[cardGroup]}
+        />
+      ))}
     </Wrapper>
   )
 }

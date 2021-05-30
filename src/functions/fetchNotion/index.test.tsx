@@ -42,6 +42,13 @@ describe('Fetch and parse data from Notion', () => {
                     },
                   ],
                 },
+                Link: {
+                  rich_text: [
+                    {
+                      plain_text: 'url',
+                    },
+                  ],
+                },
                 Name: {
                   title: [
                     {
@@ -77,6 +84,7 @@ describe('Fetch and parse data from Notion', () => {
         status: 'name',
         tags: ['name'],
         title: 'plain',
+        link: 'url',
       },
     ]
 
@@ -116,6 +124,7 @@ describe('Fetch and parse data from Notion', () => {
         status: null,
         tags: null,
         title: null,
+        link: null,
       },
     ]
 

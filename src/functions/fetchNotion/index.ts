@@ -36,6 +36,7 @@ type PropertiesProps = {
     }>
   }
   Image: RichTextProps
+  Link: RichTextProps
 }
 /* eslint-enable camelcase */
 
@@ -47,6 +48,7 @@ export type NotionProps = {
   quickNote?: string | null
   image?: string | null
   title?: string | null
+  link?: string | null
 }
 
 const fetchNotion = async () => {
@@ -65,9 +67,10 @@ const fetchNotion = async () => {
         item
 
       const properties = item.properties as unknown as PropertiesProps
-      const { Status, Name, Tag, Image } = properties
-      const quickNote = properties['Quick note'].rich_text?.[0]?.plain_text
-      const image = Image.rich_text?.[0]?.plain_text
+      const { Status, Name, Tag, Image, Link } = properties
+      const quickNote = properties['Quick note']?.rich_text?.[0]?.plain_text
+      const image = Image?.rich_text?.[0]?.plain_text
+      const link = Link?.rich_text?.[0]?.plain_text
 
       const result: NotionProps = {
         createdTime,
@@ -77,6 +80,7 @@ const fetchNotion = async () => {
         quickNote: quickNote || null,
         title: Name?.title?.[0]?.plain_text || null,
         image: image || null,
+        link: link || null,
       }
 
       return result

@@ -49,6 +49,7 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h3`
+  ${p => p.theme.loop.colorLoop('color')}
   margin: 0;
 `
 

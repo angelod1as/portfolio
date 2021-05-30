@@ -22,11 +22,16 @@ const translation = {
   'click to visit': 'clique para visitar',
   'Explore the repository': 'Explore o repositório',
   // Doing
-  Doing: 'Fazendo',
   "what I'm doing": 'O que estou fazendo',
   'right ': 'agora ',
   now: 'mesmo',
   'Thumbnail of': 'Foto miniatura de',
+  'To do': 'A fazer',
+  Doing: 'Fazendo',
+  Done: 'Feito',
+  Later: 'Para depois',
+  Waiting: 'Aguardando',
+  Dropped: 'Largado',
 }
 
 export default translation
