@@ -29,7 +29,7 @@
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.4.1",
     "html-react-parser": "^1.1.1",
-    "i18next": "^20.3.0",
+    "i18next": "^20.3.1",
     "nanoid": "^3.1.20",
     "next": "^10.0.4",
     "react": "17.0.2",
