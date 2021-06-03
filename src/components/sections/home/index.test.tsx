@@ -55,20 +55,6 @@ describe('Home section', () => {
     }
     render(<Home homeData={data} />)
     expect(screen.getByText('Sou angelo')).toBeInTheDocument()
-  })
-
-  it('renders properly if slug doing', () => {
-    const data: HomeProps['homeData'] = {
-      content: [
-        {
-          fields: {
-            ...fields,
-            slug: 'doing',
-          },
-        },
-      ],
-    }
-    render(<Home homeData={data} />)
     expect(screen.getByText(/estou fazendo/)).toBeInTheDocument()
     expect(screen.getByText('agora')).toBeInTheDocument()
     expect(screen.getByText('mesmo')).toBeInTheDocument()
