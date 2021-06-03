@@ -23,7 +23,7 @@ export interface ItemProps extends NotionWoDates {
   link?: string
 }
 
-type CardProps = {
+export type CardProps = {
   item: ItemProps
 }
 

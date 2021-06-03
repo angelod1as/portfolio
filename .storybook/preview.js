@@ -11,7 +11,13 @@ export const decorators = [
         <Story/>
       </ThemeProvider>
     )
-  }, withNextRouter()
+  }, withNextRouter({
+    path:'/',
+    asPath: '/',
+    query: {},
+    push() {},
+    locale: 'pt'
+  })
 ];
 
 export const parameters = {
