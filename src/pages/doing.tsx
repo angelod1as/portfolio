@@ -22,7 +22,7 @@ function Doing({ cards }: DoingProps) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const items = await fetchNotion()
 
   return {

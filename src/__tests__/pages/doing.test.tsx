@@ -1,5 +1,5 @@
 import { render, screen } from '@test/test-helper'
-import Doing, { getStaticProps } from '../../pages/doing'
+import Doing, { getServerSideProps } from '../../pages/doing'
 
 jest.mock('@sections/doing', () => () => <div>Doing</div>)
 jest.mock('@functions/fetchNotion', () => () => [item])
@@ -26,7 +26,7 @@ describe('Home component', () => {
   })
 
   it('Get Static Props', async () => {
-    const response = await getStaticProps()
+    const response = await getServerSideProps()
     expect(response).toStrictEqual({
       props: {
         cards: {

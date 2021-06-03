@@ -6,6 +6,7 @@ import {
   Content,
   LinkIcon,
   TagWrapper,
+  ExternalLink,
 } from './styles'
 import { NotionProps } from '@functions/fetchNotion/'
 import { useTranslation } from '@i18n/i18n'
@@ -35,8 +36,8 @@ export default function Card({ item }: CardProps) {
   const { title, note } = item[locale]
 
   const CardComponent = (
-    <CardWrapper link={link}>
-      {link && (
+    <CardWrapper link={link || externalLink}>
+      {(link || externalLink) && (
         <LinkIcon>
           <VscFileSymlinkFile size={32} />
         </LinkIcon>
@@ -56,9 +57,9 @@ export default function Card({ item }: CardProps) {
 
   if (externalLink) {
     return (
-      <a href={externalLink} target="_blank" rel="noreferrer">
+      <ExternalLink href={externalLink} target="_blank" rel="noreferrer">
         {CardComponent}
-      </a>
+      </ExternalLink>
     )
   }
   if (link) {
