@@ -25,12 +25,15 @@ export interface HeaderProps {
   slim?: boolean
   // Type of content. If undefined, no excerpt
   type: string | undefined
+  // If is "doing" content
+  doing?: boolean
 }
 
 /**
  * Page header with optional excerpt
  */
 export const Header = ({
+  doing = false,
   hasIDo = true,
   excerpt,
   title,
@@ -47,8 +50,11 @@ export const Header = ({
         <Back inverted />
       </BackWrapper>
       <Title {...{ slim }}>
-        {hasIDo && !slim && type && t("I'm angelo and I do ")}
-        <span>{type ? title.toLowerCase() : title}</span>
+        {hasIDo &&
+          !slim &&
+          type &&
+          t(`I'm angelo and ${doing ? "I'm " : 'I do '}`)}
+        <span>{type ? title.toLowerCase() : title}:</span>
       </Title>
       {type && excerpt && !slim && (
         <ExcerptWrapper>

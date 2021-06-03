@@ -35,9 +35,8 @@ export default function Page(props: PageProps) {
   const rendered = () => {
     if (type === 'projects') {
       return <Projects items={props.items} />
-    } else {
-      return <Text content={content} type={type} />
     }
+    return <Text content={content} type={type} />
   }
 
   return (

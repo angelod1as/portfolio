@@ -20,6 +20,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
+    "@notionhq/client": "^0.1.8",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "contentful": "^8.1.6",
     "contentful-management": "^7.22.3",
@@ -38,7 +39,7 @@
     "react-icons": "^4.1.0",
     "react-responsive-embed": "^2.1.0",
     "remarkable": "^2.0.1",
-    "storybook-addon-next-router": "^2.0.3",
+    "storybook-addon-next-router": "^2.0.4",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
     "styled-reset": "^4.3.1",
@@ -47,7 +48,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
