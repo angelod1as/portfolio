@@ -29,13 +29,14 @@ const translation = {
   'To do': 'A fazer',
   Doing: 'Fazendo',
   Done: 'Feito',
+  'Done recently': 'Feito recentemente',
   Later: 'Para depois',
   Waiting: 'Aguardando',
   Dropped: 'Largado',
   writing: 'escrita',
   coding: 'programação',
   talking: 'comunicação',
-  managing: 'gestão',
+  management: 'gestão',
 }
 
 export default translation

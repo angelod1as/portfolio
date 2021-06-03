@@ -13,7 +13,7 @@ export default function DoingPage({ cards }: DoingProps) {
   const statusDictionary = {
     todo: t('To do'),
     doing: t('Doing'),
-    done: t('Done'),
+    done: t('Done recently'),
     later: t('Later'),
     waiting: t('Waiting'),
     dropped: t('Dropped'),

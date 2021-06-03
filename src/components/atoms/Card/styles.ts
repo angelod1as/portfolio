@@ -36,7 +36,6 @@ export const ImageWrapper = styled.div`
   width: 100%;
   height: 150px;
   border-bottom: 3px solid ${p => p.theme.color.black};
-  ${p => p.theme.loop.colorLoop('background-color, color')}
   overflow: hidden;
   & img {
     width: 100%;
@@ -45,11 +44,10 @@ export const ImageWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 5px;
+  padding: 10px;
 `
 
 export const Title = styled.h3`
-  ${p => p.theme.loop.colorLoop('color')}
   margin: 0 0 5px 0;
 `
 

@@ -1,4 +1,4 @@
-import { Big, Grid, Inside, Small, Tile, Link } from './styles'
+import { Big, Grid, Inside, Small, Tile, Link, BG } from './styles'
 import { v4 as uuid } from 'uuid'
 import theme from '@styles/theme'
 import { useTranslation } from '@i18n/i18n'
@@ -36,6 +36,7 @@ export default function Home({ homeData }: HomeProps) {
   return (
     <>
       <Grid>
+        <BG />
         {homeData.content.map((each, i: number) => {
           const { title, hasido, slug, redir, internalRedirect } = each.fields
           let link = `/${slug}`

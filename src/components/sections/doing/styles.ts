@@ -9,5 +9,5 @@ export const SectionSeparator = styled.div`
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  gap: 50px;
 `

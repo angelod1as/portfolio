@@ -6,7 +6,18 @@ const { size } = theme
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 3fr));
+  position: 'relative';
+`
+
+export const BG = styled.div`
+  background-image: url('/bg.svg');
+  background-repeat: repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `
 
 export const Link = styled(NextLink)`
