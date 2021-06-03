@@ -7,16 +7,21 @@ export const CardWrapper = styled.div<{ link?: string }>`
   border: 2px solid ${p => p.theme.color.black};
   box-sizing: border-box;
   box-shadow: 4px 4px 0px ${p => p.theme.color.black};
-  transition: box-shadow 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
   ${p =>
     p.link &&
     css`
       cursor: pointer;
       &:hover {
+        transform: translate(-4px, -4px);
         box-shadow: 8px 8px 0px ${p => p.theme.color.black};
       }
     `}
+`
+
+export const ExternalLink = styled.a`
+  text-decoration: none;
 `
 
 export const LinkIcon = styled.div`

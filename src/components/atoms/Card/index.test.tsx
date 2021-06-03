@@ -3,6 +3,10 @@ import { render, screen } from '@test/test-helper'
 import Card from '.'
 
 jest.mock('next/link', () => ({ href }) => <div>{href}</div>)
+jest.mock('./styles', () => ({
+  ...jest.requireActual('./styles'),
+  ExternalLink: ({ href }) => <div>{href}</div>,
+}))
 
 describe('Card component', () => {
   it('Renders properly with full information, wo link', () => {
@@ -46,6 +50,27 @@ describe('Card component', () => {
           },
           tags: ['coding', 'talking'],
           link: 'http://foo.bar',
+        }}
+      />
+    )
+    expect(screen.getByText('http://foo.bar')).toBeInTheDocument()
+  })
+
+  it('Render properly with external link', () => {
+    render(
+      <Card
+        item={{
+          image: 'http://image.png',
+          pt: {
+            title: 'title',
+            note: 'note',
+          },
+          en: {
+            title: 'title',
+            note: 'note',
+          },
+          tags: ['coding', 'talking'],
+          externalLink: 'http://foo.bar',
         }}
       />
     )
