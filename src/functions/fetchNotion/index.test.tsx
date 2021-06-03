@@ -65,13 +65,7 @@ describe('Fetch and parse data from Notion', () => {
                     },
                   ],
                 },
-                link: {
-                  rich_text: [
-                    {
-                      plain_text: 'url',
-                    },
-                  ],
-                },
+                link: {},
                 external_link: {
                   rich_text: [
                     {
@@ -120,7 +114,7 @@ describe('Fetch and parse data from Notion', () => {
         },
         status: 'name',
         tags: ['name'],
-        link: 'url',
+        link: null,
         externalLink: 'url',
       },
     ]
@@ -139,12 +133,17 @@ describe('Fetch and parse data from Notion', () => {
               created_time: '123',
               last_edited_time: '123',
               properties: {
-                Public: true,
-                'Quick note': {},
-                Image: {},
-                Name: {},
-                Tag: {},
-                Status: {},
+                public: {},
+                title_pt: {},
+                note_pt: {},
+                title_en: {},
+                note_en: {},
+                image: {},
+                link: {},
+                external_link: {},
+                name: {},
+                tag: {},
+                status: {},
               },
             },
           ],
