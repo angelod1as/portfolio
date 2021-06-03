@@ -8,11 +8,19 @@ describe('Card component', () => {
   it('Renders properly with full information, wo link', () => {
     render(
       <Card
-        image="http://image.png"
-        quickNote="A quick note"
-        tags={['coding', 'talking']}
-        title="Card Title"
-        link=""
+        item={{
+          image: 'http://image.png',
+          pt: {
+            title: 'Card Title',
+            note: 'A quick note',
+          },
+          en: {
+            title: 'Card Title',
+            note: 'A quick note',
+          },
+          tags: ['coding', 'talking'],
+          link: '',
+        }}
       />
     )
     const card = screen.getByText(/Card Title/)
@@ -26,11 +34,19 @@ describe('Card component', () => {
   it('Render properly with link', () => {
     render(
       <Card
-        image="image.png"
-        quickNote="A quick note"
-        tags={['coding', 'talking']}
-        title="Card Title"
-        link="http://foo.bar"
+        item={{
+          image: 'http://image.png',
+          pt: {
+            title: 'title',
+            note: 'note',
+          },
+          en: {
+            title: 'title',
+            note: 'note',
+          },
+          tags: ['coding', 'talking'],
+          link: 'http://foo.bar',
+        }}
       />
     )
     expect(screen.getByText('http://foo.bar')).toBeInTheDocument()

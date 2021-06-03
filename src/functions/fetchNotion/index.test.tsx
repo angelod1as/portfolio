@@ -110,11 +110,18 @@ describe('Fetch and parse data from Notion', () => {
         createdTime: '123',
         image: 'plain',
         lastEditedTime: '123',
-        quickNote: 'plain',
+        en: {
+          title: 'plain',
+          note: 'plain',
+        },
+        pt: {
+          title: 'plain',
+          note: 'plain',
+        },
         status: 'name',
         tags: ['name'],
-        title: 'plain',
         link: 'url',
+        externalLink: 'url',
       },
     ]
 
@@ -145,18 +152,7 @@ describe('Fetch and parse data from Notion', () => {
       },
     }))
 
-    const shouldReturn = [
-      {
-        createdTime: '123',
-        lastEditedTime: '123',
-        image: null,
-        quickNote: null,
-        status: null,
-        tags: null,
-        title: null,
-        link: null,
-      },
-    ]
+    const shouldReturn = []
 
     const response = await fetchNotion()
     expect(response).toStrictEqual(shouldReturn)
