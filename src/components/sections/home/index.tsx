@@ -49,39 +49,38 @@ export default function Home({ homeData }: HomeProps) {
 
           if (slug === 'stuff') {
             return (
-              <Link href={link} key={uuid()}>
-                <Tile>
-                  <Inside color={colors[i % colors.length]}>
-                    <Big>{t("I'm angelo")}</Big>
-                    <Big>
-                      {t('and I do')} <i>{t('stuff')}</i>
-                    </Big>
-                    <Small>
-                      (<i>{t('please')}</i> {t('click for more')})
-                    </Small>
-                  </Inside>
-                </Tile>
-              </Link>
+              <>
+                <Link href={link} key={uuid()}>
+                  <Tile>
+                    <Inside color={colors[i % colors.length]}>
+                      <Big>{t("I'm angelo")}</Big>
+                      <Big>
+                        {t('and I do')} <i>{t('stuff')}</i>
+                      </Big>
+                      <Small>
+                        (<i>{t('please')}</i> {t('click for more')})
+                      </Small>
+                    </Inside>
+                  </Tile>
+                </Link>
+                <Link href="/doing" key={uuid()}>
+                  <Tile>
+                    <Inside color={colors[(i + 1) % colors.length]}>
+                      <Small>{t("what I'm doing")}</Small>
+                      <Big>
+                        <em>{t('right ')}</em> {t('now')}
+                      </Big>
+                    </Inside>
+                  </Tile>
+                </Link>
+              </>
             )
           }
-          if (slug === 'doing') {
-            return (
-              <Link href={link} key={uuid()}>
-                <Tile>
-                  <Inside color={colors[i % colors.length]}>
-                    <Small>{t("what I'm doing")}</Small>
-                    <Big>
-                      <em>{t('right ')}</em> {t('now')}
-                    </Big>
-                  </Inside>
-                </Tile>
-              </Link>
-            )
-          }
+
           return (
             <Link href={link} key={uuid()}>
               <Tile>
-                <Inside color={colors[i % colors.length]}>
+                <Inside color={colors[(i + 1) % colors.length]}>
                   {hasido ? <Small>{t('I do')}</Small> : ''}
                   <Big>{title}</Big>
                 </Inside>
