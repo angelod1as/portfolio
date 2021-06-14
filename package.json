@@ -63,7 +63,7 @@
     "@storybook/addon-links": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@testing-library/dom": "^7.31.0",
-    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "@types/highlight.js": "^10.1.0",
