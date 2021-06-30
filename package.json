@@ -18,7 +18,7 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@contentful/rich-text-react-renderer": "^15.0.0",
     "@contentful/rich-text-types": "^14.1.2",
     "@notionhq/client": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
