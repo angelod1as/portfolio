@@ -1,5 +1,9 @@
 import { Footer } from '#components/common/Footer'
+import { Highlighted } from '#components/pages/Home/Highlighted/Highlighted'
+import { LatestPosts } from '#components/pages/Home/LatestPosts'
 import React from 'react'
+import { Mosaic } from './Mosaic'
+import { Summary } from './Summary/Summary'
 
 export function Home() {
   return (
@@ -9,28 +13,21 @@ export function Home() {
           I'm angelo and I do <i>stuff</i>
         </h1>
 
-        <div>
-          <p>I'm a developer, writer and designer.</p>
-          <p>I'm a Scrum Master and awarded journalist.</p>
-          <p>I make music and I read tarot.</p>
-          <p>I have a daily podcast with short episodes.</p>
-        </div>
+        <Summary />
 
         <h2>I'm a proud generalist</h2>
 
-        <h3>highlighted projects</h3>
-
-        {/* Highlighted */}
+        <Highlighted />
 
         <h2>you are free to explore new stuff</h2>
 
-        {/* Mosaic? */}
+        <Mosaic />
 
         {/* Extra  */}
 
         <h2>you can always rely on a blog</h2>
 
-        <h3>latest posts</h3>
+        <LatestPosts />
 
         {/* Latest posts */}
 
