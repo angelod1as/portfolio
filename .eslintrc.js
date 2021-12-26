@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
   env: {
@@ -12,43 +12,42 @@ module.exports = {
     jest: true,
   },
   extends: [
-    "next/core-web-vitals",
-    "standard",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended", // Make sure this is always the last element in the array.
+    'next/core-web-vitals',
+    'standard',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended', // Make sure this is always the last element in the array.
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react", "@typescript-eslint", "simple-import-sort"],
+  plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
-    semi: ["error", "never"],
-    "react/display-name": 0,
-    "react/no-unescaped-entities": 0,
-    "prettier/prettier": ["error", {}, { usePrettierrc: true }],
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": 0,
-    // '@typescript-eslint/no-explicit-any': 0,
-    "no-console": ["error", { allow: ["warn", "error"] }],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
+    semi: ['error', 'never'],
+    'react/display-name': 0,
+    'react/no-unescaped-entities': 0,
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'jsx-a11y/anchor-is-valid': [
+      'error',
       {
-        components: ["Link"],
-        specialLink: ["hrefLeft", "hrefRight"],
-        aspects: ["invalidHref", "preferButton"],
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
       },
     ],
   },
-};
+}

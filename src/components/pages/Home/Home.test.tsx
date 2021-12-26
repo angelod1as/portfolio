@@ -3,9 +3,11 @@ import { render, screen } from '#test/index'
 import { Home } from '#components/pages/Home'
 
 describe('Home', () => {
-  it('renders a heading', () => {
+  it('renders the heading', () => {
     render(<Home />)
-
-    expect(screen.getByText('Home')).toBeInTheDocument()
+    const heading = screen.getByRole('heading', {
+      name: /I am angelo and I do stuff/,
+    })
+    expect(heading).toBeInTheDocument()
   })
 })

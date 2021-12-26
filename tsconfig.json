@@ -31,7 +31,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/locales/index.js",
     "src/test/__mocks__/fileMock.js"
   ],
   "exclude": ["node_modules"]
