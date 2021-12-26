@@ -8,7 +8,7 @@ import { Summary } from './Summary/Summary'
 export function Home() {
   return (
     <>
-      <div>
+      <div className="flex flex-col gap-16 px-4 py-16">
         <h1>
           I'm angelo and I do <i>stuff</i>
         </h1>

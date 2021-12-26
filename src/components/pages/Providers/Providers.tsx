@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 
 export const Providers: FC = ({ children }) => {
   return (
-    <div className="min-h-screen text-white bg-black min-w-screen">
+    <div className="relative min-h-screen text-white bg-black min-w-screen">
       <Header />
       <div>{children}</div>
       <Footer />
