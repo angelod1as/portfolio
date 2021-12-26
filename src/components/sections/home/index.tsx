@@ -1,8 +1,9 @@
 import { Big, Grid, Inside, Small, Tile, Link, BG } from './styles'
-import { v4 as uuid } from 'uuid'
+
 import theme from '@styles/theme'
 import { useTranslation } from '@i18n/i18n'
 import { useRouter } from 'next/router'
+import { nanoid } from 'nanoid'
 
 interface ItemProps {
   slug: string
@@ -49,7 +50,7 @@ export default function Home({ homeData }: HomeProps) {
 
           if (slug === 'stuff') {
             return [
-              <Link href={link} key={uuid()}>
+              <Link href={link} key={nanoid()}>
                 <Tile>
                   <Inside color={colors[i % colors.length]}>
                     <Big>{t("I'm angelo")}</Big>
@@ -62,7 +63,7 @@ export default function Home({ homeData }: HomeProps) {
                   </Inside>
                 </Tile>
               </Link>,
-              <Link href="/doing" key={uuid()}>
+              <Link href="/doing" key={nanoid()}>
                 <Tile>
                   <Inside color={colors[(i + 1) % colors.length]}>
                     <Small>{t("what I'm doing")}</Small>
@@ -76,7 +77,7 @@ export default function Home({ homeData }: HomeProps) {
           }
 
           return (
-            <Link href={link} key={uuid()}>
+            <Link href={link} key={nanoid()}>
               <Tile>
                 <Inside color={colors[(i + 1) % colors.length]}>
                   {hasido ? <Small>{t('I do')}</Small> : ''}
