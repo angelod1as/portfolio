@@ -20,7 +20,6 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:storybook/recommended",
     "plugin:prettier/recommended", // Make sure this is always the last element in the array.
   ],
   parser: "@typescript-eslint/parser",
