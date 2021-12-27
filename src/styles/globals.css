@@ -31,3 +31,20 @@ h3 {
 p {
   @apply text-base
 }
+
+a {
+  @apply  underline transition-all hover:text-black;
+  text-shadow:
+   -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
+a:hover {
+  color: black;
+  text-shadow:
+   -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+}
