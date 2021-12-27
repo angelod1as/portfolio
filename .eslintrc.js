@@ -13,7 +13,7 @@ module.exports = {
   },
   extends: [
     'next/core-web-vitals',
-    'standard',
+    'standard-with-typescript',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
@@ -21,6 +21,14 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended', // Make sure this is always the last element in the array.
+  ],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+      parserOptions: {
+        project: ['./tsconfig.json'], // Specify it only for TypeScript files
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -41,6 +49,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    'react/self-closing-comp': ['error'],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
