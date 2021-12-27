@@ -48,3 +48,9 @@ a:hover {
     -1px 1px 0 white,
      1px 1px 0 white;
 }
+
+.full-width {
+  width: calc(100vw - 1rem);
+  position: relative;
+  left: calc(-50vw + 50% + 0.5rem);
+}
