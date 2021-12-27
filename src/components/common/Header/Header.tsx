@@ -18,9 +18,9 @@ export const Header: FC<Props> = ({ isHome }) => {
       </div>
 
       {isHome ? (
-        <h2 className="text-base">I'm angelo and I do stuff</h2>
-      ) : (
         <div />
+      ) : (
+        <h2 className="text-base">I'm angelo and I do stuff</h2>
       )}
     </div>
   )
