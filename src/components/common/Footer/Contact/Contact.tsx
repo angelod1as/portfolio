@@ -2,8 +2,8 @@ import React from 'react'
 
 export function Contact() {
   return (
-    <div>
-      <h2>contact me anytime</h2>
+    <div className="max-w-xl m-auto">
+      <h2 className="text-7xl">contact me anytime</h2>
 
       <a href="https://twitter.com/oicronofobico">twitter</a>
       <a href="https://instagram.com/oicronofobico">instagram</a>
