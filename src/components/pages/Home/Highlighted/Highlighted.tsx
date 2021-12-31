@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import placeholder from 'public/placeholder/placeholder.jpg'
-import { InnerLink } from '#components/common/InnerLink/InnerLink'
+import { Link } from '#components/common/Links'
 import { Tags } from '#components/common/Tags'
 import { Verb } from 'src/helpers/verbs'
 
@@ -52,7 +52,7 @@ export const Highlighted = () => {
       <div className="flex flex-col gap-4">
         {highlighted.map(({ title, subtitle, image, url, tags }) => {
           return (
-            <InnerLink key={title} href={url} block>
+            <Link inner key={title} href={url} block>
               <div className="flex items-center gap-4">
                 <div className={`w-28 h-28 relative`}>
                   <Image src={image} alt={title} className="grayscale" />
@@ -65,7 +65,7 @@ export const Highlighted = () => {
                   </div>
                 </div>
               </div>
-            </InnerLink>
+            </Link>
           )
         })}
       </div>

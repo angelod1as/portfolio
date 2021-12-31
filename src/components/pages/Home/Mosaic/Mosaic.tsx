@@ -1,4 +1,4 @@
-import { InnerLink } from '#components/common/InnerLink/InnerLink'
+import { Link } from '#components/common/Links'
 import React, { FC } from 'react'
 import { TileProps, tiles } from 'src/helpers/verbs'
 import style from './Mosaic.module.sass'
@@ -18,7 +18,7 @@ export const Mosaic = () => {
 const Tile: FC<TileProps> = ({ bg, title }) => {
   return (
     <li>
-      <InnerLink href="#">
+      <Link inner href="#">
         <div className={`text-white ${style.tile} ${bg}`}>
           <div
             className={`${style.inside} transition-transform hover:scale-95`}
@@ -29,7 +29,7 @@ const Tile: FC<TileProps> = ({ bg, title }) => {
             </p>
           </div>
         </div>
-      </InnerLink>
+      </Link>
     </li>
   )
 }

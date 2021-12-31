@@ -3,7 +3,7 @@ import { Contact } from './Contact'
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="py-20">
       <Contact />
     </footer>
   )

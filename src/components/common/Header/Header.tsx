@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { InnerLink } from '../InnerLink/InnerLink'
+import { Link } from '../Links'
 import style from './Header.module.css'
 
 type Props = {
@@ -12,15 +12,23 @@ export const Header: FC<Props> = ({ isHome }) => {
       className={`fixed top-0 left-0 flex justify-between w-full px-4 py-2 bg-black z-50 ${style.shadow}`}
     >
       <div className="flex gap-4">
-        <InnerLink href="blog">blog</InnerLink>
-        <InnerLink href="portfolio">portfolio</InnerLink>
-        <InnerLink href="podcast">podcast</InnerLink>
+        <Link inner href="blog">
+          blog
+        </Link>
+        <Link inner href="portfolio">
+          portfolio
+        </Link>
+        <Link inner href="podcast">
+          podcast
+        </Link>
       </div>
 
       {isHome ? (
         <div />
       ) : (
-        <h2 className="text-base">I'm angelo and I do stuff</h2>
+        <Link href="/">
+          <h2 className="text-base">I'm angelo and I do stuff</h2>
+        </Link>
       )}
     </div>
   )
