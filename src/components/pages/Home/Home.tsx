@@ -9,23 +9,21 @@ import { Summary } from './Summary/Summary'
 export function Home() {
   return (
     <>
-      <div className="flex flex-col gap-16 px-4 pt-32 pb-16">
-        <h1>I'm angelo and I do stuff</h1>
+      <h1>I'm angelo and I do stuff</h1>
 
-        <Summary />
+      <Summary />
 
-        <Highlighted />
+      <Highlighted />
 
-        <h2 className="text-7xl">I'm a proud generalist</h2>
+      <h2 className="text-7xl">I'm a proud generalist</h2>
 
-        <Mosaic />
+      <Mosaic />
 
-        {/* Extra  */}
+      {/* Extra  */}
 
-        <h2 className="text-7xl">you can always rely on a blog</h2>
+      <h2 className="text-7xl">you can always rely on a blog</h2>
 
-        <LatestPosts />
-      </div>
+      <LatestPosts />
     </>
   )
 }
