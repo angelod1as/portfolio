@@ -80,7 +80,7 @@ export default Projects
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = tiles.map(tile => {
     return {
-      params: { category: tile.title, color: tile.color },
+      params: { category: tile.href, color: tile.color },
     }
   })
 
@@ -91,7 +91,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const category = tiles.find(tile => tile.title === params?.category)
+  const category = tiles.find(tile => tile.href === params?.category)
 
   if (!category) {
     return { props: { category: { title: '404', color: '' } } }
