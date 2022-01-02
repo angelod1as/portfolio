@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 import { Link } from '../Links'
-import style from './Header.module.css'
+import style from './Header.module.sass'
 
 type Props = {
   isHome: boolean
