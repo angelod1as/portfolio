@@ -7,7 +7,7 @@ import { getProjectsBySlug } from '#lib/getProjectsBySlug'
 import slugify from 'slugify'
 import { Category, CategoryProps } from '#components/pages/Category'
 
-const Projects = ({
+const CategoryPage = ({
   category,
   compiledSource,
   latest,
@@ -30,7 +30,7 @@ const Projects = ({
   )
 }
 
-export default Projects
+export default CategoryPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = tiles.map(tile => {
