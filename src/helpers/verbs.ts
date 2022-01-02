@@ -63,7 +63,7 @@ export const verbs: {
   },
 }
 
-export type TileProps = Omit<VerbObject, 'color'>
+export type TileProps = VerbObject
 
 export const tiles: TileProps[] = Object.keys(verbs).map(verb => {
   const word = verb as Verb
