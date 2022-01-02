@@ -1,3 +1,4 @@
+import { TOCGroup } from '#components/common/TOC'
 import { Verb, VerbObject } from 'src/helpers/verbs'
 
 // Projects
@@ -15,8 +16,11 @@ export type ParsedProjectFrontMatter = Omit<ProjectFrontMatter, 'date'> & {
   date: string
 }
 
-export type ProjectFrontMatterWithSlug = {
-  data: ProjectFrontMatter & { slug: string }
+export type ProjectFullData = {
+  data: ProjectFrontMatter & {
+    slug: string
+    toc: TOCGroup
+  }
   compiledSource: string
 }
 
