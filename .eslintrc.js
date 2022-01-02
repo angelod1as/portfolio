@@ -24,23 +24,40 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+      files: ['*.ts', '*.tsx'],
       parserOptions: {
-        project: ['./tsconfig.json'], // Specify it only for TypeScript files
+        project: ['./tsconfig.json'],
       },
     },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: ['./.eslintrc.js'],
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'simple-import-sort',
+    'unused-imports',
+  ],
   rules: {
     semi: ['error', 'never'],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
+    ],
     'react/display-name': 0,
     'react/no-unescaped-entities': 0,
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
