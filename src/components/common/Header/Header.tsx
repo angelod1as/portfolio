@@ -3,11 +3,7 @@ import React, { FC } from 'react'
 import { Link } from '../Links'
 import style from './Header.module.sass'
 
-type Props = {
-  isHome: boolean
-}
-
-export const Header: FC<Props> = () => {
+export const Header: FC = () => {
   const { pathname } = useRouter()
   const isHome = pathname === '/'
   return (
