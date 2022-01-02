@@ -13,7 +13,7 @@ export type VerbObject = {
   title: string
   color: string
   bg: string
-  href: string
+  href: Verb
 }
 
 export const verbs: {

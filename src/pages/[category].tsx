@@ -5,13 +5,23 @@ import { useRouter } from 'next/router'
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { tiles, VerbObject } from 'src/helpers/verbs'
 import { MDXRemote } from 'next-mdx-remote'
+import { getProjectsBySlug } from '#lib/getProjectsBySlug'
+import { ProjectTileProps } from '#types/types'
+import { ProjectTile } from '#components/common/ProjectTile'
 
 type Props = {
   category: VerbObject
   compiledSource: string
+  latest: ProjectTileProps[]
+  highlighted: ProjectTileProps[]
 }
 
-const Projects = ({ category: { color, title }, compiledSource }: Props) => {
+const Projects = ({
+  category: { color, title },
+  compiledSource,
+  latest,
+  highlighted,
+}: Props) => {
   const router = useRouter()
 
   if (title === '404') {
@@ -37,9 +47,29 @@ const Projects = ({ category: { color, title }, compiledSource }: Props) => {
         <MDXRemote compiledSource={compiledSource} components={components} />
       </div>
 
-      <h2>Highlighted projects:</h2>
+      {highlighted?.length > 0 && (
+        <div>
+          <h2>Highlighted projects:</h2>
 
-      <h2>Latest projects:</h2>
+          <div>
+            {highlighted.map(project => (
+              <ProjectTile key={project.title} {...project} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {latest?.length > 0 && (
+        <div>
+          <h2>Latest projects:</h2>
+
+          <div>
+            {highlighted.map(project => (
+              <ProjectTile key={project.title} {...project} />
+            ))}
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -67,11 +97,32 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const { compiledSource } = await getPageText(category.href)
+  const projects = await getProjectsBySlug(category.href)
+
+  const tileGroup = projects.map(
+    ({ data: { date, title, desc, image, highlighted } }) => ({
+      date: date.toLocaleString('en-US', {
+        dateStyle: 'medium',
+      }),
+      title,
+      desc,
+      image,
+      highlighted: highlighted || false,
+    })
+  )
+
+  const latest = tileGroup.filter(({ highlighted }) => !highlighted)
+
+  const highlighted = tileGroup.filter(({ highlighted }) => highlighted)
+
+  const props: Props = {
+    category,
+    compiledSource,
+    latest,
+    highlighted,
+  }
 
   return {
-    props: {
-      category,
-      compiledSource,
-    },
+    props,
   }
 }

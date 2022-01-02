@@ -1,41 +1,32 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { Verb } from 'src/helpers/verbs'
 
-// API
-// export type Credits = {
-//   name: string;
-//   roles: string;
-//   gap?: boolean;
-//   url?: string;
-// };
+// Projects
+export type ProjectFrontMatter = {
+  date: Date
+  title: string
+  desc: string
+  live: boolean
+  tags: Verb[]
+  image: string
+  highlighted: boolean
+}
 
-// export type Images = {
-//   path?: string;
-//   width?: number;
-//   height?: number;
-//   alt: string;
-//   video?: string;
-// };
+export type ParsedProjectFrontMatter = Omit<ProjectFrontMatter, 'date'> & {
+  date: string
+}
 
-// export type FrontMatter = {
-//   title: string;
-//   excerpt: string;
-//   highlight: boolean;
-//   extraInfo: string;
-//   images: Images[];
-//   credits: Credits[];
-//   order: number;
-// };
+export type ProjectData = {
+  data: ProjectFrontMatter
+  compiledSource: string
+}
 
-// export type FileData = {
-//   data: FrontMatter;
-//   content: string;
-// };
+export type ProjectTileProps = Omit<ParsedProjectFrontMatter, 'tags' | 'live'>
 
-// export type MdxProject = MDXRemoteSerializeResult<FrontMatter>;
+// export type MdxProject = MDXRemoteSerializeResult<ProjectFrontMatter>
 
 // export type About = {
-//   about: MDXRemoteSerializeResult<FrontMatter>;
-//   contact: MDXRemoteSerializeResult<FrontMatter>;
-// };
+//   about: MDXRemoteSerializeResult<FrontMatter>
+//   contact: MDXRemoteSerializeResult<FrontMatter>
+// }
 
-// export type Locale = "pt-BR" | "en-US";
+// export type Locale = "pt-BR" | "en-US"
