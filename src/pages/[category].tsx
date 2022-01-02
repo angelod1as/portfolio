@@ -3,8 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { tiles } from 'src/helpers/verbs'
-import { getProjectsBySlug } from '#lib/getProjectsBySlug'
-import slugify from 'slugify'
+import { getProjectByCategory } from '#lib/getProjectByCategory'
 import { Category, CategoryProps } from '#components/pages/Category'
 
 const CategoryPage = ({
@@ -53,10 +52,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const { compiledSource } = await getPageText(category.href)
-  const projects = await getProjectsBySlug(category.href)
+  const projects = await getProjectByCategory(category.href)
 
   const tileGroup = projects.map(
-    ({ data: { date, title, desc, image, highlighted } }) => ({
+    ({ data: { date, title, desc, image, highlighted, slug } }) => ({
       date: date.toLocaleString('en-US', {
         dateStyle: 'medium',
       }),
@@ -64,7 +63,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       desc,
       image,
       highlighted: highlighted || false,
-      slug: slugify(title, { replacement: '_', lower: true, strict: true }),
+      slug,
+      category,
     })
   )
 

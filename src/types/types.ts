@@ -1,4 +1,4 @@
-import { Verb } from 'src/helpers/verbs'
+import { Verb, VerbObject } from 'src/helpers/verbs'
 
 // Projects
 export type ProjectFrontMatter = {
@@ -15,8 +15,8 @@ export type ParsedProjectFrontMatter = Omit<ProjectFrontMatter, 'date'> & {
   date: string
 }
 
-export type ProjectData = {
-  data: ProjectFrontMatter
+export type ProjectFrontMatterWithSlug = {
+  data: ProjectFrontMatter & { slug: string }
   compiledSource: string
 }
 
@@ -24,6 +24,7 @@ export type ProjectTileProps = Omit<
   ParsedProjectFrontMatter,
   'tags' | 'live'
 > & {
+  category: VerbObject
   slug: string
 }
 

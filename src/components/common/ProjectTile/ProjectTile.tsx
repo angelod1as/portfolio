@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from '../Links'
 
 export const ProjectTile = ({
+  category,
   date,
   desc,
   image,
@@ -11,7 +12,7 @@ export const ProjectTile = ({
   slug,
 }: ProjectTileProps) => {
   return (
-    <Link href={`/projects/${slug}`} block inner>
+    <Link href={`/${category.title}/${slug}`} block inner>
       <Image src={image} alt="" width={300} height={300} />
       <h3>{title}</h3>
       <p className="not-italic">
