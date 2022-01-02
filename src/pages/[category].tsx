@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { props: { category: { title: '404' } } }
   }
 
-  const { compiledSource } = await getPageText(category.href)
+  const { compiledSource, scope } = await getPageText(category)
   const projects = await getProjectByCategory(category.href)
 
   const tileGroup = projects.map(
@@ -76,6 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     compiledSource,
     latest,
     highlighted,
+    scope,
   }
 
   return {

@@ -1,17 +1,19 @@
+import { MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
-import { Link } from '../Links'
+import { VerbObject } from 'src/helpers/verbs'
 import styles from './MDX.module.sass'
+import { parseComponents } from './parseComponents'
 
-export const MDX: typeof MDXRemote = props => {
-  const { components, ...rest } = props
+type Props = {
+  mdx: MDXProps
+  category: VerbObject
+}
 
-  const propsComponents = components ?? {}
+export const MDX = ({ mdx, category }: Props) => {
+  const { components, ...rest } = mdx
 
-  const parsedComponents = {
-    a: (props: JSX.IntrinsicElements['a']) => <Link {...props} />,
-    ...propsComponents,
-  }
+  const parsedComponents = parseComponents({ category, components })
 
   return (
     <div className={styles.container}>

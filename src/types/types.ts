@@ -1,4 +1,5 @@
 import { TOCGroup } from '#components/common/TOC'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { Verb, VerbObject } from 'src/helpers/verbs'
 
 // Projects
@@ -22,6 +23,7 @@ export type ProjectFullData = {
     toc: TOCGroup
   }
   compiledSource: string
+  category: VerbObject
 }
 
 export type ProjectTileProps = Omit<
@@ -30,6 +32,11 @@ export type ProjectTileProps = Omit<
 > & {
   category: VerbObject
   slug: string
+}
+
+export type MDXProps = MDXRemoteSerializeResult & {
+  components?: Record<string, React.ReactNode>
+  lazy?: boolean
 }
 
 // export type MdxProject = MDXRemoteSerializeResult<ProjectFrontMatter>

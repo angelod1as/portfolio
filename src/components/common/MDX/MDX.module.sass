@@ -1,5 +1,13 @@
 .container
-  @apply flex flex-col gap-4 text-base
+  @apply flex flex-col gap-4 text-base font-normal
 
   a
     @apply italic
+
+  blockquote
+    @apply pl-4 relative
+    p
+      @apply mb-4 text-sm
+
+.blockquoteBlock
+  @apply absolute top-0 left-0 w-1 h-full

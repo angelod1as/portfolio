@@ -10,14 +10,18 @@ export type CategoryProps = {
   compiledSource: string
   latest: ProjectTileProps[]
   highlighted: ProjectTileProps[]
+  scope?: {
+    category: VerbObject
+  }
 }
 
 export const Category = ({
-  category: { color, title },
+  category,
   compiledSource,
   highlighted,
   latest,
 }: CategoryProps) => {
+  const { color, title } = category
   const components = {
     strong: (props: JSX.IntrinsicElements['strong']) => (
       <b className={color} {...props} />
@@ -32,7 +36,7 @@ export const Category = ({
         I'm angelo and I do <span className={color}>{title}</span>
       </h1>
 
-      <MDX compiledSource={compiledSource} components={components} />
+      <MDX mdx={{ compiledSource, components }} category={category} />
 
       {highlighted?.length > 0 && (
         <div>

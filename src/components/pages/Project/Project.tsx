@@ -9,8 +9,9 @@ export type ProjectProps = {
 
 export const Project = ({
   project: {
-    data: { title, date, tags, toc },
+    data: { title, tags },
     compiledSource,
+    category,
   },
 }: ProjectProps) => {
   return (
@@ -23,7 +24,7 @@ export const Project = ({
       {/* And iterate recusively to create ul and li */}
       {/* <TOC toc={toc} /> */}
 
-      <MDX compiledSource={compiledSource} />
+      <MDX mdx={{ compiledSource }} category={category} />
 
       <div>
         <h2>Share this</h2>

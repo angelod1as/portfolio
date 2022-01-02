@@ -4,6 +4,7 @@ import { getProjects } from '#lib/getProjects'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'
 import { dateToString } from 'src/helpers/dateToString'
+import { Verb, verbs } from 'src/helpers/verbs'
 
 const ProjectPage = ({ project }: ProjectProps) => {
   return <Project project={project} />
@@ -33,27 +34,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const safeProps = { props: {} }
-  if (!params?.slug) {
+  if (!params?.slug || !params?.category) {
     return safeProps
   }
 
-  const project = await getProjectBySlug(params.slug as string)
+  const category = verbs[params.category as Verb]
 
-  if (!project) {
+  const rawProject = await getProjectBySlug(params.slug as string)
+
+  if (!rawProject) {
     return safeProps
   }
 
-  const safeDateProject = {
-    ...project,
+  const project = {
+    ...rawProject,
     data: {
-      ...project.data,
-      date: dateToString(project.data.date),
+      ...rawProject.data,
+      date: dateToString(rawProject.data.date),
     },
+    category,
   }
 
   return {
     props: {
-      project: safeDateProject,
+      project,
     },
   }
 }
