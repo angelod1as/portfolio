@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 import { Link } from '../Links'
 import style from './Header.module.css'
@@ -6,7 +7,9 @@ type Props = {
   isHome: boolean
 }
 
-export const Header: FC<Props> = ({ isHome }) => {
+export const Header: FC<Props> = () => {
+  const { pathname } = useRouter()
+  const isHome = pathname === '/'
   return (
     <div
       className={`fixed top-0 left-0 flex justify-between w-full px-4 py-2 bg-black z-50 ${style.shadow}`}
