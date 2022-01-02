@@ -17,15 +17,12 @@ function FirstHead() {
     <Head>
       {/* FONTS */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
-        rel="stylesheet"
-      />
+
       {/* FAVICON */}
       <link rel="icon" href="/favicon.ico" />
       <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
       <link rel="apple-touch-icon" href="/apple.png" />
-      <link rel="manifest" href="/manifest.webmanifest"></link>
+      <link rel="manifest" href="/manifest.webmanifest" />
       {/* META */}
       {/* Primary Meta Tags */}
       <title key="title">I'm Angelo and I do stuff</title>
