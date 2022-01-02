@@ -27,7 +27,7 @@ const highlighted: HighlightedProps[] = [
     title: 'A World of Walls',
     subtitle: 'international award-winning publication',
     url: '#',
-    tags: ['design', 'coding', 'mgmt'],
+    tags: ['design', 'coding', 'management'],
   },
   {
     image: placeholder,

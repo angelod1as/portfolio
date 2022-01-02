@@ -3,7 +3,7 @@ import { bgColors, textColors } from './colors'
 export type Verb =
   | 'coding'
   | 'design'
-  | 'mgmt'
+  | 'management'
   | 'talking'
   | 'audio'
   | 'writing'
@@ -26,7 +26,7 @@ export const verbs: {
     color: textColors[1],
     bg: bgColors[1],
   },
-  mgmt: {
+  management: {
     title: 'management',
     color: textColors[2],
     bg: bgColors[2],
