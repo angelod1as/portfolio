@@ -32,7 +32,7 @@ export const Link: FC<Props> = ({
       href={href}
       className={`${className} ${
         block ? 'hover:scale-[0.98]' : 'hover:scale-95'
-      } transition-transform italic font-bold`}
+      } transition-transform italic font-bold inline-block`}
     >
       {children}
     </a>
