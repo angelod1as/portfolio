@@ -68,12 +68,7 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/self-closing-comp': ['error'],
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/strict-boolean-expressions': [
-      'error',
-      {
-        allowNullableString: true,
-      },
-    ],
+    '@typescript-eslint/strict-boolean-expressions': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
