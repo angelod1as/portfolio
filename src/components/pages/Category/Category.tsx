@@ -1,8 +1,8 @@
+import { MDX } from '#components/common/MDX/MDX'
 import { NewHead } from '#components/common/NewHead'
 import { ProjectTile } from '#components/common/ProjectTile'
 import { ProjectTileProps } from '#types/types'
-import { MDXRemote } from 'next-mdx-remote'
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
+import React from 'react'
 import { VerbObject } from 'src/helpers/verbs'
 
 export type CategoryProps = {
@@ -19,9 +19,9 @@ export const Category = ({
   latest,
 }: CategoryProps) => {
   const components = {
-    strong: (
-      props: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-    ) => <b className={color} {...props} />,
+    strong: (props: JSX.IntrinsicElements['strong']) => (
+      <b className={color} {...props} />
+    ),
   }
 
   return (
@@ -32,9 +32,7 @@ export const Category = ({
         I'm angelo and I do <span className={color}>{title}</span>
       </h1>
 
-      <div className="flex flex-col gap-4 text-base">
-        <MDXRemote compiledSource={compiledSource} components={components} />
-      </div>
+      <MDX compiledSource={compiledSource} components={components} />
 
       {highlighted?.length > 0 && (
         <div>
