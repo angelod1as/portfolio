@@ -15,7 +15,7 @@ export const Mosaic = () => {
   )
 }
 
-const Tile: FC<TileProps> = ({ bg, title, href }) => {
+const Tile: FC<Omit<TileProps, 'color'>> = ({ bg, title, href }) => {
   return (
     <li>
       <Link inner href={href}>

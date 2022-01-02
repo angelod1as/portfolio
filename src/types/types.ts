@@ -20,7 +20,12 @@ export type ProjectData = {
   compiledSource: string
 }
 
-export type ProjectTileProps = Omit<ParsedProjectFrontMatter, 'tags' | 'live'>
+export type ProjectTileProps = Omit<
+  ParsedProjectFrontMatter,
+  'tags' | 'live'
+> & {
+  slug: string
+}
 
 // export type MdxProject = MDXRemoteSerializeResult<ProjectFrontMatter>
 

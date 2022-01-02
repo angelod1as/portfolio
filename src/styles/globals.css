@@ -29,7 +29,7 @@ h3 {
 }
 
 p {
-  @apply text-base
+  @apply text-base font-normal
 }
 
 
@@ -37,4 +37,9 @@ p {
   width: calc(100vw - 1rem);
   position: relative;
   left: calc(-50vw + 50% + 0.5rem);
+}
+
+.project-mosaic {
+  @apply flex flex-col gap-10 md:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }

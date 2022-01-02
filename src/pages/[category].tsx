@@ -8,6 +8,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import { getProjectsBySlug } from '#lib/getProjectsBySlug'
 import { ProjectTileProps } from '#types/types'
 import { ProjectTile } from '#components/common/ProjectTile'
+import slugify from 'slugify'
 
 type Props = {
   category: VerbObject
@@ -49,9 +50,9 @@ const Projects = ({
 
       {highlighted?.length > 0 && (
         <div>
-          <h2>Highlighted projects:</h2>
+          <h2 className="mb-8">Highlighted projects:</h2>
 
-          <div>
+          <div className="project-mosaic">
             {highlighted.map(project => (
               <ProjectTile key={project.title} {...project} />
             ))}
@@ -61,10 +62,10 @@ const Projects = ({
 
       {latest?.length > 0 && (
         <div>
-          <h2>Latest projects:</h2>
+          <h2 className="mb-8">Latest projects:</h2>
 
-          <div>
-            {highlighted.map(project => (
+          <div className="px-4 md:px-10 project-mosaic full-width">
+            {latest.map(project => (
               <ProjectTile key={project.title} {...project} />
             ))}
           </div>
@@ -108,6 +109,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       desc,
       image,
       highlighted: highlighted || false,
+      slug: slugify(title, { replacement: '_', lower: true, strict: true }),
     })
   )
 
