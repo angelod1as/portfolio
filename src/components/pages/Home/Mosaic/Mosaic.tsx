@@ -7,18 +7,18 @@ export const Mosaic = () => {
   return (
     <ul className="full-width">
       <div className={style.mosaic}>
-        {tiles.map(({ title, bg }: TileProps) => {
-          return <Tile bg={bg} title={title} key={title} />
+        {tiles.map(({ title, bg, href }: TileProps) => {
+          return <Tile bg={bg} title={title} href={href} key={title} />
         })}
       </div>
     </ul>
   )
 }
 
-const Tile: FC<TileProps> = ({ bg, title }) => {
+const Tile: FC<TileProps> = ({ bg, title, href }) => {
   return (
     <li>
-      <Link inner href="#">
+      <Link inner href={href}>
         <div className={`text-white ${style.tile} ${bg}`}>
           <div
             className={`${style.inside} transition-transform hover:scale-95`}
