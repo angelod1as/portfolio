@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 type Props =
   | Omit<LinkProps, 'href'> & {
-      href: string
+      href?: string
       block?: boolean
       inner?: boolean
       blank?: boolean
@@ -38,7 +38,7 @@ export const Link: FC<Props> = ({
     </a>
   )
 
-  if (inner) {
+  if (inner && href) {
     return (
       <NextLink href={href} passHref {...rest}>
         {Anchor}
