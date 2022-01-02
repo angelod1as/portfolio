@@ -5,6 +5,7 @@ import React from 'react'
 import { tiles } from 'src/helpers/verbs'
 import { getProjectByCategory } from '#lib/getProjectByCategory'
 import { Category, CategoryProps } from '#components/pages/Category'
+import { dateToString } from 'src/helpers/dateToString'
 
 const CategoryPage = ({
   category,
@@ -34,7 +35,7 @@ export default CategoryPage
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = tiles.map(tile => {
     return {
-      params: { category: tile.href, color: tile.color },
+      params: { category: tile.href },
     }
   })
 
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const category = tiles.find(tile => tile.href === params?.category)
 
   if (!category) {
-    return { props: { category: { title: '404', color: '' } } }
+    return { props: { category: { title: '404' } } }
   }
 
   const { compiledSource } = await getPageText(category.href)
@@ -56,9 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const tileGroup = projects.map(
     ({ data: { date, title, desc, image, highlighted, slug } }) => ({
-      date: date.toLocaleString('en-US', {
-        dateStyle: 'medium',
-      }),
+      date: dateToString(date),
       title,
       desc,
       image,
