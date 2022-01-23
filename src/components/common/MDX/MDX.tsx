@@ -1,19 +1,20 @@
 import { MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
-import { VerbObject } from 'src/helpers/verbs'
+import { BgColor, TextColor } from 'src/helpers/colors'
 import styles from './MDX.module.sass'
 import { parseComponents } from './parseComponents'
 
 type Props = {
   mdx: MDXProps
-  category: VerbObject
+  bgColor?: BgColor
+  textColor?: TextColor
 }
 
-export const MDX = ({ mdx, category }: Props) => {
+export const MDX = ({ mdx, bgColor, textColor }: Props) => {
   const { components, ...rest } = mdx
 
-  const parsedComponents = parseComponents({ category, components })
+  const parsedComponents = parseComponents({ components, bgColor, textColor })
 
   return (
     <div className={styles.container}>
