@@ -1,6 +1,6 @@
 import { Project, ProjectProps } from '#components/pages/Project'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getProjectBySlug } from '#lib/getProjectBySlug'
+import { getMDXbySlug } from '#lib/getMDXbySlug'
 import { ProjectFullData } from '#types/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'
@@ -41,7 +41,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const category = verbs[params.category as Verb]
 
-  const rawProject = await getProjectBySlug(params.slug as string)
+  const rawProject = await getMDXbySlug<ProjectFullData>({
+    page: 'projects',
+    slug: params.slug as string,
+  })
 
   if (!rawProject) {
     return safeProps
