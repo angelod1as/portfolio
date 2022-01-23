@@ -24,7 +24,11 @@ export const Project = ({
       {/* And iterate recusively to create ul and li */}
       {/* <TOC toc={toc} /> */}
 
-      <MDX mdx={{ compiledSource }} category={category} />
+      <MDX
+        mdx={{ compiledSource }}
+        bgColor={category.bg}
+        textColor={category.color}
+      />
 
       <div>
         <h2>Share this</h2>

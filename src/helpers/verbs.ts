@@ -1,4 +1,4 @@
-import { bgColor, textColor } from './colors'
+import { BgColor, bgColor, TextColor, textColor } from './colors'
 
 export type Verb =
   | 'coding'
@@ -11,8 +11,8 @@ export type Verb =
 
 export type VerbObject = {
   title: string
-  color: string
-  bg: string
+  color: TextColor
+  bg: BgColor
   href: Verb
 }
 

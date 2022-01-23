@@ -36,7 +36,11 @@ export const Category = ({
         I'm angelo and I do <span className={color}>{title}</span>
       </h1>
 
-      <MDX mdx={{ compiledSource, components }} category={category} />
+      <MDX
+        mdx={{ compiledSource, components }}
+        bgColor={category.bg}
+        textColor={category.color}
+      />
 
       {highlighted?.length > 0 && (
         <div>
