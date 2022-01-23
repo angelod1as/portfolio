@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { serialize } from 'next-mdx-remote/serialize'
+import { serialize } from './serialize'
 import { VerbObject } from 'src/helpers/verbs'
 
 export const getCategoryText = async (category: VerbObject) => {
