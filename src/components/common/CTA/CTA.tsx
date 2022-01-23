@@ -23,12 +23,14 @@ export const CTA = ({ children, bgColor, title, href, inner }: CTAProps) => {
   }
 
   return (
-    <button
-      className={`${bg} ${text} p-4 hover:scale-[0.98] transition-transform font-bold`}
-      onClick={handleClick}
-    >
-      {title && <h3>{title}</h3>}
-      <p>{children}</p>
-    </button>
+    <div className="flex justify-center my-4">
+      <button
+        className={`${bg} ${text} p-4 hover:scale-[0.98] transition-transform font-bold rounded-lg`}
+        onClick={handleClick}
+      >
+        {title && <h3>{title}</h3>}
+        <p>{children}</p>
+      </button>
+    </div>
   )
 }
