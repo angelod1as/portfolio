@@ -14,7 +14,7 @@ export const Header: FC = () => {
         <Link inner href="blog">
           blog
         </Link>
-        <Link inner href="portfolio">
+        <Link inner href="/#portfolio">
           portfolio
         </Link>
         <Link inner href="podcast">

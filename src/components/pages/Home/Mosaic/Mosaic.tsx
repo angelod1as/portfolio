@@ -5,7 +5,7 @@ import style from './Mosaic.module.sass'
 
 export const Mosaic = () => {
   return (
-    <ul className="full-width">
+    <ul className="full-width" id="portfolio">
       <div className={style.mosaic}>
         {tiles.map(({ title, bg, href }: TileProps) => {
           return <Tile bg={bg} title={title} href={href} key={title} />

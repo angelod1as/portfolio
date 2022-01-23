@@ -5,6 +5,7 @@
 html {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
+  scroll-behavior: smooth;
 }
 
 h1,
