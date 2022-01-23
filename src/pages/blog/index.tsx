@@ -1,4 +1,4 @@
-import { BlogTile } from '#components/common/BlogTile'
+import Blog from '#components/pages/Blog/Blog'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { BlogFullData, BlogTileProps } from '#types/types'
 import { GetStaticProps } from 'next'
@@ -7,26 +7,11 @@ type BlogProps = {
   articles: BlogTileProps[]
 }
 
-const Blog = ({ articles }: BlogProps) => {
-  return (
-    <>
-      <h1>I'm angelo and I do blogging</h1>
-
-      {articles.map(({ slug, desc, image, createdAt, title }) => (
-        <BlogTile
-          title={title}
-          desc={desc}
-          image={image}
-          createdAt={createdAt}
-          key={slug}
-          slug={slug}
-        />
-      ))}
-    </>
-  )
+const BlogPage = ({ articles }: BlogProps) => {
+  return <Blog articles={articles} />
 }
 
-export default Blog
+export default BlogPage
 
 export const getStaticProps: GetStaticProps = async () => {
   const articles = await getFilesInFolder<BlogFullData>('blog')

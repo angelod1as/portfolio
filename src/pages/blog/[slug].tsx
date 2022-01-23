@@ -1,3 +1,4 @@
+import { Article } from '#components/pages/Article'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { getMDXbySlug } from '#lib/MDX/getMDXbySlug'
 import { BlogFullData } from '#types/types'
@@ -6,11 +7,11 @@ import { dateToString } from 'src/helpers/dateToString'
 
 export type ArticleProps = { article: BlogFullData }
 
-const Article = ({ article: { data } }: ArticleProps) => {
-  return <div>{data.title}</div>
+const ArticlePage = ({ article }: ArticleProps) => {
+  return <Article article={article} />
 }
 
-export default Article
+export default ArticlePage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await getFilesInFolder<BlogFullData>('blog')
