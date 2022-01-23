@@ -22,11 +22,6 @@ export const Category = ({
   latest,
 }: CategoryProps) => {
   const { color, title } = category
-  const components = {
-    strong: (props: JSX.IntrinsicElements['strong']) => (
-      <b className={color} {...props} />
-    ),
-  }
 
   return (
     <>
@@ -37,7 +32,7 @@ export const Category = ({
       </h1>
 
       <MDX
-        mdx={{ compiledSource, components }}
+        mdx={{ compiledSource }}
         bgColor={category.bg}
         textColor={category.color}
       />

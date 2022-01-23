@@ -21,7 +21,7 @@ export const parseComponents = ({
       <b {...props} className={`${text}`} />
     ),
     strong: (props: JSX.IntrinsicElements['strong']) => (
-      <strong {...props} className={` ${text}`} />
+      <strong {...props} className={`${text}`} />
     ),
     a: (props: JSX.IntrinsicElements['a']) => (
       <Link {...props} className={`underline ${text}`} />
