@@ -18,7 +18,7 @@ export const Mosaic = () => {
 const Tile: FC<Omit<TileProps, 'color'>> = ({ bg, title, href }) => {
   return (
     <li>
-      <Link inner href={href}>
+      <Link inner href={href} block>
         <div className={`text-white ${style.tile} ${bg}`}>
           <div
             className={`${style.inside} transition-transform hover:scale-95`}
