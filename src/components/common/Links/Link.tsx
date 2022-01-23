@@ -1,30 +1,28 @@
-import NextLink, { LinkProps } from 'next/link'
+import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import React, { FC } from 'react'
 
-type Props =
-  | Omit<LinkProps, 'href'> & {
+export type LinkProps =
+  | Omit<NextLinkProps, 'href'> & {
       href?: string
       block?: boolean
       inner?: boolean
-      blank?: boolean
       className?: string
     }
 
-export const Link: FC<Props> = ({
+export const Link: FC<LinkProps> = ({
   href,
   children,
   block = false,
   inner = false,
-  blank = false,
   className = '',
   ...rest
 }) => {
-  const blankProps = blank
-    ? {
+  const blankProps = inner
+    ? {}
+    : {
         target: '_blank',
         rel: 'noreferrer',
       }
-    : {}
 
   const Anchor = (
     <a
