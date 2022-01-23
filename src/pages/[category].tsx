@@ -1,4 +1,4 @@
-import { getPageText } from '#lib/getPageText'
+import { getCategoryText } from '#lib/getCategoryText'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { props: { category: { title: '404' } } }
   }
 
-  const { compiledSource, scope } = await getPageText(category)
+  const { compiledSource, scope } = await getCategoryText(category)
   const projects = await getProjectByCategory(category.href)
 
   const tileGroup = projects.map(

@@ -4,7 +4,7 @@ import { join } from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import { VerbObject } from 'src/helpers/verbs'
 
-export const getPageText = async (category: VerbObject) => {
+export const getCategoryText = async (category: VerbObject) => {
   const contentDir = join(process.cwd(), 'content', 'tiles')
 
   const filePath = join(contentDir, `${category.href}.mdx`)
