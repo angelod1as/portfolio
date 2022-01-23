@@ -1,8 +1,9 @@
+import { ProjectFullData } from '#types/types'
 import { Verb } from 'src/helpers/verbs'
-import { getProjects } from './getProjects'
+import { getFilesInFolder } from './getFilesInFolder'
 
 export const getProjectByCategory = async (categoryString: Verb) => {
-  const asyncInformation = await getProjects()
+  const asyncInformation = await getFilesInFolder<ProjectFullData>('projects')
   const filtered = asyncInformation.filter(({ data }) => {
     const hasCategory = data.tags.includes(categoryString)
     return hasCategory
