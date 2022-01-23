@@ -9,7 +9,7 @@ type CompileMDXProps = {
   slug: string
 }
 
-export const compileMDX = async <T = never>({
+export const compileMDX = async <T>({
   content,
   data,
   slug,

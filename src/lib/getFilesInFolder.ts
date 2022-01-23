@@ -3,7 +3,7 @@ import { readMDX } from '#lib/readMDX'
 import { readdirSync } from 'fs'
 import { join } from 'path'
 
-export const getFilesInFolder = async <T = never>(folder: string) => {
+export const getFilesInFolder = async <T>(folder: string) => {
   const contentDir = join(process.cwd(), 'content', folder)
   const files = readdirSync(contentDir)
 
