@@ -14,20 +14,24 @@ export const parseComponents = ({
   bgColor,
   components = {},
 }: Props) => {
+  const text = textColor ?? ''
+  const bg = bgColor ?? ''
   return {
     b: (props: JSX.IntrinsicElements['b']) => (
-      <b {...props} className={`${textColor ?? ''}`} />
+      <b {...props} className={`${text}`} />
     ),
     strong: (props: JSX.IntrinsicElements['strong']) => (
-      <strong {...props} className={`${textColor ?? ''}`} />
+      <strong {...props} className={` ${text}`} />
     ),
-    a: (props: JSX.IntrinsicElements['a']) => <Link {...props} />,
+    a: (props: JSX.IntrinsicElements['a']) => (
+      <Link {...props} className={`underline ${text}`} />
+    ),
     blockquote: (props: JSX.IntrinsicElements['blockquote']) => (
       <div>
         <blockquote {...props}>
           {props.children}
           <div
-            className={`${styles.blockquoteBlock} ${bgColor ?? ''}
+            className={`${styles.blockquoteBlock} ${bg}
           `}
           />
         </blockquote>
