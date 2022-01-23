@@ -8,7 +8,7 @@ const PodcastPage = ({ compiledSource }: PodcastProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { compiledSource } = await getPageText('podcast')
+  const { compiledSource } = await getPageText('cronofobia')
   const props: PodcastProps = {
     compiledSource,
   }
