@@ -25,7 +25,7 @@ export const Header: FC = () => {
       {isHome ? (
         <div />
       ) : (
-        <Link href="/">
+        <Link inner href="/">
           <h2 className="text-base">I'm angelo and I do stuff</h2>
         </Link>
       )}
