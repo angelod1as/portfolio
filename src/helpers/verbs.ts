@@ -1,4 +1,4 @@
-import { bgColors, textColors } from './colors'
+import { bgColor, textColor } from './colors'
 
 export type Verb =
   | 'coding'
@@ -22,44 +22,44 @@ export const verbs: {
   coding: {
     title: 'coding',
     href: 'coding',
-    color: textColors[0],
-    bg: bgColors[0],
+    color: textColor[0],
+    bg: bgColor[0],
   },
   design: {
     title: 'design',
     href: 'design',
-    color: textColors[1],
-    bg: bgColors[1],
+    color: textColor[1],
+    bg: bgColor[1],
   },
   management: {
     title: 'management',
     href: 'management',
-    color: textColors[2],
-    bg: bgColors[2],
+    color: textColor[2],
+    bg: bgColor[2],
   },
   talking: {
     title: 'talking',
     href: 'talking',
-    color: textColors[3],
-    bg: bgColors[3],
+    color: textColor[3],
+    bg: bgColor[3],
   },
   audio: {
     title: 'audio',
     href: 'audio',
-    color: textColors[4],
-    bg: bgColors[4],
+    color: textColor[4],
+    bg: bgColor[4],
   },
   writing: {
     title: 'writing',
     href: 'writing',
-    color: textColors[5],
-    bg: bgColors[5],
+    color: textColor[5],
+    bg: bgColor[5],
   },
   tarot: {
     title: 'tarot reading',
     href: 'tarot',
-    color: textColors[6],
-    bg: bgColors[6],
+    color: textColor[6],
+    bg: bgColor[6],
   },
 }
 

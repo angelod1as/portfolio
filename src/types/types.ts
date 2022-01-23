@@ -38,12 +38,3 @@ export type MDXProps = MDXRemoteSerializeResult & {
   components?: Record<string, React.ReactNode>
   lazy?: boolean
 }
-
-// export type MdxProject = MDXRemoteSerializeResult<ProjectFrontMatter>
-
-// export type About = {
-//   about: MDXRemoteSerializeResult<FrontMatter>
-//   contact: MDXRemoteSerializeResult<FrontMatter>
-// }
-
-// export type Locale = "pt-BR" | "en-US"

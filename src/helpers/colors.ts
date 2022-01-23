@@ -1,6 +1,5 @@
-export type BgColors =
+export type BgColor =
   | 'bg-violet'
-  // | 'bg-yellow'
   | 'bg-red'
   | 'bg-blue'
   | 'bg-orange'
@@ -10,10 +9,10 @@ export type BgColors =
   | 'bg-lightpurple'
   | 'bg-gray'
   | 'bg-teal'
+  | 'bg-yellow'
 
-export const bgColors: BgColors[] = [
+export const bgColor: BgColor[] = [
   'bg-violet',
-  // 'bg-yellow',
   'bg-red',
   'bg-blue',
   'bg-orange',
@@ -23,11 +22,11 @@ export const bgColors: BgColors[] = [
   'bg-lightpurple',
   'bg-gray',
   'bg-teal',
+  'bg-yellow',
 ]
 
-export type TextColors =
+export type TextColor =
   | 'text-violet'
-  // | 'text-yellow'
   | 'text-red'
   | 'text-blue'
   | 'text-orange'
@@ -37,10 +36,10 @@ export type TextColors =
   | 'text-lightpurple'
   | 'text-gray'
   | 'text-teal'
+  | 'text-yellow'
 
-export const textColors: TextColors[] = [
+export const textColor: TextColor[] = [
   'text-violet',
-  // 'text-yellow',
   'text-red',
   'text-blue',
   'text-orange',
@@ -50,4 +49,5 @@ export const textColors: TextColors[] = [
   'text-lightpurple',
   'text-gray',
   'text-teal',
+  'text-yellow',
 ]

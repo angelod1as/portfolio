@@ -1,5 +1,5 @@
 import React from 'react'
-import { BgColors } from 'src/helpers/colors'
+import { BgColor } from 'src/helpers/colors'
 import github from 'public/social/github.svg'
 import telegram from 'public/social/telegram.svg'
 import instagram from 'public/social/instagram.svg'
@@ -37,7 +37,7 @@ export function Contact() {
 type Props = {
   children: React.ReactNode
   href: string
-  color: BgColors
+  color: BgColor
 }
 
 const Social = ({ children, href, color }: Props) => (

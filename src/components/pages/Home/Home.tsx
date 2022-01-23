@@ -4,7 +4,7 @@ import React from 'react'
 import { Mosaic } from './Mosaic'
 import { Summary } from './Summary/Summary'
 
-// Add :stars: to Stuff
+// TODO: Add :stars: to Stuff
 
 export function Home() {
   return (
