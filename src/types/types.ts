@@ -34,6 +34,41 @@ export type ProjectTileProps = Omit<
   slug: string
 }
 
+// Blog
+
+export type BlogFrontMatter = {
+  createdAt: Date
+  updatedAt?: Date
+  title: string
+  desc: string
+  tags: string[]
+  image: string
+  highlighted?: boolean
+  wip: boolean
+}
+
+export type BlogFullData = {
+  data: BlogFrontMatter & {
+    slug: string
+    toc: TOCGroup
+  }
+  compiledSource: string
+}
+
+export type ParsedBlogFrontMatter = Omit<
+  BlogFrontMatter,
+  'createdAt' | 'updatedAt'
+> & {
+  createdAt: string
+  updatedAt?: string
+}
+
+export type BlogTileProps = Omit<ParsedBlogFrontMatter, 'tags' | 'wip'> & {
+  slug: string
+}
+
+// MDX
+
 export type MDXProps = MDXRemoteSerializeResult & {
   components?: Record<string, React.ReactNode>
   lazy?: boolean

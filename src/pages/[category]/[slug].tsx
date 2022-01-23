@@ -1,6 +1,7 @@
 import { Project, ProjectProps } from '#components/pages/Project'
+import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { getProjectBySlug } from '#lib/getProjectBySlug'
-import { getProjects } from '#lib/getProjects'
+import { ProjectFullData } from '#types/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'
 import { dateToString } from 'src/helpers/dateToString'
@@ -11,11 +12,11 @@ const ProjectPage = ({ project }: ProjectProps) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await getProjects()
+  const projects = await getFilesInFolder<ProjectFullData>('projects')
 
   const paths = projects
     .map(({ data: { tags, slug } }) => {
-      return tags.map(tag => {
+      return tags.map((tag: string) => {
         return {
           params: {
             category: tag,
