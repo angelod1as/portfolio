@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { serialize } from './serialize'
+import { serialize } from './MDX/serialize'
 
 export const getPageText = async (page: string) => {
   const filePath = join(process.cwd(), 'content', 'pages', `${page}.mdx`)

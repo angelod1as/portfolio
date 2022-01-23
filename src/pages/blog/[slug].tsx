@@ -1,5 +1,5 @@
 import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getMDXbySlug } from '#lib/getMDXbySlug'
+import { getMDXbySlug } from '#lib/MDX/getMDXbySlug'
 import { BlogFullData } from '#types/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { dateToString } from 'src/helpers/dateToString'

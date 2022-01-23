@@ -1,6 +1,6 @@
 import { Project, ProjectProps } from '#components/pages/Project'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getMDXbySlug } from '#lib/getMDXbySlug'
+import { getMDXbySlug } from '#lib/MDX/getMDXbySlug'
 import { ProjectFullData } from '#types/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'

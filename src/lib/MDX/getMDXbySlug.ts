@@ -1,4 +1,4 @@
-import { getFilesInFolder } from './getFilesInFolder'
+import { getFilesInFolder } from '#lib/getFilesInFolder'
 
 type GetMDXbySlugProps = {
   page: string
