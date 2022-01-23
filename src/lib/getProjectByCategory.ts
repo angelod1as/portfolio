@@ -3,9 +3,10 @@ import { getProjects } from './getProjects'
 
 export const getProjectByCategory = async (categoryString: Verb) => {
   const asyncInformation = await getProjects()
-  asyncInformation.filter(({ data }) => {
-    return data.tags.includes(categoryString)
+  const filtered = asyncInformation.filter(({ data }) => {
+    const hasCategory = data.tags.includes(categoryString)
+    return hasCategory
   })
 
-  return await Promise.all(asyncInformation)
+  return await Promise.all(filtered)
 }
