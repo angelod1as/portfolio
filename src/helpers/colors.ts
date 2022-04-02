@@ -4,7 +4,7 @@ export type BgColor =
   | 'bg-blue'
   | 'bg-orange'
   | 'bg-green'
-  | 'bg-purple'
+  | 'bg-purple' // TODO: This purple is toooooo dark, needs to be lighter.
   | 'bg-pink'
   | 'bg-lightpurple'
   | 'bg-gray'

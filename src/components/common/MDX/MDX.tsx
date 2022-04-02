@@ -26,6 +26,8 @@ export const MDX = ({ mdx, bgColor, textColor }: Props) => {
     textColor,
   })
 
+  // TODO: `pre` and `code` are not wrapping.
+
   return (
     <div className={styles.container}>
       <MDXRemote {...rest} components={parsedComponents} />
