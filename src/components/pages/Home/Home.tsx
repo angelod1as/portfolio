@@ -1,5 +1,3 @@
-import { Highlighted } from '#components/pages/Home/Highlighted/Highlighted'
-import { LatestPosts } from '#components/pages/Home/LatestPosts'
 import React from 'react'
 import { Mosaic } from './Mosaic'
 import { Summary } from './Summary/Summary'
@@ -13,7 +11,7 @@ export function Home() {
 
       <Summary />
 
-      <Highlighted />
+      {/* <Highlighted /> */}
 
       <h2 className="text-7xl">I'm a proud generalist</h2>
 
@@ -21,9 +19,9 @@ export function Home() {
 
       {/* Extra  */}
 
-      <h2 className="text-7xl">you can always rely on a blog</h2>
+      {/* <h2 className="text-7xl">you can always rely on a blog</h2>
 
-      <LatestPosts />
+      <LatestPosts /> */}
     </>
   )
 }
