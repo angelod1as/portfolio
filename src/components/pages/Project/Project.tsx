@@ -30,13 +30,21 @@ export const Project = ({
         textColor={category.color}
       />
 
+      {/*
+      // TODO: Feature: Share this
+
       <div>
         <h2>Share this</h2>
       </div>
+      */}
+
+      {/*
+      // TODO: Feature: Possibly related
 
       <div>
         <h2>Possibly related</h2>
       </div>
+      */}
     </>
   )
 }
