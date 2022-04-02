@@ -5,7 +5,7 @@ type BlogProps = {
   articles: BlogTileProps[]
 }
 
-const Blog = ({ articles }: BlogProps) => {
+export function Blog({ articles }: BlogProps) {
   return (
     <>
       <h1>I'm angelo and I do blogging</h1>
@@ -23,5 +23,3 @@ const Blog = ({ articles }: BlogProps) => {
     </>
   )
 }
-
-export default Blog

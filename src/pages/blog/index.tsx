@@ -1,4 +1,4 @@
-import Blog from '#components/pages/Blog/Blog'
+import { Blog } from '#components/pages/Blog'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { BlogFullData, BlogTileProps } from '#types/types'
 import { GetStaticProps } from 'next'
