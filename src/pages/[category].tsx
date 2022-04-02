@@ -49,7 +49,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const category = tiles.find(tile => tile.href === params?.category)
 
   if (!category) {
-    return { props: { category: { title: '404' } } }
+    return {
+      notFound: true,
+    }
   }
 
   const { compiledSource, scope } = await getCategoryText(category)
