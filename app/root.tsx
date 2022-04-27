@@ -17,12 +17,23 @@ export const meta: MetaFunction = () => ({
 })
 
 export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
+  return [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+    },
+    { rel: 'stylesheet', href: styles },
+  ]
 }
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black">
       <head>
         <Meta />
         <Links />
