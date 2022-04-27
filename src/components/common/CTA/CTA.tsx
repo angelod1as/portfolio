@@ -29,7 +29,7 @@ export const CTA = ({ children, bgColor, title, href, inner }: CTAProps) => {
         onClick={handleClick}
       >
         {title && <h3>{title}</h3>}
-        <p>{children}</p>
+        <span>{children}</span>
       </button>
     </div>
   )

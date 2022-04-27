@@ -3,32 +3,34 @@ import React, { FC } from 'react'
 import { Link } from '../Links'
 import style from './Header.module.sass'
 
-export const Header: FC = () => {
+type MenuLinkProps = {
+  href: string
+  content: string
+}
+const MenuLink: FC<MenuLinkProps> = ({ href, content }) => {
   const { pathname } = useRouter()
-  const isHome = pathname === '/'
+
+  if (pathname === `${href}`) {
+    return <span className="font-bold">{content}</span>
+  }
+
+  return (
+    <Link inner href={href}>
+      {content}
+    </Link>
+  )
+}
+
+export const Header: FC = () => {
   return (
     <div
       className={`fixed top-0 left-0 flex justify-between w-full px-4 py-2 bg-black z-50 ${style.shadow}`}
     >
       <div className="flex gap-4">
-        {/* <Link inner href="blog">
-          blog
-        </Link> */}
-        <Link inner href="/#portfolio">
-          portfolio
-        </Link>
-        <Link inner href="cronofobia">
-          podcast
-        </Link>
+        <MenuLink content="start" href="/" />
+        {/* <MenuLink content="blog" href="/blog" /> */}
+        <MenuLink content="podcast" href="/cronofobia" />
       </div>
-
-      {isHome ? (
-        <div />
-      ) : (
-        <Link inner href="/">
-          <h2 className="text-base">I'm angelo and I do stuff</h2>
-        </Link>
-      )}
     </div>
   )
 }

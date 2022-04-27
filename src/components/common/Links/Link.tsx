@@ -3,11 +3,11 @@ import React, { FC } from 'react'
 
 export type LinkProps =
   | Omit<NextLinkProps, 'href'> & {
-      href?: string
+      href: string
       block?: boolean
       inner?: boolean
       className?: string
-      image?: boolean
+      decorator?: boolean
     }
 
 export const Link: FC<LinkProps> = ({
@@ -16,7 +16,7 @@ export const Link: FC<LinkProps> = ({
   block = false,
   inner = false,
   className = '',
-  image = false,
+  decorator = true,
   ...rest
 }) => {
   const blankProps = inner
@@ -34,9 +34,9 @@ export const Link: FC<LinkProps> = ({
         block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'
       } transition-transform italic font-bold cursor-pointer`}
     >
-      {!image && '<'}
+      {decorator && '<'}
       {children}
-      {!image && '>'}
+      {decorator && '>'}
     </a>
   )
 

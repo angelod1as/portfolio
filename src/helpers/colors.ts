@@ -1,53 +1,33 @@
 export type BgColor =
-  | 'bg-violet'
-  | 'bg-red'
-  | 'bg-blue'
-  | 'bg-orange'
-  | 'bg-green'
-  | 'bg-purple' // TODO: This purple is toooooo dark, needs to be lighter.
-  | 'bg-pink'
-  | 'bg-lightpurple'
-  | 'bg-gray'
-  | 'bg-teal'
+  | 'bg-purple'
   | 'bg-yellow'
+  | 'bg-pink'
+  | 'bg-blue'
+  | 'bg-green'
+  | 'bg-red'
 
 export const bgColor: BgColor[] = [
-  'bg-violet',
-  'bg-red',
-  'bg-blue',
-  'bg-orange',
-  'bg-green',
   'bg-purple',
-  'bg-pink',
-  'bg-lightpurple',
-  'bg-gray',
-  'bg-teal',
   'bg-yellow',
+  'bg-pink',
+  'bg-blue',
+  'bg-green',
+  'bg-red',
 ]
 
 export type TextColor =
-  | 'text-violet'
-  | 'text-red'
-  | 'text-blue'
-  | 'text-orange'
-  | 'text-green'
   | 'text-purple'
-  | 'text-pink'
-  | 'text-lightpurple'
-  | 'text-gray'
-  | 'text-teal'
   | 'text-yellow'
+  | 'text-pink'
+  | 'text-blue'
+  | 'text-green'
+  | 'text-red'
 
 export const textColor: TextColor[] = [
-  'text-violet',
-  'text-red',
-  'text-blue',
-  'text-orange',
-  'text-green',
   'text-purple',
-  'text-pink',
-  'text-lightpurple',
-  'text-gray',
-  'text-teal',
   'text-yellow',
+  'text-pink',
+  'text-blue',
+  'text-green',
+  'text-red',
 ]

@@ -30,7 +30,7 @@ h3 {
 }
 
 p {
-  @apply text-base font-normal mb-2
+  @apply text-base font-normal mb-3
 }
 
 .full-width {
