@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  color: white;
+html {
+  font-family: 'Montserrat', sans-serif;
+  @apply text-xl text-white;
+  font-size: 25px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  @apply font-bold;
+}
+
+h1, .h2-as-h1 {
+  @apply text-6xl leading-tight mb-14;
+}
+
+p {
+  @apply mb-3;
 }
