@@ -1,16 +1,8 @@
-import fetchContentful from '@functions/fetchContentful'
-import Home from '@sections/home/index'
+import type { NextPage } from 'next'
+import { Home } from '#components/pages/Home'
 
-export default function Index({ homeData }) {
-  return <Home homeData={homeData} />
+const HomePage: NextPage = () => {
+  return <Home />
 }
 
-export async function getStaticProps({ locale }) {
-  const items = await fetchContentful({ type: 'tile', locale })
-
-  return {
-    props: {
-      homeData: items,
-    },
-  }
-}
+export default HomePage

@@ -1,25 +1,14 @@
-import { AppProps } from 'next/app'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '@styles/theme'
-import GlobalStyle from '@styles/GlobalStyle'
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import BottomBar from '@components/atoms/BottomBar'
-import { useState } from 'react'
-import Loading from '@components/atoms/Loading'
+import { Providers } from '#components/pages/Providers/Providers'
 
-function App({ Component, pageProps }: AppProps) {
-  const [loading, setLoading] = useState(false)
-
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Providers>
       <FirstHead />
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {loading && <Loading />}
-        <BottomBar {...{ setLoading }} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+      <Component {...pageProps} />
+    </Providers>
   )
 }
 
@@ -28,15 +17,12 @@ function FirstHead() {
     <Head>
       {/* FONTS */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
-        rel="stylesheet"
-      />
+
       {/* FAVICON */}
       <link rel="icon" href="/favicon.ico" />
       <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
       <link rel="apple-touch-icon" href="/apple.png" />
-      <link rel="manifest" href="/manifest.webmanifest"></link>
+      <link rel="manifest" href="/manifest.webmanifest" />
       {/* META */}
       {/* Primary Meta Tags */}
       <title key="title">I'm Angelo and I do stuff</title>
@@ -90,4 +76,4 @@ function FirstHead() {
   )
 }
 
-export default App
+export default MyApp

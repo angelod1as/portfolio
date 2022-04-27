@@ -1,17 +1,15 @@
 import { render } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '@styles/theme'
-import 'jest-styled-components'
 import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
 
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)
-const Providers = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+const Providers: React.FC = ({ children }) => {
+  return <>{children}</>
 }
 
-const customRender = (ui, options = {}) =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const customRender = (ui: any, options = {}) =>
   render(ui, { wrapper: Providers, ...options })
 
 // re-export everything

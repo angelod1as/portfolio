@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat Alternates', serif;
+}
+
+h1, .h2-as-h1 {
+  @apply text-7xl
+}
+
+h2 {
+  @apply text-4xl
+}
+
+h3 {
+  @apply text-2xl
+}
+
+p {
+  @apply text-base font-normal mb-3
+}
+
+code {
+  @apply rounded;
+  font-size: 0.9rem;
+  padding: 0.1rem 5px;
+  background-color: hsl(0, 0%, 25%);;
+}
+
+.full-width {
+  width: calc(100vw - 1rem);
+  position: relative;
+  left: calc(-50vw + 50% + 0.5rem);
+}
+
+.project-mosaic {
+  @apply flex flex-col gap-10 md:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
