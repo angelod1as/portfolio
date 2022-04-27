@@ -1,5 +1,4 @@
 import { Link } from '@remix-run/react'
-import { RemixLinkProps } from '@remix-run/react/components'
 import type { HTMLAttributes, AnchorHTMLAttributes } from 'react'
 
 const H1 = (props: HTMLAttributes<HTMLHeadingElement>) => (

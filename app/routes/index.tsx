@@ -5,16 +5,17 @@ import Want from '../components/Home/Want.mdx'
 import Am from '../components/Home/Am.mdx'
 import Was from '../components/Home/Was.mdx'
 import { components } from '~/components/MDX/components'
+import { MDXComponent } from '~/components/MDX/MDXComponent'
 
 export default function Index() {
   return (
     <>
-      <Title components={components} />
-      <Generalist components={components} />
-      <Want components={components} />
-      <Am components={components} />
-      <Was components={components} />
-      <Blog components={components} />
+      <MDXComponent MDX={Title} />
+      <MDXComponent MDX={Generalist} />
+      <MDXComponent MDX={Want} />
+      <MDXComponent MDX={Am} />
+      <MDXComponent MDX={Was} />
+      <MDXComponent MDX={Blog} />
     </>
   )
 }
