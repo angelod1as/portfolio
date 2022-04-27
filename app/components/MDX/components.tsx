@@ -1,18 +1,19 @@
 import { Link } from '@remix-run/react'
 import type { HTMLAttributes, AnchorHTMLAttributes } from 'react'
 
-const H1 = (props: HTMLAttributes<HTMLHeadingElement>) => (
-  <h1 className="text-2xl" {...props} />
-)
-const H2 = (props: HTMLAttributes<HTMLHeadingElement>) => (
-  <h2 className="text-2xl" {...props} />
-)
+type heading = HTMLAttributes<HTMLHeadingElement>
+type element = HTMLAttributes<HTMLElement>
+type anchor = AnchorHTMLAttributes<HTMLAnchorElement>
 
-const Strong = (props: HTMLAttributes<HTMLElement>) => (
+const H1 = (props: heading) => <h1 {...props} />
+
+const H2 = (props: heading) => <h2 className="h2-as-h1" {...props} />
+
+const Strong = (props: element) => (
   <strong className="text-yellow-500" {...props} />
 )
 
-const A = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const A = (props: anchor) => {
   const isExternalLink = ['https', 'http', 'www', '.com'].some((item) =>
     props.href?.includes(item)
   )

@@ -11,5 +11,9 @@ type MDXComponentProps = {
  * https://github.com/remix-run/remix/pull/2602
  */
 export const MDXComponent: FC<MDXComponentProps> = ({ MDX }) => {
-  return <MDX components={components} />
+  return (
+    <div>
+      <MDX components={components} />
+    </div>
+  )
 }
