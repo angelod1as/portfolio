@@ -43,11 +43,9 @@ export const Was: FC<SectionProps> = ({ color }) => {
           . I designed <Strong>print</Strong> and <Strong>digital</Strong>{' '}
           pages, built multimedia <Strong>infographics</Strong>, and developed
           internal and external <Strong>digital tools</Strong>. At Folha I
-          worked on a project that won{' '}
-          <ColorLink href="/awards">
-            Brazil's biggest journalism award
-          </ColorLink>
-          , among other prizes;
+          worked on a project that won {/* <ColorLink href="/awards"> */}
+          <Strong>Brazil's biggest journalism award</Strong>
+          {/* </ColorLink> */}, among other prizes;
         </p>
         <p>
           ... a <Strong>writer</Strong>, <Strong>editor</Strong>, and{' '}

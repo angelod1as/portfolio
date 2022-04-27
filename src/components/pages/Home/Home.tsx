@@ -1,7 +1,7 @@
 import { HomeSection } from '#components/common/HomeSection'
 import React from 'react'
 import { textColor } from 'src/helpers/colors'
-import { Am, Generalist, Opening, Want, Was } from './Sections'
+import { Am, Generalist, Opening, Want, Was, Colophon } from './Sections'
 
 // TODO: Add :stars: to Stuff
 
@@ -36,16 +36,7 @@ export function Home() {
           <Component color={color} />
         </HomeSection>
       ))}
-
-      {/* <Highlighted /> */}
-
-      {/* <Mosaic /> */}
-
-      {/* Extra  */}
-
-      {/* <h2 className="text-7xl">you can always rely on a blog</h2>
-
-      <LatestPosts /> */}
+      <Colophon color={textColor[5]} />
     </>
   )
 }

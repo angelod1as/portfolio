@@ -1,4 +1,3 @@
-import { Link } from '#components/common/Links'
 import React, { FC } from 'react'
 import { SectionProps } from '.'
 
@@ -35,9 +34,9 @@ export const Generalist: FC<SectionProps> = ({ color }) => {
         </p>
 
         {/* TODO: Coding skills link */}
-        <Link className={color} href="/">
+        {/* <Link className={color} href="/">
           More about my coding skills here.
-        </Link>
+        </Link> */}
       </div>
     </>
   )
