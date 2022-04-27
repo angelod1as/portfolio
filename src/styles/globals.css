@@ -17,7 +17,7 @@ h6 {
   font-family: 'Montserrat Alternates', serif;
 }
 
-h1 {
+h1, .h2-as-h1 {
   @apply text-7xl
 }
 
@@ -30,9 +30,8 @@ h3 {
 }
 
 p {
-  @apply text-base font-normal
+  @apply text-base font-normal mb-2
 }
-
 
 .full-width {
   width: calc(100vw - 1rem);
