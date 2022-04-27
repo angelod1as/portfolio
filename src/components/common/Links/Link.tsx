@@ -7,6 +7,7 @@ export type LinkProps =
       block?: boolean
       inner?: boolean
       className?: string
+      image?: boolean
     }
 
 export const Link: FC<LinkProps> = ({
@@ -15,6 +16,7 @@ export const Link: FC<LinkProps> = ({
   block = false,
   inner = false,
   className = '',
+  image = false,
   ...rest
 }) => {
   const blankProps = inner
@@ -30,9 +32,11 @@ export const Link: FC<LinkProps> = ({
       href={href}
       className={`${className} ${
         block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'
-      } transition-transform italic font-bold`}
+      } transition-transform italic font-bold cursor-pointer`}
     >
+      {!image && '<'}
       {children}
+      {!image && '>'}
     </a>
   )
 
