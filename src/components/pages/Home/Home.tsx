@@ -1,21 +1,24 @@
+import { HomeSection } from '#components/common/HomeSection'
 import React from 'react'
-import { Mosaic } from './Mosaic'
-import { Summary } from './Summary/Summary'
+import { Generalist } from './Generalist'
+import { Opening } from './Opening'
 
 // TODO: Add :stars: to Stuff
 
 export function Home() {
   return (
     <>
-      <h1>I'm angelo and I do stuff</h1>
+      <HomeSection>
+        <Opening />
+      </HomeSection>
 
-      <Summary />
+      <HomeSection>
+        <Generalist />
+      </HomeSection>
 
       {/* <Highlighted /> */}
 
-      <h2 className="text-7xl">I'm a proud generalist</h2>
-
-      <Mosaic />
+      {/* <Mosaic /> */}
 
       {/* Extra  */}
 
