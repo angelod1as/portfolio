@@ -4,7 +4,10 @@ import { PageProps } from '#pages/[slug]'
 import React, { FC } from 'react'
 import { BgColor, bgColor, TextColor, textColor } from 'src/helpers/colors'
 
-export const Page: FC<PageProps> = ({ compiledSource, metadata }) => {
+export const Page: FC<Omit<PageProps, 'slug'>> = ({
+  compiledSource,
+  metadata,
+}) => {
   let bgColorString = bgColor[1]
   let textColorString = textColor[1]
 
