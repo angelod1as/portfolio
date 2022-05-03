@@ -1,4 +1,5 @@
 import { MDX } from '#components/common/MDX'
+import { NewHead } from '#components/common/NewHead'
 import { PageProps } from '#pages/[slug]'
 import React, { FC } from 'react'
 import { BgColor, bgColor, TextColor, textColor } from 'src/helpers/colors'
@@ -18,10 +19,13 @@ export const Page: FC<PageProps> = ({ compiledSource, metadata }) => {
   }
 
   return (
-    <MDX
-      mdx={{ compiledSource }}
-      bgColor={bgColorString}
-      textColor={textColorString}
-    />
+    <>
+      <NewHead title={metadata?.title} />
+      <MDX
+        mdx={{ compiledSource }}
+        bgColor={bgColorString}
+        textColor={textColorString}
+      />
+    </>
   )
 }
