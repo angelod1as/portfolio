@@ -12,7 +12,8 @@ export const getPageText = async (page: string) => {
   const { compiledSource } = await serialize(content)
 
   return {
-    data,
+    slug: page,
+    metadata: data,
     compiledSource,
   }
 }
