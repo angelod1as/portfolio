@@ -10,7 +10,7 @@ type Props = {
   mdx: MDXProps
   bgColor?: BgColor
   textColor?: TextColor
-  blogPost: boolean
+  blogPost?: boolean
 }
 
 export const MDX = ({ mdx, bgColor, textColor, blogPost }: Props) => {

@@ -46,7 +46,6 @@ const Social = ({ children, href, color }: Props) => (
   <Link
     href={href}
     className={`flex items-center justify-center h-24 w-24 p-2 ${color}`}
-    decorator={false}
   >
     {children}
   </Link>
