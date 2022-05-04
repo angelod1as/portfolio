@@ -31,6 +31,11 @@ export const Header: FC = () => {
         <MenuLink content="blog" href="/blog" />
         <MenuLink content="podcast" href="/cronofobia" />
       </div>
+      <div>
+        <b>
+          I'm angelo and I do <i>stuff</i>
+        </b>
+      </div>
     </div>
   )
 }
