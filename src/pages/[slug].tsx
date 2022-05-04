@@ -5,15 +5,18 @@ import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
 import { MDXReturn } from '#lib/MDX/compileMDX'
+import { RandomColors, randomColors } from 'src/helpers/colors'
 
 type PageMetadata = {
   title: string
-  color: string
 }
-export type PageProps = MDXReturn<PageMetadata>
+export type PageProps = {
+  colors: RandomColors
+  content: MDXReturn<PageMetadata>
+}
 
-const AnyPage: FC<PageProps> = ({ compiledSource, metadata }) => {
-  return <Page compiledSource={compiledSource} metadata={metadata} />
+const AnyPage: FC<PageProps> = ({ content, colors }) => {
+  return <Page content={content} colors={colors} />
 }
 
 type PageTypes = Partial<PageMetadata>
@@ -41,23 +44,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type GetStaticPropsType = {
   data?: PageMetadata
   compiledSource?: string
+  colors: RandomColors
 }
 
 export const getStaticProps: GetStaticProps<
   GetStaticPropsType
 > = async context => {
-  if (!context.params?.slug) {
-    return {
-      props: {},
-    }
-  }
-
+  ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
   const content = await getFileText('pages', context.params.slug)
 
+  const colors = randomColors(content?.metadata?.color)
+
   return {
-    props: content,
+    props: { content, colors },
   }
 }
 

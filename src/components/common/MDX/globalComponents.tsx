@@ -1,16 +1,16 @@
 import { FC } from 'react'
-import { BgColor } from 'src/helpers/colors'
+import { RandomColors } from 'src/helpers/colors'
 import { CTA, CTAProps } from '../CTA'
 
 type globalComponentsProps = {
-  bgColor?: BgColor
+  colors: RandomColors
 }
 
 const S: FC = props => <s {...props} />
 
-export const globalComponents = ({ bgColor }: globalComponentsProps) => {
+export const globalComponents = ({ colors }: globalComponentsProps) => {
   return {
-    CTA: (props: CTAProps) => <CTA bgColor={bgColor} {...props} />,
+    CTA: (props: CTAProps) => <CTA {...props} colors={colors} />,
     S,
   }
 }

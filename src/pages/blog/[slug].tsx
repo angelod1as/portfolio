@@ -6,13 +6,15 @@ import { FC } from 'react'
 import { MDXReturn } from '#lib/MDX/compileMDX'
 import { Post } from '#components/pages/Blog/Post'
 import { BlogPostMetadata } from '#types/types'
+import { RandomColors, randomColors } from 'src/helpers/colors'
 
-export type BlogPostProps = MDXReturn<BlogPostMetadata>
+export type BlogPostProps = {
+  content: MDXReturn<BlogPostMetadata>
+  colors: RandomColors
+}
 
-const BlogPost: FC<BlogPostProps> = ({ compiledSource, metadata, slug }) => {
-  return (
-    <Post compiledSource={compiledSource} metadata={metadata} slug={slug} />
-  )
+const BlogPost: FC<BlogPostProps> = ({ content, colors }) => {
+  return <Post content={content} colors={colors} />
 }
 
 type BlogTypes = Partial<BlogPostMetadata>
@@ -40,23 +42,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type GetStaticPropsType = {
   data?: BlogPostMetadata
   compiledSource?: string
+  colors?: RandomColors
 }
 
 export const getStaticProps: GetStaticProps<
   GetStaticPropsType
 > = async context => {
-  if (!context.params?.slug) {
-    return {
-      props: {},
-    }
-  }
-
+  ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
   const content = await getFileText('blog', context.params.slug)
+  const colors = randomColors(content?.metadata?.color)
 
   return {
-    props: content,
+    props: { content, colors },
   }
 }
 

@@ -36,10 +36,12 @@ export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
     slug,
   }))
 
+  const colors = randomColors()
+
   return {
     props: {
       posts,
-      colors: randomColors(),
+      colors,
     },
   }
 }

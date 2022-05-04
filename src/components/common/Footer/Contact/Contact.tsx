@@ -1,5 +1,5 @@
-import React from 'react'
-import { bgColor, BgColor, textColor } from 'src/helpers/colors'
+import React, { FC } from 'react'
+import { bgColor, BgColor, RandomColors } from 'src/helpers/colors'
 import github from 'public/social/github.svg'
 import telegram from 'public/social/telegram.svg'
 import instagram from 'public/social/instagram.svg'
@@ -8,11 +8,15 @@ import linkedin from 'public/social/linkedin.svg'
 import Image from 'next/image'
 import { Link } from '#components/common/Links'
 
-export function Contact() {
+type ContactProps = {
+  colors: RandomColors
+}
+
+export const Contact: FC<ContactProps> = ({ colors }) => {
   return (
     <div className="max-w-xl m-auto">
       <h2 className="text-7xl">
-        contact me <span className={textColor[5]}>anytime</span>
+        contact me <span className={colors.textColor}>anytime</span>
       </h2>
 
       <div className="flex justify-between gap-4 mt-10">

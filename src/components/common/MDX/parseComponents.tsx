@@ -1,21 +1,17 @@
 import { MDXProps } from '#types/types'
-import { BgColor, TextColor } from 'src/helpers/colors'
+import { RandomColors } from 'src/helpers/colors'
 import { Link } from '../Links'
 import styles from './MDX.module.sass'
 
 type Props = {
-  bgColor?: BgColor
-  textColor?: TextColor
   components?: MDXProps['components']
+  colors: RandomColors
 }
 
-export const parseComponents = ({
-  textColor,
-  bgColor,
-  components = {},
-}: Props) => {
-  const text = textColor ?? ''
-  const bg = bgColor ?? ''
+export const parseComponents = ({ components = {}, colors }: Props) => {
+  const text = colors.textColor ?? ''
+  const bg = colors.bgColor ?? ''
+
   return {
     b: (props: JSX.IntrinsicElements['b']) => (
       <b {...props} className={`${text}`} />
@@ -24,7 +20,7 @@ export const parseComponents = ({
       <strong {...props} className={`${text}`} />
     ),
     a: (props: JSX.IntrinsicElements['a']) => (
-      <Link className={textColor} {...props} href={props.href ?? ''} />
+      <Link className={text} {...props} href={props.href ?? ''} />
     ),
     blockquote: (props: JSX.IntrinsicElements['blockquote']) => (
       <div>
@@ -41,27 +37,27 @@ export const parseComponents = ({
       <h1 {...props}>{props.children}</h1>
     ),
     h2: (props: JSX.IntrinsicElements['h2']) => (
-      <h2 className={textColor} {...props}>
+      <h2 className={text} {...props}>
         {props.children}
       </h2>
     ),
     h3: (props: JSX.IntrinsicElements['h3']) => (
-      <h3 className={textColor} {...props}>
+      <h3 className={text} {...props}>
         {props.children}
       </h3>
     ),
     h4: (props: JSX.IntrinsicElements['h4']) => (
-      <h4 className={textColor} {...props}>
+      <h4 className={text} {...props}>
         {props.children}
       </h4>
     ),
     h5: (props: JSX.IntrinsicElements['h5']) => (
-      <h5 className={textColor} {...props}>
+      <h5 className={text} {...props}>
         {props.children}
       </h5>
     ),
     h6: (props: JSX.IntrinsicElements['h6']) => (
-      <h6 className={textColor} {...props}>
+      <h6 className={text} {...props}>
         {props.children}
       </h6>
     ),

@@ -2,22 +2,13 @@ import { MDX } from '#components/common/MDX'
 import { NewHead } from '#components/common/NewHead'
 import { PageProps } from '#pages/[slug]'
 import React, { FC } from 'react'
-import { useColors } from 'src/hooks/useColors'
 
-export const Page: FC<Omit<PageProps, 'slug'>> = ({
-  compiledSource,
-  metadata,
-}) => {
-  const colors = useColors(metadata?.color)
-
+export const Page: FC<PageProps> = ({ colors, content }) => {
+  const { compiledSource, metadata } = content
   return (
     <>
       <NewHead title={metadata?.title} />
-      <MDX
-        mdx={{ compiledSource }}
-        textColor={colors.textColor}
-        bgColor={colors.bgColor}
-      />
+      <MDX mdx={{ compiledSource }} colors={colors} />
     </>
   )
 }
