@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "ts": "tsc --noEmit --incremental"
   },
   "dependencies": {
     "@mdx-js/react": "^2.0.0-rc.2",
@@ -28,8 +29,8 @@
     "@testing-library/react": "^12.1.2",
     "@types/node": "17.0.5",
     "@types/react": "17.0.38",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.4.5",
     "babel-loader": "^8.2.3",
