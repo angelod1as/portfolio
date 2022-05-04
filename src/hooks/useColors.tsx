@@ -15,9 +15,9 @@ export const useColors = (color?: string) => {
       const bgColorIndex = bgColor.indexOf(`bg-${color}`)
       const textColorIndex = textColor.indexOf(`text-${color}`)
       const bgColorString =
-        bgColorIndex >= 0 ? bgColor[bgColorIndex] : bgColor[1]
+        bgColorIndex >= 0 ? bgColor[bgColorIndex] : textColor
       const textColorString =
-        textColorIndex >= 0 ? textColor[textColorIndex] : textColor[1]
+        textColorIndex >= 0 ? textColor[textColorIndex] : bgColor
 
       setColors({
         bgColor: bgColorString as BgColor,
