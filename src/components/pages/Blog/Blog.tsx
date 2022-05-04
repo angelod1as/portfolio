@@ -1,7 +1,7 @@
 import { Link } from '#components/common/Links'
 import { BlogPostMetadata } from '#types/types'
 import { FC, useState } from 'react'
-import { TextColor } from 'src/helpers/colors'
+import { RandomColors } from 'src/helpers/colors'
 import { Filter } from './Filter'
 
 export type PostProps = Array<{
@@ -11,10 +11,10 @@ export type PostProps = Array<{
 
 export type BlogProps = {
   posts: PostProps
-  color: TextColor
+  colors: RandomColors
 }
 
-export const Blog: FC<BlogProps> = ({ posts, color }) => {
+export const Blog: FC<BlogProps> = ({ posts, colors }) => {
   const [order, setOrder] = useState<string>('descending')
 
   const handleOrder = (value: string) => {
@@ -35,11 +35,11 @@ export const Blog: FC<BlogProps> = ({ posts, color }) => {
     }
   })
 
-  const Strong: FC = props => <strong {...props} className={color} />
+  const Strong: FC = props => <strong {...props} className={colors.textColor} />
   return (
     <>
       <h1>
-        I'm angelo and I do <span className={color}>blogging</span>
+        I'm angelo and I do <span className={colors.textColor}>blogging</span>
       </h1>
       <div>
         <p>

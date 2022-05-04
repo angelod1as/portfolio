@@ -32,7 +32,16 @@ export const textColor: TextColor[] = [
   'text-red',
 ]
 
-export const randomTextColor = () => {
+export type RandomColors = {
+  textColor: TextColor
+  bgColor: BgColor
+}
+
+export const randomColors = (): RandomColors => {
   const max = textColor.length
-  return textColor[Math.floor(Math.random() * max)]
+  const index = Math.floor(Math.random() * max)
+  return {
+    textColor: textColor[index],
+    bgColor: bgColor[index],
+  }
 }

@@ -10,9 +10,10 @@ type Props = {
   mdx: MDXProps
   bgColor?: BgColor
   textColor?: TextColor
+  blogPost: boolean
 }
 
-export const MDX = ({ mdx, bgColor, textColor }: Props) => {
+export const MDX = ({ mdx, bgColor, textColor, blogPost }: Props) => {
   const { components, ...rest } = mdx
 
   const mergedComponents = {
@@ -29,7 +30,7 @@ export const MDX = ({ mdx, bgColor, textColor }: Props) => {
   // TODO: `pre` and `code` are not wrapping.
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
       <MDXRemote {...rest} components={parsedComponents} />
     </div>
   )
