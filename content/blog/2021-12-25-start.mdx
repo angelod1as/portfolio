@@ -9,49 +9,86 @@ image: /placeholder/placeholder.jpg
 highlighted: false
 ---
 
-I write this blog post before the actual blog development is started.
+# I will do this **my way**.
 
-I chose to do so to commit myself to some ground rules.
+I wrote this blog post before the actual blog existed. I chose to do so to commit myself to some ground rules.
 
-My website today is much more a weird portfolio, focused on generalism and LOTS of text, than a website to actually showcase my work.
+This website was and is a place of contemplation and therapy. I call it _portfolio_ because it showcases my work, but getting it to this point was a lenghty exercise of understanding **who I am** and **who I want to be**.
 
-WEBSITE PHOTO
+When I mean lenghty, I mean **1 year** of development and weekly therapy sessions.
 
-I love the mosaic design, but I'd like to say more with fewer clicks. To achieve that I'm going to follow these simple development guidelines (or, in better terms, the scope of this project):
+Accepting myself as the **proud generalist** I am was a painful process, but here I am. I got tired of trying to be what the industry expected of me (and by industry, I mean journalism, design & technology) and started doing things **my way**.
 
-- The development will be done with:
-  - NextJS
-  - MDX
-  - TailwindCSS
-- The website will feature:
-  - A blog
-  - A podcast page (questions and presentation)
-  - A better design (done using Figma)
-- I'll scratch
-  - Two languages
-  - Any CMS
-  - Notion integration
+## Design
 
-## NextJS, MDX and TailwindCSS
+I really loved the mosaic view my old portfolio had.
 
-My website was once made using Gatsby, then moved to NextJS (a very good choice). I'll continue with NextJS (even though I almost went with Svelte), but I'll drop any CMSs.
+![Screenshot of my old portfolio with a Mosaic-like view](/blog/2021-12-25-start/mosaic.png)
 
-I'll no longer use Contentful. These CMSs are great for corporate development, but when I come up with a new feature for a single page, the CMS blocks me (because they have their own data structure).
+<!-- TODO: PHOTO -->
 
-So, to avoid that, I went simple. MDX files will give me all Markdown power with the possibility to add custom components. TailwindCSS and its amazing JIT feature make me write almost zero CSS (which is fast and light).
+I do think it was a great starting point for what I do and also a great way of organizing _stuff_. The downsides? _Clicks, clicks and clicks_, as well as a inhuman amount of text.
 
-That maybe will get me more will to write a new blog post or add new work or related to the portfolio section.
+### Form with poor function
 
-## New design
+When I designed the website, I thought about writing every step of the process of each project, from start to finish, to give my <S>future employers</S> beautiful readers the context needed.
 
-The new design was done using Figma and you can check it out by clicking below.
+Man, I was wrong.
 
-<Button external="">Figma</Button>
+No one read anything and, most of the times, I had to repeat every information about these projects on interviews, what lead to me not wanting to write much about the project themselves, making me end up with pages and pages of a 2-line introduction and a "visit the website" link.
 
-I opted to remove Storybook because of the overhead configuring it with TailwindCSS v3 and Webpack5. I favoured building the actual website.
+### Form _and_ function
 
-## Why did you drop the Portuguese Brazilian language?
+This new approach is focused on getting all the information **fast** and **easy**.
 
-Maintaining a two languages blog was going to be hard, REAL hard. Actually, even updating the portfolio and having to write the same thing twice... well, not very encouraging.
+If you open [the homepage](/) on a new tab, you'll see that the amount of texts grows by section. The first one has a few lines. The second, a few more. The last section has a lot more items than the others.
 
-Also, I don't think that anyone that visits this website doesn't know a little English. Think about it: I'm a developer, and I'll be soon enough living outside of Brazil, most of my friends speak English, and, well, the audience (I think) this blog's targets are made of English speakers.
+This can lead the user to start reading ("just a few lines") and, if interested in continuing, more information won't hurt their experience.
+
+### Colors
+
+I love high-contrast design. I'm not trying to be in any kind of trend like _neu_ anything, I've been doing this high-contrast stuff for a long time.
+
+So, I built a six-color pallete that rotates throuout the website. There are some pages that have pre-selected colors (like the [podcast link](/cronofobia)), while others (like this post) have semi-random color selection.
+
+I kept the soul of the mosaic version... taking out the mosaic.
+
+## Coding
+
+### Past
+
+When I first built this website, it was poorly done with _create-react-app_.
+
+After some time struggling with it, I rebuilt it using **Gatsby**. At the time, this **JAMStack** stuff was all everyone talked about and Gatsby seemed like a great starting point.
+
+Fact: it was a great starting point.
+
+I needed more, though. And **NextJS** came to the rescue. I (re)rebuilt the website with NextJS and Contentful as a CMS. This was a few months before what you probably read in the design section happened.
+
+A lot of "you need to write here" places without any energy to actually write.
+
+So, I did what everyone should do once in a while: **I gave up**.
+
+### Present
+
+This website is built with:
+
+- NextJS
+- MDX
+- TailwindCSS
+
+And that's it. No CMS, no i18n, no Storybook, no Notion integration (yep, I did that).
+
+Plain MDX files that get built into this beautiful page you are (hopefully) reading in **Vercel**.
+
+> Instead of using a single room of a huge castle, I built a simple bed and will improve upon that.
+
+### Why not Remix?
+
+I did start developing this new version with **Remix** but their native MDX integration (which, honestly, blew my mind) offers little configuration option. So, I went with NextJS, wishing very much to see the required changes on Remix to make the change.
+
+### Why not bilingual?
+
+Writing in two languages was a burden and, honestly, my target audience can read English (as I'm a developer in the technology market).
+
+I had to drop my mother language, Brazilian Portuguese, and decided to write only in English. If you want to see me writing and speaking pt_BR, follow my instagram account 😁
