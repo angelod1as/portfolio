@@ -5,6 +5,7 @@ export type BlogPostMetadata = {
   title: string
   color: string
   createdAt: number
+  description: string
 }
 
 // MDX

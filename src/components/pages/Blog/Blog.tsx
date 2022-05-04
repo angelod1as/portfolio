@@ -2,7 +2,6 @@ import { Link } from '#components/common/Links'
 import { BlogPostMetadata } from '#types/types'
 import { FC, useState } from 'react'
 import { RandomColors } from 'src/helpers/colors'
-import { Filter } from './Filter'
 
 export type PostProps = Array<{
   metadata: Partial<BlogPostMetadata>
@@ -51,13 +50,28 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      <Filter order={order} handleOrder={handleOrder} />
-      <ul>
+      {/* <Filter order={order} handleOrder={handleOrder} /> */}
+      <ul className="relative pl-6">
         {sortedPosts.map(({ slug, metadata }) => (
-          <li key={slug}>
-            <Link inner href={`/blog/${slug}`}>
-              {metadata.title}
+          <li key={slug} className="">
+            <div
+              className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`}
+            />
+            <Link inner href={`/blog/${slug}`} className={colors.textColor}>
+              <h2>{metadata.title}</h2>
             </Link>
+            <p className="mb-0">
+              {metadata.description ?? ''}
+              {metadata.createdAt && (
+                <span className="ml-2">
+                  <small className="opacity-80">
+                    {new Intl.DateTimeFormat('pt').format(
+                      new Date(metadata.createdAt)
+                    )}
+                  </small>
+                </span>
+              )}
+            </p>
           </li>
         ))}
       </ul>
