@@ -8,9 +8,9 @@ type MenuLinkProps = {
   content: string
 }
 const MenuLink: FC<MenuLinkProps> = ({ href, content }) => {
-  const { pathname } = useRouter()
+  const { asPath } = useRouter()
 
-  if (pathname === `${href}`) {
+  if (asPath === `${href}`) {
     return <span className="font-bold">{content}</span>
   }
 
@@ -28,6 +28,7 @@ export const Header: FC = () => {
     >
       <div className="flex gap-4">
         <MenuLink content="start" href="/" />
+        <MenuLink content="blog" href="/blog" />
         <MenuLink content="podcast" href="/cronofobia" />
       </div>
     </div>
