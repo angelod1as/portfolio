@@ -1,4 +1,3 @@
-import { generateTOC } from 'src/helpers/generateTOC'
 import { serialize } from './serialize'
 
 type CompileMDXProps = {
@@ -9,6 +8,12 @@ type CompileMDXProps = {
   slug: string
 }
 
+export type MDXReturn<T> = {
+  metadata?: T
+  slug: string
+  compiledSource: string
+}
+
 export const compileMDX = async <T>({
   content,
   data,
@@ -16,14 +21,11 @@ export const compileMDX = async <T>({
 }: CompileMDXProps) => {
   const { compiledSource } = await serialize(content)
 
-  const toc = generateTOC(content)
-
-  return {
-    data: {
-      ...data,
-      slug,
-      toc,
-    },
+  const result: MDXReturn<T> = {
+    metadata: data as unknown as T,
+    slug,
     compiledSource,
-  } as unknown as T
+  }
+
+  return result
 }

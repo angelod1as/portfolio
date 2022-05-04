@@ -5,7 +5,7 @@ import { Providers } from '#components/pages/Providers/Providers'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Providers>
+    <Providers colors={pageProps.colors}>
       <FirstHead />
       <Component {...pageProps} />
     </Providers>

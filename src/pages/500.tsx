@@ -1,12 +1,11 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { Home } from '#components/pages/Home'
 import { randomColors, RandomColors } from 'src/helpers/colors'
 
-const HomePage: NextPage = () => {
-  return <Home />
+const ServerError: NextPage = () => {
+  return <div>500</div>
 }
 
-export default HomePage
+export default ServerError
 
 type GetStaticPropsType = {
   colors: RandomColors

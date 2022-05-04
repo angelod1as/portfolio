@@ -7,7 +7,6 @@ export type LinkProps =
       block?: boolean
       inner?: boolean
       className?: string
-      decorator?: boolean
     }
 
 export const Link: FC<LinkProps> = ({
@@ -16,7 +15,6 @@ export const Link: FC<LinkProps> = ({
   block = false,
   inner = false,
   className = '',
-  decorator = true,
   ...rest
 }) => {
   const blankProps = inner
@@ -34,9 +32,7 @@ export const Link: FC<LinkProps> = ({
         block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'
       } transition-transform italic font-bold cursor-pointer`}
     >
-      {decorator && '<'}
       {children}
-      {decorator && '>'}
     </a>
   )
 

@@ -3,8 +3,8 @@ import matter from 'gray-matter'
 import { join } from 'path'
 import { serialize } from './MDX/serialize'
 
-export const getPageText = async (page: string) => {
-  const filePath = join(process.cwd(), 'content', 'pages', `${page}.mdx`)
+export const getFileText = async (folder: string, page: string) => {
+  const filePath = join(process.cwd(), 'content', folder, `${page}.mdx`)
   const fileContent = readFileSync(filePath, 'utf-8')
 
   const { data, content } = matter(fileContent)
@@ -12,7 +12,8 @@ export const getPageText = async (page: string) => {
   const { compiledSource } = await serialize(content)
 
   return {
-    data,
+    slug: page,
+    metadata: data,
     compiledSource,
   }
 }

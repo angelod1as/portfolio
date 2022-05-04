@@ -18,11 +18,11 @@ h6 {
 }
 
 h1, .h2-as-h1 {
-  @apply text-7xl
+  @apply text-4xl md:text-7xl
 }
 
 h2 {
-  @apply text-4xl
+  @apply text-3xl md:text-4xl
 }
 
 h3 {
@@ -38,4 +38,12 @@ code {
   font-size: 0.9rem;
   padding: 0.1rem 5px;
   background-color: hsl(0, 0%, 25%);;
+}
+
+a {
+  @apply underline
+}
+
+ul, ol {
+  @apply mb-3
 }
