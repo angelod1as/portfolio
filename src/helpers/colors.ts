@@ -31,3 +31,8 @@ export const textColor: TextColor[] = [
   'text-green',
   'text-red',
 ]
+
+export const randomTextColor = () => {
+  const max = textColor.length
+  return textColor[Math.floor(Math.random() * max)]
+}

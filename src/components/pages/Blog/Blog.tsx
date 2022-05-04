@@ -1,5 +1,8 @@
+import { Link } from '#components/common/Links'
 import { BlogPostMetadata } from '#types/types'
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { TextColor } from 'src/helpers/colors'
+import { Filter } from './Filter'
 
 export type PostProps = Array<{
   metadata: Partial<BlogPostMetadata>
@@ -8,20 +11,56 @@ export type PostProps = Array<{
 
 export type BlogProps = {
   posts: PostProps
+  color: TextColor
 }
 
-export const Blog: FC<BlogProps> = ({ posts }) => {
+export const Blog: FC<BlogProps> = ({ posts, color }) => {
+  const [order, setOrder] = useState<string>('descending')
+
+  const handleOrder = (value: string) => {
+    if (value) {
+      setOrder(value)
+    }
+  }
+
+  const sortedPosts = posts.sort((a, b) => {
+    if (!a.metadata.createdAt || !b.metadata.createdAt) {
+      return 0
+    }
+
+    if (order === 'ascending') {
+      return a.metadata.createdAt - b.metadata.createdAt
+    } else {
+      return b.metadata.createdAt - a.metadata.createdAt
+    }
+  })
+
+  const Strong: FC = props => <strong {...props} className={color} />
   return (
-    <div>
-      <h1>Blog</h1>
-      posts:
+    <>
+      <h1>
+        I'm angelo and I do <span className={color}>blogging</span>
+      </h1>
+      <div>
+        <p>
+          This space is very <Strong>personal</Strong>, with subjects that range
+          from <Strong>technical</Strong> stuff to <Strong>individual</Strong>{' '}
+          reflection.
+        </p>
+        <p>
+          Read at your peril and <Strong>share abundantly</Strong>.
+        </p>
+      </div>
+      <Filter order={order} handleOrder={handleOrder} />
       <ul>
-        {posts.map(({ slug, metadata }) => (
+        {sortedPosts.map(({ slug, metadata }) => (
           <li key={slug}>
-            <a href={`/blog/${slug}`}>{metadata.title}</a>
+            <Link inner href={`/blog/${slug}`}>
+              {metadata.title}
+            </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   )
 }

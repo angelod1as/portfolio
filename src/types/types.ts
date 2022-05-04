@@ -4,6 +4,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 export type BlogPostMetadata = {
   title: string
   color: string
+  createdAt: number
 }
 
 // MDX
