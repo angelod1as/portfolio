@@ -14,8 +14,8 @@ type ContactProps = {
 
 export const Contact: FC<ContactProps> = ({ colors }) => {
   return (
-    <div className="max-w-xl m-auto">
-      <h2 className="text-7xl">
+    <div className="max-w-xl p-4 m-auto">
+      <h2 className="h2-as-h1">
         contact me <span className={colors.textColor}>anytime</span>
       </h2>
 
@@ -49,7 +49,7 @@ type Props = {
 const Social = ({ children, href, color }: Props) => (
   <Link
     href={href}
-    className={`flex items-center justify-center h-24 w-24 p-2 ${color}`}
+    className={`flex items-center justify-center h-10 w-10 md:h-24 md:w-24 p-2 ${color}`}
   >
     {children}
   </Link>

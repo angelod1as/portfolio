@@ -17,7 +17,7 @@ export const Header: FC<HeaderProps> = ({ colors }) => {
         <MenuLink content="blog" href="/blog" />
         <MenuLink content="podcast" href="/cronofobia" />
       </div>
-      <div>
+      <div className="hidden md:block">
         <b>
           I'm <span className={colors.textColor}>angelo</span> and I do stuff
         </b>
