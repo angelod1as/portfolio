@@ -31,10 +31,12 @@ type BlogTypes = Partial<BlogPostMetadata>
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
   const blogPosts = await getFilesInFolder<BlogTypes>('blog')
-  const posts = blogPosts.map(({ metadata, slug }) => ({
-    metadata,
-    slug,
-  }))
+  const posts = blogPosts
+    .map(({ metadata, slug }) => ({
+      metadata,
+      slug,
+    }))
+    .filter(post => !post?.metadata?.draft)
 
   const colors = randomColors()
 

@@ -27,11 +27,13 @@ type ParamsType = Array<{
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getFilesInFolder<BlogTypes>('blog')
-  const paths: ParamsType = pages.map(page => ({
-    params: {
-      slug: page.slug,
-    },
-  }))
+  const paths: ParamsType = pages
+    .filter(page => !page?.metadata?.draft)
+    .map(page => ({
+      params: {
+        slug: page.slug,
+      },
+    }))
 
   return {
     paths,

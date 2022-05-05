@@ -22,19 +22,17 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
     }
   }
 
-  const blogPosts = posts
-    .filter(post => !post.metadata?.draft)
-    .sort((a, b) => {
-      if (!a.metadata.createdAt || !b.metadata.createdAt) {
-        return 0
-      }
+  const blogPosts = posts.sort((a, b) => {
+    if (!a.metadata.createdAt || !b.metadata.createdAt) {
+      return 0
+    }
 
-      if (order === 'ascending') {
-        return a.metadata.createdAt - b.metadata.createdAt
-      } else {
-        return b.metadata.createdAt - a.metadata.createdAt
-      }
-    })
+    if (order === 'ascending') {
+      return a.metadata.createdAt - b.metadata.createdAt
+    } else {
+      return b.metadata.createdAt - a.metadata.createdAt
+    }
+  })
 
   const Strong: FC = props => <strong {...props} className={colors.textColor} />
   return (
