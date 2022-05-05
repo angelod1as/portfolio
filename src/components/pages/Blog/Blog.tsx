@@ -22,17 +22,19 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
     }
   }
 
-  const sortedPosts = posts.sort((a, b) => {
-    if (!a.metadata.createdAt || !b.metadata.createdAt) {
-      return 0
-    }
+  const blogPosts = posts
+    .filter(post => !post.metadata?.draft)
+    .sort((a, b) => {
+      if (!a.metadata.createdAt || !b.metadata.createdAt) {
+        return 0
+      }
 
-    if (order === 'ascending') {
-      return a.metadata.createdAt - b.metadata.createdAt
-    } else {
-      return b.metadata.createdAt - a.metadata.createdAt
-    }
-  })
+      if (order === 'ascending') {
+        return a.metadata.createdAt - b.metadata.createdAt
+      } else {
+        return b.metadata.createdAt - a.metadata.createdAt
+      }
+    })
 
   const Strong: FC = props => <strong {...props} className={colors.textColor} />
   return (
@@ -52,7 +54,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
       </div>
       {/* <Filter order={order} handleOrder={handleOrder} /> */}
       <ul className="relative pl-6">
-        {sortedPosts.map(({ slug, metadata }) => (
+        {blogPosts.map(({ slug, metadata }) => (
           <li key={slug} className="">
             <div
               className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`}
