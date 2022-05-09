@@ -7,6 +7,7 @@ type globalComponentsProps = {
   colors: RandomColors
 }
 
+// Strikethrough
 const S: FC = props => <s {...props} />
 
 export const globalComponents = ({ colors }: globalComponentsProps) => {
