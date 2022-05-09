@@ -52,9 +52,9 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
         </p>
       </div>
       {/* <Filter order={order} handleOrder={handleOrder} /> */}
-      <ul className="relative pl-6">
+      <ul className="flex flex-col gap-16">
         {blogPosts.map(({ slug, metadata }) => (
-          <li key={slug} className="">
+          <li key={slug} className="relative pl-6">
             <div
               className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`}
             />
