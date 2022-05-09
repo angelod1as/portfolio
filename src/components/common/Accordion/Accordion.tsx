@@ -1,14 +1,15 @@
-import { FC } from 'react'
 import { Root, Item, Header, Trigger, Content } from '@radix-ui/react-accordion'
-import { RandomColors } from 'src/helpers/colors'
 import styles from './Accordion.module.sass'
+import { FCC } from '#types/types'
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
 
 type AccordionProps = {
   title: string
-  colors: RandomColors
 }
 
-export const Accordion: FC<AccordionProps> = ({ children, title, colors }) => {
+export const Accordion: FCC<AccordionProps> = ({ children, title }) => {
+  const { colors } = useColorContext()
+
   return (
     <div className={`py-4 border-t-2 border-b-2 ${colors.borderColor}`}>
       <Root type="single" collapsible>

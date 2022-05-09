@@ -1,3 +1,6 @@
+import { LinkProps } from '#components/common/Links'
+import { FCC } from '#types/types'
+import { ReactNode } from 'react'
 import { TextColor } from 'src/helpers/colors'
 
 export * from './Opening'
@@ -9,4 +12,7 @@ export * from './Colophon'
 
 export type SectionProps = {
   color: TextColor
+  children?: ReactNode
+  Strong?: FCC
+  ColorLink?: FCC<LinkProps>
 }

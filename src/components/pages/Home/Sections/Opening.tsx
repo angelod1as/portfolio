@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Opening: FC<SectionProps> = ({ color }) => {
-  const Strong: FC = ({ children }) => (
-    <strong className={color}>{children}</strong>
-  )
+export const Opening: FC<SectionProps> = ({ color, Strong }) => {
+  if (!Strong) {
+    return null
+  }
+
   return (
     <>
       <h1>

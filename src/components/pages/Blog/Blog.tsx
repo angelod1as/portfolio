@@ -1,8 +1,8 @@
 import { Link } from '#components/common/Links'
-import { BlogPostMetadata } from '#types/types'
-import { FC, useState } from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import { BlogPostMetadata, FCC } from '#types/types'
+import { useState } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
+import { useColorContext } from '../Providers/ColorProvider'
 import { Filter } from './Filter'
 
 export type PostProps = Array<{
@@ -12,10 +12,10 @@ export type PostProps = Array<{
 
 export type BlogProps = {
   posts: PostProps
-  colors: RandomColors
 }
 
-export const Blog: FC<BlogProps> = ({ posts, colors }) => {
+export const Blog: FCC<BlogProps> = ({ posts }) => {
+  const { colors } = useColorContext()
   const [order, setOrder] = useState<string>('descending')
 
   const handleOrder = (value: string) => {
@@ -36,7 +36,10 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
     }
   })
 
-  const Strong: FC = props => <strong {...props} className={colors.textColor} />
+  const Strong: FCC = props => (
+    <strong {...props} className={colors.textColor} />
+  )
+
   return (
     <>
       <h1>
@@ -52,7 +55,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      <Filter order={order} handleOrder={handleOrder} colors={colors} />
+      <Filter order={order} handleOrder={handleOrder} />
       <ul className="flex flex-col gap-16">
         {blogPosts.map(({ slug, metadata }) => (
           <li key={slug} className="relative pl-6">

@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Generalist: FC<SectionProps> = ({ color }) => {
-  const Strong: FC = ({ children }) => (
-    <strong className={color}>{children}</strong>
-  )
+export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
+  if (!Strong) {
+    return null
+  }
 
   return (
     <>

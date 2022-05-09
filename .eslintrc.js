@@ -47,7 +47,7 @@ module.exports = {
   ],
   rules: {
     semi: ['error', 'never'],
-    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 0,
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
@@ -61,14 +61,15 @@ module.exports = {
     'react/display-name': 0,
     'react/no-unescaped-entities': 0,
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
+    'react/react-in-jsx-scope': 0,
+    'react/prop-types': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/self-closing-comp': ['error'],
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/strict-boolean-expressions': 0,
+    '@typescript-eslint/no-invalid-void-type': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {

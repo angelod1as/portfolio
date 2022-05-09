@@ -1,22 +1,14 @@
 import { Accordion } from '#components/common/Accordion'
-import { FC } from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import { FCC } from '#types/types'
 
 export type ParenthesisProps = {
   about: string
-  colors: RandomColors
 }
 
-export const Parenthesis: FC<ParenthesisProps> = ({
-  about,
-  children,
-  colors,
-}) => {
+export const Parenthesis: FCC<ParenthesisProps> = ({ about, children }) => {
   return (
     <div className="my-8">
-      <Accordion title={`A parenthesis about ${about}`} colors={colors}>
-        {children}
-      </Accordion>
+      <Accordion title={`A parenthesis about ${about}`}>{children}</Accordion>
     </div>
   )
 }

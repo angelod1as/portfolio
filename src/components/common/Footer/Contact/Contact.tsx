@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { bgColor, BgColor, RandomColors } from 'src/helpers/colors'
+import React from 'react'
+import { bgColor, BgColor } from 'src/helpers/colors'
 import github from 'public/social/github.svg'
 import telegram from 'public/social/telegram.svg'
 import instagram from 'public/social/instagram.svg'
@@ -7,12 +7,12 @@ import twitter from 'public/social/twitter.svg'
 import linkedin from 'public/social/linkedin.svg'
 import Image from 'next/image'
 import { Link } from '#components/common/Links'
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { FCC } from '#types/types'
 
-type ContactProps = {
-  colors: RandomColors
-}
+export const Contact: FCC = () => {
+  const { colors } = useColorContext()
 
-export const Contact: FC<ContactProps> = ({ colors }) => {
   return (
     <div className="max-w-xl p-4 m-auto">
       <h2 className="h2-as-h1">
@@ -40,13 +40,13 @@ export const Contact: FC<ContactProps> = ({ colors }) => {
   )
 }
 
-type Props = {
+type SocialProps = {
   children: React.ReactNode
   href: string
   color: BgColor
 }
 
-const Social = ({ children, href, color }: Props) => (
+const Social: FCC<SocialProps> = ({ children, href, color }) => (
   <Link
     href={href}
     className={`flex  items-center justify-center h-10 w-10 md:h-24 md:w-24 p-2 ${color}`}

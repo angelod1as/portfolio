@@ -9,12 +9,11 @@ import { RandomColors, randomColors } from 'src/helpers/colors'
 import { DefaultMetadata } from '#types/types'
 
 export type PageProps = {
-  colors: RandomColors
   content: MDXReturn<DefaultMetadata>
 }
 
-const AnyPage: FC<PageProps> = ({ content, colors }) => {
-  return <Page content={content} colors={colors} />
+const AnyPage: FC<PageProps> = ({ content }) => {
+  return <Page content={content} />
 }
 
 type PageTypes = Partial<DefaultMetadata>
