@@ -1,15 +1,11 @@
-import React, { FC } from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import { FCC } from '#types/types'
+import React from 'react'
 import { Contact } from './Contact'
 
-type FooterProps = {
-  colors: RandomColors
-}
-
-export const Footer: FC<FooterProps> = ({ colors }) => {
+export const Footer: FCC = () => {
   return (
     <footer className="py-20">
-      <Contact colors={colors} />
+      <Contact />
     </footer>
   )
 }

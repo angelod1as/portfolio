@@ -1,21 +1,16 @@
-import { FC } from 'react'
-import { RandomColors } from 'src/helpers/colors'
-import { CTA, CTAProps } from '../CTA'
-import { Parenthesis, ParenthesisProps } from './Parenthesis'
-
-type globalComponentsProps = {
-  colors: RandomColors
-}
+import { FCC } from '#types/types'
+import { CTAProps } from '../CTA'
+import { ParenthesisProps } from './Parenthesis'
 
 // Strikethrough
-const S: FC = props => <s {...props} />
+const S: FCC = props => <s {...props} />
+const CTA: FCC<CTAProps> = props => <CTA {...props} />
+const Parenthesis: FCC<ParenthesisProps> = props => <Parenthesis {...props} />
 
-export const globalComponents = ({ colors }: globalComponentsProps) => {
+export const globalComponents = () => {
   return {
-    CTA: (props: CTAProps) => <CTA {...props} colors={colors} />,
+    CTA,
     S,
-    Parenthesis: (props: ParenthesisProps) => (
-      <Parenthesis {...props} colors={colors} />
-    ),
+    Parenthesis,
   }
 }

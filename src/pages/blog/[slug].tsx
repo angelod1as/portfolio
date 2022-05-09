@@ -10,11 +10,10 @@ import { RandomColors, randomColors } from 'src/helpers/colors'
 
 export type BlogPostProps = {
   content: MDXReturn<BlogPostMetadata>
-  colors: RandomColors
 }
 
-const BlogPost: FC<BlogPostProps> = ({ content, colors }) => {
-  return <Post content={content} colors={colors} />
+const BlogPost: FC<BlogPostProps> = ({ content }) => {
+  return <Post content={content} />
 }
 
 type BlogTypes = Partial<BlogPostMetadata>

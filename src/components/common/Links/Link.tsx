@@ -1,6 +1,6 @@
-import { ReactNode } from '@mdx-js/react/lib'
+import { FCC } from '#types/types'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import React, { FC } from 'react'
+import React from 'react'
 
 export type LinkProps =
   | Omit<NextLinkProps, 'href'> & {
@@ -8,10 +8,9 @@ export type LinkProps =
       block?: boolean
       inner?: boolean
       className?: string
-      children: ReactNode
     }
 
-export const Link: FC<LinkProps> = ({
+export const Link: FCC<LinkProps> = ({
   href,
   children,
   block = false,

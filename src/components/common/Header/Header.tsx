@@ -1,15 +1,13 @@
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { FCC } from '#types/types'
 import { useRouter } from 'next/router'
-import React, { FC } from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import React from 'react'
 import style from './Header.module.sass'
 import { MenuLink } from './MenuLink'
 
-type HeaderProps = {
-  colors: RandomColors
-}
-
-export const Header: FC<HeaderProps> = ({ colors }) => {
+export const Header: FCC = () => {
   const { asPath } = useRouter()
+  const { colors } = useColorContext()
 
   return (
     <div

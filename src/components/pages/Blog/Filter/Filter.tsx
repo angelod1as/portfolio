@@ -1,15 +1,16 @@
 import React, { FC } from 'react'
 import { Root as ToggleGroup } from '@radix-ui/react-toggle-group'
 import { FilterItem } from './FilterItem'
-import { RandomColors } from 'src/helpers/colors'
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
 
 type FilterProps = {
   order: string
   handleOrder: (value: string) => void
-  colors: RandomColors
 }
 
-export const Filter: FC<FilterProps> = ({ order, handleOrder, colors }) => {
+export const Filter: FC<FilterProps> = ({ order, handleOrder }) => {
+  const { colors } = useColorContext()
+
   const ordering = [
     {
       value: 'descending',
@@ -36,7 +37,6 @@ export const Filter: FC<FilterProps> = ({ order, handleOrder, colors }) => {
             label={label}
             value={value}
             checked={value === order}
-            colors={colors}
           />
         ))}
       </ToggleGroup>

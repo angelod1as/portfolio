@@ -1,19 +1,15 @@
 import { MDX } from '#components/common/MDX'
 import { NewHead } from '#components/common/NewHead'
 import { BlogPostProps } from '#pages/blog/[slug]'
-import React, { FC } from 'react'
+import { FCC } from '#types/types'
+import React from 'react'
 
-export const Post: FC<BlogPostProps> = ({ content, colors }) => {
+export const Post: FCC<BlogPostProps> = ({ content }) => {
   const { compiledSource, metadata } = content
   return (
     <>
       <NewHead title={metadata?.title} />
-      <MDX
-        blogPost
-        mdx={{ compiledSource }}
-        colors={colors}
-        metadata={metadata}
-      />
+      <MDX blogPost mdx={{ compiledSource }} metadata={metadata} />
     </>
   )
 }

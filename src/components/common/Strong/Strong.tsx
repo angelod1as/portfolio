@@ -1,7 +1,6 @@
-import { FC, ReactNode } from 'react'
+import { FCC } from '#types/types'
 import { TextColor } from 'src/helpers/colors'
 
-export const Strong: FC<{ children: ReactNode; color: TextColor }> = ({
-  children,
-  color,
-}) => <strong className={color}>{children}</strong>
+export const Strong: FCC<{ color: TextColor }> = ({ children, color }) => (
+  <strong className={color}>{children}</strong>
+)

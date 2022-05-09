@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { FCC } from '#types/types'
+import React from 'react'
 import { Link } from '../Links'
 
 export type CTAProps = {
   title?: string
-  children: ReactNode
   inner?: boolean
   href: string
-  colors: RandomColors
 }
 
-export const CTA = ({ children, title, href, colors }: CTAProps) => {
+export const CTA: FCC<CTAProps> = ({ children, title, href }) => {
+  const { colors } = useColorContext()
+
   const text = colors.bgColor?.includes('bg-yellow')
     ? 'text-black'
     : 'text-white'

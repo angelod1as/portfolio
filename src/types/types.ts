@@ -1,8 +1,13 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { FC, PropsWithChildren, ReactNode } from 'react'
+
+// React
+
+export type FCC<T = unknown> = FC<PropsWithChildren<T>>
 
 // MDX
 export type MDXProps = MDXRemoteSerializeResult & {
-  components?: Record<string, JSX.Element>
+  components?: Record<string, ReactNode>
   lazy?: boolean
 }
 

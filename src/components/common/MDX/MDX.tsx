@@ -1,7 +1,7 @@
-import { DefaultMetadata, MDXProps } from '#types/types'
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { DefaultMetadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
-import React from 'react'
-import { RandomColors } from 'src/helpers/colors'
+import React, { ReactNode } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { globalComponents } from './globalComponents'
 import styles from './MDX.module.sass'
@@ -10,16 +10,16 @@ import { parseComponents } from './parseComponents'
 type Props = {
   mdx: MDXProps
   blogPost?: boolean
-  colors: RandomColors
   metadata: DefaultMetadata | undefined
 }
 
-export const MDX = ({ mdx, colors, blogPost, metadata }: Props) => {
+export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
+  const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
   const mergedComponents = {
     ...components,
-    ...globalComponents({ colors }),
+    ...(globalComponents() as unknown as Record<string, ReactNode>),
   }
 
   const parsedComponents = parseComponents({

@@ -2,11 +2,15 @@ import { createContext, useContext } from 'react'
 import { RandomColors } from 'src/helpers/colors'
 
 export type ColorContextValue = {
-  colors: RandomColors | undefined
+  colors: RandomColors
 }
 
 const initialValues: ColorContextValue = {
-  colors: undefined,
+  colors: {
+    bgColor: 'bg-yellow',
+    borderColor: 'border-yellow',
+    textColor: 'text-yellow',
+  },
 }
 
 const ColorContext = createContext<ColorContextValue>(initialValues)

@@ -3,20 +3,19 @@ import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { BlogPostMetadata } from '#types/types'
 import { GetStaticProps } from 'next'
 import React, { FC } from 'react'
-import { RandomColors, randomColors } from 'src/helpers/colors'
+import { randomColors } from 'src/helpers/colors'
 
 type BlogPageProps = {
   posts: Array<{
     metadata: Partial<BlogPostMetadata> | undefined
     slug: string
   }>
-  colors: RandomColors
 }
 
-const BlogPage: FC<BlogPageProps> = ({ posts, colors }) => {
+const BlogPage: FC<BlogPageProps> = ({ posts }) => {
   const filteredPosts = posts.filter(post => post.metadata) as PostProps
 
-  return <Blog posts={filteredPosts} colors={colors} />
+  return <Blog posts={filteredPosts} />
 }
 
 type GetStaticPropsType = {

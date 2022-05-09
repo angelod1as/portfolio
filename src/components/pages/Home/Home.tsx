@@ -1,6 +1,7 @@
 import { HomeSection } from '#components/common/HomeSection'
 import { Link, LinkProps } from '#components/common/Links'
-import React, { FC, ReactNode } from 'react'
+import { FCC } from '#types/types'
+import React from 'react'
 import { textColor } from 'src/helpers/colors'
 import { Am, Generalist, Opening, Want, Was, Colophon } from './Sections'
 
@@ -33,11 +34,11 @@ export function Home() {
   return (
     <>
       {sections.map(({ Component, color }, index) => {
-        const Strong: FC<{ children: ReactNode }> = ({ children }) => (
+        const Strong: FCC = ({ children }) => (
           <strong className={color}>{children}</strong>
         )
 
-        const ColorLink: FC<LinkProps> = props => (
+        const ColorLink: FCC<LinkProps> = props => (
           <Link className={color} {...props}>
             {props.children}
           </Link>
