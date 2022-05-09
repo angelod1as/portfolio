@@ -8,7 +8,7 @@ export const Page: FC<PageProps> = ({ colors, content }) => {
   return (
     <>
       <NewHead title={metadata?.title} />
-      <MDX mdx={{ compiledSource }} colors={colors} />
+      <MDX mdx={{ compiledSource }} colors={colors} metadata={metadata} />
     </>
   )
 }

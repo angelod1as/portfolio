@@ -2,6 +2,7 @@ import { Link } from '#components/common/Links'
 import { BlogPostMetadata } from '#types/types'
 import { FC, useState } from 'react'
 import { RandomColors } from 'src/helpers/colors'
+import { TimestampToDate } from 'src/helpers/TimestampToDate'
 
 export type PostProps = Array<{
   metadata: Partial<BlogPostMetadata>
@@ -65,9 +66,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
               {metadata.createdAt && (
                 <span className="ml-2">
                   <small className="opacity-80">
-                    {new Intl.DateTimeFormat('pt').format(
-                      new Date(metadata.createdAt)
-                    )}
+                    {TimestampToDate(metadata.createdAt)}
                   </small>
                 </span>
               )}

@@ -6,20 +6,18 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
 import { MDXReturn } from '#lib/MDX/compileMDX'
 import { RandomColors, randomColors } from 'src/helpers/colors'
+import { DefaultMetadata } from '#types/types'
 
-type PageMetadata = {
-  title: string
-}
 export type PageProps = {
   colors: RandomColors
-  content: MDXReturn<PageMetadata>
+  content: MDXReturn<DefaultMetadata>
 }
 
 const AnyPage: FC<PageProps> = ({ content, colors }) => {
   return <Page content={content} colors={colors} />
 }
 
-type PageTypes = Partial<PageMetadata>
+type PageTypes = Partial<DefaultMetadata>
 
 type ParamsType = Array<{
   params: {

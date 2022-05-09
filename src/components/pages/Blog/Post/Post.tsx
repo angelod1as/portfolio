@@ -8,7 +8,12 @@ export const Post: FC<BlogPostProps> = ({ content, colors }) => {
   return (
     <>
       <NewHead title={metadata?.title} />
-      <MDX blogPost mdx={{ compiledSource }} colors={colors} />
+      <MDX
+        blogPost
+        mdx={{ compiledSource }}
+        colors={colors}
+        metadata={metadata}
+      />
     </>
   )
 }
