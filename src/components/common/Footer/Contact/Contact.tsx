@@ -49,7 +49,7 @@ type Props = {
 const Social = ({ children, href, color }: Props) => (
   <Link
     href={href}
-    className={`flex items-center justify-center h-10 w-10 md:h-24 md:w-24 p-2 ${color}`}
+    className={`flex  items-center justify-center h-10 w-10 md:h-24 md:w-24 p-2 ${color}`}
   >
     {children}
   </Link>

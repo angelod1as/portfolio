@@ -1,16 +1,18 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-// Blog Post
-export type BlogPostMetadata = {
-  title: string
-  color: string
-  createdAt: number
-  description: string
-}
-
 // MDX
-
 export type MDXProps = MDXRemoteSerializeResult & {
   components?: Record<string, React.ReactNode>
   lazy?: boolean
+}
+
+export type DefaultMetadata = {
+  title: string
+  createdAt?: number
+}
+
+// Blog Post
+export type BlogPostMetadata = DefaultMetadata & {
+  description: string
+  draft?: boolean
 }

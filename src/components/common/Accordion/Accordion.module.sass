@@ -1,0 +1,20 @@
+@keyframes open
+  from
+    height: 0
+  to
+    height: var(--radix-accordion-content-height)
+
+@keyframes close
+  from
+    height: var(--radix-accordion-content-height)
+  to
+    height: 0
+
+.transition
+  overflow: hidden
+  animation-duration: 300ms
+  animation-timing-function: ease-out
+  &[data-state="open"]
+    animation-name: open
+  &[data-state="closed"]
+    animation-name: close

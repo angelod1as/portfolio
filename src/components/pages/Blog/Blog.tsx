@@ -2,6 +2,8 @@ import { Link } from '#components/common/Links'
 import { BlogPostMetadata } from '#types/types'
 import { FC, useState } from 'react'
 import { RandomColors } from 'src/helpers/colors'
+import { TimestampToDate } from 'src/helpers/TimestampToDate'
+import { Filter } from './Filter'
 
 export type PostProps = Array<{
   metadata: Partial<BlogPostMetadata>
@@ -22,7 +24,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
     }
   }
 
-  const sortedPosts = posts.sort((a, b) => {
+  const blogPosts = posts.sort((a, b) => {
     if (!a.metadata.createdAt || !b.metadata.createdAt) {
       return 0
     }
@@ -50,10 +52,10 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      {/* <Filter order={order} handleOrder={handleOrder} /> */}
-      <ul className="relative pl-6">
-        {sortedPosts.map(({ slug, metadata }) => (
-          <li key={slug} className="">
+      <Filter order={order} handleOrder={handleOrder} colors={colors} />
+      <ul className="flex flex-col gap-16">
+        {blogPosts.map(({ slug, metadata }) => (
+          <li key={slug} className="relative pl-6">
             <div
               className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`}
             />
@@ -65,9 +67,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
               {metadata.createdAt && (
                 <span className="ml-2">
                   <small className="opacity-80">
-                    {new Intl.DateTimeFormat('pt').format(
-                      new Date(metadata.createdAt)
-                    )}
+                    {TimestampToDate(metadata.createdAt)}
                   </small>
                 </span>
               )}
