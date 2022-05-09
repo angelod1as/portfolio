@@ -3,6 +3,7 @@ import { BlogPostMetadata } from '#types/types'
 import { FC, useState } from 'react'
 import { RandomColors } from 'src/helpers/colors'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
+import { Filter } from './Filter'
 
 export type PostProps = Array<{
   metadata: Partial<BlogPostMetadata>
@@ -51,7 +52,7 @@ export const Blog: FC<BlogProps> = ({ posts, colors }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      {/* <Filter order={order} handleOrder={handleOrder} /> */}
+      <Filter order={order} handleOrder={handleOrder} colors={colors} />
       <ul className="flex flex-col gap-16">
         {blogPosts.map(({ slug, metadata }) => (
           <li key={slug} className="relative pl-6">
