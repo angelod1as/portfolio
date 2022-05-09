@@ -1,13 +1,14 @@
 import { Footer } from '#components/common/Footer'
 import { Header } from '#components/common/Header'
 import { MDXProvider } from '@mdx-js/react'
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { RandomColors } from 'src/helpers/colors'
 
 const components = {}
 
 type ProvidersType = {
   colors: RandomColors
+  children: ReactNode
 }
 
 export const Providers: FC<ProvidersType> = ({ children, colors }) => {

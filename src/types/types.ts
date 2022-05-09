@@ -2,7 +2,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 // MDX
 export type MDXProps = MDXRemoteSerializeResult & {
-  components?: Record<string, React.ReactNode>
+  components?: Record<string, JSX.Element>
   lazy?: boolean
 }
 

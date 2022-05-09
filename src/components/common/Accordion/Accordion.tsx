@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { Root, Item, Header, Trigger, Content } from '@radix-ui/react-accordion'
 import { RandomColors } from 'src/helpers/colors'
 import styles from './Accordion.module.sass'
@@ -6,6 +6,7 @@ import styles from './Accordion.module.sass'
 type AccordionProps = {
   title: string
   colors: RandomColors
+  children: ReactNode
 }
 
 export const Accordion: FC<AccordionProps> = ({ children, title, colors }) => {

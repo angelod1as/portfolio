@@ -1,17 +1,10 @@
-import { Link } from '#components/common/Links'
 import React, { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Was: FC<SectionProps> = ({ color }) => {
-  const Strong: FC = ({ children }) => (
-    <strong className={color}>{children}</strong>
-  )
-
-  const ColorLink: typeof Link = props => (
-    <Link className={color} {...props}>
-      {props.children}
-    </Link>
-  )
+export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
+  if (!Strong || !ColorLink) {
+    return null
+  }
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { ReactNode } from '@mdx-js/react/lib'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import React, { FC } from 'react'
 
@@ -7,6 +8,7 @@ export type LinkProps =
       block?: boolean
       inner?: boolean
       className?: string
+      children: ReactNode
     }
 
 export const Link: FC<LinkProps> = ({

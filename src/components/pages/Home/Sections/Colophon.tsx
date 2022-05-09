@@ -1,9 +1,9 @@
 import { Link } from '#components/common/Links'
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { SectionProps } from '.'
 
 export const Colophon: FC<SectionProps> = ({ color }) => {
-  const Strong: FC = ({ children }) => (
+  const Strong: FC<{ children: ReactNode }> = ({ children }) => (
     <strong className={color}>{children}</strong>
   )
 
