@@ -33,8 +33,8 @@ export const MDX = ({ mdx, colors, blogPost, metadata }: Props) => {
     <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
       <MDXRemote {...rest} components={parsedComponents} />
       {blogPost && metadata?.createdAt && (
-        <p className="mt-8">
-          Published at {TimestampToDate(metadata.createdAt)}
+        <p className="mt-8 text-sm opacity-70">
+          Published at {TimestampToDate(metadata.createdAt)}. Share abundantly.
         </p>
       )}
     </div>
