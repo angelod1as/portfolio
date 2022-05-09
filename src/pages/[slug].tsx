@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type GetStaticPropsType = {
-  data?: PageMetadata
+  data?: DefaultMetadata
   compiledSource?: string
   colors: RandomColors
 }
