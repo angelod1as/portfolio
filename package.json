@@ -20,6 +20,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rehype-autolink-headings": "^6.1.1",
+    "rehype-highlight": "^5.0.2",
     "rehype-slug": "^5.0.1",
     "sass": "^1.51.0",
     "slugify": "^1.6.5"

@@ -61,6 +61,11 @@ export const parseComponents = ({ components = {}, colors }: Props) => {
         {props.children}
       </h6>
     ),
+    pre: (props: JSX.IntrinsicElements['pre']) => (
+      <pre className="mb-4" {...props}>
+        {props.children}
+      </pre>
+    ),
     ...components,
   }
 }

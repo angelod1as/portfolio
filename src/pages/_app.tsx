@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Providers } from '#components/pages/Providers/Providers'
+import 'highlight.js/styles/base16/tomorrow-night.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
