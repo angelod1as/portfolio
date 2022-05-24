@@ -10,6 +10,7 @@
     "ts": "tsc --noEmit --incremental"
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/react": "^2.1.1",
     "@radix-ui/react-accordion": "^0.1.6",
     "@radix-ui/react-toggle-group": "^0.1.5",
@@ -20,6 +21,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rehype-autolink-headings": "^6.1.1",
+    "rehype-highlight": "^5.0.2",
     "rehype-slug": "^5.0.1",
     "sass": "^1.51.0",
     "slugify": "^1.6.5"
