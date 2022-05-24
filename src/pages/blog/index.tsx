@@ -1,5 +1,6 @@
 import { Blog, PostProps } from '#components/pages/Blog'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
+import { generateRssFeed } from '#lib/RSS/generateRssFeed'
 import { BlogPostMetadata } from '#types/types'
 import { GetStaticProps } from 'next'
 import React, { FC } from 'react'
@@ -36,6 +37,8 @@ export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
       slug,
     }))
     .filter(post => !post?.metadata?.draft)
+
+  await generateRssFeed(posts)
 
   const colors = randomColors()
 
