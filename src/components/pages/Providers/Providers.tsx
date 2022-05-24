@@ -10,9 +10,10 @@ const components = {}
 
 type ProvidersType = {
   colors: RandomColors
+  slug?: string
 }
 
-export const Providers: FCC<ProvidersType> = ({ children, colors }) => {
+export const Providers: FCC<ProvidersType> = ({ children, colors, slug }) => {
   return (
     <ColorContextProvider value={{ colors }}>
       <MDXProvider components={components}>
@@ -21,7 +22,7 @@ export const Providers: FCC<ProvidersType> = ({ children, colors }) => {
           <div className="flex flex-col max-w-xl gap-16 px-4 pt-32 pb-16 m-auto md:pt-40">
             {children}
           </div>
-          <Footer />
+          <Footer slug={slug} />
         </div>
       </MDXProvider>
     </ColorContextProvider>

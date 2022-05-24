@@ -1,11 +1,25 @@
+import { useColorContext } from '#components/pages/Providers/ColorProvider'
 import React from 'react'
-import { textColor } from 'src/helpers/colors'
+import {
+  textColor as defaultTextColor,
+  bgColor as defaultBgColor,
+  borderColor as defaultBorderColor,
+} from 'src/helpers/colors'
 
-export const Subscribe = () => {
+type SubscribeProps = {
+  inner?: boolean
+}
+
+export const Subscribe = ({ inner }: SubscribeProps) => {
+  const { colors } = useColorContext()
+  const textColor = colors?.textColor ?? defaultTextColor[0]
+  const bgColor = colors?.bgColor ?? defaultBgColor[0]
+  const borderColor = colors?.borderColor ?? defaultBorderColor[0]
+
   return (
     <form method="post" action="https://blogtrottr.com">
-      <h2 className="mb-10 h2-as-h1">
-        Subscribe to my <span className={textColor[0]}>blog</span>
+      <h2 className={`mb-10 ${inner ? '' : 'h2-as-h1'}`}>
+        Subscribe to my <span className={textColor}>blog</span>
       </h2>
       <div className="flex items-center gap-4 mb-8">
         <label htmlFor="btr_email" className="whitespace-nowrap">
@@ -25,7 +39,11 @@ export const Subscribe = () => {
           value="https://www.angelodias.com.br/rss/feed.xml"
         />
         <input type="hidden" name="schedule_type" value="0" />
-        <input type="submit" value="Follow" />
+        <input
+          type="submit"
+          value="Follow"
+          className={`${bgColor} ${borderColor}`}
+        />
       </div>
       <p>
         PS: I use a free service called{' '}

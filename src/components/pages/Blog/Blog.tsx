@@ -1,4 +1,5 @@
 import { Link } from '#components/common/Links'
+import { Subscribe } from '#components/common/Subscribe'
 import { BlogPostMetadata, FCC } from '#types/types'
 import { useState } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
@@ -12,6 +13,7 @@ export type PostProps = Array<{
 
 export type BlogProps = {
   posts: PostProps
+  slug?: string
 }
 
 export const Blog: FCC<BlogProps> = ({ posts }) => {
@@ -52,9 +54,10 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
           reflection.
         </p>
         <p>
-          Read at your peril and <Strong>share abundantly</Strong>.
+          Read at your peril and <Strong>share\ abundantly</Strong>.
         </p>
       </div>
+      <Subscribe inner />
       <Filter order={order} handleOrder={handleOrder} />
       <ul className="flex flex-col gap-16">
         {blogPosts.map(({ slug, metadata }) => (
@@ -62,7 +65,7 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
             <div
               className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`}
             />
-            <Link inner href={`/blog/${slug}`} className={colors.textColor}>
+            <Link inner href={`/blog/${slug}`}>
               <h2>{metadata.title}</h2>
             </Link>
             <p className="mb-0">

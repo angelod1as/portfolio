@@ -4,7 +4,7 @@
         <title>My name is Angelo and I do Blogging</title>
         <link>https://www.angelodias.com.br/blog</link>
         <description>Thoughts and ideas on anything, from tech to nonsense</description>
-        <lastBuildDate>Tue, 24 May 2022 17:53:13 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 May 2022 19:13:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -16,8 +16,8 @@
         <copyright>All rights reserved 2021, Angelo Dias</copyright>
         <item>
             <title><![CDATA[How I became a developer]]></title>
-            <link>https://www.angelodias.com.br//blog/2021-12-20-how-i-became-a-developer</link>
-            <guid>https://www.angelodias.com.br//blog/2021-12-20-how-i-became-a-developer</guid>
+            <link>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</link>
+            <guid>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</guid>
             <pubDate>Fri, 20 May 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[The bar was too high and I'm afraid o heights]]></description>
             <content:encoded><![CDATA[The bar was too high and I'm afraid o heights]]></content:encoded>
@@ -25,8 +25,8 @@
         </item>
         <item>
             <title><![CDATA[I will do this my way.]]></title>
-            <link>https://www.angelodias.com.br//blog/2021-12-25-start</link>
-            <guid>https://www.angelodias.com.br//blog/2021-12-25-start</guid>
+            <link>https://www.angelodias.com.br/blog/2021-12-25-start</link>
+            <guid>https://www.angelodias.com.br/blog/2021-12-25-start</guid>
             <pubDate>Sat, 25 Dec 2021 22:27:22 GMT</pubDate>
             <description><![CDATA[A summary of the journey so far.]]></description>
             <content:encoded><![CDATA[A summary of the journey so far.]]></content:encoded>
@@ -34,8 +34,8 @@
         </item>
         <item>
             <title><![CDATA[Zen in Kobayashi Maru]]></title>
-            <link>https://www.angelodias.com.br//blog/2022-05-01-kobayashi-maru</link>
-            <guid>https://www.angelodias.com.br//blog/2022-05-01-kobayashi-maru</guid>
+            <link>https://www.angelodias.com.br/blog/2022-05-01-kobayashi-maru</link>
+            <guid>https://www.angelodias.com.br/blog/2022-05-01-kobayashi-maru</guid>
             <pubDate>Sun, 01 May 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[How to live in peace when shit hits the fan]]></description>
             <content:encoded><![CDATA[How to live in peace when shit hits the fan]]></content:encoded>
@@ -43,8 +43,8 @@
         </item>
         <item>
             <title><![CDATA[I gave up on my fountain pen]]></title>
-            <link>https://www.angelodias.com.br//blog/2022-05-15-i-gave-up-on-my-fountain-pen</link>
-            <guid>https://www.angelodias.com.br//blog/2022-05-15-i-gave-up-on-my-fountain-pen</guid>
+            <link>https://www.angelodias.com.br/blog/2022-05-15-i-gave-up-on-my-fountain-pen</link>
+            <guid>https://www.angelodias.com.br/blog/2022-05-15-i-gave-up-on-my-fountain-pen</guid>
             <pubDate>Sun, 15 May 2022 12:31:33 GMT</pubDate>
             <description><![CDATA[The best tool is the one that fits]]></description>
             <content:encoded><![CDATA[The best tool is the one that fits]]></content:encoded>
