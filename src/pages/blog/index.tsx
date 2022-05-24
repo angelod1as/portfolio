@@ -46,6 +46,7 @@ export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
     props: {
       posts,
       colors,
+      slug: 'blog',
     },
   }
 }

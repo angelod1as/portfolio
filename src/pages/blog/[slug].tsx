@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<
   const colors = randomColors(content?.metadata?.color)
 
   return {
-    props: { content, colors },
+    props: { content, colors, slug: context.params.slug },
   }
 }
 

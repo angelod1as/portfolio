@@ -14,9 +14,9 @@ export const Contact: FCC = () => {
   const { colors } = useColorContext()
 
   return (
-    <div className="max-w-xl p-4 m-auto">
+    <div>
       <h2 className="h2-as-h1">
-        contact me <span className={colors.textColor}>anytime</span>
+        Contact me <span className={colors.textColor}>anytime</span>
       </h2>
 
       <div className="flex justify-between gap-4 mt-10">

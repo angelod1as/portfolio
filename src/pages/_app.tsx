@@ -6,7 +6,7 @@ import 'highlight.js/styles/base16/tomorrow-night.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Providers colors={pageProps.colors}>
+    <Providers {...pageProps}>
       <FirstHead />
       <Component {...pageProps} />
     </Providers>
