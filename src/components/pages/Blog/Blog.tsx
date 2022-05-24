@@ -54,7 +54,7 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
           reflection.
         </p>
         <p>
-          Read at your peril and <Strong>share\ abundantly</Strong>.
+          Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
       <Subscribe inner />
