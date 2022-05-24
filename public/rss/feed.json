@@ -1,0 +1,62 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "My name is Angelo and I do Blogging",
+    "home_page_url": "https://www.angelodias.com.br/blog",
+    "feed_url": "https://www.angelodias.com.br/json",
+    "description": "Thoughts and ideas on anything, from tech to nonsense",
+    "icon": "https://www.angelodias.com.br/social.png",
+    "author": {
+        "name": "Angelo Dias",
+        "url": "https://www.angelodias.com.br/"
+    },
+    "items": [
+        {
+            "id": "https://www.angelodias.com.br//blog/2021-12-20-how-i-became-a-developer",
+            "content_html": "The bar was too high and I'm afraid o heights",
+            "url": "https://www.angelodias.com.br//blog/2021-12-20-how-i-became-a-developer",
+            "title": "How I became a developer",
+            "summary": "The bar was too high and I'm afraid o heights",
+            "date_modified": "2022-05-20T00:00:00.000Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br/"
+            }
+        },
+        {
+            "id": "https://www.angelodias.com.br//blog/2021-12-25-start",
+            "content_html": "A summary of the journey so far.",
+            "url": "https://www.angelodias.com.br//blog/2021-12-25-start",
+            "title": "I will do this my way.",
+            "summary": "A summary of the journey so far.",
+            "date_modified": "2021-12-25T22:27:22.431Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br/"
+            }
+        },
+        {
+            "id": "https://www.angelodias.com.br//blog/2022-05-01-kobayashi-maru",
+            "content_html": "How to live in peace when shit hits the fan",
+            "url": "https://www.angelodias.com.br//blog/2022-05-01-kobayashi-maru",
+            "title": "Zen in Kobayashi Maru",
+            "summary": "How to live in peace when shit hits the fan",
+            "date_modified": "2022-05-01T00:00:00.000Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br/"
+            }
+        },
+        {
+            "id": "https://www.angelodias.com.br//blog/2022-05-15-i-gave-up-on-my-fountain-pen",
+            "content_html": "The best tool is the one that fits",
+            "url": "https://www.angelodias.com.br//blog/2022-05-15-i-gave-up-on-my-fountain-pen",
+            "title": "I gave up on my fountain pen",
+            "summary": "The best tool is the one that fits",
+            "date_modified": "2022-05-15T12:31:33.840Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br/"
+            }
+        }
+    ]
+}
