@@ -2,6 +2,17 @@ export type RandomColors = {
   textColor: TextColor
   bgColor: BgColor
   borderColor: BorderColor
+  beforeTextColor: BeforeTextColor
+}
+
+type Prefix = 'bg-' | 'text-' | 'border-' | 'before:text-'
+
+const generateColors = <T>(color: string, group: T[], prefix: Prefix) => {
+  const colorDefault = `${prefix}${color}` as unknown as T
+  const colorIndex = group.indexOf(colorDefault)
+  const colorString = colorIndex >= 0 ? group[colorIndex] : group[0]
+
+  return colorString
 }
 
 export const randomColors = (color?: string | undefined): RandomColors => {
@@ -13,27 +24,19 @@ export const randomColors = (color?: string | undefined): RandomColors => {
       textColor: textColor[index],
       bgColor: bgColor[index],
       borderColor: borderColor[index],
+      beforeTextColor: beforeTextColor[index],
     }
   }
 
-  const bgDefault = `bg-${color}` as BgColor
-  const bgColorIndex = bgColor.indexOf(bgDefault)
-  const bgColorString = bgColorIndex >= 0 ? bgColor[bgColorIndex] : bgColor[0]
-
-  const textDefault = `text-${color}` as TextColor
-  const textColorIndex = textColor.indexOf(textDefault)
-  const textColorString =
-    textColorIndex >= 0 ? textColor[textColorIndex] : textColor[0]
-
-  const borderDefault = `border-${color}` as BorderColor
-  const borderColorIndex = borderColor.indexOf(borderDefault)
-  const borderColorString =
-    borderColorIndex >= 0 ? borderColor[borderColorIndex] : borderColor[0]
-
   return {
-    bgColor: bgColorString,
-    textColor: textColorString,
-    borderColor: borderColorString,
+    bgColor: generateColors<BgColor>(color, bgColor, 'bg-'),
+    textColor: generateColors<TextColor>(color, textColor, 'text-'),
+    borderColor: generateColors<BorderColor>(color, borderColor, 'border-'),
+    beforeTextColor: generateColors<BeforeTextColor>(
+      color,
+      beforeTextColor,
+      'before:text-'
+    ),
   }
 }
 
@@ -72,4 +75,15 @@ export const borderColor: BorderColor[] = [
   'border-blue',
   'border-green',
   'border-red',
+]
+
+export type BeforeTextColor = `before:${TextColor}`
+
+export const beforeTextColor: BeforeTextColor[] = [
+  'before:text-purple',
+  'before:text-yellow',
+  'before:text-pink',
+  'before:text-blue',
+  'before:text-green',
+  'before:text-red',
 ]
