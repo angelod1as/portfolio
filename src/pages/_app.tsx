@@ -18,6 +18,7 @@ function FirstHead() {
     <Head>
       {/* AVOID CHANGING IN STYLE */}
       <meta name="color-scheme" content="light only" />
+      <meta name="color-scheme" content="only" />
 
       {/* FONTS */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />

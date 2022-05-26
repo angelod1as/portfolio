@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light only
+}
+
 html {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
