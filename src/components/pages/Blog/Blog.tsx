@@ -3,7 +3,7 @@ import { Subscribe } from '#components/common/Subscribe'
 import { BlogPostMetadata, FCC } from '#types/types'
 import { useState } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
-import { useColorContext } from '../Providers/ColorProvider'
+import { useColorContext } from '../../templates/Providers/ColorProvider'
 import { Filter } from './Filter'
 
 export type PostProps = Array<{

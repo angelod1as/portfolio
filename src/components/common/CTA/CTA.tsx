@@ -1,4 +1,4 @@
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 import React from 'react'
 import { Link } from '../Links'

@@ -1,4 +1,4 @@
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { Item } from '@radix-ui/react-toggle-group'
 import React, { FC } from 'react'
 import style from './FilterItem.module.sass'

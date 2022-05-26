@@ -7,7 +7,7 @@ import twitter from 'public/social/twitter.svg'
 import linkedin from 'public/social/linkedin.svg'
 import Image from 'next/image'
 import { Link } from '#components/common/Links'
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 
 export const Contact: FCC = () => {

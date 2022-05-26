@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Root as ToggleGroup } from '@radix-ui/react-toggle-group'
 import { FilterItem } from './FilterItem'
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 
 type FilterProps = {
   order: string

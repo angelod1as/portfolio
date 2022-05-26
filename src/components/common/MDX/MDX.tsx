@@ -1,4 +1,4 @@
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { DefaultMetadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React, { ReactNode } from 'react'
