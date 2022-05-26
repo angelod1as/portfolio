@@ -1,6 +1,6 @@
 import { Footer } from '#components/common/Footer'
 import { Header } from '#components/common/Header'
-import ProgressBar from '#components/common/ProgressBar/ProgressBar'
+import { ProgressBar } from '#components/common/ProgressBar'
 import { FCC } from '#types/types'
 import React from 'react'
 
