@@ -19,7 +19,7 @@ export const Subscribe = ({ inner }: SubscribeProps) => {
   return (
     <form method="post" action="https://blogtrottr.com">
       <h2 className={`mb-10 ${inner ? '' : 'h2-as-h1'}`}>
-        Subscribe to my <span className={textColor}>blog</span>
+        <span className={textColor}>Subscribe</span> to my blog
       </h2>
       <div className="flex items-center gap-4 mb-8">
         <label htmlFor="btr_email" className="whitespace-nowrap">

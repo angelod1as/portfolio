@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.angelodias.com.br/blog</id>
     <title>My name is Angelo and I do Blogging</title>
-    <updated>2022-05-26T15:49:43.350Z</updated>
+    <updated>2022-05-26T16:01:02.921Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Angelo Dias</name>
@@ -52,12 +52,12 @@
         </contributor>
     </entry>
     <entry>
-        <title type="html"><![CDATA[I will do this my way.]]></title>
+        <title type="html"><![CDATA[I will do this my way]]></title>
         <id>https://www.angelodias.com.br/blog/2021-12-25-start</id>
         <link href="https://www.angelodias.com.br/blog/2021-12-25-start"/>
         <updated>2021-12-25T22:27:22.431Z</updated>
-        <summary type="html"><![CDATA[A summary of the journey so far.]]></summary>
-        <content type="html"><![CDATA[A summary of the journey so far.]]></content>
+        <summary type="html"><![CDATA[A summary of the journey so far]]></summary>
+        <content type="html"><![CDATA[A summary of the journey so far]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>
