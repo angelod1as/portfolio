@@ -1,10 +1,9 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { useEffect, useState } from 'react'
 
-export default function ProgressBar() {
-  // Width State
+export const ProgressBar = () => {
   const [width, setWidth] = useState(0)
-  // scroll function
+
   const scrollHeight = () => {
     const el = document.documentElement
     const ScrollTop = el.scrollTop || document.body.scrollTop
@@ -25,7 +24,6 @@ export default function ProgressBar() {
         style={{ width: `${width}%` }}
         className={`h-full ${colors.bgColor}`}
       />
-      {/* <div className="w-full h-full" /> */}
     </div>
   )
 }
