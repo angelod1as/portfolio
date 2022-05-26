@@ -11,11 +11,23 @@
     },
     "items": [
         {
+            "id": "https://www.angelodias.com.br/blog/2021-05-23-iteration",
+            "content_html": "it's Agile, but accidentally",
+            "url": "https://www.angelodias.com.br/blog/2021-05-23-iteration",
+            "title": "Iteration as mantra",
+            "summary": "it's Agile, but accidentally",
+            "date_modified": "2022-05-24T19:28:41.482Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br"
+            }
+        },
+        {
             "id": "https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer",
-            "content_html": "The bar was too high and I'm afraid o heights",
+            "content_html": "The bar was too high and I'm afraid of heights",
             "url": "https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer",
             "title": "How I became a developer",
-            "summary": "The bar was too high and I'm afraid o heights",
+            "summary": "The bar was too high and I'm afraid of heights",
             "date_modified": "2022-05-20T00:00:00.000Z",
             "author": {
                 "name": "Angelo Dias",
