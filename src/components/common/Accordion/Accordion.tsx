@@ -1,7 +1,7 @@
 import { Root, Item, Header, Trigger, Content } from '@radix-ui/react-accordion'
 import styles from './Accordion.module.sass'
 import { FCC } from '#types/types'
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 
 type AccordionProps = {
   title: string

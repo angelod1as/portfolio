@@ -1,4 +1,4 @@
-import { useColorContext } from '#components/pages/Providers/ColorProvider'
+import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React from 'react'
 import {
   textColor as defaultTextColor,
