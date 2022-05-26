@@ -1,0 +1,244 @@
+---
+title: Iteration as mantra
+createdAt: 1653420521482
+description: it's Agile, but accidentally
+---
+
+# Iteration as **mantra**
+
+## Disclaimer
+
+First of all: this is not a technical story. It looks technical, reads technical, and even _smells technical_. I put some effort into making it more straightforward and hiding some context into a neat folding component.
+
+## Defining iteration
+
+When I start a **new project**, I usually have it laid out in my mind from **start to finish**. I imagine the size of the book, the colors on the cover, the illustrations between chapters, and even the **cool signing event** I'm going to get drunk at.
+
+Before I write the first I'm already imagining the finished product. This text, for instance, is a **beautifully written** summary of how project management crept into my personal life in a way I **couldn't predict**. It's also, in my imagination, an instant hit, a viral of sorts, that will bring the **golden age of blogs** back and will break the server I host this website after so many people accessing it at the same time.
+
+The world, though, is **very different from our imagination**.
+
+Things don't happen in an orderly fashion, one fact after another, as predicted and expected. **Life is chaos**, things are weird, and [the vida is loka](https://www.youtube.com/watch?v=Fu5kcgz73TY). It's impossible to have a plan that works 100% how it's supposed without **mitigating some risk**.
+
+<Parenthesis about="The Waterfall Method">
+
+I did 2 years of Project Management postgraduation. I didn't finish it, as I needed to do final work on **Traditional Project Management** and, oh boy, I hated it.
+
+For those of you who have no idea what I'm talking about: **Traditional Project Management**, also known as **The Waterfall Method**, is simply planning things from start to finish, in high fidelity and fine detail.
+
+As an example, we are going to build a house. Let's plan every single detail based on a few TPM principles:
+
+- what will be done;
+- when it will start being done;
+- who will do it;
+- how much time will it take;
+- what are the risks involved.
+
+So, we break down tasks into smaller tasks and start planning:
+
+- We need to build the house's foundation;
+- It will be started tomorrow;
+- It will be done by three builders;
+- It will take 2 weeks;
+- It might rain, which will wet the concrete and delay the job for at least two days.
+
+Apart from my obvious **zero** knowledge on how to build a house (or what a foundation is), it's possible to see the problem with Waterfall when we add stuff to the list.
+
+- Foundation
+  - Starts tomorrow (01/01)
+  - Done by three builders
+  - Finishes 2 weeks later (14/01)
+  - May be delayed if it rains (3 days)
+- Concrete floor
+  - Starts 1 day after Foundation finishes (15/01)
+  - Done by three builders
+  - Finishes in 2 days (17/01)
+  - May be delayed if it rains (3 days)
+- Walls
+  - Starts 3 days after the concrete floor is finished (18/01)
+  - Done by three builders
+  - Finishes in 7 days (25/01)
+  - May be delayed if it rains (3 days)
+
+So far we've got nice planning that can take 25 five days if rain does not touch the project, up to 34 days if it rains once in each step. But what happens if it rains **every single day**?
+
+That's a bummer, of course, but that should be planned as well. Also, we're planning three builders in each step, but "OMG builder number 2 had an issue and won't come to Step 1", so **all the steps have to be recalculated** after that.
+
+That's why the name: **Waterfall** method: if something changes, the **whole project changes** from that moment on, like a proper waterfall carrying everything downstream.
+
+### Against my belief, it works
+
+I don't like the Waterfall method, but it works for some industries, especially (ironically, because of my examples) the construction industry.
+
+That's why construction firms have dedicated (and very well paid) **risk managers** to account for all possible issues and changes mid-project and mitigate them.
+
+This is the technical word for it: **mitigation**. Risk managers don't avoid risk, they mitigate it. They know _shit happens_, so they work the hardest to make it _smell less_.
+
+This method doesn't work in my industry, technology. While the risks of a Waterfall project are usually external, most of the risks that involve tech projects are internal: the customer changed his mind, the tech used has evolved and whatever we're building is outdated.
+
+</Parenthesis>
+
+So, when I started learning about **Agile**, I thought: **this is it**, working through a project and making changes _while things happen_.
+
+The main idea behind Agile is **iteration**. Instead of planning a big project and working through a huge chunk of time, just to deliver it at the end to find out it's obsolete or that it doesn't work as intended, we work in **little bursts of time** and evaluate our work in **small increments**.
+
+So, in the Waterfall way:
+
+- Plan in detail for 1 year
+- _Working time_
+  - Work for 1 year
+  - (Actually, work for 2 years because some unexpected stuff happened)
+  - Deliver product finished after 2 years
+  - Find out if the product is not what the customer needed
+  - Bankruptcy
+
+While in the Agile way:
+
+- Have a rough idea of what's needed
+- Define the minimum viable product (I'll come back to this soon)
+- Plan in detail for 2 weeks
+- _Iteration_
+  - Work for 2 weeks
+  - Deliver the planned work after 2 weeks (even if not everything was done)
+- Evaluate the result
+  - Is it acceptable?
+  - Does it deliver _value_?
+  - is the long-term plan still relevant?
+- Plan in detail for 2 weeks
+- _Iteration_
+  - Work for 2 weeks
+  - Deliver the planned work after 2 weeks (even if not everything was done)
+- Repeat.
+
+<Parenthesis about="the Agile manifesto">
+
+If you work close to tech and don't know the Agile Manifesto, _you should_. It's a **really** [shitty website coded ages ago](https://agilemanifesto.org/) with this simple, poem-like, manifesto:
+
+> We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+>
+> <br />
+> **Individuals and interactions** over processes and tools
+>
+> **Working software** over comprehensive documentation
+>
+> **Customer collaboration** over contract negotiation
+>
+> **Responding to change** over following a plan
+>
+> <br />
+> That is, while there is value in the items on the right, we value the items on
+> the left more.
+
+The main idea behind this is to make development more human and less _math_-like. We are not robots, so planning a 1-year project in a market that changes every 3 months is crazy. If **no project manager** could handle it, imagine the people doing the job, after all.
+
+The last line of the four tenets of the manifesto is the one I like the most.
+
+### The Minimal Viable Product (MVP)
+
+Another concept that the Agile way of thinking brought to popularity is the **MVP**.
+
+In Waterfall, your deliverable was a **full-fledged product**, with all its functionalities ready for use. This was a theory that **never became practice**. Bugs were all over the finished product or its usage became different than expected.
+
+In Agile, we work towards an MVP: the **minimum amount of features** a product must have to fulfill its **reason to exist**.
+
+If we want to build an app that handles food delivery, we first must make an app that **does this in a good way** and then, later, we implement customer profiles, restaurant discounts, fancy notifications, and complex GPS-based tracking.
+
+There's no point in having these features if the main feature, food delivery, doesn't work properly.
+
+So, we work towards an MVP, and then, after that's done and **released to the public**, we can make the product better based on customer usage and feedback.
+
+</Parenthesis>
+
+## Defining value
+
+It's really hard to understand what **value** means when studying Agile and the many frameworks and methods connected to it. I remember this section of [The Scrum Guide](https://www.scrum.org/resources/scrum-guide) from when I was studying to get certified:
+
+> Sprints are the heartbeat of Scrum, where ideas are turned into **value**.
+>
+> They are fixed length events of one month or less to create consistency. A new Sprint starts immediately after the conclusion of the previous Sprint.
+
+So, when doing Scrum, we should deliver **value** after some fixed time... but what the hell is value?
+
+We normally understand it as something **quantitative**. The value of a one-dollar bill is... one dollar. The value of this new mobile phone is a thousand dollars, represented by a thousand one-dollar bills or ten one-hundred-dollar bills.
+
+It's easy to understand value as **money**, but value can be (and normally is) something **beyond currency**. Value can be time, beauty, usability, usefulness, and other more abstract concepts. How to grasp the idea of **one thousand beauties**? Even time, in this case, is the abstract concept of time: relative, personal, intimate. What is too much time? And too little?
+
+I define value in a very stupid way:
+
+> If the sum of things done **makes things better**, it's valuable.
+
+There's no point in rewriting a good story into a way better one if you lose the deadline for publication. **That's not valuable**. Putting a new sound system into your car is less valuable than fixing that oil leak that's happening for weeks — one of them will leave your car dead on the road, the other won't.
+
+Every iteration should deliver value: it can be new information for the user, a better way to use something that already existed, a more accessible and fast interface, and so on.
+
+## Defining Agile
+
+It's really hard to work on projects that are meant to be Agile **but aren't**. They form Agile teams with Agile ideas but, for instance, have a fixed deadline on a project with very fixed requirements that should be finished a year from now.
+
+At the end of the day, they are **Waterfall projects with Agile makeup**. They push unnecessary functionalities instead of **responding to change** over following a plan. They force people into overtime instead of respecting **individuals and interactions** over processes and tools. You get the idea.
+
+So, I made it my responsibility to repeat at least once, every day, that we are Agile and will respect the Agile way. I usually do that with my favorite term of this universe: **iteration**.
+
+No, we won't do something huge from one day to the other: we will iterate. We won't change everything and delete whatever has been done before: we will iterate. We won't care if things are not 100% finished, because nothing is ever 100% finished: **we will iterate**.
+
+Every iteration should bring value, and value is abstract. It's our goal, as developers, designers, product owners, etc, to show what value is gained with each iteration. That's Agile, **being eternally in movement**, enjoying the journey more than forcing ourselves to achieve a goal, constantly changing and adapting.
+
+And here's where I turn this article into a big **self-help** thing and you'll **hate** me for it.
+
+## Defining mantra
+
+The moment I noticed I was Agile-ing my personal life was during a therapy session.
+
+We were talking about my new life living abroad, in Germany, with no physical friends close and being **very lonely**. Living here has been great in many ways, and absolutely heart-crushing in others.
+
+One of the things we have talked about a lot before my moving was how all this should be seen not as a struggle, but as an **experiment**. It's just something I'm passing through, learning the good things and understanding the bad ones. In the end, I'll know more than I did before.
+
+I'm not staying forever in Munich, I'm **experimenting with living abroad**. I'm not blindly suffering from loneliness, I'm experimenting with what being **enough for myself** feels like. Every week I take a look at my life and understand where things are working and what needs some tweaks. I end up summarizing what I'm doing in my life that's **making me happy** and **what's not**.
+
+Every week I weigh what value these experiments are producing and iterate. I repeat to myself, almost religiously, that **experimenting is more important than concluding**.
+
+I made iteration a **mantra**.
+
+I learned, accidentally, to avoid anxiety and depression by looking at my life not as something that will make me have success or fail, but as a **forever ongoing project** that iterates for as long as I live.
+
+I learned to look at things I would be afraid of as possibilities to grow and understand the unknown. I learned that I don't need to change a toxic behavior completely from one day to the other, but to **acknowledge the small changes** and note down the tiny daily victories.
+
+I learned to see every new endeavor as an **MVP**. I note down what's the **minimum** example of success in something new and celebrate them. Instead of defining the success of my German learning as being able to talk and listen fluently, I define it as simple **ordering food at a restaurant**. Simple, straightforward, minimal.
+
+Value should be measured differently as well. It's better to think that a day in bed playing videogame was me delivering myself **happiness value**. A day resting is **energy value**. A day working hard is **knowledge value**. Nothing is wasted and everything counts toward this lengthy experiment that I'm living.
+
+When I noticed, everything was following this pattern in my life, even the smallest of house chores. If I need to clean my entire flat, I split the full cleaning **into small tasks** and iterate on them. If I wasn't able to finish all today, okay, we can continue tomorrow. If I find out cleaning my sink takes more time than I expected, instead of beating myself by not finishing in time, I see it as **a good lesson** for the next full house cleaning: estimate more time than before.
+
+<Parenthesis about="this blog">
+
+### This website is an MVP
+
+As an example of a personal project living Agile, this website was created and re-created (or, in fancy industry terms, _pivoted_) four times already.
+
+I did the first iteration with the MVP: a simple summary of what I do.
+
+Then, I iterated and added the podcast page, showcasing this product and adding the possibility to add more pages.
+
+After that, I delivered the blog.
+
+After customer requests (I mean, readers and friends in my DMs), I added the option to subscribe to the feed. I wouldn't have added this if they didn't show the need for it.
+
+My next step will be... I don't know yet. But, as with every Agile project, I'm always iterating and planning again and again. **Journey**, not goal.
+
+</Parenthesis>
+
+## Conclusion
+
+This convoluted article mixing management terms with _you can be better_ stuff is the prolix way of saying: I'm applying the Agile way of thinking in my personal life and it's being awesome. It's been done without my (conscious) knowledge.
+
+I hope you can take something home from all of this, after all, I'm here to deliver value to you as well. I still don't have a comments section here but you can hit me up on [Twitter](https://twitter.com/oicronofobico) and start a conversation about this.
+
+After all, I'm learning new things every day and with this new knowledge, I change, evolve, and iterate.
+
+## Postscriptum
+
+If you came this far: **thank you a lot**.
+
+I know this wasn't my best text and that it was somewhat complex and may be confusing.
+
+I'm coming back to writing after a long time without touching a keyboard. It's been a great experience and I'm slowly growing with it. This is the only way to get better: doing the work and learning from the mistakes.

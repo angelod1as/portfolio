@@ -10,8 +10,17 @@
       @apply mb-0 opacity-75
 
   ul
+    @apply pl-6 list-none
     li
-      @apply list-disc list-inside
+      @apply list-none
+      &::before
+        @apply content-["\219D"] inline-block w-6 -ml-6
+      ul
+        @apply pl-6
+        li
+          @apply list-none
+          &::before
+            @apply content-["\21B3"] inline-block w-6 -ml-6
 
 .blockquoteBlock
   @apply absolute top-0 left-0 w-[2px] h-full

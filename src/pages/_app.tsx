@@ -16,6 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 function FirstHead() {
   return (
     <Head>
+      {/* AVOID CHANGING IN STYLE */}
+      <meta name="color-scheme" content="light only" />
+
       {/* FONTS */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />
 

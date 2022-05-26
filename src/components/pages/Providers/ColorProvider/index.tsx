@@ -10,6 +10,7 @@ const initialValues: ColorContextValue = {
     bgColor: 'bg-yellow',
     borderColor: 'border-yellow',
     textColor: 'text-yellow',
+    beforeTextColor: 'before:text-yellow',
   },
 }
 

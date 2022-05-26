@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.angelodias.com.br/blog</id>
     <title>My name is Angelo and I do Blogging</title>
-    <updated>2022-05-24T19:13:08.253Z</updated>
+    <updated>2022-05-26T16:01:02.921Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Angelo Dias</name>
@@ -16,12 +16,12 @@
     <icon>https://www.angelodias.com.br/favicon.ico</icon>
     <rights>All rights reserved 2021, Angelo Dias</rights>
     <entry>
-        <title type="html"><![CDATA[How I became a developer]]></title>
-        <id>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</id>
-        <link href="https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer"/>
-        <updated>2022-05-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[The bar was too high and I'm afraid o heights]]></summary>
-        <content type="html"><![CDATA[The bar was too high and I'm afraid o heights]]></content>
+        <title type="html"><![CDATA[Iteration as mantra]]></title>
+        <id>https://www.angelodias.com.br/blog/2021-05-23-iteration</id>
+        <link href="https://www.angelodias.com.br/blog/2021-05-23-iteration"/>
+        <updated>2022-05-24T19:28:41.482Z</updated>
+        <summary type="html"><![CDATA[it's Agile, but accidentally]]></summary>
+        <content type="html"><![CDATA[it's Agile, but accidentally]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>
@@ -34,12 +34,30 @@
         </contributor>
     </entry>
     <entry>
-        <title type="html"><![CDATA[I will do this my way.]]></title>
+        <title type="html"><![CDATA[How I became a developer]]></title>
+        <id>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</id>
+        <link href="https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer"/>
+        <updated>2022-05-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The bar was too high and I'm afraid of heights]]></summary>
+        <content type="html"><![CDATA[The bar was too high and I'm afraid of heights]]></content>
+        <author>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </author>
+        <contributor>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[I will do this my way]]></title>
         <id>https://www.angelodias.com.br/blog/2021-12-25-start</id>
         <link href="https://www.angelodias.com.br/blog/2021-12-25-start"/>
         <updated>2021-12-25T22:27:22.431Z</updated>
-        <summary type="html"><![CDATA[A summary of the journey so far.]]></summary>
-        <content type="html"><![CDATA[A summary of the journey so far.]]></content>
+        <summary type="html"><![CDATA[A summary of the journey so far]]></summary>
+        <content type="html"><![CDATA[A summary of the journey so far]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>

@@ -4,7 +4,7 @@
         <title>My name is Angelo and I do Blogging</title>
         <link>https://www.angelodias.com.br/blog</link>
         <description>Thoughts and ideas on anything, from tech to nonsense</description>
-        <lastBuildDate>Tue, 24 May 2022 19:13:08 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 May 2022 16:01:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -15,21 +15,30 @@
         </image>
         <copyright>All rights reserved 2021, Angelo Dias</copyright>
         <item>
+            <title><![CDATA[Iteration as mantra]]></title>
+            <link>https://www.angelodias.com.br/blog/2021-05-23-iteration</link>
+            <guid>https://www.angelodias.com.br/blog/2021-05-23-iteration</guid>
+            <pubDate>Tue, 24 May 2022 19:28:41 GMT</pubDate>
+            <description><![CDATA[it's Agile, but accidentally]]></description>
+            <content:encoded><![CDATA[it's Agile, but accidentally]]></content:encoded>
+            <author>oiangelodias@gmail.com (Angelo Dias)</author>
+        </item>
+        <item>
             <title><![CDATA[How I became a developer]]></title>
             <link>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</link>
             <guid>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</guid>
             <pubDate>Fri, 20 May 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[The bar was too high and I'm afraid o heights]]></description>
-            <content:encoded><![CDATA[The bar was too high and I'm afraid o heights]]></content:encoded>
+            <description><![CDATA[The bar was too high and I'm afraid of heights]]></description>
+            <content:encoded><![CDATA[The bar was too high and I'm afraid of heights]]></content:encoded>
             <author>oiangelodias@gmail.com (Angelo Dias)</author>
         </item>
         <item>
-            <title><![CDATA[I will do this my way.]]></title>
+            <title><![CDATA[I will do this my way]]></title>
             <link>https://www.angelodias.com.br/blog/2021-12-25-start</link>
             <guid>https://www.angelodias.com.br/blog/2021-12-25-start</guid>
             <pubDate>Sat, 25 Dec 2021 22:27:22 GMT</pubDate>
-            <description><![CDATA[A summary of the journey so far.]]></description>
-            <content:encoded><![CDATA[A summary of the journey so far.]]></content:encoded>
+            <description><![CDATA[A summary of the journey so far]]></description>
+            <content:encoded><![CDATA[A summary of the journey so far]]></content:encoded>
             <author>oiangelodias@gmail.com (Angelo Dias)</author>
         </item>
         <item>
