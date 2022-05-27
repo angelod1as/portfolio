@@ -4,7 +4,7 @@
         <title>My name is Angelo and I do Blogging</title>
         <link>https://www.angelodias.com.br/blog</link>
         <description>Thoughts and ideas on anything, from tech to nonsense</description>
-        <lastBuildDate>Thu, 26 May 2022 19:59:39 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 May 2022 07:18:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -57,6 +57,15 @@
             <pubDate>Sun, 15 May 2022 12:31:33 GMT</pubDate>
             <description><![CDATA[The best tool is the one that fits]]></description>
             <content:encoded><![CDATA[The best tool is the one that fits]]></content:encoded>
+            <author>oiangelodias@gmail.com (Angelo Dias)</author>
+        </item>
+        <item>
+            <title><![CDATA[A quick thing about subscription]]></title>
+            <link>https://www.angelodias.com.br/blog/2022-05-27-about-subscription</link>
+            <guid>https://www.angelodias.com.br/blog/2022-05-27-about-subscription</guid>
+            <pubDate>Fri, 27 May 2022 07:11:58 GMT</pubDate>
+            <description><![CDATA[Doing it wrong since day one]]></description>
+            <content:encoded><![CDATA[Doing it wrong since day one]]></content:encoded>
             <author>oiangelodias@gmail.com (Angelo Dias)</author>
         </item>
     </channel>

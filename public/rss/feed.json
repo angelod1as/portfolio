@@ -69,6 +69,18 @@
                 "name": "Angelo Dias",
                 "url": "https://www.angelodias.com.br"
             }
+        },
+        {
+            "id": "https://www.angelodias.com.br/blog/2022-05-27-about-subscription",
+            "content_html": "Doing it wrong since day one",
+            "url": "https://www.angelodias.com.br/blog/2022-05-27-about-subscription",
+            "title": "A quick thing about subscription",
+            "summary": "Doing it wrong since day one",
+            "date_modified": "2022-05-27T07:11:58.094Z",
+            "author": {
+                "name": "Angelo Dias",
+                "url": "https://www.angelodias.com.br"
+            }
         }
     ]
 }

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.angelodias.com.br/blog</id>
     <title>My name is Angelo and I do Blogging</title>
-    <updated>2022-05-26T19:59:39.310Z</updated>
+    <updated>2022-05-27T07:18:00.157Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Angelo Dias</name>
@@ -94,6 +94,24 @@
         <updated>2022-05-15T12:31:33.840Z</updated>
         <summary type="html"><![CDATA[The best tool is the one that fits]]></summary>
         <content type="html"><![CDATA[The best tool is the one that fits]]></content>
+        <author>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </author>
+        <contributor>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A quick thing about subscription]]></title>
+        <id>https://www.angelodias.com.br/blog/2022-05-27-about-subscription</id>
+        <link href="https://www.angelodias.com.br/blog/2022-05-27-about-subscription"/>
+        <updated>2022-05-27T07:11:58.094Z</updated>
+        <summary type="html"><![CDATA[Doing it wrong since day one]]></summary>
+        <content type="html"><![CDATA[Doing it wrong since day one]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>
