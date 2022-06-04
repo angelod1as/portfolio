@@ -29,6 +29,9 @@ export const copyImagesToPublic = (contentDir: string, content: string) => {
   const publicDir = contentDir.split(projectDir)[1]
 
   // Generate content with new paths
+  // eslint-disable-next-line no-console
+  console.log('CONTENT', content)
+
   const newContent = replaceContentPaths(content, publicDir)
 
   // Create files in the right folders
