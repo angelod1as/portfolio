@@ -4,7 +4,7 @@ import { join } from 'path'
 import { serialize } from './MDX/serialize'
 
 export const getFileText = async (folder: string, page: string) => {
-  const filePath = join(process.cwd(), 'content', folder, `${page}.mdx`)
+  const filePath = join(folder, `${page}.mdx`)
   const fileContent = readFileSync(filePath, 'utf-8')
 
   const { data, content } = matter(fileContent)

@@ -52,7 +52,15 @@ export const getStaticProps: GetStaticProps<
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const content = await getFileText('blog', context.params.slug)
+  const file = (await getFilesInFolder<BlogTypes>('blog')).find(
+    page => context.params?.slug === page.slug
+  )
+
+  if (file === undefined) {
+    throw new Error(`File not found! ${context.params?.slug}}`)
+  }
+
+  const content = await getFileText(file.directory, context.params.slug)
   const colors = randomColors(content?.metadata?.color)
 
   return {
