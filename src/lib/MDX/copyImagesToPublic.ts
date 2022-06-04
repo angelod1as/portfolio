@@ -1,13 +1,35 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs'
+import imageSize from 'image-size'
 import path from 'path'
 
 const fileTypes = ['.png', '.jpg', '.jpeg', '.gif']
 
-const replaceContentPaths = (content: string, publicDir: string) =>
+const replaceContentImages = (
+  content: string,
+  publicDir: string,
+  contentDir: string
+) =>
   content.replace(
-    /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g,
-    (fullString, captured) =>
-      fullString.replace(captured, path.join(publicDir, captured))
+    /!\[(.*?)]*\]\((.*?)\s*\)/g,
+    (fullString, altAndCaption?: string, url?: string) => {
+      if (!url || !altAndCaption) return fullString
+      const imageRelativePath = path.join(publicDir, url)
+      const imageFullPath = `${contentDir}/public${imageRelativePath}`
+      const { height, width } = imageSize(imageFullPath)
+      const [alt, caption] = altAndCaption.split('||')
+
+      if (height && width) {
+        return `<Image
+          src="${imageRelativePath}"
+          alt="${alt.trim()}"
+          height={${height}}
+          width={${width}}
+          caption="${caption?.trim() ?? ''}"
+        />`
+      }
+
+      return fullString.replace(url, path.join(publicDir, url))
+    }
   )
 
 const copyFileToPublic = (
@@ -32,9 +54,6 @@ export const copyImagesToPublic = (contentDir: string, content: string) => {
   const projectDir = process.cwd()
   const publicDir = contentDir.split(projectDir)[1]
 
-  // Generate content with new paths
-  const newContent = replaceContentPaths(content, publicDir)
-
   // Create files in the right folders
   const files = readdirSync(contentDir)
 
@@ -53,6 +72,9 @@ export const copyImagesToPublic = (contentDir: string, content: string) => {
       copyFileToPublic(file, imagePath, publicImagePath)
     }
   })
+
+  // Generate content with new paths
+  const newContent = replaceContentImages(content, publicDir, projectDir)
 
   return newContent
 }

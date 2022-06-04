@@ -5,6 +5,7 @@ import { CTA, CTAProps } from '../CTA'
 import { Link } from '../Links'
 import { Parenthesis, ParenthesisProps } from './Parenthesis'
 import { MDXProvider } from '@mdx-js/react'
+import Image, { ImageProps } from 'next/image'
 
 type Props = {
   components?: MDXProps['components']
@@ -25,13 +26,16 @@ export const parseComponents = ({
     b: (props: JSX.IntrinsicElements['b']) => (
       <b {...props} className={`${text}`} />
     ),
-    // img: ({ src, alt }) => {
-    //   const address = `${directory}/${src ?? ''}`
-    //   const image = () => require(address).default
-
-    //   if (!src) return null
-    //   return <Image src={image()} layout="fill" alt="alt" />
-    // },
+    Image: ({ caption, ...props }: ImageProps & { caption?: string }) => {
+      return (
+        <figure className="my-8">
+          <Image {...props} alt={props.alt} />
+          <figcaption className="text-sm text-center text-gray-400">
+            {caption}
+          </figcaption>
+        </figure>
+      )
+    },
     strong: (props: JSX.IntrinsicElements['strong']) => (
       <strong {...props} className={`${text}`} />
     ),
