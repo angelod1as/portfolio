@@ -24,7 +24,7 @@ export async function serialize(
   content: string,
   options?: SerializeOptions
 ): Promise<MDXRemoteSerializeResult> {
-  const mergedOptions = {
+  const mergedOptions: SerializeOptions = {
     mdxOptions: {
       rehypePlugins: [
         rehypeHighlight,
