@@ -4,11 +4,13 @@ import path from 'path'
 const fileTypes = ['.png', '.jpg', '.jpeg', '.gif']
 
 const replaceContentPaths = (content: string, publicDir: string) =>
-  content.replaceAll(
-    /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g,
-    (fullString, captured) =>
-      fullString.replace(captured, path.join(publicDir, captured))
-  )
+  content
+    ? content.replaceAll(
+        /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g,
+        (fullString, captured) =>
+          fullString.replace(captured, path.join(publicDir, captured))
+      )
+    : content
 
 const copyFileToPublic = (
   fileName: string,
@@ -31,6 +33,8 @@ export const copyImagesToPublic = (contentDir: string, content: string) => {
   // Generate content with new paths
   // eslint-disable-next-line no-console
   console.log('CONTENT', content)
+  // eslint-disable-next-line no-console
+  console.log('TYPE', typeof content)
 
   const newContent = replaceContentPaths(content, publicDir)
 
