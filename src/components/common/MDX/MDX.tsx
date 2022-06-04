@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { parseComponents } from './parseComponents'
+import styles from './MDX.module.sass'
 
 type Props = {
   mdx: MDXProps
@@ -21,7 +22,7 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   })
 
   return (
-    <div className={`.mdx-container ${blogPost ? '.blogPost' : ''}`}>
+    <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
       <MDXRemote {...rest} components={parsedComponents} />
       {blogPost && metadata?.createdAt && (
         <p className="mt-8 text-sm opacity-70">
