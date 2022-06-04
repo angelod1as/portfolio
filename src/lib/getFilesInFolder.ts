@@ -2,7 +2,6 @@ import { readMDX } from '#lib/MDX/readMDX'
 import { readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import { compileMDX } from './MDX/compileMDX'
-import { copyImagesToPublic } from './MDX/copyImagesToPublic'
 import { splitDirAndFiles } from './MDX/splitDirAndFiles'
 
 const mapFiles = (rootDir: string): string[] => {
@@ -35,10 +34,8 @@ export const getFilesInFolder = async <T>(folder: string) => {
     const [contentDir, filename] = splitDirAndFiles(file)
     const { content, data, slug } = readMDX(contentDir, filename)
 
-    const newContent = copyImagesToPublic(contentDir, content)
-
     return await compileMDX<T>({
-      content: newContent,
+      content,
       data,
       slug,
       directory: contentDir,

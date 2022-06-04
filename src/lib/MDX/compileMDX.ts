@@ -22,7 +22,7 @@ export const compileMDX = async <T>({
   slug,
   directory,
 }: CompileMDXProps) => {
-  const { compiledSource } = await serialize(content)
+  const { compiledSource } = await serialize(content, directory)
 
   const result: MDXReturn<T> = {
     metadata: data as unknown as T,

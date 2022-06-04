@@ -9,17 +9,15 @@ type Props = {
   mdx: MDXProps
   blogPost?: boolean
   metadata: DefaultMetadata | undefined
-  directory: string
 }
 
-export const MDX: FCC<Props> = ({ mdx, blogPost, metadata, directory }) => {
+export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
   const parsedComponents = parseComponents({
     components,
     colors,
-    directory,
   })
 
   return (

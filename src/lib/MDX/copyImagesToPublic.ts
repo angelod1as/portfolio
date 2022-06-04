@@ -20,7 +20,7 @@ const copyFileToPublic = (
   }
 
   // eslint-disable-next-line no-console
-  console.log('Copying files to the public folder')
+  console.log(`Copying ${fileName} to the public folder`)
   copyFileSync(sourceFile, path.join(targetFolder, fileName))
 }
 

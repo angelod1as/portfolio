@@ -9,13 +9,11 @@ import { MDXProvider } from '@mdx-js/react'
 type Props = {
   components?: MDXProps['components']
   colors: RandomColors
-  directory: string
 }
 
 export const parseComponents = ({
   components = {},
   colors,
-  directory,
 }: Props): ComponentProps<typeof MDXProvider>['components'] => {
   const text = colors.textColor ?? ''
   const bg = colors.bgColor ?? ''

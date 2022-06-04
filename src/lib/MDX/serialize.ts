@@ -3,6 +3,7 @@ import { serialize as mdxSerialize } from 'next-mdx-remote/serialize'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
+import { copyImagesToPublic } from './copyImagesToPublic'
 
 type MDXRemoteSerializeResult<TScope = Record<string, unknown>> = {
   compiledSource: string
@@ -22,6 +23,7 @@ const _autoLinkHeadings = () =>
 
 export async function serialize(
   content: string,
+  directory: string,
   options?: SerializeOptions
 ): Promise<MDXRemoteSerializeResult> {
   const mergedOptions: SerializeOptions = {
@@ -35,5 +37,7 @@ export async function serialize(
     ...(options ?? {}),
   }
 
-  return await mdxSerialize(content, mergedOptions)
+  const newContent = copyImagesToPublic(directory, content)
+
+  return await mdxSerialize(newContent, mergedOptions)
 }
