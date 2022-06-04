@@ -1,21 +1,39 @@
 import { MDXProps } from '#types/types'
+import { ComponentProps } from 'react'
 import { RandomColors } from 'src/helpers/colors'
+import { CTA, CTAProps } from '../CTA'
 import { Link } from '../Links'
-import styles from './MDX.module.sass'
+import { Parenthesis, ParenthesisProps } from './Parenthesis'
+import { MDXProvider } from '@mdx-js/react'
 
 type Props = {
   components?: MDXProps['components']
   colors: RandomColors
+  directory: string
 }
 
-export const parseComponents = ({ components = {}, colors }: Props) => {
+export const parseComponents = ({
+  components = {},
+  colors,
+  directory,
+}: Props): ComponentProps<typeof MDXProvider>['components'] => {
   const text = colors.textColor ?? ''
   const bg = colors.bgColor ?? ''
 
   return {
+    S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
+    CTA: (props: CTAProps) => <CTA {...props} />,
+    Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
     b: (props: JSX.IntrinsicElements['b']) => (
       <b {...props} className={`${text}`} />
     ),
+    // img: ({ src, alt }) => {
+    //   const address = `${directory}/${src ?? ''}`
+    //   const image = () => require(address).default
+
+    //   if (!src) return null
+    //   return <Image src={image()} layout="fill" alt="alt" />
+    // },
     strong: (props: JSX.IntrinsicElements['strong']) => (
       <strong {...props} className={`${text}`} />
     ),
@@ -27,7 +45,7 @@ export const parseComponents = ({ components = {}, colors }: Props) => {
         <blockquote {...props}>
           {props.children}
           <div
-            className={`${styles.blockquoteBlock} ${bg}
+            className={`.blockquoteBlock ${bg}
           `}
           />
         </blockquote>

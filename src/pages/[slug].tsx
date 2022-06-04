@@ -58,12 +58,19 @@ export const getStaticProps: GetStaticProps<
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText(file.directory, context.params.slug)
+  const content = await getFileText<PageTypes>(
+    file.directory,
+    context.params.slug
+  )
 
   const colors = randomColors(content?.metadata?.color)
 
   return {
-    props: { content, colors, slug: context.params.slug },
+    props: {
+      content,
+      colors,
+      slug: context.params.slug,
+    },
   }
 }
 

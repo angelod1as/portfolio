@@ -60,7 +60,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText(file.directory, context.params.slug)
+  const content = await getFileText<BlogTypes>(
+    file.directory,
+    context.params.slug
+  )
   const colors = randomColors(content?.metadata?.color)
 
   return {

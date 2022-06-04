@@ -1,9 +1,13 @@
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
+import { MDXReturn } from './MDX/compileMDX'
 import { serialize } from './MDX/serialize'
 
-export const getFileText = async (folder: string, page: string) => {
+export const getFileText = async <T>(
+  folder: string,
+  page: string
+): Promise<MDXReturn<T>> => {
   const filePath = join(folder, `${page}.mdx`)
   const fileContent = readFileSync(filePath, 'utf-8')
 
@@ -13,7 +17,8 @@ export const getFileText = async (folder: string, page: string) => {
 
   return {
     slug: page,
-    metadata: data,
+    metadata: data as T,
     compiledSource,
+    directory: folder,
   }
 }
