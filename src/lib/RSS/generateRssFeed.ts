@@ -15,13 +15,16 @@ export const generateRssFeed = async (posts: Posts) => {
     link: 'https://www.angelodias.com.br',
   }
   const now = new Date()
+  const updateTime = `${now.getFullYear()}-${
+    now.getMonth() + 1
+  }-${now.getDate()} ${now.getHours()}:00:00`
 
   const feed = new Feed({
     title: 'My name is Angelo and I do Blogging',
     description: 'Thoughts and ideas on anything, from tech to nonsense',
     id: `${baseURL}/blog`,
     link: `${baseURL}/blog`,
-    updated: now,
+    updated: new Date(updateTime),
     language: 'en',
     image: `${baseURL}/social.png`,
     favicon: `${baseURL}/favicon.ico`,
@@ -46,7 +49,7 @@ export const generateRssFeed = async (posts: Posts) => {
         content: description,
         author: [author],
         contributor: [author],
-        date: createdAt ? new Date(createdAt) : now,
+        date: createdAt ? new Date(createdAt) : new Date(updateTime),
       })
     }
   })
