@@ -1,5 +1,6 @@
 import { Blog, PostProps } from '#components/pages/Blog'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
+import { filterMDX } from '#lib/MDX/filterMDX'
 import { generateRssFeed } from '#lib/RSS/generateRssFeed'
 import { BlogPostMetadata } from '#types/types'
 import { GetStaticProps } from 'next'
@@ -31,12 +32,10 @@ type BlogTypes = Partial<BlogPostMetadata>
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
   const blogPosts = await getFilesInFolder<BlogTypes>('blog')
-  const posts = blogPosts
-    .map(({ metadata, slug }) => ({
-      metadata,
-      slug,
-    }))
-    .filter(post => !post?.metadata?.draft)
+  const posts = filterMDX<BlogTypes>(blogPosts).map(({ metadata, slug }) => ({
+    metadata,
+    slug,
+  }))
 
   await generateRssFeed(posts)
 

@@ -7,6 +7,7 @@ import { MDXReturn } from '#lib/MDX/compileMDX'
 import { Post } from '#components/pages/Blog/Post'
 import { BlogPostMetadata } from '#types/types'
 import { RandomColors, randomColors } from 'src/helpers/colors'
+import { filterMDX } from '#lib/MDX/filterMDX'
 
 export type BlogPostProps = {
   content: MDXReturn<BlogPostMetadata>
@@ -26,13 +27,11 @@ type ParamsType = Array<{
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getFilesInFolder<BlogTypes>('blog')
-  const paths: ParamsType = pages
-    .filter(page => !page?.metadata?.draft)
-    .map(page => ({
-      params: {
-        slug: page.slug,
-      },
-    }))
+  const paths: ParamsType = filterMDX<BlogTypes>(pages).map(page => ({
+    params: {
+      slug: page.slug,
+    },
+  }))
 
   return {
     paths,
