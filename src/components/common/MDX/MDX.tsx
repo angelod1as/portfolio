@@ -1,5 +1,5 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { DefaultMetadata, FCC, MDXProps } from '#types/types'
+import { BlogPostMetadata, DefaultMetadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
@@ -21,8 +21,31 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
     colors,
   })
 
+  if (blogPost && metadata) {
+    const { compiledTitle, createdAt, timeToRead, wordCount } =
+      metadata as BlogPostMetadata
+    return (
+      <div className={`${styles.container} ${styles.blogPost}`}>
+        {compiledTitle && (
+          <MDXRemote
+            compiledSource={compiledTitle}
+            components={titleComponents}
+          />
+        )}
+        {createdAt && (
+          <p className="flex gap-4 mb-8 text-sm opacity-70">
+            <span>Published at {TimestampToDate(createdAt)}</span>
+            <span>±{timeToRead} minute read</span>
+            <span>{wordCount} words</span>
+          </p>
+        )}
+        <MDXRemote {...rest} components={bodyComponents} />
+      </div>
+    )
+  }
+
   return (
-    <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
+    <div className={styles.container}>
       {metadata?.compiledTitle && (
         <MDXRemote
           compiledSource={metadata.compiledTitle}
@@ -30,11 +53,6 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
         />
       )}
       <MDXRemote {...rest} components={bodyComponents} />
-      {blogPost && metadata?.createdAt && (
-        <p className="mt-8 text-sm opacity-70">
-          Published at {TimestampToDate(metadata.createdAt)}. Share abundantly.
-        </p>
-      )}
     </div>
   )
 }
