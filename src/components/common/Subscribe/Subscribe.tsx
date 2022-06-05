@@ -17,7 +17,7 @@ export const Subscribe = ({ inner }: SubscribeProps) => {
         <p>
           Oops, subscriptions are{' '}
           <Strong color={colors.textColor}>closed</Strong> for now.{' '}
-          <Link inner href="blog/2022-05-27-about-subscription">
+          <Link inner href="/blog/about-subscription">
             read here to know more.
           </Link>
         </p>
