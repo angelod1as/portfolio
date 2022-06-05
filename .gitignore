@@ -2,6 +2,8 @@
 
 # RSS update
 **/public/rss/
+./public/rss/
+public/rss/
 
 # env
 .env
