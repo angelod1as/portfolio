@@ -15,6 +15,7 @@ export type DefaultMetadata = {
   title: string
   createdAt?: number
   color?: string
+  compiledTitle: string
 }
 
 // Blog Post

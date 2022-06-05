@@ -1,7 +1,7 @@
-import { readMDX } from '#lib/MDX/readMDX'
 import { readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import { compileMDX } from './MDX/compileMDX'
+import { readMDXFrontmatter } from './MDX/readMDXFrontmatter'
 import { splitDirAndFiles } from './MDX/splitDirAndFiles'
 
 const mapFiles = (rootDir: string): string[] => {
@@ -32,7 +32,10 @@ export const getFilesInFolder = async <T>(folder: string) => {
 
   const allFiles = files.map(async file => {
     const [contentDir, filename] = splitDirAndFiles(file)
-    const { content, data, slug } = readMDX(contentDir, filename)
+    const { content, data, slug } = await readMDXFrontmatter(
+      contentDir,
+      filename
+    )
 
     return await compileMDX<T>({
       content,

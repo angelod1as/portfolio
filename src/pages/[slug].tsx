@@ -60,7 +60,8 @@ export const getStaticProps: GetStaticProps<
 
   const content = await getFileText<PageTypes>(
     file.directory,
-    context.params.slug
+    context.params.slug,
+    'page'
   )
 
   const colors = randomColors(content?.metadata?.color)
