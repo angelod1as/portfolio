@@ -25,7 +25,7 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
     <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
       {metadata?.compiledTitle && (
         <MDXRemote
-          compiledSource={metadata?.compiledTitle}
+          compiledSource={metadata.compiledTitle}
           components={titleComponents}
         />
       )}
