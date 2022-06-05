@@ -16,14 +16,20 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
-  const parsedComponents = parseComponents({
+  const [bodyComponents, titleComponents] = parseComponents({
     components,
     colors,
   })
 
   return (
     <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>
-      <MDXRemote {...rest} components={parsedComponents} />
+      {metadata?.compiledTitle && (
+        <MDXRemote
+          compiledSource={metadata?.compiledTitle}
+          components={titleComponents}
+        />
+      )}
+      <MDXRemote {...rest} components={bodyComponents} />
       {blogPost && metadata?.createdAt && (
         <p className="mt-8 text-sm opacity-70">
           Published at {TimestampToDate(metadata.createdAt)}. Share abundantly.

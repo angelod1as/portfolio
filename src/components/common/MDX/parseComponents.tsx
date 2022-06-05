@@ -16,11 +16,11 @@ type Props = {
 export const parseComponents = ({
   components = {},
   colors,
-}: Props): ComponentProps<typeof MDXProvider>['components'] => {
+}: Props): Array<ComponentProps<typeof MDXProvider>['components']> => {
   const text = colors.textColor ?? ''
   const bg = colors.bgColor ?? ''
 
-  return {
+  const bodyComponents = {
     S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
     CTA: (props: CTAProps) => <CTA {...props} />,
     Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
@@ -94,4 +94,15 @@ export const parseComponents = ({
     ),
     ...components,
   }
+
+  const titleComponents = {
+    p: (props: JSX.IntrinsicElements['p']) => (
+      <h1 {...props}>{props.children}</h1>
+    ),
+    strong: (props: JSX.IntrinsicElements['strong']) => (
+      <strong {...props} className={`${text}`} />
+    ),
+  }
+
+  return [bodyComponents, titleComponents]
 }

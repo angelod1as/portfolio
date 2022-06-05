@@ -23,7 +23,7 @@ const _autoLinkHeadings = () =>
 
 export async function serialize(
   content: string,
-  directory: string,
+  directory?: string,
   options?: SerializeOptions
 ): Promise<MDXRemoteSerializeResult> {
   const mergedOptions: SerializeOptions = {
@@ -37,7 +37,9 @@ export async function serialize(
     ...(options ?? {}),
   }
 
-  const newContent = copyImagesToPublic(directory, content)
+  const newContent = directory
+    ? copyImagesToPublic(directory, content)
+    : content
 
   return await mdxSerialize(newContent, mergedOptions)
 }
