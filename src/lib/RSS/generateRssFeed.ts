@@ -1,6 +1,7 @@
 import { BlogPostMetadata } from '#types/types'
 import { Feed } from 'feed'
 import fs from 'fs'
+import { removeSymbolsFromString } from 'src/helpers/removeSymbolsFromString'
 
 type Posts = Array<{
   metadata: Partial<BlogPostMetadata> | undefined
@@ -42,7 +43,7 @@ export const generateRssFeed = async (posts: Posts) => {
     if (metadata && !metadata.draft) {
       const { createdAt, description, title } = metadata
       feed.addItem({
-        title: title ?? 'Missing title!',
+        title: title ? removeSymbolsFromString(title) : 'Missing title!',
         id: url,
         link: url,
         description: description,
