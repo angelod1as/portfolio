@@ -14,6 +14,7 @@ export type MDXProps = MDXRemoteSerializeResult & {
 export type DefaultMetadata = {
   title: string
   createdAt?: number
+  color?: string
 }
 
 // Blog Post

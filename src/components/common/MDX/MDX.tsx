@@ -1,11 +1,10 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { DefaultMetadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
-import { globalComponents } from './globalComponents'
-import styles from './MDX.module.sass'
 import { parseComponents } from './parseComponents'
+import styles from './MDX.module.sass'
 
 type Props = {
   mdx: MDXProps
@@ -17,17 +16,10 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
-  const mergedComponents = {
-    ...components,
-    ...(globalComponents() as unknown as Record<string, ReactNode>),
-  }
-
   const parsedComponents = parseComponents({
-    components: mergedComponents,
+    components,
     colors,
   })
-
-  // TODO: `pre` and `code` are not wrapping.
 
   return (
     <div className={`${styles.container} ${blogPost ? styles.blogPost : ''}`}>

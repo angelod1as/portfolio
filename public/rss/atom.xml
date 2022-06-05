@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.angelodias.com.br/blog</id>
     <title>My name is Angelo and I do Blogging</title>
-    <updated>2022-05-27T07:18:00.157Z</updated>
+    <updated>2022-06-04T15:10:09.441Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Angelo Dias</name>
@@ -16,27 +16,9 @@
     <icon>https://www.angelodias.com.br/favicon.ico</icon>
     <rights>All rights reserved 2021, Angelo Dias</rights>
     <entry>
-        <title type="html"><![CDATA[Iteration as mantra]]></title>
-        <id>https://www.angelodias.com.br/blog/2021-05-23-iteration</id>
-        <link href="https://www.angelodias.com.br/blog/2021-05-23-iteration"/>
-        <updated>2022-05-24T19:28:41.482Z</updated>
-        <summary type="html"><![CDATA[it's Agile, but accidentally]]></summary>
-        <content type="html"><![CDATA[it's Agile, but accidentally]]></content>
-        <author>
-            <name>Angelo Dias</name>
-            <email>oiangelodias@gmail.com</email>
-            <uri>https://www.angelodias.com.br</uri>
-        </author>
-        <contributor>
-            <name>Angelo Dias</name>
-            <email>oiangelodias@gmail.com</email>
-            <uri>https://www.angelodias.com.br</uri>
-        </contributor>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[How I became a developer]]></title>
-        <id>https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer</id>
-        <link href="https://www.angelodias.com.br/blog/2021-12-20-how-i-became-a-developer"/>
+        <id>https://www.angelodias.com.br/blog/how-i-became-a-developer</id>
+        <link href="https://www.angelodias.com.br/blog/how-i-became-a-developer"/>
         <updated>2022-05-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The bar was too high and I'm afraid of heights]]></summary>
         <content type="html"><![CDATA[The bar was too high and I'm afraid of heights]]></content>
@@ -53,8 +35,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[I will do this my way]]></title>
-        <id>https://www.angelodias.com.br/blog/2021-12-25-start</id>
-        <link href="https://www.angelodias.com.br/blog/2021-12-25-start"/>
+        <id>https://www.angelodias.com.br/blog/i-will-do-this-my-way</id>
+        <link href="https://www.angelodias.com.br/blog/i-will-do-this-my-way"/>
         <updated>2021-12-25T22:27:22.431Z</updated>
         <summary type="html"><![CDATA[A summary of the journey so far]]></summary>
         <content type="html"><![CDATA[A summary of the journey so far]]></content>
@@ -70,12 +52,12 @@
         </contributor>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Zen in Kobayashi Maru]]></title>
-        <id>https://www.angelodias.com.br/blog/2022-05-01-kobayashi-maru</id>
-        <link href="https://www.angelodias.com.br/blog/2022-05-01-kobayashi-maru"/>
-        <updated>2022-05-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[How to live in peace when shit hits the fan]]></summary>
-        <content type="html"><![CDATA[How to live in peace when shit hits the fan]]></content>
+        <title type="html"><![CDATA[A quick thing about subscription]]></title>
+        <id>https://www.angelodias.com.br/blog/about-subscription</id>
+        <link href="https://www.angelodias.com.br/blog/about-subscription"/>
+        <updated>2022-05-27T07:11:58.094Z</updated>
+        <summary type="html"><![CDATA[Doing it wrong since day one]]></summary>
+        <content type="html"><![CDATA[Doing it wrong since day one]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>
@@ -89,8 +71,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[I gave up on my fountain pen]]></title>
-        <id>https://www.angelodias.com.br/blog/2022-05-15-i-gave-up-on-my-fountain-pen</id>
-        <link href="https://www.angelodias.com.br/blog/2022-05-15-i-gave-up-on-my-fountain-pen"/>
+        <id>https://www.angelodias.com.br/blog/i-gave-up-on-my-fountain-pen</id>
+        <link href="https://www.angelodias.com.br/blog/i-gave-up-on-my-fountain-pen"/>
         <updated>2022-05-15T12:31:33.840Z</updated>
         <summary type="html"><![CDATA[The best tool is the one that fits]]></summary>
         <content type="html"><![CDATA[The best tool is the one that fits]]></content>
@@ -106,12 +88,30 @@
         </contributor>
     </entry>
     <entry>
-        <title type="html"><![CDATA[A quick thing about subscription]]></title>
-        <id>https://www.angelodias.com.br/blog/2022-05-27-about-subscription</id>
-        <link href="https://www.angelodias.com.br/blog/2022-05-27-about-subscription"/>
-        <updated>2022-05-27T07:11:58.094Z</updated>
-        <summary type="html"><![CDATA[Doing it wrong since day one]]></summary>
-        <content type="html"><![CDATA[Doing it wrong since day one]]></content>
+        <title type="html"><![CDATA[Iteration as mantra]]></title>
+        <id>https://www.angelodias.com.br/blog/iteration-as-mantra</id>
+        <link href="https://www.angelodias.com.br/blog/iteration-as-mantra"/>
+        <updated>2022-05-24T19:28:41.482Z</updated>
+        <summary type="html"><![CDATA[it's Agile, but accidentally]]></summary>
+        <content type="html"><![CDATA[it's Agile, but accidentally]]></content>
+        <author>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </author>
+        <contributor>
+            <name>Angelo Dias</name>
+            <email>oiangelodias@gmail.com</email>
+            <uri>https://www.angelodias.com.br</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Zen in Kobayashi Maru]]></title>
+        <id>https://www.angelodias.com.br/blog/zen-in-kobayashi-maru</id>
+        <link href="https://www.angelodias.com.br/blog/zen-in-kobayashi-maru"/>
+        <updated>2022-05-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[How to live in peace when shit hits the fan]]></summary>
+        <content type="html"><![CDATA[How to live in peace when shit hits the fan]]></content>
         <author>
             <name>Angelo Dias</name>
             <email>oiangelodias@gmail.com</email>
