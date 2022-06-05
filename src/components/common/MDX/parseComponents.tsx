@@ -6,6 +6,7 @@ import { Link } from '../Links'
 import { Parenthesis, ParenthesisProps } from './Parenthesis'
 import { MDXProvider } from '@mdx-js/react'
 import Image, { ImageProps } from 'next/image'
+import styles from './MDX.module.sass'
 
 type Props = {
   components?: MDXProps['components']
@@ -47,7 +48,7 @@ export const parseComponents = ({
         <blockquote {...props}>
           {props.children}
           <div
-            className={`.blockquoteBlock ${bg}
+            className={`${styles.blockquoteBlock} ${bg}
           `}
           />
         </blockquote>
