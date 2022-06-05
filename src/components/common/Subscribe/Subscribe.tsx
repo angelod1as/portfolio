@@ -1,72 +1,90 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import React from 'react'
+import {
+  textColor as defaultTextColor,
+  bgColor as defaultBgColor,
+  borderColor as defaultBorderColor,
+} from 'src/helpers/colors'
 import { Link } from '../Links'
 import { Strong } from '../Strong'
 
 type SubscribeProps = {
   inner?: boolean
+  closed?: boolean
 }
 
-export const Subscribe = ({ inner }: SubscribeProps) => {
+export const Subscribe = ({ inner, closed }: SubscribeProps) => {
   const { colors } = useColorContext()
+  const textColor = colors?.textColor ?? defaultTextColor[0]
+  const bgColor = colors?.bgColor ?? defaultBgColor[0]
+  const borderColor = colors?.borderColor ?? defaultBorderColor[0]
+
+  if (closed) {
+    return (
+      <div>
+        <h2 className={`mb-10`}>
+          <span className={colors.textColor}>Subscribe</span> to my blog
+          <p>
+            Oops, subscriptions are{' '}
+            <Strong color={colors.textColor}>closed</Strong> for now.{' '}
+            <Link inner href="/blog/about-subscription">
+              read here to know more.
+            </Link>
+          </p>
+        </h2>
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <h2 className={`mb-10`}>
-        <span className={colors.textColor}>Subscribe</span> to my blog
-        <p>
-          Oops, subscriptions are{' '}
-          <Strong color={colors.textColor}>closed</Strong> for now.{' '}
-          <Link inner href="/blog/about-subscription">
-            read here to know more.
-          </Link>
-        </p>
+    <form
+      action="https://angelodias.us13.list-manage.com/subscribe/post?u=b237b98f4c4402d0c2923bb30&id=5150f88a94"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      target="_blank"
+    >
+      <h2 className={`${inner ? '' : 'mb-4 h2-as-h1'}`}>
+        <span className={textColor}>Subscribe</span> to my blog
       </h2>
-    </div>
+
+      <p className={`${inner ? 'mb-4' : 'mb-4'}`}>
+        <small>
+          Very ocasional, 100% not spammy, just general updates and new articles
+        </small>
+      </p>
+
+      <div hidden={true}>
+        <input type="hidden" name="tags" defaultValue={6659457} />
+      </div>
+
+      {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+      <div className="absolute left-[-5000px]" aria-hidden="true">
+        <input
+          type="text"
+          name="b_b237b98f4c4402d0c2923bb30_5150f88a94"
+          tabIndex={-1}
+          defaultValue=""
+        />
+      </div>
+
+      <div className="flex items-center gap-4 mb-8">
+        <label htmlFor="mce-EMAIL">Email:</label>
+        <input
+          type="email"
+          defaultValue=""
+          name="EMAIL"
+          className="w-full"
+          id="mce-EMAIL"
+          placeholder="mrspock@enterprise.com"
+        />
+        <input
+          type="submit"
+          value="Subscribe"
+          name="subscribe"
+          id="mc-embedded-subscribe"
+          className={`${bgColor} ${borderColor}`}
+        />
+      </div>
+    </form>
   )
 }
-
-// export const Subscribe = ({ inner }: SubscribeProps) => {
-// const { colors } = useColorContext()
-//   const textColor = colors?.textColor ?? defaultTextColor[0]
-//   const bgColor = colors?.bgColor ?? defaultBgColor[0]
-//   const borderColor = colors?.borderColor ?? defaultBorderColor[0]
-
-//   return (
-//     <form method="post" action="https://blogtrottr.com">
-// <h2 className={`mb-10 ${inner ? '' : 'h2-as-h1'}`}>
-//   <span className={textColor}>Subscribe</span> to my blog
-// </h2>
-//       <div className="flex items-center gap-4 mb-8">
-//         <label htmlFor="btr_email" className="whitespace-nowrap">
-//           Your email:
-//         </label>
-//         <input
-//           type="text"
-//           name="btr_email"
-//           id="btr_email"
-//           placeholder="mrspock@enterprise.com"
-//           className="w-full"
-//         />
-
-//         <input
-//           type="hidden"
-//           name="btr_url"
-//           value="https://www.angelodias.com.br/rss/feed.xml"
-//         />
-//         <input type="hidden" name="schedule_type" value="0" />
-//         <input
-//           type="submit"
-//           value="Follow"
-//           className={`${bgColor} ${borderColor}`}
-//         />
-//       </div>
-//       <p>
-//         PS: I use a free service called{' '}
-//         <a href="https://blogtrottr.com/">blogtrottr</a> to manage blog-to-email
-//         posts instead of a full-blown newsletter service. It's free (for you and
-//         for me) and very configurable.
-//       </p>
-//     </form>
-//   )
-// }
