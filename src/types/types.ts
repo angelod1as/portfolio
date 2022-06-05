@@ -22,4 +22,6 @@ export type DefaultMetadata = {
 export type BlogPostMetadata = DefaultMetadata & {
   description: string
   draft?: boolean
+  timeToRead: number
+  wordCount: number
 }
