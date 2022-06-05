@@ -3,7 +3,7 @@ import { MDXReturn } from './compileMDX'
 type File = {
   metadata?: {
     draft?: boolean
-    createdAt?: number
+    publishAt?: number
   }
 }
 
@@ -13,7 +13,7 @@ export const filterMDX = <T>(files: File[]) => {
       return false
     }
 
-    if (Date.now() < (page?.metadata?.createdAt ?? 0)) {
+    if (page?.metadata?.publishAt && Date.now() < page?.metadata?.publishAt) {
       return false
     }
 
