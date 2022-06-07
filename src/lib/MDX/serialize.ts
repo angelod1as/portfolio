@@ -4,7 +4,7 @@ import { serialize as mdxSerialize } from 'next-mdx-remote/serialize'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
-import { handleMDXImages } from './handleMDXImages'
+import { handleMDXImages } from '../images/handleMDXImages'
 
 type MDXRemoteSerializeResult<TScope = Record<string, unknown>> = {
   compiledSource: string
