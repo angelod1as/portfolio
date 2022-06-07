@@ -32,7 +32,7 @@ export const getFilesInFolder = async <T>(folder: string) => {
 
   const allFiles = files.map(async file => {
     const [contentDir, filename] = splitDirAndFiles(file)
-    const { content, data, slug } = await readMDXFrontmatter(
+    const { content, data, slug } = await readMDXFrontmatter<T>(
       contentDir,
       filename
     )

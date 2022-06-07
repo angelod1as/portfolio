@@ -23,12 +23,16 @@ export const getFileText = async <T>(
 
   const newData = {
     ...data,
-    compiledTitle: (await serialize(title)).compiledSource,
+    compiledTitle: (await serialize<T>({ content: title })).compiledSource,
     wordCount: wordCount(content),
     timeToRead: timeToRead(content),
   } as unknown as T
 
-  const { compiledSource } = await serialize(content, directory)
+  const { compiledSource } = await serialize<T>({
+    content,
+    metadata: newData,
+    directory,
+  })
 
   return {
     slug: page,

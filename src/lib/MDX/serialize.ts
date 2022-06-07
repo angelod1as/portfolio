@@ -21,11 +21,19 @@ const _autoLinkHeadings = () =>
     test: ['h2', 'h3', 'h4', 'h5', 'h6'],
   })
 
-export async function serialize(
-  content: string,
-  directory?: string,
+type Serialize<T> = {
+  content: string
+  metadata?: T
+  directory?: string
   options?: SerializeOptions
-): Promise<MDXRemoteSerializeResult> {
+}
+
+export const serialize = async <T>({
+  content,
+  directory,
+  metadata,
+  options,
+}: Serialize<T>): Promise<MDXRemoteSerializeResult> => {
   const mergedOptions: SerializeOptions = {
     mdxOptions: {
       rehypePlugins: [
@@ -37,7 +45,10 @@ export async function serialize(
     ...(options ?? {}),
   }
 
-  const newContent = directory ? handleMDXImages(directory, content) : content
+  const newContent =
+    directory && metadata
+      ? handleMDXImages<T>(directory, content, metadata)
+      : content
 
   return await mdxSerialize(newContent, mergedOptions)
 }
