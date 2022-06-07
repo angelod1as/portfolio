@@ -1,3 +1,4 @@
+import { Metadata } from '#types/types'
 import { serialize } from './serialize'
 
 type CompileMDXProps = {
@@ -9,27 +10,27 @@ type CompileMDXProps = {
   directory: string
 }
 
-export type MDXReturn<T> = {
-  metadata?: T
+export type MDXReturn = {
+  metadata?: Metadata
   slug: string
   compiledSource: string
   directory: string
 }
 
-export const compileMDX = async <T>({
+export const compileMDX = async ({
   content,
   data,
   slug,
   directory,
 }: CompileMDXProps) => {
-  const metadata = data as unknown as T
-  const { compiledSource } = await serialize<T>({
+  const metadata = data as Metadata
+  const { compiledSource } = await serialize({
     content,
     metadata,
     directory,
   })
 
-  const result: MDXReturn<T> = {
+  const result: MDXReturn = {
     metadata,
     directory,
     slug,

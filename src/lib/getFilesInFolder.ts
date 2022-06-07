@@ -25,19 +25,19 @@ const mapFiles = (rootDir: string): string[] => {
     .filter(Boolean) as string[]
 }
 
-export const getFilesInFolder = async <T>(folder: string) => {
+export const getFilesInFolder = async (folder: string) => {
   const contentDir = join(process.cwd(), 'content', folder)
 
   const files = mapFiles(contentDir)
 
   const allFiles = files.map(async file => {
     const [contentDir, filename] = splitDirAndFiles(file)
-    const { content, data, slug } = await readMDXFrontmatter<T>(
+    const { content, data, slug } = await readMDXFrontmatter(
       contentDir,
       filename
     )
 
-    return await compileMDX<T>({
+    return await compileMDX({
       content,
       data,
       slug,

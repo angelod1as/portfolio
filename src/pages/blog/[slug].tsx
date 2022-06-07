@@ -5,19 +5,17 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
 import { MDXReturn } from '#lib/MDX/compileMDX'
 import { Post } from '#components/pages/Blog/Post'
-import { BlogPostMetadata } from '#types/types'
+import { Metadata } from '#types/types'
 import { RandomColors, randomColors } from 'src/helpers/colors'
 import { filterMDX } from '#lib/MDX/filterMDX'
 
 export type BlogPostProps = {
-  content: MDXReturn<BlogPostMetadata>
+  content: MDXReturn
 }
 
 const BlogPost: FC<BlogPostProps> = ({ content }) => {
   return <Post content={content} />
 }
-
-type BlogTypes = Partial<BlogPostMetadata>
 
 type ParamsType = Array<{
   params: {
@@ -26,8 +24,8 @@ type ParamsType = Array<{
 }>
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getFilesInFolder<BlogTypes>('blog')
-  const paths: ParamsType = filterMDX<BlogTypes>(pages).map(page => ({
+  const pages = await getFilesInFolder('blog')
+  const paths: ParamsType = filterMDX(pages).map(page => ({
     params: {
       slug: page.slug,
     },
@@ -40,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type GetStaticPropsType = {
-  data?: BlogPostMetadata
+  data?: Metadata
   compiledSource?: string
   colors?: RandomColors
 }
@@ -51,7 +49,7 @@ export const getStaticProps: GetStaticProps<
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const file = (await getFilesInFolder<BlogTypes>('blog')).find(
+  const file = (await getFilesInFolder('blog')).find(
     page => context.params?.slug === page.slug
   )
 
@@ -59,10 +57,7 @@ export const getStaticProps: GetStaticProps<
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText<BlogTypes>(
-    file.directory,
-    context.params.slug
-  )
+  const content = await getFileText(file.directory, context.params.slug)
   const colors = randomColors(content?.metadata?.color)
 
   return {

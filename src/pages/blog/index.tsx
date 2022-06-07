@@ -2,14 +2,14 @@ import { Blog, PostProps } from '#components/pages/Blog'
 import { getFilesInFolder } from '#lib/getFilesInFolder'
 import { filterMDX } from '#lib/MDX/filterMDX'
 import { generateRssFeed } from '#lib/RSS/generateRssFeed'
-import { BlogPostMetadata } from '#types/types'
+import { Metadata } from '#types/types'
 import { GetStaticProps } from 'next'
 import React, { FC } from 'react'
 import { randomColors } from 'src/helpers/colors'
 
 type BlogPageProps = {
   posts: Array<{
-    metadata: Partial<BlogPostMetadata> | undefined
+    metadata: Partial<Metadata> | undefined
     slug: string
   }>
 }
@@ -22,17 +22,15 @@ const BlogPage: FC<BlogPageProps> = ({ posts }) => {
 
 type GetStaticPropsType = {
   posts?: Array<{
-    metadata: Partial<BlogPostMetadata> | undefined
+    metadata: Partial<Metadata> | undefined
     slug: string
   }>
   compiledSource?: string
 }
 
-type BlogTypes = Partial<BlogPostMetadata>
-
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
-  const blogPosts = await getFilesInFolder<BlogTypes>('blog')
-  const posts = filterMDX<BlogTypes>(blogPosts).map(({ metadata, slug }) => ({
+  const blogPosts = await getFilesInFolder('blog')
+  const posts = filterMDX(blogPosts).map(({ metadata, slug }) => ({
     metadata,
     slug,
   }))

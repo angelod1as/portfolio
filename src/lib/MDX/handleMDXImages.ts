@@ -1,9 +1,10 @@
+import { Metadata } from '#types/types'
 import { copyImagesToPublic } from './copyImagesToPublic'
 
-export const handleMDXImages = <T>(
+export const handleMDXImages = (
   directory: string,
   content: string,
-  metadata: T
+  metadata: Metadata
 ) => {
   // generateSocialImages(directory, metadata)
   return copyImagesToPublic(directory, content)

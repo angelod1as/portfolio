@@ -1,6 +1,6 @@
 import { Link } from '#components/common/Links'
 import { Subscribe } from '#components/common/Subscribe'
-import { BlogPostMetadata, FCC } from '#types/types'
+import { Metadata, FCC } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import { useState } from 'react'
 import { RandomColors } from 'src/helpers/colors'
@@ -9,7 +9,7 @@ import { useColorContext } from '../../templates/Providers/ColorProvider'
 import { Filter } from './Filter'
 
 export type PostProps = Array<{
-  metadata: Partial<BlogPostMetadata>
+  metadata: Partial<Metadata>
   slug: string
 }>
 

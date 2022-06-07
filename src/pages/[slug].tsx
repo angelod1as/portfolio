@@ -6,17 +6,15 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
 import { MDXReturn } from '#lib/MDX/compileMDX'
 import { RandomColors, randomColors } from 'src/helpers/colors'
-import { DefaultMetadata } from '#types/types'
+import { Metadata } from '#types/types'
 
 export type PageProps = {
-  content: MDXReturn<DefaultMetadata>
+  content: MDXReturn
 }
 
 const AnyPage: FC<PageProps> = ({ content }) => {
   return <Page content={content} />
 }
-
-type PageTypes = Partial<DefaultMetadata>
 
 type ParamsType = Array<{
   params: {
@@ -25,7 +23,7 @@ type ParamsType = Array<{
 }>
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getFilesInFolder<PageTypes>('pages')
+  const pages = await getFilesInFolder('pages')
   const paths: ParamsType = pages.map(page => ({
     params: {
       slug: page.slug,
@@ -39,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type GetStaticPropsType = {
-  data?: DefaultMetadata
+  data?: Metadata
   compiledSource?: string
   colors: RandomColors
 }
@@ -50,7 +48,7 @@ export const getStaticProps: GetStaticProps<
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const file = (await getFilesInFolder<PageTypes>('pages')).find(
+  const file = (await getFilesInFolder('pages')).find(
     page => context.params?.slug === page.slug
   )
 
@@ -58,11 +56,7 @@ export const getStaticProps: GetStaticProps<
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText<PageTypes>(
-    file.directory,
-    context.params.slug,
-    'page'
-  )
+  const content = await getFileText(file.directory, context.params.slug, 'page')
 
   const colors = randomColors(content?.metadata?.color)
 

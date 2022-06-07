@@ -1,3 +1,4 @@
+import { Metadata } from '#types/types'
 import { SerializeOptions } from 'next-mdx-remote/dist/types'
 import { serialize as mdxSerialize } from 'next-mdx-remote/serialize'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -21,19 +22,19 @@ const _autoLinkHeadings = () =>
     test: ['h2', 'h3', 'h4', 'h5', 'h6'],
   })
 
-type Serialize<T> = {
+type Serialize = {
   content: string
-  metadata?: T
+  metadata?: Metadata
   directory?: string
   options?: SerializeOptions
 }
 
-export const serialize = async <T>({
+export const serialize = async ({
   content,
   directory,
   metadata,
   options,
-}: Serialize<T>): Promise<MDXRemoteSerializeResult> => {
+}: Serialize): Promise<MDXRemoteSerializeResult> => {
   const mergedOptions: SerializeOptions = {
     mdxOptions: {
       rehypePlugins: [
@@ -47,7 +48,7 @@ export const serialize = async <T>({
 
   const newContent =
     directory && metadata
-      ? handleMDXImages<T>(directory, content, metadata)
+      ? handleMDXImages(directory, content, metadata)
       : content
 
   return await mdxSerialize(newContent, mergedOptions)

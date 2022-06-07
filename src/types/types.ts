@@ -11,17 +11,13 @@ export type MDXProps = MDXRemoteSerializeResult & {
   lazy?: boolean
 }
 
-export type DefaultMetadata = {
+export type Metadata = {
   title: string
   createdAt?: number
   color?: string
   compiledTitle: string
-}
-
-// Blog Post
-export type BlogPostMetadata = DefaultMetadata & {
-  description: string
+  description?: string
   draft?: boolean
-  timeToRead: number
-  wordCount: number
+  timeToRead?: number
+  wordCount?: number
 }

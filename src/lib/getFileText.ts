@@ -1,3 +1,4 @@
+import { Metadata } from '#types/types'
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
@@ -6,37 +7,38 @@ import { wordCount } from 'src/helpers/wordCount'
 import { MDXReturn } from './MDX/compileMDX'
 import { serialize } from './MDX/serialize'
 
-export const getFileText = async <T>(
+export const getFileText = async (
   directory: string,
-  page: string,
+  slug: string,
   type?: 'page' | 'blog'
-): Promise<MDXReturn<T>> => {
-  const filePath = join(directory, `${page}.mdx`)
+): Promise<MDXReturn> => {
+  const filePath = join(directory, `${slug}.mdx`)
   const fileContent = readFileSync(filePath, 'utf-8')
 
   const { data, content } = matter(fileContent)
+  const typedData = data as Metadata
 
   const title =
     type === 'page'
       ? `I'm angelo and I do **${data.title as string}**`
       : data.title
 
-  const newData = {
-    ...data,
-    compiledTitle: (await serialize<T>({ content: title })).compiledSource,
+  const metadata: Metadata = {
+    ...typedData,
+    compiledTitle: (await serialize({ content: title })).compiledSource,
     wordCount: wordCount(content),
     timeToRead: timeToRead(content),
-  } as unknown as T
+  }
 
-  const { compiledSource } = await serialize<T>({
+  const { compiledSource } = await serialize({
     content,
-    metadata: newData,
+    metadata,
     directory,
   })
 
   return {
-    slug: page,
-    metadata: newData,
+    slug,
+    metadata,
     compiledSource,
     directory,
   }
