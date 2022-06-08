@@ -1,4 +1,4 @@
-import { filterMDX } from '#lib/MDX/filterMDX'
+import { filterMDX } from '#lib/blog/fetchAllPosts/filterMDX'
 import { BlogPagePostMetadata } from '#pages/blog'
 import { join } from 'path'
 import { getFileNames } from './getFileNames'

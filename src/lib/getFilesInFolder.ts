@@ -2,7 +2,7 @@ import { readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import { compileMDX } from './MDX/compileMDX'
 import { readMDXFrontmatter } from './blog/readMDXFrontmatter'
-import { splitDirAndFiles } from './blog/splitDirAndFiles'
+import { splitDirAndFiles } from './blog/fetchAllPosts/splitDirAndFiles'
 
 const mapFiles = (rootDir: string): string[] => {
   const filesInsideDir = readdirSync(rootDir)

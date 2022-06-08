@@ -7,7 +7,7 @@ import { MDXReturn } from '#lib/MDX/compileMDX'
 import { Post } from '#components/pages/Blog/Post'
 import { Metadata } from '#types/types'
 import { RandomColors, randomColors } from 'src/helpers/colors'
-import { filterMDX } from '#lib/MDX/filterMDX'
+import { filterMDX } from '#lib/blog/fetchAllPosts/filterMDX'
 
 export type BlogPostProps = {
   content: MDXReturn
