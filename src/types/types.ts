@@ -11,17 +11,31 @@ export type MDXProps = MDXRemoteSerializeResult & {
   lazy?: boolean
 }
 
-export type DefaultMetadata = {
+export type Metadata = {
   title: string
   createdAt?: number
   color?: string
   compiledTitle: string
+  description?: string
+  draft?: boolean
+  timeToRead?: number
+  wordCount?: number
+  socialImagePath?: string
+  publishAt?: number
 }
 
-// Blog Post
-export type BlogPostMetadata = DefaultMetadata & {
-  description: string
-  draft?: boolean
-  timeToRead: number
-  wordCount: number
+export type MDXReturn = {
+  metadata: Metadata
+  slug: string
+  compiledSource: string
+  directory: string
+}
+
+export type PageMetadata = {
+  metadata: Pick<
+    Metadata,
+    'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
+  >
+  slug: string
+  directory: string
 }

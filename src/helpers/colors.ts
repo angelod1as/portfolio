@@ -47,8 +47,8 @@ export type Colors = 'purple' | 'yellow' | 'pink' | 'blue' | 'green' | 'red'
 export type BgColor = `bg-${Colors}`
 
 export const bgColor: BgColor[] = [
-  'bg-purple',
   'bg-yellow',
+  'bg-purple',
   'bg-pink',
   'bg-blue',
   'bg-green',
@@ -58,8 +58,8 @@ export const bgColor: BgColor[] = [
 export type TextColor = `text-${Colors}`
 
 export const textColor: TextColor[] = [
-  'text-purple',
   'text-yellow',
+  'text-purple',
   'text-pink',
   'text-blue',
   'text-green',
@@ -69,8 +69,8 @@ export const textColor: TextColor[] = [
 export type BorderColor = `border-${Colors}`
 
 export const borderColor: BorderColor[] = [
-  'border-purple',
   'border-yellow',
+  'border-purple',
   'border-pink',
   'border-blue',
   'border-green',
@@ -80,8 +80,8 @@ export const borderColor: BorderColor[] = [
 export type BeforeTextColor = `before:${TextColor}`
 
 export const beforeTextColor: BeforeTextColor[] = [
-  'before:text-purple',
   'before:text-yellow',
+  'before:text-purple',
   'before:text-pink',
   'before:text-blue',
   'before:text-green',

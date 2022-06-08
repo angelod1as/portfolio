@@ -1,5 +1,5 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { BlogPostMetadata, DefaultMetadata, FCC, MDXProps } from '#types/types'
+import { Metadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
@@ -9,7 +9,7 @@ import styles from './MDX.module.sass'
 type Props = {
   mdx: MDXProps
   blogPost?: boolean
-  metadata: DefaultMetadata | undefined
+  metadata: Metadata | undefined
 }
 
 export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
@@ -22,8 +22,7 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   })
 
   if (blogPost && metadata) {
-    const { compiledTitle, createdAt, timeToRead, wordCount } =
-      metadata as BlogPostMetadata
+    const { compiledTitle, createdAt, timeToRead, wordCount } = metadata
     return (
       <div className={`${styles.container} ${styles.blogPost}`}>
         {compiledTitle && (

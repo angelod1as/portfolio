@@ -1,5 +1,3 @@
-import { MDXReturn } from './compileMDX'
-
 type File = {
   metadata?: {
     draft?: boolean
@@ -18,5 +16,5 @@ export const filterMDX = <T>(files: File[]) => {
     }
 
     return true
-  }) as Array<MDXReturn<T>>
+  }) as T[]
 }

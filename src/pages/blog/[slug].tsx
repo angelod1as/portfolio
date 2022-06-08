@@ -1,35 +1,25 @@
-import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getFileText } from '#lib/getFileText'
 import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
-import { MDXReturn } from '#lib/MDX/compileMDX'
+import { MDXReturn } from '#types/types'
 import { Post } from '#components/pages/Blog/Post'
-import { BlogPostMetadata } from '#types/types'
-import { RandomColors, randomColors } from 'src/helpers/colors'
-import { filterMDX } from '#lib/MDX/filterMDX'
+import { randomColors } from 'src/helpers/colors'
+import { fetchSinglePage } from '#lib/common/fetchSinglePage'
+import { fetchAllPages } from '#lib/common/fetchAllPages'
 
 export type BlogPostProps = {
-  content: MDXReturn<BlogPostMetadata>
+  content: MDXReturn
 }
 
 const BlogPost: FC<BlogPostProps> = ({ content }) => {
   return <Post content={content} />
 }
 
-type BlogTypes = Partial<BlogPostMetadata>
-
-type ParamsType = Array<{
-  params: {
-    slug: string
-  }
-}>
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getFilesInFolder<BlogTypes>('blog')
-  const paths: ParamsType = filterMDX<BlogTypes>(pages).map(page => ({
+  const allPosts = await fetchAllPages('blog')
+  const paths = allPosts.map(post => ({
     params: {
-      slug: page.slug,
+      slug: post.slug,
     },
   }))
 
@@ -39,34 +29,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-type GetStaticPropsType = {
-  data?: BlogPostMetadata
-  compiledSource?: string
-  colors?: RandomColors
-}
-
-export const getStaticProps: GetStaticProps<
-  GetStaticPropsType
-> = async context => {
+export const getStaticProps: GetStaticProps = async context => {
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const file = (await getFilesInFolder<BlogTypes>('blog')).find(
-    page => context.params?.slug === page.slug
-  )
+  const allPosts = await fetchAllPages('blog')
+  const postData = allPosts.find(page => context.params?.slug === page.slug)
 
-  if (file === undefined) {
+  if (postData === undefined) {
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText<BlogTypes>(
-    file.directory,
-    context.params.slug
-  )
-  const colors = randomColors(content?.metadata?.color)
+  const post: MDXReturn = await fetchSinglePage(postData)
+
+  const colors = randomColors(post.metadata.color)
 
   return {
-    props: { content, colors, slug: context.params.slug },
+    props: { content: post, colors, slug: context.params.slug },
   }
 }
 

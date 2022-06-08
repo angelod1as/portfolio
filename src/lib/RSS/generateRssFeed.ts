@@ -1,10 +1,10 @@
-import { BlogPostMetadata } from '#types/types'
+import { Metadata } from '#types/types'
 import { Feed } from 'feed'
 import fs from 'fs'
 import { removeSymbolsFromString } from 'src/helpers/removeSymbolsFromString'
 
 type Posts = Array<{
-  metadata: Partial<BlogPostMetadata> | undefined
+  metadata: Partial<Metadata> | undefined
   slug: string
 }>
 

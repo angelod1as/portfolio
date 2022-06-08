@@ -26,7 +26,6 @@ function FirstHead() {
       {/* FAVICON */}
       <link rel="icon" href="/favicon.ico" />
       <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
-      <link rel="apple-touch-icon" href="/apple.png" />
       <link rel="manifest" href="/manifest.webmanifest" />
       {/* META */}
       {/* Primary Meta Tags */}
@@ -52,6 +51,7 @@ function FirstHead() {
       />
       <meta
         property="og:image"
+        key="og:image"
         content="https://res.cloudinary.com/angelodias/image/upload/v1608995567/portfolio/tiles/social_xlptmf.png"
       />
       {/* Twitter */}
@@ -69,6 +69,7 @@ function FirstHead() {
       />
       <meta
         property="twitter:image"
+        key="twitter:image"
         content="https://res.cloudinary.com/angelodias/image/upload/v1608995567/portfolio/tiles/social_xlptmf.png"
       />
       <meta
