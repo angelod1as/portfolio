@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
 import { Metadata } from '#types/types'
 import { existsSync, mkdirSync } from 'fs'
-import path from 'path'
 import { generateHtml } from './generateHtml'
 import { runPuppeteer } from './runPuppeteer'
 
@@ -11,7 +11,7 @@ type GenerateSocialImage = {
   metadata: Metadata
 }
 
-export const generateSocialImage = ({
+export const generateSocialImage = async ({
   directory,
   publicDir,
   fileName,
@@ -28,13 +28,13 @@ export const generateSocialImage = ({
     mkdirSync(publicFinalPath, { recursive: true })
   }
 
-  if (existsSync(path.join(publicFinalPath, finalName))) {
-    return
+  if (existsSync(finalName)) {
+    return finalName
   }
 
   const finalHtml = generateHtml(metadata)
 
-  runPuppeteer(finalHtml, finalName).catch(err => {
+  await runPuppeteer(finalHtml, finalName).catch(err => {
     throw new Error(err)
   })
 

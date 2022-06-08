@@ -25,7 +25,9 @@ export const generateHtml = (metadata: Metadata) => {
   )
 
   const title = parseText(metadata.title, 'h1')
-  const description = metadata.description ?? parseText(metadata.title, 'h2')
+  const description = metadata.description
+    ? parseText(metadata.description, 'h2')
+    : undefined
   const finalHtml = boilerplate
     .replace(
       '{{TITLE}}',

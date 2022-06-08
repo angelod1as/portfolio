@@ -14,7 +14,7 @@ export const parseMDXMetadata = async (
   const publicDir = directory.split(projectDir)[1]
 
   // Generate Social Image
-  const socialImagePath = generateSocialImage({
+  const socialImagePath = await generateSocialImage({
     directory,
     publicDir,
     fileName,

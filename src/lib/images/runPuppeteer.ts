@@ -1,7 +1,5 @@
 import puppeteer from 'puppeteer'
 
-// TODO: change this to an API function
-
 export const runPuppeteer = async (finalHtml: string, finalName: string) => {
   const browser = await puppeteer.launch({
     headless: true,
