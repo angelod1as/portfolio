@@ -20,4 +20,5 @@ export type Metadata = {
   draft?: boolean
   timeToRead?: number
   wordCount?: number
+  socialImagePath?: string
 }
