@@ -2,9 +2,10 @@ import NextHead from 'next/head'
 type HeadProps = {
   title?: string
   description?: string
+  image?: string
 }
 
-export function NewHead({ title, description }: HeadProps) {
+export function NewHead({ title, description, image }: HeadProps) {
   const metaTitle = title
     ? `${title} - I'm Angelo and I do stuff`
     : "I'm Angelo and I do stuff"
@@ -36,6 +37,21 @@ export function NewHead({ title, description }: HeadProps) {
             property="twitter:description"
             key="tw:description"
             content={description}
+          />
+        </>
+      )}
+
+      {image && (
+        <>
+          <meta
+            property="og:image"
+            key="og:image"
+            content={'https://angelodias.com.br' + image}
+          />
+          <meta
+            property="twitter:image"
+            key="twitter:image"
+            content={'https://angelodias.com.br' + image}
           />
         </>
       )}

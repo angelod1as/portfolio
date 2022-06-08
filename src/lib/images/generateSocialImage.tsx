@@ -22,14 +22,15 @@ export const generateSocialImage = async ({
     .join(`/public${publicDir}`)
     .replace(fileName, '')
 
-  const finalName = `${publicFinalPath}/${fileName}.social.png`
+  const finalName = `${fileName}.social.png`
+  const finalPath = `${publicDir}/${finalName}`
 
   if (!existsSync(publicFinalPath)) {
     mkdirSync(publicFinalPath, { recursive: true })
   }
 
-  if (existsSync(finalName)) {
-    return finalName
+  if (existsSync(`${publicFinalPath}/${finalName}`)) {
+    return finalPath
   }
 
   const finalHtml = generateHtml(metadata)
@@ -38,5 +39,5 @@ export const generateSocialImage = async ({
     throw new Error(err)
   })
 
-  return finalName
+  return finalPath
 }
