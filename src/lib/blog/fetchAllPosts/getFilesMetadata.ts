@@ -6,7 +6,7 @@ import { splitDirAndFiles } from './splitDirAndFiles'
 
 export const getFilesMetadata = async (filePaths: string[]) => {
   const postsMetadatas = filePaths.map(async filePath => {
-    const [, filename] = splitDirAndFiles(filePath)
+    const [directory, filename] = splitDirAndFiles(filePath)
     const fileContent = readFileSync(filePath, 'utf-8')
     const { data } = matter(fileContent)
     const slug = filename.replace(/\.mdx?/, '')
@@ -19,6 +19,7 @@ export const getFilesMetadata = async (filePaths: string[]) => {
         ...data,
         compiledTitle,
       },
+      directory,
       slug,
     }
 

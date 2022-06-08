@@ -1,5 +1,3 @@
-import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getFileText } from '#lib/getFileText'
 import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
@@ -7,7 +5,8 @@ import { MDXReturn } from '#lib/MDX/compileMDX'
 import { Post } from '#components/pages/Blog/Post'
 import { Metadata } from '#types/types'
 import { RandomColors, randomColors } from 'src/helpers/colors'
-import { filterMDX } from '#lib/blog/fetchAllPosts/filterMDX'
+import { fetchAllPosts } from '#lib/blog/fetchAllPosts'
+import { fetchSinglePost } from '#lib/blog/fetchSinglePost'
 
 export type BlogPostProps = {
   content: MDXReturn
@@ -17,17 +16,11 @@ const BlogPost: FC<BlogPostProps> = ({ content }) => {
   return <Post content={content} />
 }
 
-type ParamsType = Array<{
-  params: {
-    slug: string
-  }
-}>
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getFilesInFolder('blog')
-  const paths: ParamsType = filterMDX(pages).map(page => ({
+  const allPosts = await fetchAllPosts()
+  const paths = allPosts.map(post => ({
     params: {
-      slug: page.slug,
+      slug: post.slug,
     },
   }))
 
@@ -49,19 +42,19 @@ export const getStaticProps: GetStaticProps<
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const file = (await getFilesInFolder('blog')).find(
-    page => context.params?.slug === page.slug
-  )
+  const allPosts = await fetchAllPosts()
+  const postData = allPosts.find(page => context.params?.slug === page.slug)
 
-  if (file === undefined) {
+  if (postData === undefined) {
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText(file.directory, context.params.slug)
-  const colors = randomColors(content?.metadata?.color)
+  const post: MDXReturn = await fetchSinglePost(postData)
+
+  const colors = randomColors(post.metadata.color)
 
   return {
-    props: { content, colors, slug: context.params.slug },
+    props: { content: post, colors, slug: context.params.slug },
   }
 }
 

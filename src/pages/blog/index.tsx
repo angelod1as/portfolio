@@ -12,6 +12,7 @@ export type BlogPagePostMetadata = {
     'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
   >
   slug: string
+  directory: string
 }
 
 type BlogPageProps = {

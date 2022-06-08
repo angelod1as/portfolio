@@ -2,8 +2,6 @@ import { Metadata } from '#types/types'
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { timeToRead } from 'src/helpers/timeToRead'
-import { wordCount } from 'src/helpers/wordCount'
 import { MDXReturn } from './MDX/compileMDX'
 import { serialize } from './MDX/serialize'
 
@@ -25,15 +23,10 @@ export const getFileText = async (
 
   const metadata: Metadata = {
     ...typedData,
-    compiledTitle: (await serialize({ content: title })).compiledSource,
-    wordCount: wordCount(content),
-    timeToRead: timeToRead(content),
   }
 
   const { compiledSource } = await serialize({
     content,
-    metadata,
-    directory,
   })
 
   return {

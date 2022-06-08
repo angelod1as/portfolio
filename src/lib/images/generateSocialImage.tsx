@@ -1,58 +1,42 @@
 import { Metadata } from '#types/types'
-import { marked } from 'marked'
-import { textColor } from 'src/helpers/colors'
+import { existsSync, mkdirSync } from 'fs'
+import path from 'path'
+import { generateHtml } from './generateHtml'
 import { runPuppeteer } from './runPuppeteer'
 
-type Tag = 'h1' | 'h2'
-const parseText = (string: string, tag: Tag) => {
-  const color = textColor[0]
-  marked.use({
-    renderer: {
-      paragraph: text => `<${tag}>${text}</${tag}>`,
-      strong: text => `<b class="${color}">${text}</b>`,
-    },
-  })
-  return marked.parse(string)
+type GenerateSocialImage = {
+  directory: string
+  publicDir: string
+  fileName: string
+  metadata: Metadata
 }
 
-export const generateSocialImage = (
-  fileName: string,
-  publicFinalPath: string,
-  metadata: Metadata | undefined,
-  boilerplate: string
-) => {
-  // identify blog posts
-  if (metadata?.createdAt) {
-    const title = parseText(metadata.title, 'h1')
-    const description = metadata.description ?? parseText(metadata.title, 'h2')
-    const finalHtml = boilerplate
-      .replace(
-        '{{TITLE}}',
-        `
-        ${title}
-      `
-      )
-      .replace(
-        '{{DESCRIPTION}}',
-        description
-          ? `
-            <h2>
-              ${description}
-            </h2>
-          `
-          : ''
-      )
-      .replace('{{SIGNATURE}}', '<p>angelodias.com.br</p>')
+export const generateSocialImage = ({
+  directory,
+  publicDir,
+  fileName,
+  metadata,
+}: GenerateSocialImage) => {
+  const publicFinalPath = directory
+    .split(publicDir)
+    .join(`/public${publicDir}`)
+    .replace(fileName, '')
 
-    if (fileName === 'how-i-became-a-developer.mdx') {
-      const finalName = `${publicFinalPath}/${fileName.replace(
-        '.mdx',
-        '.social.png'
-      )}`
-      runPuppeteer(finalHtml, finalName).catch(err => {
-        throw new Error(err)
-      })
-    }
+  const finalName = `${publicFinalPath}/${fileName}.social.png`
+
+  if (!existsSync(publicFinalPath)) {
+    mkdirSync(publicFinalPath, { recursive: true })
   }
-  return ''
+
+  if (existsSync(path.join(publicFinalPath, finalName))) {
+    return
+  }
+
+  const finalHtml = generateHtml(metadata)
+
+  runPuppeteer(finalHtml, finalName).catch(err => {
+    throw new Error(err)
+  })
+
+  return finalName
 }

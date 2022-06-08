@@ -11,7 +11,7 @@ type CompileMDXProps = {
 }
 
 export type MDXReturn = {
-  metadata?: Metadata
+  metadata: Metadata
   slug: string
   compiledSource: string
   directory: string
