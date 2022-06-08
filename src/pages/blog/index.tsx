@@ -1,39 +1,34 @@
-import { Blog, PostProps } from '#components/pages/Blog'
-import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { filterMDX } from '#lib/MDX/filterMDX'
+import { Blog } from '#components/pages/Blog'
+import { fetchAllPosts } from '#lib/blog/fetchAllPosts'
 import { generateRssFeed } from '#lib/RSS/generateRssFeed'
 import { Metadata } from '#types/types'
-import { GetStaticProps } from 'next'
-import React, { FC } from 'react'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import React from 'react'
 import { randomColors } from 'src/helpers/colors'
+
+export type BlogPagePostMetadata = {
+  metadata: Pick<
+    Metadata,
+    'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
+  >
+  slug: string
+}
 
 type BlogPageProps = {
   posts: Array<{
-    metadata: Partial<Metadata> | undefined
+    metadata: Metadata
     slug: string
   }>
 }
 
-const BlogPage: FC<BlogPageProps> = ({ posts }) => {
-  const filteredPosts = posts.filter(post => post.metadata) as PostProps
-
-  return <Blog posts={filteredPosts} />
+function BlogPage({
+  posts,
+}: BlogPageProps): InferGetStaticPropsType<typeof getStaticProps> {
+  return <Blog posts={posts} />
 }
 
-type GetStaticPropsType = {
-  posts?: Array<{
-    metadata: Partial<Metadata> | undefined
-    slug: string
-  }>
-  compiledSource?: string
-}
-
-export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
-  const blogPosts = await getFilesInFolder('blog')
-  const posts = filterMDX(blogPosts).map(({ metadata, slug }) => ({
-    metadata,
-    slug,
-  }))
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await fetchAllPosts()
 
   await generateRssFeed(posts)
 

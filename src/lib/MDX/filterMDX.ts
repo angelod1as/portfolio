@@ -1,5 +1,3 @@
-import { MDXReturn } from './compileMDX'
-
 type File = {
   metadata?: {
     draft?: boolean
@@ -7,7 +5,7 @@ type File = {
   }
 }
 
-export const filterMDX = (files: File[]) => {
+export const filterMDX = <T>(files: File[]) => {
   return files.filter(page => {
     if (page?.metadata?.draft) {
       return false
@@ -18,5 +16,5 @@ export const filterMDX = (files: File[]) => {
     }
 
     return true
-  }) as MDXReturn[]
+  }) as T[]
 }

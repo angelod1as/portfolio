@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { serialize } from './serialize'
+import { serialize } from '../MDX/serialize'
 
 export const readMDXFrontmatter = async (contentDir: string, file: string) => {
   const filePath = join(contentDir, file)

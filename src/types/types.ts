@@ -21,4 +21,5 @@ export type Metadata = {
   timeToRead?: number
   wordCount?: number
   socialImagePath?: string
+  publishAt?: number
 }
