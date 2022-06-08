@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Metadata } from '#types/types'
 import { existsSync, mkdirSync } from 'fs'
 import { generateHtml } from './generateHtml'
