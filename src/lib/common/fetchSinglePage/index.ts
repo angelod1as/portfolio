@@ -1,14 +1,12 @@
-import { MDXReturn } from '#lib/MDX/compileMDX'
-import { BlogPagePostMetadata } from '#pages/blog'
-import { Metadata } from '#types/types'
+import { MDXReturn, Metadata, PageMetadata } from '#types/types'
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
 import { parseMDXContent } from './parseMDXContent'
 import { parseMDXMetadata } from './parseMDXMetadata'
 
-export const fetchSinglePost = async (
-  postData: BlogPagePostMetadata
+export const fetchSinglePage = async (
+  postData: PageMetadata
 ): Promise<MDXReturn> => {
   const { directory, slug } = postData
   const MDXPath = join(directory, `${slug}.mdx`)

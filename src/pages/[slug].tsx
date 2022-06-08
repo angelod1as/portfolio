@@ -1,12 +1,11 @@
 import { Page } from '#components/pages/Page'
-import { getFilesInFolder } from '#lib/getFilesInFolder'
-import { getFileText } from '#lib/getFileText'
 import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
-import { MDXReturn } from '#lib/MDX/compileMDX'
-import { RandomColors, randomColors } from 'src/helpers/colors'
-import { Metadata } from '#types/types'
+import { randomColors } from 'src/helpers/colors'
+import { fetchAllPages } from '#lib/common/fetchAllPages'
+import { fetchSinglePage } from '#lib/common/fetchSinglePage'
+import { MDXReturn } from '#types/types'
 
 export type PageProps = {
   content: MDXReturn
@@ -16,15 +15,9 @@ const AnyPage: FC<PageProps> = ({ content }) => {
   return <Page content={content} />
 }
 
-type ParamsType = Array<{
-  params: {
-    slug: string
-  }
-}>
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getFilesInFolder('pages')
-  const paths: ParamsType = pages.map(page => ({
+  const allPages = await fetchAllPages('pages')
+  const paths = allPages.map(page => ({
     params: {
       slug: page.slug,
     },
@@ -36,36 +29,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-type GetStaticPropsType = {
-  data?: Metadata
-  compiledSource?: string
-  colors: RandomColors
-}
-
-export const getStaticProps: GetStaticProps<
-  GetStaticPropsType
-> = async context => {
+export const getStaticProps: GetStaticProps = async context => {
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const file = (await getFilesInFolder('pages')).find(
-    page => context.params?.slug === page.slug
-  )
+  const allPages = await fetchAllPages('pages')
+  const pageData = allPages.find(page => context.params?.slug === page.slug)
 
-  if (file === undefined) {
+  if (pageData === undefined) {
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const content = await getFileText(file.directory, context.params.slug, 'page')
+  const page: MDXReturn = await fetchSinglePage(pageData)
 
-  const colors = randomColors(content?.metadata?.color)
+  const colors = randomColors(page.metadata.color)
 
   return {
-    props: {
-      content,
-      colors,
-      slug: context.params.slug,
-    },
+    props: { content: page, colors, slug: context.params.slug },
   }
 }
 

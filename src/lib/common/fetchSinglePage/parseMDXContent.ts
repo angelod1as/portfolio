@@ -1,6 +1,6 @@
 import { handleMDXImages } from '#lib/images/handleMDXImages'
 import { replaceContentImages } from '#lib/images/replaceContentImages'
-import { serialize } from '#lib/MDX/serialize'
+import { serialize } from '#lib/common/MDX/serialize'
 
 export const parseMDXContent = async (content: string, directory: string) => {
   const projectDir = process.cwd()

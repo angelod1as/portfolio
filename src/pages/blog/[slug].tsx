@@ -1,12 +1,11 @@
 import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
-import { MDXReturn } from '#lib/MDX/compileMDX'
+import { MDXReturn } from '#types/types'
 import { Post } from '#components/pages/Blog/Post'
-import { Metadata } from '#types/types'
-import { RandomColors, randomColors } from 'src/helpers/colors'
-import { fetchAllPosts } from '#lib/blog/fetchAllPosts'
-import { fetchSinglePost } from '#lib/blog/fetchSinglePost'
+import { randomColors } from 'src/helpers/colors'
+import { fetchSinglePage } from '#lib/common/fetchSinglePage'
+import { fetchAllPages } from '#lib/common/fetchAllPages'
 
 export type BlogPostProps = {
   content: MDXReturn
@@ -17,7 +16,7 @@ const BlogPost: FC<BlogPostProps> = ({ content }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await fetchAllPosts()
+  const allPosts = await fetchAllPages('blog')
   const paths = allPosts.map(post => ({
     params: {
       slug: post.slug,
@@ -30,26 +29,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-type GetStaticPropsType = {
-  data?: Metadata
-  compiledSource?: string
-  colors?: RandomColors
-}
-
-export const getStaticProps: GetStaticProps<
-  GetStaticPropsType
-> = async context => {
+export const getStaticProps: GetStaticProps = async context => {
   ow(context.params, ow.object)
   ow(context.params.slug, ow.string)
 
-  const allPosts = await fetchAllPosts()
+  const allPosts = await fetchAllPages('blog')
   const postData = allPosts.find(page => context.params?.slug === page.slug)
 
   if (postData === undefined) {
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const post: MDXReturn = await fetchSinglePost(postData)
+  const post: MDXReturn = await fetchSinglePage(postData)
 
   const colors = randomColors(post.metadata.color)
 

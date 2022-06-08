@@ -23,3 +23,19 @@ export type Metadata = {
   socialImagePath?: string
   publishAt?: number
 }
+
+export type MDXReturn = {
+  metadata: Metadata
+  slug: string
+  compiledSource: string
+  directory: string
+}
+
+export type PageMetadata = {
+  metadata: Pick<
+    Metadata,
+    'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
+  >
+  slug: string
+  directory: string
+}

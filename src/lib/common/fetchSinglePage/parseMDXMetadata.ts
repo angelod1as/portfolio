@@ -1,5 +1,5 @@
 import { generateSocialImage } from '#lib/images/generateSocialImage'
-import { serialize } from '#lib/MDX/serialize'
+import { serialize } from '#lib/common/MDX/serialize'
 import { Metadata } from '#types/types'
 import { timeToRead } from 'src/helpers/timeToRead'
 import { wordCount } from 'src/helpers/wordCount'
