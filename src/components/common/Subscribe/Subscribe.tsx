@@ -37,7 +37,7 @@ export const Subscribe = ({ inner, closed }: SubscribeProps) => {
 
   return (
     <form
-      action="https://angelodias.us13.list-manage.com/subscribe/post?u=b237b98f4c4402d0c2923bb30&id=5150f88a94"
+      action="https://gmail.us5.list-manage.com/subscribe/post?u=f065fa9f835273f5a59e75667&amp;id=821625a73a"
       method="post"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
@@ -61,7 +61,7 @@ export const Subscribe = ({ inner, closed }: SubscribeProps) => {
       <div className="absolute left-[-5000px]" aria-hidden="true">
         <input
           type="text"
-          name="b_b237b98f4c4402d0c2923bb30_5150f88a94"
+          name="b_f065fa9f835273f5a59e75667_821625a73a"
           tabIndex={-1}
           defaultValue=""
         />
