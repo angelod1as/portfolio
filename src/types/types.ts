@@ -11,11 +11,13 @@ export type MDXProps = MDXRemoteSerializeResult & {
   lazy?: boolean
 }
 
-export type Metadata = {
+export type Metadata = BlogMetadata & ProjectMetadata
+
+export type BlogMetadata = {
   title: string
   createdAt?: number
   color?: string
-  compiledTitle: string
+  compiledTitle?: string
   description?: string
   draft?: boolean
   timeToRead?: number
@@ -32,10 +34,29 @@ export type MDXReturn = {
 }
 
 export type PageMetadata = {
-  metadata: Pick<
-    Metadata,
-    'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
-  >
+  metadata: Metadata
   slug: string
   directory: string
+}
+
+// Portfolio
+
+type Summary = {
+  when?: number
+  where?: string
+  who?: string
+  how?: string
+  why?: string
+}
+
+export type ProjectMetadata = {
+  title: string
+  compiledTitle?: string
+  summary?: Summary
+  compiledSummary?: Omit<Summary, 'when'> & { when?: string }
+  hero?: {
+    url: string
+    alt: string
+  }
+  live?: string
 }
