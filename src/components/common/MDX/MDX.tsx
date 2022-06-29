@@ -9,7 +9,7 @@ import styles from './MDX.module.sass'
 type Props = {
   mdx: MDXProps
   blogPost?: boolean
-  metadata: Metadata | undefined
+  metadata?: Metadata
 }
 
 export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
