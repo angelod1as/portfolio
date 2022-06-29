@@ -1,3 +1,5 @@
+import { PageMetadata } from '#types/types'
+
 type File = {
   metadata?: {
     draft?: boolean
@@ -5,7 +7,7 @@ type File = {
   }
 }
 
-export const filterMDX = <T>(files: File[]) => {
+export const filterMDX = (files: File[]) => {
   return files.filter(page => {
     if (page?.metadata?.draft) {
       return false
@@ -16,5 +18,5 @@ export const filterMDX = <T>(files: File[]) => {
     }
 
     return true
-  }) as T[]
+  }) as PageMetadata[]
 }
