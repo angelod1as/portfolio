@@ -4,7 +4,7 @@ import { join } from 'path'
 import { filterMDX } from './filterMDX'
 import { getPagesMetadata } from './getPagesMetadata'
 
-export type PageType = 'blog' | 'pages'
+export type PageType = 'blog' | 'pages' | 'projects'
 
 export const fetchAllPages = async (type: PageType) => {
   const contentDir = join(process.cwd(), 'content', type)

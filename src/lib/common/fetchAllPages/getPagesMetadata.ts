@@ -13,9 +13,9 @@ export const getPagesMetadata = async (filePaths: string[], type: PageType) => {
     const slug = filename.replace(/\.mdx?/, '')
 
     const title =
-      type === 'blog'
-        ? data.title
-        : `I'm angelo and I do **${data.title as string}**`
+      type === 'pages'
+        ? `I'm angelo and I do **${data.title as string}**`
+        : data.title
 
     const compiledTitle = (await serialize({ content: title })).compiledSource
 
