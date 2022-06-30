@@ -1,3 +1,4 @@
+import { handleMDXImages } from '#lib/images/handleMDXImages'
 import {
   imageExtensions,
   ImageString,
@@ -78,6 +79,8 @@ const compileHero = (
   if (!heroSrc) {
     return undefined
   }
+
+  handleMDXImages(directory)
 
   return {
     ...hero,
