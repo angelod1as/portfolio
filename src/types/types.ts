@@ -15,15 +15,15 @@ export type Metadata = BlogMetadata & ProjectMetadata
 
 export type BlogMetadata = {
   title: string
-  createdAt?: number
-  color?: string
-  compiledTitle?: string
-  description?: string
-  draft?: boolean
-  timeToRead?: number
-  wordCount?: number
-  socialImagePath?: string
-  publishAt?: number
+  createdAt: number | null
+  color: string | null
+  compiledTitle: string | null
+  description: string | null
+  draft: boolean | null
+  timeToRead: number | null
+  wordCount: number | null
+  socialImagePath: string | null
+  publishAt: number | null
 }
 
 export type MDXReturn = {
@@ -41,22 +41,22 @@ export type PageMetadata = {
 
 // Portfolio
 
-type Summary = {
-  when?: number
-  where?: string
-  who?: string
-  what?: string
-  why?: string
+type Summary = null | {
+  when: number | null
+  where: string | null
+  who: string | null
+  what: string | null
+  why: string | null
 }
 
 export type ProjectMetadata = {
   title: string
-  compiledTitle?: string
-  summary?: Summary
-  compiledSummary?: Omit<Summary, 'when'> & { when?: string }
-  hero?: {
+  compiledTitle: string | null
+  summary: Summary
+  compiledSummary?: Omit<Summary, 'when'> & { when: string | null }
+  hero: {
     src: string
     alt: string
-  }
-  live?: string
+  } | null
+  live: string | null
 }

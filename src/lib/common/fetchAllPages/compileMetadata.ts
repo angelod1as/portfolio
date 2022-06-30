@@ -39,6 +39,7 @@ const compileTitle = async (title: string, type: PageType) => {
 
     return (await serialize({ content: newTitle })).compiledSource
   }
+  return null
 }
 
 const compileSummary = async (
@@ -52,8 +53,12 @@ const compileSummary = async (
     return promise
   }
 
+  if (!summary) {
+    return null
+  }
+
   const numberWhen = summary?.when && Number(summary?.when)
-  const dateWhen = numberWhen ? TimestampToDate(numberWhen) : undefined
+  const dateWhen = numberWhen ? TimestampToDate(numberWhen) : null
 
   return {
     when: dateWhen,
@@ -69,7 +74,7 @@ const compileHero = (
   directory: string
 ): Metadata['hero'] => {
   if (!hero?.src || !hero?.alt) {
-    return undefined
+    return null
   }
 
   const okHeroImageFormat = imageExtensions.includes(hero.src.split('.')[1])
@@ -77,7 +82,7 @@ const compileHero = (
   const heroSrc = okHeroImageFormat ? (hero.src as ImageString) : undefined
 
   if (!heroSrc) {
-    return undefined
+    return null
   }
 
   handleMDXImages(directory)

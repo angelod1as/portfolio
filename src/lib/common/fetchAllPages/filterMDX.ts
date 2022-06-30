@@ -2,8 +2,8 @@ import { PageMetadata } from '#types/types'
 
 type File = {
   metadata?: {
-    draft?: boolean
-    publishAt?: number
+    draft: boolean | null
+    publishAt: number | null
   }
 }
 

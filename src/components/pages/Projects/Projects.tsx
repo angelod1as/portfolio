@@ -31,7 +31,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
         consectetur molestiae aspernatur voluptatibus!
       </p>
 
-      <h2 className="h2-as-h1">Highlighted projects:</h2>
+      <h2 className="">Highlighted</h2>
 
       {projects.map(project => (
         <Project key={project.slug} project={project.metadata} />
