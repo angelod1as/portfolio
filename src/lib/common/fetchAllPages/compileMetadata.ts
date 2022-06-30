@@ -1,3 +1,8 @@
+import {
+  imageExtensions,
+  ImageString,
+  replaceStringImage,
+} from '#lib/images/replaceStringImage'
 import { Metadata, PageMetadata } from '#types/types'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { PageType } from '.'
@@ -8,12 +13,13 @@ export const compileMetadata = async (
   type: PageType
 ): Promise<PageMetadata[]> => {
   const compiledMetadatas = pageMetadata.map(async pageMetadata => {
-    const { metadata } = pageMetadata
+    const { metadata, directory } = pageMetadata
 
     const newMetadata: Metadata = {
       ...metadata,
       compiledTitle: await compileTitle(metadata.title, type),
       compiledSummary: await compileSummary(metadata.summary),
+      hero: compileHero(metadata.hero, directory),
     }
 
     return {
@@ -54,5 +60,27 @@ const compileSummary = async (
     who: await compile(summary?.who),
     why: await compile(summary?.why),
     what: await compile(summary?.what),
+  }
+}
+
+const compileHero = (
+  hero: Metadata['hero'],
+  directory: string
+): Metadata['hero'] => {
+  if (!hero?.src || !hero?.alt) {
+    return undefined
+  }
+
+  const okHeroImageFormat = imageExtensions.includes(hero.src.split('.')[1])
+
+  const heroSrc = okHeroImageFormat ? (hero.src as ImageString) : undefined
+
+  if (!heroSrc) {
+    return undefined
+  }
+
+  return {
+    ...hero,
+    src: replaceStringImage(heroSrc, directory),
   }
 }
