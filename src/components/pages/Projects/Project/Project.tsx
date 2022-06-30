@@ -3,6 +3,7 @@ import { ProjectMetadata } from '#types/types'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { MDX } from '#components/common/MDX'
 import styles from './Project.module.sass'
+import Image from 'next/image'
 
 type ProjectProps = {
   project: Partial<ProjectMetadata>
@@ -10,7 +11,7 @@ type ProjectProps = {
 
 export const Project = ({ project }: ProjectProps) => {
   const { colors } = useColorContext()
-  const { compiledTitle, compiledSummary, hero, title } = project
+  const { compiledTitle, compiledSummary, hero } = project
 
   const buildSection = (
     prefix: string,
@@ -36,14 +37,9 @@ export const Project = ({ project }: ProjectProps) => {
   return (
     <div className="grid grid-cols-[200px_1fr] gap-4 ">
       <figure className={'w-40 h-40' + ' ' + colors.bgColor}>
-        {/* {project.hero?.url && (
-          <Image
-            src={project.hero.url}
-            alt={project.hero.url}
-            width={300}
-            height={300}
-          />
-        )} */}
+        {hero?.src && (
+          <Image src={hero.src} alt={hero.alt} width={300} height={300} />
+        )}
       </figure>
       <div>
         {compiledTitle && <MDX mdx={{ compiledSource: compiledTitle }} />}
@@ -51,8 +47,8 @@ export const Project = ({ project }: ProjectProps) => {
           {buildSection('When', compiledSummary?.when, true)}
           {buildSection('Where', compiledSummary?.where)}
           {buildSection('Who', compiledSummary?.who)}
-          {buildSection('How', compiledSummary?.how)}
-          {buildSection('Who', compiledSummary?.why)}
+          {buildSection('What', compiledSummary?.what)}
+          {buildSection('Why', compiledSummary?.why)}
         </div>
       </div>
     </div>
