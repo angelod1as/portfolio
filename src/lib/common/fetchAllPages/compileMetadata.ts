@@ -45,8 +45,8 @@ const compileTitle = async (title: string, type: PageType) => {
 const compileSummary = async (
   summary: Metadata['summary']
 ): Promise<Metadata['compiledSummary']> => {
-  const compile = async (topic?: string) => {
-    if (!topic) return undefined
+  const compile = async (topic: string | null) => {
+    if (!topic) return null
 
     const promise = (await serialize({ content: topic })).compiledSource
 

@@ -15,7 +15,9 @@ const generateColors = <T>(color: string, group: T[], prefix: Prefix) => {
   return colorString
 }
 
-export const randomColors = (color?: string | undefined): RandomColors => {
+export const randomColors = (
+  color?: string | undefined | null
+): RandomColors => {
   const max = textColor.length
   const index = Math.floor(Math.random() * max)
 
