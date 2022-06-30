@@ -45,7 +45,7 @@ type Summary = {
   when?: number
   where?: string
   who?: string
-  how?: string
+  what?: string
   why?: string
 }
 
@@ -55,7 +55,7 @@ export type ProjectMetadata = {
   summary?: Summary
   compiledSummary?: Omit<Summary, 'when'> & { when?: string }
   hero?: {
-    url: string
+    src: string
     alt: string
   }
   live?: string

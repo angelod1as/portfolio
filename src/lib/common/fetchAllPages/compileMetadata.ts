@@ -53,6 +53,6 @@ const compileSummary = async (
     where: await compile(summary?.where),
     who: await compile(summary?.who),
     why: await compile(summary?.why),
-    how: await compile(summary?.how),
+    what: await compile(summary?.what),
   }
 }
