@@ -15,7 +15,7 @@ export const Project = ({ project }: ProjectProps) => {
 
   const buildSection = (
     prefix: string,
-    content: string | undefined,
+    content: string | null | undefined,
     paragraph?: boolean
   ) => {
     if (!content) return null
@@ -44,11 +44,15 @@ export const Project = ({ project }: ProjectProps) => {
       <div>
         {compiledTitle && <MDX mdx={{ compiledSource: compiledTitle }} />}
         <div className={styles.grid}>
-          {buildSection('When', compiledSummary?.when, true)}
-          {buildSection('Where', compiledSummary?.where)}
-          {buildSection('Who', compiledSummary?.who)}
-          {buildSection('What', compiledSummary?.what)}
-          {buildSection('Why', compiledSummary?.why)}
+          {compiledSummary && (
+            <>
+              {buildSection('When', compiledSummary?.when, true)}
+              {buildSection('Where', compiledSummary?.where)}
+              {buildSection('Who', compiledSummary?.who)}
+              {buildSection('What', compiledSummary?.what)}
+              {buildSection('Why', compiledSummary?.why)}
+            </>
+          )}
         </div>
       </div>
     </div>

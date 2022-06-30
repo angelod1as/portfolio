@@ -41,7 +41,7 @@ export type PageMetadata = {
 
 // Portfolio
 
-type Summary = null | {
+type Summary = {
   when: number | null
   where: string | null
   who: string | null
@@ -52,8 +52,8 @@ type Summary = null | {
 export type ProjectMetadata = {
   title: string
   compiledTitle: string | null
-  summary: Summary
-  compiledSummary?: Omit<Summary, 'when'> & { when: string | null }
+  summary: Summary | null
+  compiledSummary?: (Omit<Summary, 'when'> & { when: string | null }) | null
   hero: {
     src: string
     alt: string
