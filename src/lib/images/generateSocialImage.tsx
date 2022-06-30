@@ -28,13 +28,15 @@ export const generateSocialImage = async ({
     mkdirSync(publicFinalPath, { recursive: true })
   }
 
-  if (existsSync(`${publicFinalPath}/${finalName}`)) {
+  const finalFileA = `${publicFinalPath}/${finalName}`
+
+  if (existsSync(finalFileA)) {
     return finalPath
   }
 
   const finalHtml = generateHtml(metadata)
 
-  await runPuppeteer(finalHtml, finalName).catch(err => {
+  await runPuppeteer(finalHtml, finalFileA).catch(err => {
     throw new Error(err)
   })
 

@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 
-export const runPuppeteer = async (finalHtml: string, finalName: string) => {
+export const runPuppeteer = async (finalHtml: string, finalPath: string) => {
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox'],
@@ -15,7 +15,7 @@ export const runPuppeteer = async (finalHtml: string, finalName: string) => {
     const page = await browser.newPage()
     await page.setContent(finalHtml)
     await page.waitForNetworkIdle()
-    await page.screenshot({ path: finalName })
+    await page.screenshot({ path: finalPath })
   } catch (error) {
     console.error(error)
   } finally {
