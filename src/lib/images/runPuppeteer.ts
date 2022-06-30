@@ -3,6 +3,7 @@ import puppeteer from 'puppeteer'
 export const runPuppeteer = async (finalHtml: string, finalName: string) => {
   const browser = await puppeteer.launch({
     headless: true,
+    args: ['--no-sandbox'],
     devtools: false,
     defaultViewport: {
       height: 630,
