@@ -35,13 +35,13 @@ export const Project = ({ project }: ProjectProps) => {
   }
 
   return (
-    <div className="grid grid-cols-[200px_1fr] gap-4 ">
+    <div className="grid grid-cols-[200px_1fr] gap-6 ">
       <figure className={'w-40 h-40' + ' ' + colors.bgColor}>
         {hero?.src && (
           <Image src={hero.src} alt={hero.alt} width={300} height={300} />
         )}
       </figure>
-      <div>
+      <div className="mt-[-6px]">
         {compiledTitle && <MDX mdx={{ compiledSource: compiledTitle }} />}
         <div className={styles.grid}>
           {compiledSummary && (
