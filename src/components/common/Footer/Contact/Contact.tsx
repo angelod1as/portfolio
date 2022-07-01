@@ -32,7 +32,10 @@ export const Contact: FCC = () => {
         <Social color={bgColor[3]} href="https://t.me/oicronofobico">
           <Image src={telegram} alt="telegram" width={40} height={40} />
         </Social>
-        <Social color={bgColor[4]} href="">
+        <Social
+          color={bgColor[4]}
+          href="https://www.linkedin.com/in/angelod1as/"
+        >
           <Image src={linkedin} alt="linkedin" width={40} height={40} />
         </Social>
       </div>
