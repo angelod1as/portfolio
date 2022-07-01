@@ -25,13 +25,17 @@ export const generateSocialImage = async ({
   const socialImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
   const instagramImagePathAndFilename = `${filePathInPublic}/${instagramImageFileName}`
 
+  const filePathInSocial = `${process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}${
+    filePathInPublic.split('/public')[1]
+  }/${socialImageFileName}`
+
   const socialImageExists = existsSync(socialImagePathAndFilename)
   const instagramImageExists = existsSync(instagramImagePathAndFilename)
 
   mkdirSync(filePathInPublic, { recursive: true })
 
   if (socialImageExists && instagramImageExists) {
-    return socialImagePathAndFilename
+    return filePathInSocial
   }
 
   if (!socialImageExists) {
@@ -65,5 +69,5 @@ export const generateSocialImage = async ({
     })
   }
 
-  return socialImagePathAndFilename
+  return filePathInSocial
 }

@@ -38,7 +38,10 @@ function FirstHead() {
       />
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://angelodias.com.br" />
+      <meta
+        property="og:url"
+        content={process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}
+      />
       <meta
         property="og:title"
         key="og:title"
@@ -56,7 +59,10 @@ function FirstHead() {
       />
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://angelodias.com.br" />
+      <meta
+        property="twitter:url"
+        content={process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}
+      />
       <meta
         property="twitter:title"
         key="tw:title"
@@ -77,7 +83,7 @@ function FirstHead() {
         content="portfolio, coding, writing, design, programming, angelo, dias, react, node, javascript, typescript"
       />
       <meta name="author" content="Angelo Dias <oiangelodias@gmail.com>" />
-      <meta name="url" content="https://angelodias.com.br" />
+      <meta name="url" content={process.env.NEXT_PUBLIC_VERCEL_URL ?? ''} />
     </Head>
   )
 }
