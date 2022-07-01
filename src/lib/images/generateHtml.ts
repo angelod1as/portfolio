@@ -2,6 +2,7 @@ import { Metadata } from '#types/types'
 import { readFileSync } from 'fs'
 import { marked } from 'marked'
 import { join } from 'path'
+import puppeteer from 'puppeteer'
 import { textColor } from 'src/helpers/colors'
 
 type Tag = 'h1' | 'h2'
@@ -16,7 +17,10 @@ const parseText = (string: string, tag: Tag) => {
   return marked.parse(string)
 }
 
-export const generateHtml = (metadata: Metadata) => {
+export const generateHtml = (
+  metadata: Metadata,
+  viewport: puppeteer.Viewport
+) => {
   const projectDir = process.cwd()
 
   const boilerplate = readFileSync(
@@ -29,6 +33,8 @@ export const generateHtml = (metadata: Metadata) => {
     ? parseText(metadata.description, 'h2')
     : undefined
   const finalHtml = boilerplate
+    .replace('$HEIGHT', viewport.height.toString())
+    .replace('$WIDTH', viewport.width.toString())
     .replace(
       '{{TITLE}}',
       `

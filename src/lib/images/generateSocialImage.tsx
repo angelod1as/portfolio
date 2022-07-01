@@ -21,19 +21,49 @@ export const generateSocialImage = async ({
     .join(`/public${publicDir}`)
 
   const socialImageFileName = `${fileName}.social.png`
-  const fullImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
+  const instagramImageFileName = `${fileName}.instagram.png`
+  const socialImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
+  const instagramImagePathAndFilename = `${filePathInPublic}/${instagramImageFileName}`
+
+  const socialImageExists = existsSync(socialImagePathAndFilename)
+  const instagramImageExists = existsSync(instagramImagePathAndFilename)
 
   mkdirSync(filePathInPublic, { recursive: true })
 
-  if (existsSync(fullImagePathAndFilename)) {
-    return fullImagePathAndFilename
+  if (socialImageExists && instagramImageExists) {
+    return socialImagePathAndFilename
   }
 
-  const finalHtml = generateHtml(metadata)
+  if (!socialImageExists) {
+    const viewPort = {
+      height: 630,
+      width: 1200,
+    }
 
-  await runPuppeteer(finalHtml, fullImagePathAndFilename).catch(err => {
-    throw new Error(err)
-  })
+    const finalHtml = generateHtml(metadata, viewPort)
 
-  return fullImagePathAndFilename
+    await runPuppeteer(finalHtml, socialImagePathAndFilename, viewPort).catch(
+      err => {
+        throw new Error(err)
+      }
+    )
+  }
+
+  if (!instagramImageExists) {
+    const viewPort = {
+      height: 1200,
+      width: 1200,
+    }
+
+    const finalHtml = generateHtml(metadata, viewPort)
+
+    await runPuppeteer(finalHtml, instagramImagePathAndFilename, {
+      height: 1200,
+      width: 1200,
+    }).catch(err => {
+      throw new Error(err)
+    })
+  }
+
+  return socialImagePathAndFilename
 }

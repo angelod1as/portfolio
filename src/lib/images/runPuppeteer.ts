@@ -1,16 +1,18 @@
 import puppeteer from 'puppeteer'
 
-export const runPuppeteer = async (finalHtml: string, finalPath: string) => {
+export const runPuppeteer = async (
+  finalHtml: string,
+  finalPath: string,
+  viewport: puppeteer.Viewport
+) => {
   // eslint-disable-next-line no-console
-  console.log(`\nCreating social file:\n ${finalPath}\n`)
+  console.log(`\nCreating file using Puppeteer:\n ${finalPath}\n`)
+
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox'],
     devtools: false,
-    defaultViewport: {
-      height: 630,
-      width: 1200,
-    },
+    defaultViewport: viewport,
   })
 
   try {
@@ -18,6 +20,7 @@ export const runPuppeteer = async (finalHtml: string, finalPath: string) => {
     await page.setContent(finalHtml)
     await page.waitForNetworkIdle()
     await page.screenshot({ path: finalPath })
+    await page.close()
   } catch (error) {
     console.error(error)
   } finally {
