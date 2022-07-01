@@ -48,6 +48,8 @@ export function NewHead({ title, description, image }: HeadProps) {
             key="og:image"
             content={'https://' + image}
           />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@oicronofobico" />
           <meta
             property="twitter:image"
             key="twitter:image"
