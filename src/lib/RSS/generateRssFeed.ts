@@ -9,11 +9,11 @@ type Posts = Array<{
 }>
 
 export const generateRssFeed = async (posts: Posts) => {
-  const baseURL = 'https://www.angelodias.com.br'
+  const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL ?? ''
   const author = {
     name: 'Angelo Dias',
     email: 'oiangelodias@gmail.com',
-    link: 'https://www.angelodias.com.br',
+    link: process.env.NEXT_PUBLIC_VERCEL_URL ?? '',
   }
   const now = new Date()
   const updateTime = `${now.getFullYear()}-${

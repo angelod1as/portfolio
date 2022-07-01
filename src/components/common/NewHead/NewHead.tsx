@@ -46,12 +46,12 @@ export function NewHead({ title, description, image }: HeadProps) {
           <meta
             property="og:image"
             key="og:image"
-            content={'https://angelodias.com.br' + image}
+            content={'https://' + image}
           />
           <meta
             property="twitter:image"
             key="twitter:image"
-            content={'https://angelodias.com.br' + image}
+            content={'https://' + image}
           />
         </>
       )}
