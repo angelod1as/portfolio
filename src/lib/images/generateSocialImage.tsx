@@ -20,6 +20,10 @@ export const generateSocialImage = async ({
     .split(publicDir)
     .join(`/public${publicDir}`)
 
+  const filePathInSocial = `${process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}${
+    filePathInPublic.split('/public')[1]
+  }`
+
   const socialImageFileName = `${fileName}.social.png`
   const instagramImageFileName = `${fileName}.instagram.png`
   const socialImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
@@ -31,7 +35,7 @@ export const generateSocialImage = async ({
   mkdirSync(filePathInPublic, { recursive: true })
 
   if (socialImageExists && instagramImageExists) {
-    return socialImagePathAndFilename
+    return filePathInSocial
   }
 
   if (!socialImageExists) {
@@ -65,5 +69,5 @@ export const generateSocialImage = async ({
     })
   }
 
-  return socialImagePathAndFilename
+  return filePathInSocial
 }
