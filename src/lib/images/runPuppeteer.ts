@@ -1,6 +1,8 @@
 import puppeteer from 'puppeteer'
 
 export const runPuppeteer = async (finalHtml: string, finalPath: string) => {
+  // eslint-disable-next-line no-console
+  console.log(`\nCreating social file:\n ${finalPath}\n`)
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox'],

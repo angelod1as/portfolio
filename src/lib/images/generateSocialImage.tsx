@@ -16,29 +16,24 @@ export const generateSocialImage = async ({
   fileName,
   metadata,
 }: GenerateSocialImage) => {
-  const publicFinalPath = directory
+  const filePathInPublic = directory
     .split(publicDir)
     .join(`/public${publicDir}`)
-    .replace(fileName, '')
 
-  const finalName = `${fileName}.social.png`
-  const finalPath = `${publicDir}/${finalName}`
+  const socialImageFileName = `${fileName}.social.png`
+  const fullImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
 
-  if (!existsSync(publicFinalPath)) {
-    mkdirSync(publicFinalPath, { recursive: true })
-  }
+  mkdirSync(filePathInPublic, { recursive: true })
 
-  const finalFileA = `${publicFinalPath}/${finalName}`
-
-  if (existsSync(finalFileA)) {
-    return finalPath
+  if (existsSync(fullImagePathAndFilename)) {
+    return fullImagePathAndFilename
   }
 
   const finalHtml = generateHtml(metadata)
 
-  await runPuppeteer(finalHtml, finalFileA).catch(err => {
+  await runPuppeteer(finalHtml, fullImagePathAndFilename).catch(err => {
     throw new Error(err)
   })
 
-  return finalPath
+  return fullImagePathAndFilename
 }
