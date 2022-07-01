@@ -20,14 +20,14 @@ export const generateSocialImage = async ({
     .split(publicDir)
     .join(`/public${publicDir}`)
 
-  const filePathInSocial = `${process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}${
-    filePathInPublic.split('/public')[1]
-  }`
-
   const socialImageFileName = `${fileName}.social.png`
   const instagramImageFileName = `${fileName}.instagram.png`
   const socialImagePathAndFilename = `${filePathInPublic}/${socialImageFileName}`
   const instagramImagePathAndFilename = `${filePathInPublic}/${instagramImageFileName}`
+
+  const filePathInSocial = `${process.env.NEXT_PUBLIC_VERCEL_URL ?? ''}${
+    filePathInPublic.split('/public')[1]
+  }/${socialImageFileName}`
 
   const socialImageExists = existsSync(socialImagePathAndFilename)
   const instagramImageExists = existsSync(instagramImagePathAndFilename)
