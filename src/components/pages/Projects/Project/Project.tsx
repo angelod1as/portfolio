@@ -11,7 +11,7 @@ type ProjectProps = {
 
 export const Project = ({ project }: ProjectProps) => {
   const { colors } = useColorContext()
-  const { compiledTitle, compiledSummary, hero } = project
+  const { title, subtitle, compiledSummary, hero } = project
 
   const buildSection = (
     prefix: string,
@@ -22,7 +22,9 @@ export const Project = ({ project }: ProjectProps) => {
 
     return (
       <>
-        <b className={`${styles.prefix} ${colors.textColor}`}>{prefix}</b>
+        <b className={`alternates ${styles.prefix} ${colors.textColor}`}>
+          {prefix}
+        </b>
         <div className={styles.content}>
           {paragraph ? (
             <p>{content}</p>
@@ -42,7 +44,8 @@ export const Project = ({ project }: ProjectProps) => {
         )}
       </figure>
       <div className="mt-[-6px]">
-        {compiledTitle && <MDX mdx={{ compiledSource: compiledTitle }} />}
+        {title && <h3 className={colors.textColor}>{title}</h3>}
+        {subtitle && <p>{subtitle}</p>}
         <div className={styles.grid}>
           {compiledSummary && (
             <>

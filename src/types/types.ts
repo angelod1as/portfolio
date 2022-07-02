@@ -1,5 +1,6 @@
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { FC, PropsWithChildren, ReactNode } from 'react'
+import { ComponentProps, FC, PropsWithChildren } from 'react'
 
 // React
 
@@ -7,7 +8,7 @@ export type FCC<T = unknown> = FC<PropsWithChildren<T>>
 
 // MDX
 export type MDXProps = MDXRemoteSerializeResult & {
-  components?: Record<string, ReactNode>
+  components?: ComponentProps<typeof MDXProvider>['components']
   lazy?: boolean
 }
 
@@ -51,6 +52,7 @@ type Summary = {
 
 export type ProjectMetadata = {
   title: string
+  subtitle: string
   compiledTitle: string | null
   summary: Summary | null
   compiledSummary?: (Omit<Summary, 'when'> & { when: string | null }) | null
