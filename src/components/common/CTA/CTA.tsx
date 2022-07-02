@@ -6,25 +6,35 @@ import { Link } from '../Links'
 export type CTAProps = {
   title?: string
   inner?: boolean
-  href: string
+  href: string | undefined | null
+  disabled?: boolean
 }
 
-export const CTA: FCC<CTAProps> = ({ children, title, href }) => {
+export const CTA: FCC<CTAProps> = ({ children, title, href, disabled }) => {
   const { colors } = useColorContext()
 
-  const text = colors.bgColor?.includes('bg-yellow')
-    ? 'text-black'
-    : 'text-white'
+  const content = (
+    <div
+      className={`border-4 bg-black ${
+        disabled ? 'border-gray-600' : colors.borderColor
+      } ${
+        disabled ? 'text-gray-600' : colors.textColor
+      } text-center px-2 py-2 font-bold`}
+    >
+      {title && <h3 className="font-normal">{title}</h3>}
+      <span className="not-italic">{children}</span>
+    </div>
+  )
 
   return (
-    <div className="flex justify-center w-full">
-      <Link
-        href={href}
-        className={`${colors.bgColor} ${text} decoration-transparent text-center w-full p-4 hover:scale-[0.98] transition-transform font-bold rounded-lg`}
-      >
-        {title && <h3>{title}</h3>}
-        <span className="font-normal">{children}</span>
-      </Link>
+    <div className="relative flex justify-center w-full">
+      {href ? (
+        <Link href={href} className="w-full decoration-transparent">
+          {content}
+        </Link>
+      ) : (
+        <div className="w-full">{content}</div>
+      )}
     </div>
   )
 }

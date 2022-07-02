@@ -2,7 +2,7 @@ import { Blog } from '#components/pages/Blog'
 import { fetchAllPages } from '#lib/common/fetchAllPages'
 import { generateRssFeed } from '#lib/RSS/generateRssFeed'
 import { Metadata } from '#types/types'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetStaticProps } from 'next'
 import React from 'react'
 import { randomColors } from 'src/helpers/colors'
 
@@ -13,9 +13,7 @@ type BlogPageProps = {
   }>
 }
 
-function BlogPage({
-  posts,
-}: BlogPageProps): InferGetStaticPropsType<typeof getStaticProps> {
+function BlogPage({ posts }: BlogPageProps) {
   return <Blog posts={posts} />
 }
 

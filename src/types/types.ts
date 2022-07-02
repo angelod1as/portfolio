@@ -1,5 +1,6 @@
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { FC, PropsWithChildren, ReactNode } from 'react'
+import { ComponentProps, FC, PropsWithChildren } from 'react'
 
 // React
 
@@ -7,21 +8,23 @@ export type FCC<T = unknown> = FC<PropsWithChildren<T>>
 
 // MDX
 export type MDXProps = MDXRemoteSerializeResult & {
-  components?: Record<string, ReactNode>
+  components?: ComponentProps<typeof MDXProvider>['components']
   lazy?: boolean
 }
 
-export type Metadata = {
+export type Metadata = BlogMetadata & ProjectMetadata
+
+export type BlogMetadata = {
   title: string
-  createdAt?: number
-  color?: string
-  compiledTitle: string
-  description?: string
-  draft?: boolean
-  timeToRead?: number
-  wordCount?: number
-  socialImagePath?: string
-  publishAt?: number
+  createdAt: number | null
+  color: string | null
+  compiledTitle: string | null
+  description: string | null
+  draft: boolean | null
+  timeToRead: number | null
+  wordCount: number | null
+  socialImagePath: string | null
+  publishAt: number | null
 }
 
 export type MDXReturn = {
@@ -32,10 +35,30 @@ export type MDXReturn = {
 }
 
 export type PageMetadata = {
-  metadata: Pick<
-    Metadata,
-    'createdAt' | 'compiledTitle' | 'description' | 'draft' | 'publishAt'
-  >
+  metadata: Metadata
   slug: string
   directory: string
+}
+
+// Portfolio
+
+type Summary = {
+  when: number | null
+  where: string | null
+  who: string | null
+  what: string | null
+  why: string | null
+}
+
+export type ProjectMetadata = {
+  title: string
+  subtitle: string
+  compiledTitle: string | null
+  summary: Summary | null
+  compiledSummary?: (Omit<Summary, 'when'> & { when: string | null }) | null
+  hero: {
+    src: string
+    alt: string
+  } | null
+  live: string | null
 }

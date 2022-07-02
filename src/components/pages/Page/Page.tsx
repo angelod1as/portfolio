@@ -16,7 +16,7 @@ export const Page: FCC<PageProps> = ({ content }) => {
               ? removeSymbolsFromString(metadata.description)
               : ''
           }
-          image={metadata.socialImagePath}
+          image={metadata.socialImagePath ?? undefined}
         />
       )}
       <MDX mdx={{ compiledSource }} metadata={metadata} />

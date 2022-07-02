@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async context => {
     throw new Error(`File not found! ${context.params?.slug}}`)
   }
 
-  const page: MDXReturn = await fetchSinglePage(pageData)
+  const page: MDXReturn = await fetchSinglePage(pageData, 'pages')
 
   const colors = randomColors(page.metadata.color)
 
