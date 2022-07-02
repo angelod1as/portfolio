@@ -33,9 +33,19 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
       <h2>Highlighted</h2>
 
-      {projects.map(project => (
-        <Project key={project.slug} project={project.metadata} />
-      ))}
+      {projects
+        .sort((a, b) => {
+          if (
+            typeof a.metadata.summary?.when === 'number' &&
+            typeof b.metadata.summary?.when === 'number'
+          ) {
+            return b.metadata.summary?.when - a.metadata.summary?.when
+          }
+          return 0
+        })
+        .map(project => (
+          <Project key={project.slug} project={project.metadata} />
+        ))}
     </>
   )
 }
