@@ -1,3 +1,4 @@
+import { Strong } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { ProjectMetadata } from '#types/types'
 import React from 'react'
@@ -25,10 +26,9 @@ export const Projects = ({ projects }: ProjectsProps) => {
       </h1>
 
       <p>
-        <b>Brief intro</b>. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Adipisci, laborum unde. Tempore id ullam blanditiis. Sequi, modi
-        nesciunt. Tempore laudantium, optio iste quisquam provident quidem sint
-        consectetur molestiae aspernatur voluptatibus!
+        From <Strong color={textColor}>web development</Strong> to{' '}
+        <Strong color={textColor}>scriptwriting</Strong>, I've done a lot.
+        <br /> This brief is a summary of notable projects.
       </p>
 
       <h2>Highlighted</h2>
