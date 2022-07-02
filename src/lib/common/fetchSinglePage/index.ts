@@ -2,13 +2,15 @@ import { MDXReturn, Metadata, PageMetadata } from '#types/types'
 import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
+import { PageType } from '../fetchAllPages'
 import { parseMDXContent } from './parseMDXContent'
 import { parseMDXMetadata } from './parseMDXMetadata'
 
 export const fetchSinglePage = async (
-  postData: PageMetadata
+  pageData: PageMetadata,
+  type: PageType
 ): Promise<MDXReturn> => {
-  const { directory, slug } = postData
+  const { directory, slug } = pageData
   const MDXPath = join(directory, `${slug}.mdx`)
   const MDXContent = readFileSync(MDXPath, 'utf-8')
 
@@ -20,7 +22,8 @@ export const fetchSinglePage = async (
     metadata,
     directory,
     slug,
-    parsedContent
+    parsedContent,
+    type
   )
 
   return {

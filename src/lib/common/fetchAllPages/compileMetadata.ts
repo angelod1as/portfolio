@@ -32,7 +32,7 @@ export const compileMetadata = async (
   return await Promise.all(compiledMetadatas)
 }
 
-const compileTitle = async (title: string, type: PageType) => {
+export const compileTitle = async (title: string, type: PageType) => {
   if (title) {
     const newTitle =
       type === 'pages' ? `I'm angelo and I do **${title}**` : title

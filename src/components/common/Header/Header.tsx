@@ -16,6 +16,7 @@ export const Header: FCC = () => {
       <div className="flex gap-4">
         <MenuLink content="start" href="/" />
         <MenuLink content="blog" href="/blog" />
+        <MenuLink content="projects" href="/projects" />
         <MenuLink content="podcast" href="/cronofobia" />
       </div>
       {asPath !== '/' && (
