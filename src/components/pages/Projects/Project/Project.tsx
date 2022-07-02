@@ -40,11 +40,15 @@ export const Project = ({ project }: ProjectProps) => {
   return (
     <div className="grid grid-cols-[200px_1fr] gap-6 ">
       <figure className="flex flex-col gap-4">
-        {hero?.src && (
-          <div className={'w-40 h-40' + ' ' + colors.bgColor}>
+        <div className={'w-40 h-40' + ' ' + colors.bgColor}>
+          {hero?.src ? (
             <Image src={hero.src} alt={hero.alt} width={300} height={300} />
-          </div>
-        )}
+          ) : (
+            <div className="flex items-center justify-center w-full h-full text-black text-9xl">
+              {title?.substring(0, 1)}
+            </div>
+          )}
+        </div>
         {live && <CTA href={live}>See the project</CTA>}
       </figure>
       <div className="mt-[-6px]">
