@@ -1,3 +1,4 @@
+import { Link } from '#components/common/Links'
 import { Strong } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { ProjectMetadata } from '#types/types'
@@ -46,6 +47,16 @@ export const Projects = ({ projects }: ProjectsProps) => {
         .map(project => (
           <Project key={project.slug} project={project.metadata} />
         ))}
+
+      <p className="text-sm text-gray-400">
+        This is a forever expanding and{' '}
+        <Link href="/blog/iteration-as-mantra" inner>
+          iterating
+        </Link>{' '}
+        project showcase. If you want to see more, don't hesitate to contact me.
+        Your needs might turn into a new version of this page, so I thank you in
+        advance.
+      </p>
     </>
   )
 }
