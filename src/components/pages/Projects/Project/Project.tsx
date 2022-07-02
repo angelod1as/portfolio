@@ -4,6 +4,7 @@ import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { MDX } from '#components/common/MDX'
 import styles from './Project.module.sass'
 import Image from 'next/image'
+import { CTA } from '#components/common/CTA'
 
 type ProjectProps = {
   project: Partial<ProjectMetadata>
@@ -11,7 +12,7 @@ type ProjectProps = {
 
 export const Project = ({ project }: ProjectProps) => {
   const { colors } = useColorContext()
-  const { title, subtitle, compiledSummary, hero } = project
+  const { title, subtitle, compiledSummary, hero, live } = project
 
   const buildSection = (
     prefix: string,
@@ -38,10 +39,13 @@ export const Project = ({ project }: ProjectProps) => {
 
   return (
     <div className="grid grid-cols-[200px_1fr] gap-6 ">
-      <figure className={'w-40 h-40' + ' ' + colors.bgColor}>
+      <figure className="flex flex-col gap-4">
         {hero?.src && (
-          <Image src={hero.src} alt={hero.alt} width={300} height={300} />
+          <div className={'w-40 h-40' + ' ' + colors.bgColor}>
+            <Image src={hero.src} alt={hero.alt} width={300} height={300} />
+          </div>
         )}
+        {live && <CTA href={live}>See the project</CTA>}
       </figure>
       <div className="mt-[-6px]">
         {title && <h3 className={colors.textColor}>{title}</h3>}
