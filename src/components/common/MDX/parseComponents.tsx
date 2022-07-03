@@ -7,6 +7,7 @@ import { Parenthesis, ParenthesisProps } from './Parenthesis'
 import { MDXProvider } from '@mdx-js/react'
 import Image, { ImageProps } from 'next/image'
 import styles from './MDX.module.sass'
+import { Author, AuthorProps } from './Author'
 
 type Props = {
   components?: MDXProps['components']
@@ -24,6 +25,7 @@ export const parseComponents = ({
     S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
     CTA: (props: CTAProps) => <CTA {...props} />,
     Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
+    Author: (props: AuthorProps) => <Author {...props} />,
     b: (props: JSX.IntrinsicElements['b']) => (
       <b {...props} className={`${text}`} />
     ),
