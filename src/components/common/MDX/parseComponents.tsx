@@ -7,6 +7,8 @@ import { Parenthesis, ParenthesisProps } from './Parenthesis'
 import { MDXProvider } from '@mdx-js/react'
 import Image, { ImageProps } from 'next/image'
 import styles from './MDX.module.sass'
+import { Author, AuthorProps } from './Author'
+import { Embed, EmbedProps } from './Embed'
 
 type Props = {
   components?: MDXProps['components']
@@ -24,6 +26,8 @@ export const parseComponents = ({
     S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
     CTA: (props: CTAProps) => <CTA {...props} />,
     Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
+    Author: (props: AuthorProps) => <Author {...props} />,
+    Embed: (props: EmbedProps) => <Embed {...props} />,
     b: (props: JSX.IntrinsicElements['b']) => (
       <b {...props} className={`${text}`} />
     ),
@@ -44,15 +48,13 @@ export const parseComponents = ({
       <Link className={text} {...props} href={props.href ?? ''} />
     ),
     blockquote: (props: JSX.IntrinsicElements['blockquote']) => (
-      <div>
-        <blockquote {...props}>
-          {props.children}
-          <div
-            className={`${styles.blockquoteBlock} ${bg}
+      <blockquote {...props}>
+        {props.children}
+        <div
+          className={`${styles.blockquoteBlock} ${bg}
           `}
-          />
-        </blockquote>
-      </div>
+        />
+      </blockquote>
     ),
     h1: (props: JSX.IntrinsicElements['h1']) => (
       <h1 {...props}>{props.children}</h1>
