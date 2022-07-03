@@ -1110,6 +1110,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-responsive-embed@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/react-responsive-embed/-/react-responsive-embed-2.1.0.tgz#3362269bfa00af0a849de673cab9233e0851ed2c"
+  integrity sha512-VZ921rT7Kf5Zq2GyUxaFXWXQd/YqSMwpwOO5BRJJyzcZoH34YbeX442Dk/nDwXL5QQkz1Zp7hmD80Ris1OHPCA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@18.0.9", "@types/react@>=16":
   version "18.0.9"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.9.tgz#d6712a38bd6cd83469603e7359511126f122e878"
@@ -5001,6 +5008,11 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-responsive-embed@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-responsive-embed/-/react-responsive-embed-2.1.0.tgz#e61c5360e4cc783eeda56ef0d1751420736065f6"
+  integrity sha512-GzvZ8i1ZRL4YRaTOfIeka5CQSc7mCIZVa0C7brJoA55EQ0A+EsFQT1YOvFVzKOVP33UqoKNMijI1PQ7UtO1Eeg==
 
 react-shallow-renderer@^16.15.0:
   version "16.15.0"
