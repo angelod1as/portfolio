@@ -48,15 +48,13 @@ export const parseComponents = ({
       <Link className={text} {...props} href={props.href ?? ''} />
     ),
     blockquote: (props: JSX.IntrinsicElements['blockquote']) => (
-      <div>
-        <blockquote {...props}>
-          {props.children}
-          <div
-            className={`${styles.blockquoteBlock} ${bg}
+      <blockquote {...props}>
+        {props.children}
+        <div
+          className={`${styles.blockquoteBlock} ${bg}
           `}
-          />
-        </blockquote>
-      </div>
+        />
+      </blockquote>
     ),
     h1: (props: JSX.IntrinsicElements['h1']) => (
       <h1 {...props}>{props.children}</h1>
