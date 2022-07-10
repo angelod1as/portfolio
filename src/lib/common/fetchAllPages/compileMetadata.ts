@@ -58,7 +58,7 @@ const compileSummary = async (
   }
 
   const numberWhen = summary?.when && Number(summary?.when)
-  const dateWhen = numberWhen ? TimestampToDate(numberWhen) : null
+  const dateWhen = numberWhen ? TimestampToDate(numberWhen, ['day']) : null
 
   return {
     when: dateWhen,
