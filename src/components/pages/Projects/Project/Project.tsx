@@ -49,13 +49,17 @@ export const Project = ({ project }: ProjectProps) => {
             </div>
           )}
         </div>
-        <CTA href={live} disabled={!live}>
-          {live ? (
-            'See the project'
-          ) : (
-            <span className="text-xs">Project unavailable</span>
-          )}
-        </CTA>
+        <CTA
+          href={live}
+          disabled={!live}
+          content={
+            live ? (
+              'See the project'
+            ) : (
+              <span className="text-xs">Project unavailable</span>
+            )
+          }
+        />
       </figure>
       <div className="mt-[-6px]">
         {title && <h3 className={colors.textColor}>{title}</h3>}

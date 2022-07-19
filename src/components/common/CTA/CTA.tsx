@@ -1,10 +1,10 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Link } from '../Links'
 
 export type CTAProps = {
   title?: string
-  content?: string
+  content?: ReactNode
   inner?: boolean
   href: string | undefined | null
   disabled?: boolean
