@@ -18,26 +18,28 @@ export const Link: FCC<LinkProps> = ({
   className = '',
   ...rest
 }) => {
-  const blankProps = inner
-    ? {}
-    : {
-        target: '_blank',
-        rel: 'noreferrer',
-      }
+  const linkProps =
+    href.includes('#') || inner
+      ? {}
+      : {
+          target: '_blank',
+          rel: 'noreferrer',
+        }
 
   const Anchor = (
     <a
-      {...blankProps}
+      {...linkProps}
       href={href}
-      className={`${className} ${
-        block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'
-      } transition-transform italic font-bold cursor-pointer`}
+      className={`
+      ${className}
+      ${block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'}
+      transition-transform italic font-bold cursor-pointer`}
     >
       {children}
     </a>
   )
 
-  if (inner && href) {
+  if (inner) {
     return (
       <NextLink href={href} passHref {...rest}>
         {Anchor}
