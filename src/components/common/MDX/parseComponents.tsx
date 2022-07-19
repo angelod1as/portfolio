@@ -24,7 +24,7 @@ export const parseComponents = ({
 
   const bodyComponents = {
     S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
-    CTA: (props: CTAProps) => <CTA {...props} />,
+    CTA: (props: CTAProps) => <CTA {...props} mdx />,
     Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
     Author: (props: AuthorProps) => <Author {...props} />,
     Embed: (props: EmbedProps) => <Embed {...props} />,
