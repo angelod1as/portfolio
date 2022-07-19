@@ -1,9 +1,6 @@
 .container
   @apply flex flex-col gap-8 text-base font-normal
 
-  a
-    @apply italic
-
   blockquote
     @apply pl-4 relative my-4
     p
@@ -28,12 +25,13 @@
 .blogPost
   @apply gap-0 text-base
   h1, h2, h3, h4, h5
-    @apply mb-6
+    @apply mb-6 relative
 
-    // &:first-of-type
-    //   @apply mt-0
+    a
+      @apply not-italic decoration-transparent
+
   p
     & ~ h2
       @apply mt-20
-    & ~ h3, h4, h5
+    & ~ h3,  ~ h4, ~ h5
       @apply mt-10

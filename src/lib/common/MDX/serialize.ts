@@ -10,9 +10,9 @@ type MDXRemoteSerializeResult<TScope = Record<string, unknown>> = {
 }
 
 // This can work with links in headings, but current styling is not great.
-const _autoLinkHeadings = () =>
+const autoLinkHeadings = () =>
   rehypeAutolinkHeadings({
-    behavior: 'prepend',
+    behavior: 'wrap',
     content: {
       type: 'text',
       value: '#',
@@ -31,11 +31,7 @@ export const serialize = async ({
 }: Serialize): Promise<MDXRemoteSerializeResult> => {
   const mergedOptions: SerializeOptions = {
     mdxOptions: {
-      rehypePlugins: [
-        rehypeHighlight,
-        rehypeSlug,
-        // autoLinkHeadings,
-      ],
+      rehypePlugins: [rehypeHighlight, rehypeSlug, autoLinkHeadings],
     },
     ...(options ?? {}),
   }
