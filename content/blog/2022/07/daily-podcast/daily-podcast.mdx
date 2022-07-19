@@ -335,9 +335,13 @@ In all of my workflow, this is the **most mindblowing one**. This one saves me H
 
 Instead of manually cutting **every single weird silence**, I use Audacity `truncate silence` tool to do it for me. It, as the name says, **removes the silences** and **glues** the remainders together.
 
-To make sure my silences are actually silences (and not low-humming noisy backgrounds), I use the `noise reduction` effect. In order to use it, you select **a part of your track** that has only **background sound** (it's nice even to record just the background, with no voice, for a few moments just to be able to get a good sample later) and click on `Get Noise Profile` button.
+To make sure my silences are actually silences (and not low-humming noisy backgrounds), I use the `noise reduction` effect. In order to use it, you select **a part of your track** that has only **background sound** (it's nice even to record just the background, with no voice, for a few moments just to be able to get a good sample later)
 
-> > GET NOISE PROFILE
+![Audacity window screenshot of me selecting only the silence in an audio track](silence.jpg)
+
+Then, click on `Get Noise Profile` button.
+
+![Get noise profile window screenshot](getnoise.jpg)
 
 That means that the software will use this audio **as sample of what's noise**. Anything that goes over it its not noise, but content.
 
@@ -347,7 +351,9 @@ You might need to apply noise reduction **twice** to see silence appear.
 
 After doing that, apply the effect `Truncate Silence`:
 
-> > TRUNCATE SILENCE
+![Truncate silence menu screenshot](truncate.jpg)
+
+![Truncate silence window screenshot](truncate2.jpg)
 
 Again, I have **absolutely no idea** what those numbers mean. Eyeball it and make sure Audacity is not cutting your voice, but **only silence**.
 
