@@ -18,8 +18,9 @@ export const Link: FCC<LinkProps> = ({
   className = '',
   ...rest
 }) => {
+  const isAnchor = href.startsWith('#')
   const linkProps =
-    href.includes('#') || inner
+    isAnchor || inner
       ? {}
       : {
           target: '_blank',
@@ -33,7 +34,9 @@ export const Link: FCC<LinkProps> = ({
       className={`
       ${className}
       ${block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'}
-      transition-transform italic font-bold cursor-pointer`}
+      ${isAnchor ? 'anchor' : 'italic'}
+      font-bold cursor-pointer transition-transform
+      `}
     >
       {children}
     </a>

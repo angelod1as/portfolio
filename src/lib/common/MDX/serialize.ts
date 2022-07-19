@@ -12,7 +12,7 @@ type MDXRemoteSerializeResult<TScope = Record<string, unknown>> = {
 // This can work with links in headings, but current styling is not great.
 const autoLinkHeadings = () =>
   rehypeAutolinkHeadings({
-    behavior: 'prepend',
+    behavior: 'wrap',
     content: {
       type: 'text',
       value: '#',
