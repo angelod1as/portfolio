@@ -85,7 +85,7 @@ export const parseComponents = ({
       </h6>
     ),
     pre: (props: JSX.IntrinsicElements['pre']) => (
-      <pre className="mb-4" {...props}>
+      <pre className="mt-4 mb-8" {...props}>
         {props.children}
       </pre>
     ),
