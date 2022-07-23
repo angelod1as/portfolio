@@ -1,5 +1,6 @@
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { simpleGit } from 'simple-git'
 
 export const getFilename = () => {
   const [, , type, fileName] = process.argv
@@ -28,4 +29,14 @@ export const getToday = () => {
   const year = dateObj.getUTCFullYear().toString()
 
   return [year, month, day]
+}
+
+export const gitNewBranch = async (type, fileName) => {
+  // Checkout to main and create a dedicated branch
+  await simpleGit()
+    .checkout('main')
+    .checkoutLocalBranch(`${type}/${fileName}`)
+    .add('./*')
+    .commit('Add starter MDX')
+    .push()
 }
