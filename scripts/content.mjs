@@ -1,39 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
 import { getFilename, getToday } from './common.mjs'
-
-const frontmatter = {
-  blog: `---
-title:
-createdAt: ${new Date().getTime()}
-description:
----
-
-Write here
-`,
-  projects: `---
-title:
-subtitle:
-summary:
-createdAt: ${new Date().getTime()}
-  where: >-
-
-  who: >-
-
-  what: >-
-
-  why: >-
-
-live:
-hero:
-  src:
-  alt:
----
-
-Write here
-`,
-}
+import { frontmatter } from './frontmatter.mjs'
 
 const newContent = () => {
   const { fileName, type, contentFolder } = getFilename()
