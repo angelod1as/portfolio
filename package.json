@@ -8,7 +8,8 @@
     "lint": "next lint",
     "test": "jest",
     "ts": "tsc --noEmit --incremental",
-    "post": "node ./scripts/post.js"
+    "post": "node ./scripts/content.mjs blog",
+    "project": "node ./scripts/content.mjs projects"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.1",
