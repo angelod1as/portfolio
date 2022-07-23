@@ -32,7 +32,7 @@ export const getToday = () => {
 }
 
 export const gitNewBranch = async (type, fileName) => {
-  // Checkout to main and create a dedicated branch
+  console.log('Creating branch and pushing...')
   await simpleGit()
     .checkout('main')
     .checkoutLocalBranch(`${type}/${fileName}`)

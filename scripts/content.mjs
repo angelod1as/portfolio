@@ -17,12 +17,11 @@ const newContent = async () => {
 
   const pathAndFileName = `${filePath}/${fileName}.mdx`
 
-  // URGENT: UNCOMMENT
-  // if (existsSync(pathAndFileName)) {
-  //   throw new Error(
-  //     "There's already a file with that name in this month's folder"
-  //   )
-  // }
+  if (existsSync(pathAndFileName)) {
+    throw new Error(
+      "There's already a file with that name in this month's folder"
+    )
+  }
 
   writeFileSync(pathAndFileName, frontmatter[type])
   console.log(`${fileName}.mdx created succesfully!`)
