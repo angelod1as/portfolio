@@ -1,6 +1,7 @@
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { simpleGit } from 'simple-git'
+import { exec } from 'child_process'
 
 export const getFilename = () => {
   const [, , type, fileName] = process.argv
@@ -38,4 +39,13 @@ export const gitNewBranch = async (type, fileName) => {
     .checkoutLocalBranch(`${type}/${fileName}`)
     .add('./*')
     .commit('Add starter MDX')
+}
+
+export const openInVSCode = pathAndFileName => {
+  exec(`code ${pathAndFileName}`, (error, stdout, stderr) => {
+    console.log(stdout)
+    if (error !== null) {
+      console.log(stderr)
+    }
+  })
 }

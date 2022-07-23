@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { getFilename, getToday, gitNewBranch } from './common.mjs'
+import { getFilename, getToday, gitNewBranch, openInVSCode } from './common.mjs'
 import { frontmatter } from './frontmatter.mjs'
 
 const newContent = async () => {
@@ -27,6 +27,7 @@ const newContent = async () => {
   console.log(`${fileName}.mdx created succesfully!`)
 
   await gitNewBranch(type, fileName)
+  openInVSCode(pathAndFileName)
 }
 
 await newContent()
