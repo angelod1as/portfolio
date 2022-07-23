@@ -1,10 +1,11 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { getFilename, getToday } from './common.mjs'
+import { getFilename, getToday, gitNewBranch } from './common.mjs'
 import { frontmatter } from './frontmatter.mjs'
 
-const newContent = () => {
+const newContent = async () => {
   const { fileName, type, contentFolder } = getFilename()
+
   console.log(`Trying to create a new ${type} content: ${fileName}.mdx`)
 
   const [year, month] = getToday()
@@ -24,6 +25,8 @@ const newContent = () => {
 
   writeFileSync(pathAndFileName, frontmatter[type])
   console.log(`${fileName}.mdx created succesfully!`)
+
+  await gitNewBranch(type, fileName)
 }
 
-newContent()
+await newContent()
