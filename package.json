@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "ts": "tsc --noEmit --incremental"
+    "ts": "tsc --noEmit --incremental",
+    "post": "node ./scripts/post.js"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.1",
