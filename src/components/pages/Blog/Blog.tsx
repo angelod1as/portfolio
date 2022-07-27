@@ -76,7 +76,7 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      <Subscribe inner />
+      <Subscribe blog />
       <Filter order={order} handleOrder={handleOrder} />
       <ul className="flex flex-col gap-16">
         {blogPosts.map(({ slug, metadata }) => {

@@ -1,19 +1,21 @@
 import { Closed } from './components/closed'
+import { Rss } from './components/rss'
 import { Substack } from './components/substack'
 
 type SubscribeProps = {
-  inner?: boolean
+  blog?: boolean
   closed?: boolean
 }
 
-export const Subscribe = ({ inner, closed }: SubscribeProps) => {
+export const Subscribe = ({ blog, closed }: SubscribeProps) => {
   if (closed) {
     return <Closed />
   }
 
   return (
     <div>
-      <Substack inner={inner} />
+      <Substack blog={blog} />
+      {blog && <Rss />}
     </div>
   )
 }

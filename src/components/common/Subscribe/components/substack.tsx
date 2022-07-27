@@ -42,10 +42,10 @@ const fetchSubstack = async (email: string): Promise<substackResult> => {
 }
 
 type SubstackProps = {
-  inner?: boolean
+  blog?: boolean
 }
 
-export const Substack = ({ inner }: SubstackProps) => {
+export const Substack = ({ blog }: SubstackProps) => {
   const { colors } = useColorContext()
   const bgColor = colors?.bgColor ?? defaultBgColor[0]
   const borderColor = colors?.borderColor ?? defaultBorderColor[0]
@@ -90,11 +90,11 @@ export const Substack = ({ inner }: SubstackProps) => {
   if (success) {
     return (
       <div>
-        <h2 className={`${inner ? '' : 'mb-4 h2-as-h1'}`}>
+        <h2 className={`${blog ? '' : 'mb-4 h2-as-h1'}`}>
           Thanks for <span className={textColor}>subscribing</span>
         </h2>
 
-        <p className={`${inner ? 'mb-4' : 'mb-4'}`}>
+        <p className={`${blog ? 'mb-4' : 'mb-4'}`}>
           Please confirm your subscription in your email 😎
         </p>
       </div>
@@ -103,11 +103,11 @@ export const Substack = ({ inner }: SubstackProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full mb-8">
-      <h2 className={`${inner ? '' : 'mb-4 h2-as-h1'}`}>
+      <h2 className={`${blog ? '' : 'mb-4 h2-as-h1'}`}>
         <span className={textColor}>Subscribe</span> the newsletter
       </h2>
 
-      <p className={`${inner ? 'mb-4' : 'mb-4'}`}>
+      <p className={`${blog ? 'mb-4' : 'mb-4'}`}>
         A very <Strong color={textColor}>occasional</Strong> & 100% not spammy
         account of a <Strong color={textColor}>overworking foreigner</Strong>{' '}
         trying to <Strong color={textColor}>find himself</Strong>. Hosted by
