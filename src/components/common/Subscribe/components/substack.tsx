@@ -79,11 +79,13 @@ export const Substack = ({ blog }: SubstackProps) => {
         }
 
         setSuccess(true)
-        setLoading(false)
       })
       .catch(error => {
         setErrors(['An unknown error happenned, please contact Angelo'])
         console.error(error)
+      })
+      .finally(() => {
+        setLoading(false)
       })
   }
 
