@@ -10,6 +10,7 @@ import {
 
 type FormElements = HTMLFormControlsCollection & {
   email: HTMLInputElement
+  anti: HTMLInputElement
 }
 type SubstackFormElements = HTMLFormElement & {
   readonly elements: FormElements
@@ -58,6 +59,11 @@ export const Substack = ({ blog }: SubstackProps) => {
   const handleSubmit = (event: React.FormEvent<SubstackFormElements>) => {
     event.preventDefault()
     const email = event.currentTarget.elements.email.value
+    const anti = event.currentTarget.elements.anti.value
+
+    if (anti) {
+      return
+    }
 
     if (!email) {
       setErrors(['Oops, you need to input your email'])
@@ -123,6 +129,15 @@ export const Substack = ({ blog }: SubstackProps) => {
             className="w-full"
             placeholder="mrspock@enterprise.com"
             onClick={removeError}
+          />
+          {/* Avoid spam by adding a hidden field that can only be reached by machines */}
+          <input
+            type="text"
+            defaultValue=""
+            name="anti"
+            tabIndex={-1}
+            className="absolute left-[-5000px]"
+            aria-hidden="true"
           />
         </div>
         <input
