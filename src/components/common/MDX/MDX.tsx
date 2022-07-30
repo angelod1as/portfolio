@@ -22,7 +22,7 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
   })
 
   if (blogPost && metadata) {
-    const { compiledTitle, createdAt, timeToRead, wordCount } = metadata
+    const { compiledTitle, createdAt, timeToRead, wordCount, tags } = metadata
     return (
       <div className={`${styles.container} ${styles.blogPost}`}>
         {compiledTitle && (
@@ -32,12 +32,13 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
           />
         )}
         <p className="mb-8 text-xl text-gray-400">{metadata.description}</p>
-        <p className="flex gap-4 mb-8 text-xs text-gray-400">
+        <p className="flex flex-wrap gap-4 mb-8 text-xs text-gray-400">
           {!!createdAt && (
             <span>Published at {TimestampToDate(createdAt)}</span>
           )}
           <span>±{timeToRead} minute read</span>
           <span>{wordCount} words</span>
+          {tags?.length && <span>Tags: {tags.join(', ')}</span>}
         </p>
         <MDXRemote {...rest} components={bodyComponents} />
         <div className="mt-8 text-gray-400">

@@ -25,7 +25,7 @@ export type BlogMetadata = {
   wordCount: number | null
   socialImagePath: string | null
   publishAt: number | null
-  tags: string[]
+  tags?: string[]
 }
 
 export type MDXReturn = {
@@ -62,4 +62,5 @@ export type ProjectMetadata = {
     alt: string
   } | null
   live: string | null
+  tags?: string[]
 }
