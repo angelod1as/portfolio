@@ -13,7 +13,7 @@ export const Header: FCC = () => {
     <div
       className={`fixed top-0 left-0 flex justify-between w-full px-4 py-2 bg-black z-50 ${style.shadow}`}
     >
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         <MenuLink content="start" href="/" />
         <MenuLink content="blog" href="/blog" />
         <MenuLink content="projects" href="/projects" />

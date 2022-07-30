@@ -121,8 +121,10 @@ export const Substack = ({ blog }: SubstackProps) => {
         trying to <Strong color={textColor}>find himself</Strong>. Hosted by
         Substack.
       </p>
-      <div className="flex items-center gap-x-4">
-        <label htmlFor="mce-EMAIL">Email:</label>
+      <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
+        <label htmlFor="email" className="flex-1 block w-full">
+          Email:
+        </label>
         <div className="w-full">
           <input
             type="email"
