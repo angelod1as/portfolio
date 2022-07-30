@@ -3,6 +3,7 @@ export const frontmatter = {
 title:
 createdAt: ${new Date().getTime()}
 description:
+tags: []
 ---
 
 Write here
@@ -20,6 +21,7 @@ createdAt: ${new Date().getTime()}
 
   why: >-
 
+tags: []
 live:
 hero:
   src:
