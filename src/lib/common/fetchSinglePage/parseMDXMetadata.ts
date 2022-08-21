@@ -3,7 +3,7 @@ import { Metadata } from '#types/types'
 import { timeToRead } from 'src/helpers/timeToRead'
 import { wordCount } from 'src/helpers/wordCount'
 import { PageType } from '../fetchAllPages'
-import { compileTitle } from '../fetchAllPages/compileMetadata'
+import { compileHero, compileTitle } from '../fetchAllPages/compileMetadata'
 
 export const parseMDXMetadata = async (
   metadata: Metadata,
@@ -26,10 +26,9 @@ export const parseMDXMetadata = async (
   return {
     ...metadata,
     socialImagePath,
-    compiledTitle:
-      // compiledTitle: (await serialize({ content: metadata.title })).compiledSource
-      await compileTitle(metadata.title, type),
+    compiledTitle: await compileTitle(metadata.title, type),
     wordCount: wordCount(content),
     timeToRead: timeToRead(content),
+    hero: compileHero(metadata.hero, directory),
   }
 }
