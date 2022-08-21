@@ -23,7 +23,8 @@ export const fetchSinglePage = async (
     directory,
     slug,
     parsedContent,
-    type
+    type,
+    content.length > 0
   )
 
   return {
