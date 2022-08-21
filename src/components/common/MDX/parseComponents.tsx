@@ -6,7 +6,6 @@ import { Link } from '../Links'
 import { Parenthesis, ParenthesisProps } from './Parenthesis'
 import { MDXProvider } from '@mdx-js/react'
 import Image, { ImageProps } from 'next/image'
-import styles from './MDX.module.sass'
 import { Author, AuthorProps } from './Author'
 import { Embed, EmbedProps } from './Embed'
 
@@ -15,10 +14,12 @@ type Props = {
   colors: RandomColors
 }
 
+export type MDXComponents = ComponentProps<typeof MDXProvider>['components']
+
 export const parseComponents = ({
   components = {},
   colors,
-}: Props): Array<ComponentProps<typeof MDXProvider>['components']> => {
+}: Props): MDXComponents[] => {
   const text = colors.textColor ?? ''
   const bg = colors.bgColor ?? ''
 
@@ -51,7 +52,7 @@ export const parseComponents = ({
       <blockquote {...props}>
         {props.children}
         <div
-          className={`${styles.blockquoteBlock} ${bg}
+          className={`absolute top-0 left-0 w-[2px] h-full ${bg}
           `}
         />
       </blockquote>
