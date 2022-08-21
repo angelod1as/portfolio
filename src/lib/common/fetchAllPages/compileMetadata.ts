@@ -42,7 +42,7 @@ export const compileTitle = async (title: string, type: PageType) => {
   return null
 }
 
-const compileSummary = async (
+export const compileSummary = async (
   summary: Metadata['summary']
 ): Promise<Metadata['compiledSummary']> => {
   const compile = async (topic: string | null) => {

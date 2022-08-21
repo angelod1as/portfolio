@@ -1,10 +1,9 @@
 import React from 'react'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { MDX } from '#components/common/MDX'
-import styles from './Item.module.sass'
 import Image from 'next/image'
 import { CTA } from '#components/common/CTA'
 import { ProjectProps } from '../Projects'
+import { SummarySection } from '#components/common/MDX/SummarySection.tsx'
 
 export const Item = ({
   metadata,
@@ -12,30 +11,7 @@ export const Item = ({
   slug,
 }: Omit<ProjectProps, 'directory'>) => {
   const { colors } = useColorContext()
-  const { title, subtitle, compiledSummary, hero, live } = metadata
-
-  const buildSection = (
-    prefix: string,
-    content: string | null | undefined,
-    paragraph?: boolean
-  ) => {
-    if (!content) return null
-
-    return (
-      <>
-        <b className={`alternates ${styles.prefix} ${colors.textColor}`}>
-          {prefix}
-        </b>
-        <div className={styles.content}>
-          {paragraph ? (
-            <p>{content}</p>
-          ) : (
-            <MDX mdx={{ compiledSource: content }} type="clean" />
-          )}
-        </div>
-      </>
-    )
-  }
+  const { title, description, compiledSummary, hero, live } = metadata
 
   return (
     <div className="grid grid-cols-[200px_1fr] gap-6 ">
@@ -66,18 +42,10 @@ export const Item = ({
       </figure>
       <div className="mt-[-6px]">
         {title && <h3 className={colors.textColor}>{title}</h3>}
-        {subtitle && <p>{subtitle}</p>}
-        <div className={styles.grid}>
-          {compiledSummary && (
-            <>
-              {buildSection('When', compiledSummary?.when, true)}
-              {buildSection('Where', compiledSummary?.where)}
-              {buildSection('Who', compiledSummary?.who)}
-              {buildSection('What', compiledSummary?.what)}
-              {buildSection('Why', compiledSummary?.why)}
-            </>
-          )}
-        </div>
+        {description && <p>{description}</p>}
+        {compiledSummary && (
+          <SummarySection compiledSummary={compiledSummary} />
+        )}
       </div>
     </div>
   )

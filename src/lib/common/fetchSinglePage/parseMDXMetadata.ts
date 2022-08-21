@@ -3,7 +3,11 @@ import { Metadata } from '#types/types'
 import { timeToRead } from 'src/helpers/timeToRead'
 import { wordCount } from 'src/helpers/wordCount'
 import { PageType } from '../fetchAllPages'
-import { compileHero, compileTitle } from '../fetchAllPages/compileMetadata'
+import {
+  compileHero,
+  compileSummary,
+  compileTitle,
+} from '../fetchAllPages/compileMetadata'
 
 export const parseMDXMetadata = async (
   metadata: Metadata,
@@ -29,6 +33,7 @@ export const parseMDXMetadata = async (
     compiledTitle: await compileTitle(metadata.title, type),
     wordCount: wordCount(content),
     timeToRead: timeToRead(content),
+    compiledSummary: await compileSummary(metadata.summary),
     hero: compileHero(metadata.hero, directory),
   }
 }
