@@ -53,6 +53,18 @@
       padding: 1rem 1.5rem;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+
+    .hero {
+      max-width: 250px;
+      max-height: 250px;
+    }
+
     .text-yellow {
       color: #f2ca19
     }
@@ -80,10 +92,19 @@
 </head>
 
 <body>
+
   <div class="social-wrapper">
-    {{SIGNATURE}}
-    {{TITLE}}
-    {{DESCRIPTION}}
+    <div class="grid">
+      {{HERO}}
+      <div>
+        {{SIGNATURE}}
+        {{TITLE}}
+        {{DESCRIPTION}}
+      </div>
+    </div>
+    <div>
+
+    </div>
   </div>
 </body>
 

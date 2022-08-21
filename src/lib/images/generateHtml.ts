@@ -17,6 +17,12 @@ const parseText = (string: string, tag: Tag) => {
   return marked.parse(string)
 }
 
+const parseHero = (src: string, projectDir: string) => {
+  const base64 = readFileSync(projectDir + src).toString('base64')
+
+  return `<img class="hero" src="data:image/jpeg;base64,${base64}" />`
+}
+
 export const generateHtml = (
   metadata: Metadata,
   viewport: puppeteer.Viewport
@@ -32,26 +38,16 @@ export const generateHtml = (
   const description = metadata.description
     ? parseText(metadata.description, 'h2')
     : undefined
+  const heroImage = metadata.hero?.src
+    ? parseHero(metadata.hero.src, projectDir)
+    : undefined
   const finalHtml = boilerplate
     .replace('$HEIGHT', viewport.height.toString())
     .replace('$WIDTH', viewport.width.toString())
-    .replace(
-      '{{TITLE}}',
-      `
-      ${title}
-    `
-    )
-    .replace(
-      '{{DESCRIPTION}}',
-      description
-        ? `
-          <h2>
-            ${description}
-          </h2>
-        `
-        : ''
-    )
+    .replace('{{TITLE}}', title)
+    .replace('{{DESCRIPTION}}', description ?? '')
     .replace('{{SIGNATURE}}', '<p>angelodias.com.br</p>')
+    .replace('{{HERO}}', heroImage ?? '')
 
   return finalHtml
 }
