@@ -69,7 +69,7 @@ const compileSummary = async (
   }
 }
 
-const compileHero = (
+export const compileHero = (
   hero: Metadata['hero'],
   directory: string
 ): Metadata['hero'] => {
