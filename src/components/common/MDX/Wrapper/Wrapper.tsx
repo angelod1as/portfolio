@@ -19,12 +19,11 @@ export const Wrapper: FCC<WrapperProps> = ({
   titleComponents,
   type,
 }) => {
-  console.log(':DEV type: ', type)
   const { compiledTitle, description } = metadata
 
   const containerStyles = `
   ${styles.container}
-  ${type === 'blog' ? styles.blogPost : ''}
+  ${type === 'blog' || type === 'projects' ? styles.article : ''}
   `
 
   const buildWrapped = (type: PageType) => {
