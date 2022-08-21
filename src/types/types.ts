@@ -39,6 +39,7 @@ export type PageMetadata = {
   metadata: Metadata
   slug: string
   directory: string
+  hasContent: boolean
 }
 
 // Portfolio

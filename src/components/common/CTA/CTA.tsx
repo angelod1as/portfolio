@@ -11,7 +11,14 @@ export type CTAProps = {
   mdx?: boolean
 }
 
-export const CTA = ({ title, href, disabled, content, mdx }: CTAProps) => {
+export const CTA = ({
+  title,
+  href,
+  disabled,
+  content,
+  mdx,
+  inner,
+}: CTAProps) => {
   const { colors } = useColorContext()
 
   const finalContent = (
@@ -32,6 +39,7 @@ export const CTA = ({ title, href, disabled, content, mdx }: CTAProps) => {
         <Link
           href={href}
           className={`${mdx ? 'mt-3 mb-6' : ''} w-full decoration-transparent`}
+          inner={inner}
         >
           {finalContent}
         </Link>

@@ -1,16 +1,16 @@
 import React from 'react'
-import { ProjectMetadata } from '#types/types'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { MDX } from '#components/common/MDX'
 import styles from './Item.module.sass'
 import Image from 'next/image'
 import { CTA } from '#components/common/CTA'
+import { ProjectProps } from '../Projects'
 
-type ItemProps = {
-  metadata: Partial<ProjectMetadata>
-}
-
-export const Item = ({ metadata }: ItemProps) => {
+export const Item = ({
+  metadata,
+  hasContent,
+  slug,
+}: Omit<ProjectProps, 'directory'>) => {
   const { colors } = useColorContext()
   const { title, subtitle, compiledSummary, hero, live } = metadata
 
@@ -49,6 +49,9 @@ export const Item = ({ metadata }: ItemProps) => {
             </div>
           )}
         </div>
+        {hasContent && (
+          <CTA inner href={`/projects/${slug}`} content="Read more" />
+        )}
         <CTA
           href={live}
           disabled={!live}

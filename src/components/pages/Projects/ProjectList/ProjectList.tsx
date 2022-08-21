@@ -17,8 +17,13 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
   })
   return (
     <>
-      {sortedProjects.map(({ slug, metadata }) => (
-        <Item key={slug} metadata={metadata} />
+      {sortedProjects.map(({ slug, metadata, hasContent }) => (
+        <Item
+          slug={slug}
+          key={slug}
+          metadata={metadata}
+          hasContent={hasContent}
+        />
       ))}
     </>
   )

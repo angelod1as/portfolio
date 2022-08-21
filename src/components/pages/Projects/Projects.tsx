@@ -1,13 +1,12 @@
 import { Link } from '#components/common/Links'
 import { Strong } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { ProjectMetadata } from '#types/types'
+import { PageMetadata, ProjectMetadata } from '#types/types'
 import React from 'react'
 import { ProjectList } from './ProjectList'
 
-export type ProjectProps = {
+export type ProjectProps = PageMetadata & {
   metadata: Partial<ProjectMetadata>
-  slug: string
 }
 
 export type ProjectsProps = {
