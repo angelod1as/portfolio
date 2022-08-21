@@ -4,7 +4,11 @@ import { compileMetadata } from './compileMetadata'
 import { filterMDX } from './filterMDX'
 import { getPagesMetadata } from './getPagesMetadata'
 
-export type PageType = 'blog' | 'pages' | 'projects'
+export type PageType =
+  | 'blog' // adds reading time & more
+  | 'pages' // add I am angelo...
+  | 'projects' // adds project specific stuff
+  | 'clean' // adds nothing but the MDX
 
 export const fetchAllPages = async (type: PageType) => {
   const contentDir = join(process.cwd(), 'content', type)
