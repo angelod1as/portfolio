@@ -10,7 +10,7 @@ Write here
 `,
   projects: `---
 title:
-subtitle:
+description:
 summary:
 createdAt: ${new Date().getTime()}
   where: >-
