@@ -5,9 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && tsc --noEmit --incremental",
     "test": "jest",
-    "ts": "tsc --noEmit --incremental",
     "post": "node ./scripts/content.mjs blog",
     "project": "node ./scripts/content.mjs projects"
   },
