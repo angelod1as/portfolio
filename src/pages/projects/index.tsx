@@ -1,15 +1,11 @@
-import { Projects } from '#components/pages/Projects'
+import { ProjectProps, Projects } from '#components/pages/Projects'
 import { fetchAllPages } from '#lib/common/fetchAllPages'
-import { ProjectMetadata } from '#types/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
 import { randomColors } from 'src/helpers/colors'
 
 type ProjectsPageProps = {
-  projects: Array<{
-    metadata: ProjectMetadata
-    slug: string
-  }>
+  projects: ProjectProps[]
 }
 
 function ProjectsPage({ projects }: ProjectsPageProps) {
