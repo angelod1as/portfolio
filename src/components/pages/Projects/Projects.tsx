@@ -3,15 +3,15 @@ import { Strong } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { ProjectMetadata } from '#types/types'
 import React from 'react'
-import { Project } from './Project'
+import { ProjectList } from './ProjectList'
 
-export type ProjectProps = Array<{
+export type ProjectProps = {
   metadata: Partial<ProjectMetadata>
   slug: string
-}>
+}
 
 export type ProjectsProps = {
-  projects: ProjectProps
+  projects: ProjectProps[]
   slug?: string
 }
 
@@ -34,19 +34,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
       <h2>Highlighted</h2>
 
-      {projects
-        .sort((a, b) => {
-          if (
-            typeof a.metadata.summary?.when === 'number' &&
-            typeof b.metadata.summary?.when === 'number'
-          ) {
-            return b.metadata.summary?.when - a.metadata.summary?.when
-          }
-          return 0
-        })
-        .map(project => (
-          <Project key={project.slug} project={project.metadata} />
-        ))}
+      <ProjectList projects={projects} />
 
       <p className="text-sm text-gray-400">
         This is a forever expanding and{' '}

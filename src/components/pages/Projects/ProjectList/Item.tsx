@@ -6,13 +6,13 @@ import styles from './Project.module.sass'
 import Image from 'next/image'
 import { CTA } from '#components/common/CTA'
 
-type ProjectProps = {
-  project: Partial<ProjectMetadata>
+type ItemProps = {
+  metadata: Partial<ProjectMetadata>
 }
 
-export const Project = ({ project }: ProjectProps) => {
+export const Item = ({ metadata }: ItemProps) => {
   const { colors } = useColorContext()
-  const { title, subtitle, compiledSummary, hero, live } = project
+  const { title, subtitle, compiledSummary, hero, live } = metadata
 
   const buildSection = (
     prefix: string,
