@@ -14,23 +14,27 @@ export const parseMDXMetadata = async (
   directory: string,
   fileName: string,
   content: string,
-  type: PageType
+  type: PageType,
+  hasContent: boolean
 ) => {
+  // eslint-disable-next-line no-console
   const projectDir = process.cwd()
   const publicDir = directory.split(projectDir)[1]
 
   const hero = compileHero(metadata.hero, directory)
 
   // Generate Social Image
-  const socialImagePath = await generateSocialImage({
-    directory,
-    publicDir,
-    fileName,
-    metadata: {
-      ...metadata,
-      hero,
-    },
-  })
+  const socialImagePath = hasContent
+    ? await generateSocialImage({
+        directory,
+        publicDir,
+        fileName,
+        metadata: {
+          ...metadata,
+          hero,
+        },
+      })
+    : 'no-content'
 
   return {
     ...metadata,
