@@ -5,14 +5,15 @@ import React from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { parseComponents } from './parseComponents'
 import styles from './MDX.module.sass'
+import { PageType } from '#lib/common/fetchAllPages'
 
 type Props = {
   mdx: MDXProps
-  blogPost?: boolean
   metadata?: Metadata
+  type: PageType
 }
 
-export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
+export const MDX: FCC<Props> = ({ mdx, type, metadata }) => {
   const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
@@ -21,7 +22,7 @@ export const MDX: FCC<Props> = ({ mdx, blogPost, metadata }) => {
     colors,
   })
 
-  if (blogPost && metadata) {
+  if (type === 'blog' && metadata) {
     const { compiledTitle, createdAt, timeToRead, wordCount, tags } = metadata
     return (
       <div className={`${styles.container} ${styles.blogPost}`}>

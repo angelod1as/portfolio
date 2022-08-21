@@ -2,7 +2,7 @@ import React from 'react'
 import { ProjectMetadata } from '#types/types'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { MDX } from '#components/common/MDX'
-import styles from './Project.module.sass'
+import styles from './Item.module.sass'
 import Image from 'next/image'
 import { CTA } from '#components/common/CTA'
 
@@ -30,7 +30,7 @@ export const Item = ({ metadata }: ItemProps) => {
           {paragraph ? (
             <p>{content}</p>
           ) : (
-            <MDX mdx={{ compiledSource: content }} />
+            <MDX mdx={{ compiledSource: content }} type="clean" />
           )}
         </div>
       </>
