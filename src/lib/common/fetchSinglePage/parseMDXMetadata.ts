@@ -19,12 +19,17 @@ export const parseMDXMetadata = async (
   const projectDir = process.cwd()
   const publicDir = directory.split(projectDir)[1]
 
+  const hero = compileHero(metadata.hero, directory)
+
   // Generate Social Image
   const socialImagePath = await generateSocialImage({
     directory,
     publicDir,
     fileName,
-    metadata,
+    metadata: {
+      ...metadata,
+      hero,
+    },
   })
 
   return {
@@ -34,6 +39,6 @@ export const parseMDXMetadata = async (
     wordCount: wordCount(content),
     timeToRead: timeToRead(content),
     compiledSummary: await compileSummary(metadata.summary),
-    hero: compileHero(metadata.hero, directory),
+    hero,
   }
 }
