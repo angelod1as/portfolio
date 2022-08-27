@@ -1,6 +1,8 @@
+import { Link } from '#components/common/Links'
 import { Loader } from '#components/common/Loader'
-import { Strong } from '#components/common/Strong'
+import { Strong as StrongModifier } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
+import { FCC } from '#types/types'
 import { useState } from 'react'
 import {
   bgColor as defaultBgColor,
@@ -10,7 +12,7 @@ import {
 
 type FormElements = HTMLFormControlsCollection & {
   email: HTMLInputElement
-  anti: HTMLInputElement
+  antirobot: HTMLInputElement
 }
 type SubstackFormElements = HTMLFormElement & {
   readonly elements: FormElements
@@ -52,6 +54,10 @@ export const Substack = ({ blog }: SubstackProps) => {
   const borderColor = colors?.borderColor ?? defaultBorderColor[0]
   const textColor = colors?.textColor ?? defaultTextColor[0]
 
+  const Strong: FCC = ({ children }) => (
+    <StrongModifier color={textColor}>{children}</StrongModifier>
+  )
+
   const [errors, setErrors] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -59,9 +65,9 @@ export const Substack = ({ blog }: SubstackProps) => {
   const handleSubmit = (event: React.FormEvent<SubstackFormElements>) => {
     event.preventDefault()
     const email = event.currentTarget.elements.email.value
-    const anti = event.currentTarget.elements.anti.value
+    const antirobot = event.currentTarget.elements.antirobot.value
 
-    if (anti) {
+    if (antirobot) {
       return
     }
 
@@ -111,16 +117,28 @@ export const Substack = ({ blog }: SubstackProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full mb-8">
-      <h2 className={`${blog ? '' : 'mb-4 h2-as-h1'}`}>
-        <span className={textColor}>Subscribe</span> the newsletter
+      <h2 className={`mb-4 ${blog ? '' : 'h2-as-h1'}`}>
+        Read my <span className={textColor}>Newsletter</span>
       </h2>
-
-      <p className={`${blog ? 'mb-4' : 'mb-4'}`}>
-        A very <Strong color={textColor}>occasional</Strong> & 100% not spammy
-        account of a <Strong color={textColor}>overworking foreigner</Strong>{' '}
-        trying to <Strong color={textColor}>find himself</Strong>. Hosted by
-        Substack.
+      <p>
+        I write <Strong>way</Strong> more often in my{' '}
+        <Link href="https://angelodias.substack.com/">newsletter</Link> and
+        choose only <Strong>a few</Strong> things to be put in my blog.
       </p>
+      <p className="mb-4">
+        It goes out <Strong>twice a week</Strong> for my readers:
+      </p>
+      <ul className="mb-8">
+        <li className="mb-4">
+          <Strong>Thursday</Strong> — updates on projects, quick thoughts,
+          books, movies, and albums. I'll also share any new blog posts here.
+        </li>
+        <li className="mb-4">
+          <Strong>Tuesday</Strong> — longer articles with reflections and
+          thoughts about more complex issues — or just silly stuff that I want
+          other people to think about together with me.
+        </li>
+      </ul>
       <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
         <label htmlFor="email" className="flex-1 block w-full">
           Email:
@@ -138,7 +156,7 @@ export const Substack = ({ blog }: SubstackProps) => {
           <input
             type="text"
             defaultValue=""
-            name="anti"
+            name="antirobot"
             tabIndex={-1}
             className="absolute left-[-5000px]"
             aria-hidden="true"
