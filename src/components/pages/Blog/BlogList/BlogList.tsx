@@ -3,7 +3,7 @@ import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { useState } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { PostProps } from '../Blog'
-import { generateTitle } from '../BlogItem/generateTitle'
+import { generateTitle } from './generateTitle'
 import { Filter } from '../Filter'
 
 export type BlogListProps = {
