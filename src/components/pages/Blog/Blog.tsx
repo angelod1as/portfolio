@@ -1,7 +1,7 @@
 import { Subscribe } from '#components/common/Subscribe'
 import { Metadata, FCC } from '#types/types'
 import { useColorContext } from '../../templates/Providers/ColorProvider'
-import { BlogList } from './BlogList/BlogList'
+import { BlogList } from './BlogList'
 import { NewsletterFeed } from './NewsletterFeed'
 
 export type PostProps = Array<{
