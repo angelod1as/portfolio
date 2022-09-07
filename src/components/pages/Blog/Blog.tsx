@@ -1,9 +1,8 @@
 import { Subscribe } from '#components/common/Subscribe'
 import { Metadata, FCC } from '#types/types'
-import { useState } from 'react'
 import { useColorContext } from '../../templates/Providers/ColorProvider'
-import { BlogItem } from './BlogItem'
-import { Filter } from './Filter'
+import { BlogList } from './BlogList/BlogList'
+import { NewsletterFeed } from './NewsletterFeed'
 
 export type PostProps = Array<{
   metadata: Partial<Metadata>
@@ -17,25 +16,6 @@ export type BlogProps = {
 
 export const Blog: FCC<BlogProps> = ({ posts }) => {
   const { colors } = useColorContext()
-  const [order, setOrder] = useState<string>('descending')
-
-  const handleOrder = (value: string) => {
-    if (value) {
-      setOrder(value)
-    }
-  }
-
-  const blogPosts = posts.sort((a, b) => {
-    if (!a.metadata.createdAt || !b.metadata.createdAt) {
-      return 0
-    }
-
-    if (order === 'ascending') {
-      return a.metadata.createdAt - b.metadata.createdAt
-    } else {
-      return b.metadata.createdAt - a.metadata.createdAt
-    }
-  })
 
   const Strong: FCC = props => (
     <strong {...props} className={colors.textColor} />
@@ -57,12 +37,8 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
         </p>
       </div>
       <Subscribe blog />
-      <Filter order={order} handleOrder={handleOrder} />
-      <ul className="flex flex-col gap-16">
-        {blogPosts.map(({ slug, metadata }) => {
-          return <BlogItem key={slug} metadata={metadata} slug={slug} />
-        })}
-      </ul>
+      <NewsletterFeed />
+      <BlogList posts={posts} />
     </>
   )
 }
