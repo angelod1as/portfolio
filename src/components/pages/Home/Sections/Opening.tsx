@@ -25,7 +25,7 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
           I make <Strong>music</Strong> and I read <Strong>tarot</Strong>.
         </p>
         <p>
-          I have a <Strong>daily podcast</Strong> with short episodes.
+          I have a <Strong>weekly newsletter</Strong> with multiple subjects.
         </p>
       </div>
     </>
