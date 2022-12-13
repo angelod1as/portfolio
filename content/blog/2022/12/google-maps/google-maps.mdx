@@ -44,7 +44,7 @@ export const App = () => (
 )
 ```
 
-![GoogleMaps_React_mySuperMap](//images.ctfassets.net/id1aih0ikexo/11mOvEzRm5mdzRi2cSz97p/4a28b8cb9ee415f2fceafece43710a28/GoogleMaps_React_mysupermap.png)
+![GoogleMaps_React_mySuperMap](./google1.png)
 
 Awesome, what might seem like a boring page with no content... is also a fertile field for ambitious creation!
 
@@ -132,7 +132,7 @@ I won't focus on the `LOADING` and `FAILURE` states in this tutorial, though. Us
 
 So far, our page looks even more boring than before:
 
-![GoogleMaps_React_MySuperMap2](//images.ctfassets.net/id1aih0ikexo/6xI60O4Hy5yxIaPhKqNdm2/cd7e644a9138f934339484da4534dbbc/GoogleMaps_React_MysuperMap2.png)
+![GoogleMaps_React_MySuperMap2](./google2.png)
 
 We still need another component to render the actual map with all its configurations. Introducing the MapComponent:
 
@@ -219,7 +219,7 @@ return <div style={{ height: 300, width: '100%' }} ref={ref} />
 
 And that's the only CSS you will write to make this map happen. Refresh your browser, and look what's there:
 
-![GoogleMaps_React_mySuperMap3](//images.ctfassets.net/id1aih0ikexo/6IM8pwcJlEjtalxFFxZx5o/c47312d3e5c4028ce858dd1b30e0e777/GoogleMaps_React_mysuperMap3.png)
+![GoogleMaps_React_mySuperMap3](./google3.png)
 
 ### Tweaking the map
 
@@ -244,7 +244,7 @@ new window.google.maps.Map(ref.current, {
 //...
 ```
 
-![GoogleMaps_React_mySuperMap4](//images.ctfassets.net/id1aih0ikexo/2TwhhkNZS769PigTbo5u43/ab2430b6f5665bac4e06900c71f27b73/Googlemaps_React_MysuperMap4.png)
+![GoogleMaps_React_mySuperMap4](./google4.png)
 
 That's more like it! Following the Google Maps API, I could turn off any feature I didn't want on my map.
 
@@ -352,7 +352,7 @@ new window.google.maps.places.Autocomplete(ref.current, {
 
 Looking at our app now, we can search for a myriad of places but this results in no change in our map, right?
 
-![GoogleMaps_React_mySuperMap5](//images.ctfassets.net/id1aih0ikexo/2SSEkBiY0H10cGDxm8POj0/6cc26b0da62d49b33e54b3a61f9a9e60/GoogleMaps_React_mySuperMap5.png)
+![GoogleMaps_React_mySuperMap5](./google5.png)
 That's why the received value from the `Autocomplete` is not being used anywhere.
 
 ### Putting things together
