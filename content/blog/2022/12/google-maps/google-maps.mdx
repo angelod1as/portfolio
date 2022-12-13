@@ -363,7 +363,7 @@ In our `App.tsx`, we're going to handle a `coordinates` state and pass it down t
 
 In summary: the search will update the map's coordinates.
 
-Quick info on `Coordinates` type: when we create an object “by hand”, Google sees it as a `LatLngLiteral`. When we create it via the constructor, it’s assigned a `LatLng` type. The main difference is that the latter has more information than just `latitude` and `longitude`, but we won’t go that far in this tutorial.
+Quick info on `Coordinates` type: when we create an object “by hand”, Google sees it as a `LatLngLiteral`. When we create it via the constructor, it's assigned a `LatLng` type. The main difference is that the latter has more information than just `latitude` and `longitude`, but we won't go that far in this tutorial.
 
 ```ts
 // App.tsx
@@ -724,13 +724,13 @@ export function MapComponent({
 }
 ```
 
-Voilá, it’s done!
+Voilá, it's done!
 
 ### ...to hero
 
 Going to our app and searching for a location is a breeze:
 
-![GoogleMaps_React_mySuperMap6](//images.ctfassets.net/id1aih0ikexo/4q1bZWzXjrVd3NcaX2JBaR/b1fed33224cdd3c9947a43ab5f34c516/GoogleMaps_React_mysuperMaps6.gif)
+![GoogleMaps_React_mySuperMap6](./google.gif)
 
 And that's it!
 
