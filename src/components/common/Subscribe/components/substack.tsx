@@ -126,19 +126,9 @@ export const Substack = ({ blog }: SubstackProps) => {
         choose only <Strong>a few</Strong> things to be put in my blog.
       </p>
       <p className="mb-4">
-        It goes out <Strong>twice a week</Strong> for my readers:
+        It doesn't have a clear schedule, but I'm <Strong>working hard</Strong>{' '}
+        to send an issue at least once a week.
       </p>
-      <ul className="mb-8">
-        <li className="mb-4">
-          <Strong>Thursday</Strong> — updates on projects, quick thoughts,
-          books, movies, and albums. I'll also share any new blog posts here.
-        </li>
-        <li className="mb-4">
-          <Strong>Tuesday</Strong> — longer articles with reflections and
-          thoughts about more complex issues — or just silly stuff that I want
-          other people to think about together with me.
-        </li>
-      </ul>
       <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
         <label htmlFor="email" className="flex-1 block w-full">
           Email:
