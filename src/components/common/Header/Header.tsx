@@ -18,6 +18,7 @@ export const Header: FCC = () => {
         <MenuLink content="blog" href="/blog" />
         <MenuLink content="projects" href="/projects" />
         <MenuLink content="podcast" href="/cronofobia" />
+        <MenuLink content="ask" href="/pergunte" />
       </div>
       {asPath !== '/' && (
         <div className="hidden md:block">
