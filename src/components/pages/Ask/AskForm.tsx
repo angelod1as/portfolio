@@ -62,6 +62,8 @@ export const AskForm = () => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [formValues, setFormValues] = useState<AskFormProps>(initialFormValues)
+  const characterLimit = 1000
+  const overLimit = formValues.message.length > characterLimit
 
   const handleSubmit = (event: React.FormEvent<AskFormElements>) => {
     setSuccess(false)
@@ -76,6 +78,10 @@ export const AskForm = () => {
 
     if (!message) {
       setErrors(['Oops, o nome é opcional, mas a mensagem não!'])
+    }
+
+    if (message.length > characterLimit) {
+      setErrors([`Ooops, há um limite de ${characterLimit} caracteres`])
     }
 
     setLoading(true)
@@ -163,6 +169,9 @@ export const AskForm = () => {
             onClick={removeError}
             required
           />
+          <small className={`${overLimit ? 'text-red' : ''}`}>
+            {formValues.message.length}/{characterLimit}
+          </small>
         </div>
         {loading ? (
           <div className="flex flex-col items-center justify-center w-full">
@@ -174,6 +183,7 @@ export const AskForm = () => {
             value="Send"
             name="send"
             className={`${bgColor} ${borderColor} mt-2`}
+            disabled={overLimit}
           />
         )}
       </div>

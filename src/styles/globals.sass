@@ -52,6 +52,8 @@ input[type="text"], input[type="email"], textarea
 
 input[type="submit"]
   @apply px-2 py-1 text-black transition-all border-2 rounded-md cursor-pointer hover:border-current hover:bg-black hover:text-white
+  &:disabled
+    @apply pointer-events-none bg-gray-700 text-gray-400 border-gray-400
 
 small
   @apply leading-tight
