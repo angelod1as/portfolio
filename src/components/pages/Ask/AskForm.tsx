@@ -165,7 +165,7 @@ export const AskForm = () => {
             name="message"
             className="w-full"
             onChange={e => handleChange('message', e.target.value)}
-            placeholder="mrspock@enterprise.com"
+            placeholder="Angelo, fale sobre..."
             onClick={removeError}
             required
           />
