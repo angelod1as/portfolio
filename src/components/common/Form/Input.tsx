@@ -46,7 +46,8 @@ export const Input: FCC<InputProps> = ({
     if (type === 'tel' || type === 'number') {
       event.target.value = event.target.value
         .toString()
-        .replace(numberRegex(type), '')
+        // need to do checking again because of TS
+        .replace(numberRegex(type === 'tel' ? 'tel' : 'number'), '')
         .replace(/(\..*)\./g, '$1')
     }
     handleChange(event)
