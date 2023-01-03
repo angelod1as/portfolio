@@ -24,6 +24,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder: string
   as?: string
   textAreaLimit?: number
+  selectOptions?: Array<{ value: string; label: string }>
 }
 
 /**
@@ -37,6 +38,7 @@ export const Input: FCC<InputProps> = ({
   placeholder,
   as,
   textAreaLimit,
+  selectOptions,
   ...props
 }) => {
   const { handleChange, setFieldError, values } =
@@ -69,7 +71,15 @@ export const Input: FCC<InputProps> = ({
         onClick={onClick}
         as={as}
         {...props}
-      />
+      >
+        {selectOptions?.map(({ label, value }) => {
+          return (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          )
+        })}
+      </Field>
       {textAreaLimit && (
         <small
           className={`${values[name].length > textAreaLimit ? 'text-red' : ''}`}
