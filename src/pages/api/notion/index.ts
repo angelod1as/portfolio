@@ -21,7 +21,7 @@ const flattenRichText = (
 
 const handler: NextApiHandler<NotionResponse> = async (req, res) => {
   const databaseId = process.env.NOTION_ASK_DB ?? ''
-  const apiKey = process.env.NOTION_ASK_KEY ?? ''
+  const apiKey = process.env.NOTION_API_KEY ?? ''
 
   if (req.method === 'GET') {
     const notion = new Client({ auth: `${apiKey}` })
