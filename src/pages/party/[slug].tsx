@@ -2,12 +2,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { RandomColors, randomColors } from 'src/helpers/colors'
 import { KaraokeParty } from '#components/pages/Party/karaoke'
-import { getPartyPages } from '#lib/party/getPartyPages'
+import { getPartyPages, partyPages, PartyPages } from '#lib/party/getPartyPages'
 import { SurubaParty } from '#components/pages/Party/suruba'
 import Head from 'next/head'
-
-const partyPages = ['karaoke', 'suruba'] as const
-type PartyPages = typeof partyPages[number]
 
 const PartyPage: NextPage<{ slug: PartyPages }> = ({ slug }) => {
   const socialImagePath = `angelodias.com.br/party/social/${slug}.png`
