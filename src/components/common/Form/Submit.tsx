@@ -1,11 +1,12 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
-import { Field, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
 import React, { InputHTMLAttributes } from 'react'
 import {
   bgColor as defaultBgColor,
   borderColor as defaultBorderColor,
 } from 'src/helpers/colors'
+import { Loader } from '../Loader'
 
 type SubmitProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string
@@ -22,12 +23,12 @@ export const Submit: FCC<SubmitProps> = ({ className, label }) => {
   const borderColor = colors?.borderColor ?? defaultBorderColor[0]
 
   return (
-    <Field
+    <button
       type="submit"
-      name="send"
-      value={label ?? 'Send'}
       disabled={isSubmitting}
       className={`${className ?? ''} ${bgColor} ${borderColor} mt-2`}
-    />
+    >
+      {isSubmitting ? <Loader /> : label}
+    </button>
   )
 }
