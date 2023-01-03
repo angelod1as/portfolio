@@ -114,19 +114,8 @@ export const KaraokeParty = () => {
         terceiros e serão apagados depois da data da festa."
       >
         <Input label="Nome" name="name" type="text" placeholder="Angelo" />
-        <Input
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="angelo@teste.com"
-        />
-        <Input
-          label="Whatsapp"
-          name="phone"
-          type="tel"
-          placeholder="1112345678"
-          pattern="[0-9]+"
-        />
+        <Input label="Email" name="email" type="email" />
+        <Input label="Whatsapp" name="phone" type="tel" />
       </Form>
 
       <h2 className="mt-8 mb-4">

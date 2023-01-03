@@ -4,6 +4,7 @@ import React, {
   ChangeEventHandler,
   HTMLInputTypeAttribute,
   InputHTMLAttributes,
+  ReactNode,
 } from 'react'
 import { Error } from './Error'
 import { Label } from './Label'
@@ -19,12 +20,23 @@ export const numberRegex = (type: 'tel' | 'number', negate = true) => {
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string
   name: string
-  label: string
+  label: ReactNode
   type: HTMLInputTypeAttribute
-  placeholder: string
+  placeholder?: string
   as?: string
   textAreaLimit?: number
   selectOptions?: Array<{ value: string; label: string }>
+}
+
+const getComponent = (type: HTMLInputTypeAttribute) => {
+  switch (type) {
+    case 'textarea':
+      return 'textarea'
+    case 'select':
+      return 'select'
+    default:
+      return undefined
+  }
 }
 
 /**
@@ -65,11 +77,11 @@ export const Input: FCC<InputProps> = ({
       <Field
         type={type}
         name={name}
-        className="w-full"
+        className="w-full mt-1"
         placeholder={placeholder}
         onChange={onChange}
         onClick={onClick}
-        as={as}
+        as={as ?? getComponent(type)}
         {...props}
       >
         {selectOptions?.map(({ label, value }) => {
