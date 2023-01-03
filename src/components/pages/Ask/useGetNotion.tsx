@@ -10,7 +10,7 @@ const fetcher: Fetcher<NotionResponse, string> = async url =>
   await fetch(url).then(async res => await res.json())
 
 export const useGetNotion = () => {
-  const { data, error } = useSWR<NotionResponse>('/api/notion', fetcher)
+  const { data, error } = useSWR<NotionResponse>('/api/notion/ask', fetcher)
 
   return {
     data,

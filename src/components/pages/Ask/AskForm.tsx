@@ -2,7 +2,7 @@ import { Link } from '#components/common/Links'
 import { Loader } from '#components/common/Loader'
 import { Strong as StrongModifier } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { Error, FCC } from '#types/types'
+import { ErrorProps, FCC } from '#types/types'
 import { useState } from 'react'
 import {
   bgColor as defaultBgColor,
@@ -24,11 +24,11 @@ type AskFormElements = HTMLFormElement & {
 }
 
 type substackResult = {
-  errors?: Error[]
+  errors?: ErrorProps[]
 }
 
 const postToNotion = async (props: AskFormProps): Promise<substackResult> => {
-  const url = '/api/notion/create'
+  const url = '/api/notion/ask/create'
 
   const result = await fetch(url, {
     method: 'POST',
