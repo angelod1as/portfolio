@@ -4,7 +4,7 @@ import { NextApiHandler } from 'next'
 
 const handler: NextApiHandler = async (req, res) => {
   const databaseId = process.env.NOTION_ASK_DB ?? ''
-  const apiKey = process.env.NOTION_ASK_KEY ?? ''
+  const apiKey = process.env.NOTION_API_KEY ?? ''
 
   if (req.method === 'POST') {
     const data: AskFormProps = JSON.parse(req.body)
