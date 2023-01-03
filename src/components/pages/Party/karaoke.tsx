@@ -77,7 +77,7 @@ export const KaraokeParty = () => {
           label: 'Enviar',
         }}
         additionalWarning="Todas as informações desse formulário vão para um banco de dados
-        sigiloso que só Angelo tem acesso — eles não serão compartilhados com
+        sigiloso que só as pessoas organizadoras tem acesso — eles não serão compartilhados com
         terceiros e serão apagados depois da data da festa."
       >
         <Input label="Nome" name="name" type="text" placeholder="Angelo" />
