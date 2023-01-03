@@ -1,4 +1,3 @@
-import { KaraokeFormProps } from '#pages/party/karaoke'
 import { Client } from '@notionhq/client'
 import { NextApiHandler } from 'next'
 
@@ -7,7 +6,7 @@ const handler: NextApiHandler = async (req, res) => {
   const apiKey = process.env.NOTION_API_KEY ?? ''
 
   if (req.method === 'POST') {
-    const data: KaraokeFormProps = JSON.parse(req.body)
+    const data = JSON.parse(req.body)
 
     const notion = new Client({ auth: `${apiKey}` })
     const response = await notion.pages.create({
