@@ -74,3 +74,7 @@ export type ErrorProps = {
   param?: string
   value?: string
 }
+
+export type PostResult = {
+  errors?: ErrorProps[]
+}
