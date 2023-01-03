@@ -10,7 +10,7 @@ import { Label } from './Label'
 
 export const numberRegex = (type: 'tel' | 'number', negate = true) => {
   const regex = new RegExp(
-    `[${negate ? '^' : ''}^0-9.${type === 'tel' ? '+' : ''}]`,
+    `[${negate ? '^' : ''}0-9.${type === 'tel' ? '+' : ''}]`,
     'g'
   )
   return regex
