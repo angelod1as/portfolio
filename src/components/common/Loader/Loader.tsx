@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Loader = () => {
   return (
-    <div className="flex">
+    <div className="flex items-center justify-center">
       {'please wait'.split('').map((letter, index) => (
         <div
           key={index}
