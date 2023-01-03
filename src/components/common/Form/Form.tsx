@@ -15,7 +15,7 @@ type FormProps<T> = {
   children: ReactNode
   submit?: {
     label?: string
-    successMessage?: string
+    successMessage?: ReactNode
   }
   additionalWarning?: string
 }
@@ -43,7 +43,7 @@ export const Form = <T extends FormikValues>({
         initialValues={initialValues}
         validationSchema={validationSchema}
         validateOnChange={false}
-        onSubmit={async (values, formikHelpers) =>
+        onSubmit={async (values, formikHelpers) => {
           await submitForm<T>({
             values,
             formikHelpers,
@@ -51,11 +51,23 @@ export const Form = <T extends FormikValues>({
             setSuccess,
             fetcher,
           })
-        }
+          formikHelpers.setSubmitting(false)
+          formikHelpers.resetForm(initialValues)
+        }}
       >
         {() => (
           <FormikForm className="flex flex-col w-full gap-4">
             {children}
+
+            {/* Avoid spam by adding a hidden field that can only be reached by machines */}
+            <input
+              type="text"
+              defaultValue=""
+              name="antirobot"
+              tabIndex={-1}
+              className="absolute left-[-5000px]"
+              aria-hidden="true"
+            />
 
             <Submit label={submit?.label} />
             <ApiError errors={apiErrors} />
@@ -65,11 +77,11 @@ export const Form = <T extends FormikValues>({
 
       {success && (
         <div className="mt-4">
-          <p>
-            <Strong>
-              {submit?.successMessage ?? 'Dados enviados com sucesso!'}
-            </Strong>
-          </p>
+          {submit?.successMessage ?? (
+            <p>
+              <Strong>'Dados enviados com sucesso!'</Strong>
+            </p>
+          )}
         </div>
       )}
 

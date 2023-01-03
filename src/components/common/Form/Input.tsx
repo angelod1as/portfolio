@@ -22,6 +22,8 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string
   type: HTMLInputTypeAttribute
   placeholder: string
+  as?: string
+  textAreaLimit?: number
 }
 
 /**
@@ -33,9 +35,12 @@ export const Input: FCC<InputProps> = ({
   label,
   type,
   placeholder,
+  as,
+  textAreaLimit,
   ...props
 }) => {
-  const { handleChange, setFieldError } = useFormikContext()
+  const { handleChange, setFieldError, values } =
+    useFormikContext<Record<string, string>>()
 
   const onChange: ChangeEventHandler<HTMLInputElement> = event => {
     if (type === 'tel' || type === 'number') {
@@ -61,8 +66,16 @@ export const Input: FCC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         onClick={onClick}
+        as={as}
         {...props}
       />
+      {textAreaLimit && (
+        <small
+          className={`${values[name].length > textAreaLimit ? 'text-red' : ''}`}
+        >
+          {values[name].length}/{textAreaLimit}
+        </small>
+      )}
       <Error name={name} />
     </div>
   )

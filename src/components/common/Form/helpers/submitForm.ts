@@ -10,13 +10,21 @@ type SubmitFormProps<T> = {
   setSuccess: Dispatch<SetStateAction<boolean>>
 }
 
-export const submitForm = async <T>({
+type DefaultProps = {
+  antirobot?: string
+}
+
+export const submitForm = async <T extends DefaultProps>({
   values,
   setSuccess,
   setApiErrors,
   fetcher,
 }: SubmitFormProps<T>) => {
   setSuccess(false)
+
+  if (values?.antirobot) {
+    return
+  }
 
   try {
     const result = await fetcher(values)
