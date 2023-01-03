@@ -16,8 +16,10 @@ type FormProps<T> = {
   submit?: {
     label?: string
     successMessage?: ReactNode
+    className?: string
   }
   additionalWarning?: string
+  className?: string
 }
 
 export const Form = <T extends FormikValues>({
@@ -27,6 +29,7 @@ export const Form = <T extends FormikValues>({
   submit,
   additionalWarning,
   children,
+  className,
 }: FormProps<T>) => {
   const { colors } = useColorContext()
   const textColor = colors?.textColor ?? defaultTextColor[0]
@@ -56,7 +59,9 @@ export const Form = <T extends FormikValues>({
         }}
       >
         {() => (
-          <FormikForm className="flex flex-col w-full gap-4">
+          <FormikForm
+            className={`flex flex-col w-full gap-4 ${className ?? ''}`}
+          >
             {children}
 
             {/* Avoid spam by adding a hidden field that can only be reached by machines */}
@@ -69,7 +74,7 @@ export const Form = <T extends FormikValues>({
               aria-hidden="true"
             />
 
-            <Submit label={submit?.label} />
+            <Submit label={submit?.label} className={submit?.className} />
             <ApiError errors={apiErrors} />
           </FormikForm>
         )}

@@ -92,7 +92,6 @@ export const AskForm = () => {
           name="message"
           placeholder="Angelo, fale sobre..."
           type="textarea"
-          as="textarea"
           textAreaLimit={1000}
         />
       </Form>
