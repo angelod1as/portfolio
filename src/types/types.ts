@@ -65,3 +65,12 @@ export type ProjectMetadata = {
   live: string | null
   tags?: string[]
 }
+
+// Forms
+
+export type ErrorProps = {
+  location?: string
+  msg: string
+  param?: string
+  value?: string
+}
