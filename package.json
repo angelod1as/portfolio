@@ -15,6 +15,7 @@
     "@notionhq/client": "^2.2.3",
     "@radix-ui/react-accordion": "^0.1.6",
     "@radix-ui/react-toggle-group": "^0.1.5",
+    "@vercel/analytics": "^0.1.6",
     "feed": "^4.2.2",
     "formik": "^2.2.9",
     "gray-matter": "^4.0.3",

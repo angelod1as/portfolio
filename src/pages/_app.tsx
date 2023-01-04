@@ -3,12 +3,14 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Providers } from '#components/templates/Providers/Providers'
 import 'highlight.js/styles/base16/tomorrow-night.css'
+import { Analytics } from '@vercel/analytics/react'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Providers {...pageProps}>
       <FirstHead />
       <Component {...pageProps} />
+      <Analytics />
     </Providers>
   )
 }
