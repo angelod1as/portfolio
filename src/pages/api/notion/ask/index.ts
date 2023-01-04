@@ -1,4 +1,4 @@
-import { NotionResponse } from '#components/pages/Ask/useGetNotion'
+import { NotionResponse } from '#components/hooks/useGetNotion'
 import { Client } from '@notionhq/client'
 import { NextApiHandler } from 'next'
 

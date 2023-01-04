@@ -2,11 +2,15 @@ import { Loader } from '#components/common/Loader'
 import { Strong } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React from 'react'
-import { useGetNotion } from './useGetNotion'
+import { useGetNotion } from '../../hooks/useGetNotion'
+
+export type NotionResponse = {
+  questions: Array<{ question: string; createdAt: string }>
+}
 
 export const OldQuestions = () => {
   const { colors } = useColorContext()
-  const { data, isLoading, error } = useGetNotion()
+  const { data, isLoading, error } = useGetNotion<NotionResponse>('ask')
 
   if (isLoading) return <Loader />
   if (error) {

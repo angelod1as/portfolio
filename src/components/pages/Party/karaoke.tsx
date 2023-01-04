@@ -6,6 +6,8 @@ import { ErrorProps, FCC } from '#types/types'
 import { Input, numberRegex } from '#components/common/Form/Input'
 import { object as YupObject, string as YupString } from 'yup'
 import { Form } from '#components/common/Form/Form'
+import { useGetNotion } from '#components/hooks/useGetNotion'
+import { Loader } from '#components/common/Loader'
 
 type FormProps = {
   name: string
@@ -36,7 +38,7 @@ type PostResult = {
 }
 
 const postToNotion = async (props: FormProps): Promise<PostResult> => {
-  const url = '/api/notion/party/karaoke'
+  const url = '/api/notion/karaoke/create'
 
   const result = await fetch(url, {
     method: 'POST',
@@ -46,9 +48,15 @@ const postToNotion = async (props: FormProps): Promise<PostResult> => {
   return await result.json()
 }
 
+export type NotionResponse = {
+  people: Array<{ person: string }>
+}
+
 export const KaraokeParty = () => {
   const { colors } = useColorContext()
   const textColor = colors?.textColor ?? defaultTextColor[0]
+
+  const { data, error, isLoading } = useGetNotion<NotionResponse>('karaoke')
 
   const Strong: FCC = ({ children }) => (
     <StrongModifier color={textColor}>{children}</StrongModifier>
@@ -95,6 +103,23 @@ export const KaraokeParty = () => {
           pattern="[0-9]+"
         />
       </Form>
+
+      <h2 className="mt-8 mb-4">
+        Quem já <span className={textColor}>confirmou</span>?
+      </h2>
+      <div className="grid grid-cols-2 gap-y-1 gap-x-2 md:grid-cols-3">
+        {isLoading && <Loader />}
+        {data?.error ??
+          (error && (
+            <div className="w-full text-sm font-bold text-red">
+              Ops, houve algum erro e o servidor não conseguiu buscar a lista de
+              pessoas
+            </div>
+          ))}
+        {data?.people.map((person, index) => (
+          <span key={person.person + index.toString()}>{person.person}</span>
+        ))}
+      </div>
     </div>
   )
 }
