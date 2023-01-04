@@ -12,9 +12,9 @@ import { H2, H3, LI, UL } from '#components/common/Typography'
 type FormProps = {
   name: string
   phone: string
-  message: string
+  email: string
   read: 'false' | 'true' // because option must be string
-  howKnow: 'false' | 'true' // because option must be string
+  know: 'false' | 'true' // because option must be string
 }
 
 export type KaraokeFormProps = FormProps
@@ -22,9 +22,9 @@ export type KaraokeFormProps = FormProps
 const initialValues: FormProps = {
   name: '',
   phone: '',
-  message: '',
+  email: '',
   read: 'false',
-  howKnow: 'false',
+  know: 'false',
 }
 
 const validationSchema = YupObject().shape({
@@ -35,6 +35,8 @@ const validationSchema = YupObject().shape({
     .min(8, 'Esse número não tá pequeno demais?')
     .max(16, 'Esse número é muito longo'),
   email: YupString().required('Ops, preencha seu e-mail'),
+  know: YupString(),
+  read: YupString(),
 })
 
 type PostResult = {
@@ -42,7 +44,7 @@ type PostResult = {
 }
 
 const postToNotion = async (props: FormProps): Promise<PostResult> => {
-  const url = '/api/notion/party/karaoke'
+  const url = '/api/notion/suruba/create'
 
   const result = await fetch(url, {
     method: 'POST',
@@ -287,7 +289,7 @@ export const SurubaParty = () => {
         <Input label="Whatsapp" name="phone" type="tel" />
         <Input
           label="Você conhece Angelo pessoalmente?"
-          name="howKnow"
+          name="know"
           type="select"
           selectOptions={[
             {
