@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { textColor as defaultTextColor } from 'src/helpers/colors'
 import { Strong as StrongModifier } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
@@ -75,6 +75,35 @@ export const KaraokeParty = () => {
           nome, email e zupzap.
         </p>
         <p>Entro em contato quando tiver mais infos sobre o evento.</p>
+      </div>
+
+      <div>
+        <Strong>Dados da festa</Strong>
+        <dl className="grid grid-cols-5 mt-2 mb-10 gap-y-4">
+          {[
+            {
+              key: 'Local',
+              value: 'Ainda não sabemos, depende do número de pessoas',
+            },
+            {
+              key: 'Data',
+              value: '4 de Fevereiro',
+            },
+            {
+              key: 'Horário',
+              value: 'A noite — à combinar',
+            },
+            {
+              key: 'Valor',
+              value: 'Ainda não sabemos, depende do número de pessoas',
+            },
+          ].map(({ key, value }) => (
+            <Fragment key={key}>
+              <dt className={`${textColor} font-bold`}>{key}</dt>
+              <dd className="col-span-4">{value}</dd>
+            </Fragment>
+          ))}
+        </dl>
       </div>
 
       <Form<FormProps>
