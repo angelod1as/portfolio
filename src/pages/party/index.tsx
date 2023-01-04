@@ -37,9 +37,11 @@ const PartyPage: NextPage = () => {
       <p>
         If you <i>know</i> where you should have landed, there's something
         missing in your URL. It should be like this:
-        <pre>
-          <code>angelodias.com.br/party/something</code>
-        </pre>{' '}
+      </p>
+      <pre className="mb-3">
+        <code>angelodias.com.br/party/something</code>
+      </pre>
+      <p>
         (replace <i>something</i> with your event's name.)
       </p>
 
@@ -56,9 +58,11 @@ const PartyPage: NextPage = () => {
       <p>
         Se você <i>sabe</i> do que estou falando, há algo faltando na sua URL.
         Ela deveria ser assim:
-        <pre>
-          <code>angelodias.com.br/festa/algo</code>
-        </pre>{' '}
+      </p>
+      <pre className="mb-3">
+        <code>angelodias.com.br/festa/algo</code>
+      </pre>
+      <p>
         (substitua <i>algo</i> com o nome do seu evento.)
       </p>
     </div>
