@@ -7,7 +7,7 @@ import { SurubaParty } from '#components/pages/Party/suruba'
 import Head from 'next/head'
 
 const PartyPage: NextPage<{ slug: PartyPages }> = ({ slug }) => {
-  const socialImagePath = `angelodias.com.br/party/social/${slug}.png`
+  const socialImagePath = `angelodias.com.br/party/social/${slug as string}.png`
 
   const NewHead = (
     <Head>
