@@ -84,7 +84,7 @@ export const Form = <T extends FormikValues>({
         <div className="mt-4">
           {submit?.successMessage ?? (
             <p>
-              <Strong>'Dados enviados com sucesso!'</Strong>
+              <Strong>Dados enviados com sucesso!</Strong>
             </p>
           )}
         </div>
