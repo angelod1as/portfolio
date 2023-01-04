@@ -1,12 +1,12 @@
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
-import React, { Fragment } from 'react'
+import React, { Fragment, ReactNode } from 'react'
 import { textColor as defaultTextColor } from 'src/helpers/colors'
 
 type KeyValueProps = {
   keyValue: Array<{
     key: string
-    value: string
+    value: ReactNode
   }>
 }
 
