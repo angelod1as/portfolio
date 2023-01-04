@@ -8,6 +8,7 @@ import { object as YupObject, string as YupString } from 'yup'
 import { Form } from '#components/common/Form/Form'
 import { Link } from '#components/common/Links'
 import { H2, H3, LI, UL } from '#components/common/Typography'
+import { KeyValue } from '#components/common/KeyValue/KeyValue'
 
 type FormProps = {
   name: string
@@ -83,8 +84,8 @@ export const SurubaParty = () => {
         </p>
         <div>
           <Strong>Dados da festa</Strong>
-          <dl className="grid grid-cols-5 mt-2 gap-y-4">
-            {[
+          <KeyValue
+            keyValue={[
               {
                 key: 'Local',
                 value: (
@@ -109,13 +110,8 @@ export const SurubaParty = () => {
                 key: 'Lotação',
                 value: 'de 25 a 30 pessoas — avaliadas com cuidado!',
               },
-            ].map(({ key, value }) => (
-              <Fragment key={key}>
-                <dt className={`${textColor} font-bold`}>{key}</dt>
-                <dd className="col-span-4">{value}</dd>
-              </Fragment>
-            ))}
-          </dl>
+            ]}
+          />
           <p className="mt-4 text-xs">
             * Se você não puder ir exclusivamente por causa da grana, se
             inscreva mesmo assim e cite isso quando eu te contatar. Existem
