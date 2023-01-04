@@ -1,4 +1,5 @@
-import { NotionResponse } from '#components/hooks/useGetNotion'
+import { ApiResponse } from '#components/hooks/useGetNotion'
+import { NotionResponse } from '#components/pages/Ask/OldQuestions'
 import { Client } from '@notionhq/client'
 import { NextApiHandler } from 'next'
 
@@ -19,7 +20,10 @@ const flattenRichText = (
   return array.map(item => item.plain_text).join('\n')
 }
 
-const handler: NextApiHandler<NotionResponse> = async (req, res) => {
+const handler: NextApiHandler<ApiResponse<NotionResponse>> = async (
+  req,
+  res
+) => {
   const databaseId = process.env.NOTION_ASK_DB ?? ''
   const apiKey = process.env.NOTION_API_KEY ?? ''
 
