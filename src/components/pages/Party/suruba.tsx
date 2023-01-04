@@ -148,20 +148,20 @@ export const SurubaParty = () => {
       </p>
 
       <H3>Alguns exemplos reais</H3>
-      <ul>
-        <li>
+      <UL>
+        <LI>
           Uma festa na casa de uma colega com pizza, cerveja e{' '}
           <Strong>conversas sobre política</Strong> e música
-        </li>
-        <li>
+        </LI>
+        <LI>
           Um fim de semana no sítio com <Strong>jogo de STOP</Strong>, chá de
           camomila e fogueira (estava 1°C)
-        </li>
-        <li>
+        </LI>
+        <LI>
           Doze horas em num motel com piscina, pole dance,{' '}
           <Strong>jacuzzi</Strong> e banquete vegan.
-        </li>
-      </ul>
+        </LI>
+      </UL>
       <p>
         (Perceba que eu não citei sexo em nenhum dos exemplos. Essa é a
         diferença: <Strong>sexo não é a prioridade</Strong>)
@@ -187,7 +187,7 @@ export const SurubaParty = () => {
         Diálogo é <Strong>essencial</Strong>
       </H3>
       <p>
-        Não é uma exclusividade, mas a festa é feita por e para pessoas
+        Não é uma exclusividade, mas a festa é feita por e para pessoas{' '}
         <Strong>não-monogâmicas</Strong> e <Strong>queer</Strong>. Pessoas
         monogâmicas e/ou hétero podem participar? Claro, mas saibam que estarão
         em um espaço em que as pessoas ficam umas com as outras sem essas
