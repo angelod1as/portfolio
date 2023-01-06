@@ -267,6 +267,11 @@ export const SurubaParty = () => {
         Quero <Strong>participar</Strong>!
       </H2>
 
+      <p>
+        (Diferente da inscrição pro Karaokê, nessa os dados ficam sigilosos e
+        não aparece o nome de ninguém no site)
+      </p>
+
       <Form<FormProps>
         className="md:grid md:grid-cols-2"
         fetcher={postToNotion}
