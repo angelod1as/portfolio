@@ -35,6 +35,9 @@ const handler: NextApiHandler = async (req, res) => {
         Read: {
           checkbox: data.read === 'true',
         },
+        FirstTime: {
+          checkbox: data.firsttime === 'true',
+        },
       },
     })
     /** If the request is successful notify back */

@@ -284,16 +284,32 @@ export const SurubaParty = () => {
         <Input label="Email" name="email" type="email" />
         <Input label="Whatsapp" name="phone" type="tel" />
         <Input
+          label="É sua primeira vez em uma festa do tipo?"
+          className="col-span-2"
+          name="firsttime"
+          type="select"
+          selectOptions={[
+            {
+              label: 'Não, já participei antes',
+              value: 'false',
+            },
+            {
+              label: 'Sim, sou virgem e inocente',
+              value: 'true',
+            },
+          ]}
+        />
+        <Input
           label="Você conhece Angelo pessoalmente?"
           name="know"
           type="select"
           selectOptions={[
             {
-              label: 'Não',
+              label: 'Graças a deus não',
               value: 'false',
             },
             {
-              label: 'Sim',
+              label: 'Graças a deus sim',
               value: 'true',
             },
           ]}
@@ -304,11 +320,11 @@ export const SurubaParty = () => {
           type="select"
           selectOptions={[
             {
-              label: 'Não li',
+              label: 'Não li, tenho mais o que fazer',
               value: 'false',
             },
             {
-              label: 'Claro que li',
+              label: 'Claro que li, não sou trouxa',
               value: 'true',
             },
           ]}
