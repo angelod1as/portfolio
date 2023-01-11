@@ -103,7 +103,7 @@ export const SurubaParty = () => {
               },
               {
                 key: 'Horário',
-                value: 'Meio-dia à meia-noite — para quem dorme cedo',
+                value: '21h às 9h - na madrugada (a vitrola rolando um blues)',
               },
               { key: 'Valor', value: 'Ainda não sabemos, em torno de R$100*' },
               {
