@@ -11,6 +11,14 @@ type DatabaseProperties = {
         plain_text: string
       }>
     }
+    Name: {
+      rich_text: Array<{
+        plain_text: string
+      }>
+    }
+    Episode: {
+      url: string
+    }
   }
 }
 
@@ -45,10 +53,13 @@ const handler: NextApiHandler<ApiResponse<NotionResponse>> = async (
       const data = response.results.map(item => {
         const dbItem = item as unknown as DatabaseProperties
         const question = flattenRichText(dbItem.properties.Question.rich_text)
+        const name = flattenRichText(dbItem.properties.Name.rich_text)
 
         return {
           question,
           createdAt: dbItem.created_time,
+          name: name,
+          episode: dbItem.properties.Episode.url,
         }
       })
 
