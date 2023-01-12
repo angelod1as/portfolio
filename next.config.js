@@ -8,6 +8,11 @@ module.exports = {
         destination: '/party/:slug*', // Matched parameters can be used in the destination
         permanent: true,
       },
+      {
+        source: '/pergunte',
+        destination: '/cronofobia',
+        permanent: true,
+      },
     ]
   },
 }

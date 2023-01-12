@@ -6,12 +6,16 @@ import { randomColors } from 'src/helpers/colors'
 import { fetchAllPages } from '#lib/common/fetchAllPages'
 import { fetchSinglePage } from '#lib/common/fetchSinglePage'
 import { MDXReturn } from '#types/types'
+import { Ask } from '#components/pages/Ask'
 
 export type PageProps = {
   content: MDXReturn
 }
 
 const AnyPage: FC<PageProps> = ({ content }) => {
+  if (content.slug === 'cronofobia') {
+    return <Ask content={content} />
+  }
   return <Page content={content} />
 }
 

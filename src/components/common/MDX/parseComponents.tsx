@@ -1,5 +1,5 @@
 import { MDXProps } from '#types/types'
-import { ComponentProps } from 'react'
+import React, { Children, ComponentProps, ReactElement } from 'react'
 import { RandomColors } from 'src/helpers/colors'
 import { CTA, CTAProps } from '../CTA'
 import { Link } from '../Links'
@@ -24,6 +24,19 @@ export const parseComponents = ({
   const bg = colors.bgColor ?? ''
 
   const bodyComponents = {
+    Small: ({ children, ...props }: JSX.IntrinsicElements['small']) => {
+      return (
+        <small {...props} className={`text-sm ${props.className ?? ''}`}>
+          {Children.map(children, item => {
+            const ReactItem = item as ReactElement
+            if (ReactItem?.props?.children) {
+              return <span>{ReactItem?.props?.children}</span>
+            }
+            return item
+          })}
+        </small>
+      )
+    },
     S: (props: JSX.IntrinsicElements['s']) => <s {...props} />,
     CTA: (props: CTAProps) => <CTA {...props} mdx />,
     Parenthesis: (props: ParenthesisProps) => <Parenthesis {...props} />,
