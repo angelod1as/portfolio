@@ -84,7 +84,7 @@ export const KaraokeParty = () => {
           keyValue={[
             {
               key: 'Local',
-              value: 'Ainda não sabemos, depende do número de pessoas',
+              value: 'Caixote Karaokê Bar — Rua Augusta, 914',
             },
             {
               key: 'Data',
@@ -92,11 +92,11 @@ export const KaraokeParty = () => {
             },
             {
               key: 'Horário',
-              value: 'A noite',
+              value: '19h',
             },
             {
               key: 'Valor',
-              value: 'Ainda não sabemos, depende do número de pessoas',
+              value: 'R$ 28,00',
             },
           ]}
         />
