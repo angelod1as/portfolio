@@ -12,7 +12,7 @@ export const getFileNames = (directory: string): string[] => {
         return getFileNames(filePath)
       }
 
-      if (filePath.endsWith('.mdx')) {
+      if (filePath.endsWith('.mdx') || filePath.endsWith('.md')) {
         return filePath
       }
 

@@ -15,6 +15,7 @@ export const getPagesMetadata = async (filePaths: string[]) => {
       directory,
       slug,
       hasContent: content.length > 0,
+      extension: filename.endsWith('mdx') ? 'mdx' : 'md',
     }
 
     return pageMetadata

@@ -36,6 +36,7 @@ export type MDXReturn = {
 }
 
 export type PageMetadata = {
+  extension: 'mdx' | 'md'
   metadata: Metadata
   slug: string
   directory: string

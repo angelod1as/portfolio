@@ -9,7 +9,7 @@ export const Item = ({
   metadata,
   hasContent,
   slug,
-}: Omit<ProjectProps, 'directory'>) => {
+}: Omit<ProjectProps, 'directory' | 'extension'>) => {
   const { colors } = useColorContext()
   const { title, description, compiledSummary, hero, live } = metadata
 
