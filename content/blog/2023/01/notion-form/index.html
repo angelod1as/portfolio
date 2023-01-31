@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    input,
+    label {
+      display: block;
+    }
+
+    .inline input,
+    .inline label {
+      display: inline
+    }
+
+    .mb {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="" method="POST" class="form">
+
+    <label for="first-name">First name</label>
+    <input type="text" name="first-name" id="first-name" class="mb">
+
+    <label for="last-name">Last name</label>
+    <input type="text" name="last-name" id="last-name" class="mb">
+
+    <label for="food-limitations">What kind of food can you eat?</label>
+    <select name="food-limitation" id="food-limitations" class="mb">
+      <option value="omnivorous">I eat anything</option>
+      <option value="vegetarian">I'm vegetarian</option>
+      <option value="vegan">I'm vegan</option>
+    </select>
+
+    <div class="inline mb">
+      <input type="checkbox" name="plus-one" id="plus-one"><label for="plus-one">I will bring a
+        +1</label>
+    </div>
+
+    <label for="money-gift">How much money will you gift me?</label>
+    <input type="number" name="money-gift" id="money-gift" min="0" class="mb">
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
