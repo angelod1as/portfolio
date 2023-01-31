@@ -10,19 +10,41 @@ tags: [tech]
 <!-- omit in toc -->
 ## Table of Contents
 
+- [Focus](#focus)
+- [Skills needed](#skills-needed)
+  - [Why?](#why)
+  - [What this tutorial lacks?](#what-this-tutorial-lacks)
+- [Notion](#notion)
+  - [Creating a database](#creating-a-database)
+  - [Customizing the columns](#customizing-the-columns)
+  - [Accessing this database](#accessing-this-database)
+    - [Content Capabilities](#content-capabilities)
+    - [User Capabilities](#user-capabilities)
+  - [It's a secret](#its-a-secret)
+  - [Connecting the connection](#connecting-the-connection)
+  - [Getting the database key](#getting-the-database-key)
+  - [What did we do?](#what-did-we-do)
+- [Code](#code)
+  - [First, a disclaimer](#first-a-disclaimer)
+  - [NextJS Setup](#nextjs-setup)
+  - [HTML](#html)
+  - [Styles](#styles)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+  - [Testing](#testing)
+- [Full code](#full-code)
+  - [Secrets](#secrets)
+  - [Collaborating](#collaborating)
+
 ## Focus
 
 This tutorial focuses on showing how to build something simple and straightforward in Notion: a database. We will use the Notion API and any form that can submit a POST request.
 
-To make this even better, it will show you how to do it in NextJS and Remix, so you can pick your poison and just start building.
-
-There will be a simple anti-bot solution as well, implemented with the least ammount of code possible.
-
-### Skills needed
+## Skills needed
 
 This tutorial can be read and understood by anyone with basic programming knowledge.
 
-If you want to reproduce it, it's necessary to have a basic understanding of Javascript, HTML and CSS, as well as knowing something about the framework you select.
+If you want to reproduce it, it's necessary to have a basic understanding of Javascript, HTML and CSS, as well as knowing a little on how NextJS works.
 
 ### Why?
 
@@ -36,6 +58,14 @@ A **database** is, _very_ basically, a table. You might want to store informatio
 
 We will create a database in this tutorial with a simple focus: getting the RSVP for a party. This is a simple example that I've tried in real life, so it's tested and proven.
 
+### What this tutorial lacks?
+
+Some stuff was purposefully left out of this tutorial for the sake of simplicity. For example:
+
+- Our database is simple and does not have any links with other pages — making it truly relational.
+- Our form has no way of detecting bots and crawlers.
+- We do not validate any of our form's information — Frontend or Backend.
+
 ## Notion
 
 You must, first, create an account in [Notion](https://www.notion.so/) — something you can do with two clicks.
@@ -46,17 +76,17 @@ There are videos about "how to use Notion" around, but don't get too lost on tho
 
 On the left pane, you will see `Private` and a `+` symbol. If you click it, you will create a new `Page`.
 
-![An empty Notion page](notion-1.png)
+![Printscreen of an empty Notion page](notion-1.png)
 
 You can see some options on what to do with that new page. Add a good name, an icon or header, and click that highlighted `Table` under (guess?) `Database`
 
-![A Notion "new database" dialog](notion-2.png)
+![Printscreen of a Notion "new database" dialog](notion-2.png)
 
 This database is still empty, so Notion asks you to select a data source. Let's create a new one from scratch by clicking `new database`.
 
 Now we have our nice `database` ready for destructi... I mean, customization!
 
-![An empty Notion table](notion-3.png)
+![Printscreen of an empty Notion table](notion-3.png)
 
 ### Customizing the columns
 
@@ -72,7 +102,7 @@ In this case, for instance, we want to know the following information from our g
 
 That decided, let's name our table rows with clear and easy-to-use-later names. I tend to avoid whitespaces, prefer separating words with hyphens and write everything in lowercase.
 
-![A Notion "column" popup](notion-4.png)
+![Printscreen of a Notion "column" popup](notion-4.png)
 
 Notion offers a lot of options when creating new columns, but let's keep it simple here. I'll create the following columns:
 
@@ -86,7 +116,7 @@ With this we can cover the most common types of form fields.
 
 The final form will look like this:
 
-![Our table with all rows configured](notion-5.png)
+![Printscreen of our table with all rows configured](notion-5.png)
 
 Now it's time to make it available to be used by our application.
 
@@ -98,7 +128,7 @@ Click on the `New integration` button and fill the next form. Don't worry about 
 
 The most important parts of this form are the `Content Capabilities` and `User Capabilities` parts.
 
-![A Notion Integration form, with angelo-integration as title, Content Capabilities with Read, Update and Create checked, and No User Information selected in User Capabilities](notion-6.png)
+![Printscreen of a Notion Integration form, with angelo-integration as title, Content Capabilities with Read, Update and Create checked, and No User Information selected in User Capabilities](notion-6.png)
 
 #### Content Capabilities
 
@@ -142,15 +172,11 @@ If you try to modify another database without adding an Integration, Notion will
 
 ## Code
 
-### NextJS
+### First, a disclaimer
 
-#### First, a disclaimer
+I know there might be more performant ways to do a form like this, or even libraries like `Formik` to make it better, but I preferred to keep this pure React for the tutorial. There's already a lot going on and a lot of complexity reduced for brevity.
 
-I know there might be more performant ways to do a form like this, or even libraries like `Formik` to make it better, but I preferred to keep this pure React for the tutorial. There's already a lot going on.
-
-Also, I will not add any validation or ways to avoid bots to the form, as it's not the point of this tutorial.
-
-#### Setup
+### NextJS Setup
 
 Let's setup a NextJS project as described in their website. So [click here](https://nextjs.org/docs/getting-started) and follow the steps. I will be creating an app with Typescript, but it's easy to follow it if you just know JS.
 
@@ -158,11 +184,11 @@ Let's setup a NextJS project as described in their website. So [click here](http
 yarn create next-app --typescript
 ```
 
-![The result of the above command in the terminal](next-1.png)
+![Printscreen of the result of the above command in the terminal](next-1.png)
 
 Let's `cd` into our folder, run `yarn dev`, and remove everything inside the `main` tag in the `src/pages/index.tsx`
 
-#### HTML
+### HTML
 
 Now, we're going to build our simple HTML form inside `main`. There's minor CSS to be done, so I'll use the already existing `Home.module.css` file that Next imports by default.
 
@@ -237,7 +263,7 @@ Explaining the code above:
 - A number input is added for the most important question
 - A submit button in the end closes the deal.
 
-#### Styles
+### Styles
 
 As you can see, I've added some `className`s there, so let's add this in our `Home.module.css` in the `src/styles` folder.
 
@@ -273,9 +299,9 @@ The code above:
 
 We won't add anything else to reduce complexity. Below is a screenshot of our stunning form:
 
-![Our form rendered by the browser](next-2.png)
+![Printscreen of our form rendered by the browser](next-2.png)
 
-#### Typescript (Frontend)
+### Frontend
 
 We will first set up what kind of format our form has. Let's set up a simple `type` after the imports:
 
@@ -397,7 +423,7 @@ Finally, we add this function to our `form` tag:
 <form className={styles.form} onSubmit={handleSubmit}>
 ```
 
-#### Typescript (Backend)
+### Backend
 
 Create a `notion.ts` file inside `src/pages/api`. Copy the content from the default generated `hello.ts` and delete this file.
 
@@ -544,21 +570,28 @@ return res.status(500);
 
 And... that's it for local development!
 
-#### Testing
+### Testing
 
 If you didn't do it before, stop the server and run it again with `yarn dev`. Open the `localhost` address and fill the form (be generous with the money, please). Click submit.
 
-![Our form in the browser with the values "Angelo" for first name, "Dias" for last name, "I eat anything" in the select, "checked" in the checkbox, and "1000" in the number input.](next-3.png)
+![Printscreen of our form in the browser with the values "Angelo" for first name, "Dias" for last name, "I eat anything" in the select, "checked" in the checkbox, and "1000" in the number input.](next-3.png)
 
 Now, open your database and see the value inserted there:
 
-![Our table in Notion with the values "Angelo" for first name, "Dias" for last name, "I eat anything" in the select, "checked" in the checkbox, and "1000" in the number input.](notion-7.png)
+![Printscreen of our table in Notion with the values "Angelo" for first name, "Dias" for last name, "I eat anything" in the select, "checked" in the checkbox, and "1000" in the number input.](notion-7.png)
 
 🎉 TADA! 🎉
 
-#### Full code
+## Full code
 
 You can find the project in [this repository in GitHub](https://github.com/angelod1as/notion-as-database-next), with the full code inside.
 
-### Remix
+### Secrets
 
+You can read the documentation in [Vercel](https://vercel.com/) or other services to see how to host your form with hidden secrets.
+
+### Collaborating
+
+This tutorial would benefit with more use-cases, with different frameworks and usages (eg. Remix).
+
+Please don't hesitate to contact me if you iterated on this. I'd love to link it here.
