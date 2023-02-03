@@ -84,7 +84,7 @@ export const KaraokeParty = () => {
           keyValue={[
             {
               key: 'Local',
-              value: 'Caixote Karaokê Bar — Rua Augusta, 914',
+              value: 'Arte&Pizza - Roosevelt, SP',
             },
             {
               key: 'Data',
@@ -96,7 +96,7 @@ export const KaraokeParty = () => {
             },
             {
               key: 'Valor',
-              value: 'R$ 28,00',
+              value: 'R$ 20,00, free até as 21',
             },
           ]}
         />
