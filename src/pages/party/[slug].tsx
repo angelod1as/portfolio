@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { RandomColors, randomColors } from 'src/helpers/colors'
-import { KaraokeParty } from '#components/pages/Party/karaoke'
 import { getPartyPages, partyPages, PartyPages } from '#lib/party/getPartyPages'
 import { SurubaParty } from '#components/pages/Party/suruba'
 import Head from 'next/head'
@@ -25,14 +24,6 @@ const PartyPage: NextPage<{ slug: PartyPages }> = ({ slug }) => {
       />
     </Head>
   )
-
-  if (slug === 'karaoke')
-    return (
-      <>
-        {NewHead}
-        <KaraokeParty />
-      </>
-    )
   if (slug === 'suruba')
     // yep, that's it.
     return (
