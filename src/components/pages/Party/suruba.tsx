@@ -2,10 +2,7 @@ import React, { Fragment } from 'react'
 import { textColor as defaultTextColor } from 'src/helpers/colors'
 import { Strong as StrongModifier } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { ErrorProps, FCC } from '#types/types'
-import { Input, numberRegex } from '#components/common/Form/Input'
-import { object as YupObject, string as YupString } from 'yup'
-import { Form } from '#components/common/Form/Form'
+import { FCC } from '#types/types'
 import { Link } from '#components/common/Links'
 import { H2, H3, LI, UL } from '#components/common/Typography'
 import { KeyValue } from '#components/common/KeyValue/KeyValue'
@@ -19,41 +16,6 @@ type FormProps = {
 }
 
 export type KaraokeFormProps = FormProps
-
-const initialValues: FormProps = {
-  name: '',
-  phone: '',
-  email: '',
-  read: 'false',
-  know: 'false',
-}
-
-const validationSchema = YupObject().shape({
-  name: YupString().required('Ops, precisamos do seu nome'),
-  phone: YupString()
-    .required('Ops, seu telefone é obrigatório')
-    .matches(numberRegex('tel', false))
-    .min(8, 'Esse número não tá pequeno demais?')
-    .max(16, 'Esse número é muito longo'),
-  email: YupString().required('Ops, preencha seu e-mail'),
-  know: YupString(),
-  read: YupString(),
-})
-
-type PostResult = {
-  errors?: ErrorProps[]
-}
-
-const postToNotion = async (props: FormProps): Promise<PostResult> => {
-  const url = '/api/notion/suruba/create'
-
-  const result = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(props),
-  })
-
-  return await result.json()
-}
 
 export const SurubaParty = () => {
   const { colors } = useColorContext()
@@ -103,7 +65,7 @@ export const SurubaParty = () => {
               },
               {
                 key: 'Horário',
-                value: '21h às 9h - na madrugada (a vitrola rolando um blues)',
+                value: '20h às 8h - na madrugada (a vitrola rolando um blues)',
               },
               { key: 'Valor', value: 'Ainda não sabemos, em torno de R$100*' },
               {
@@ -268,73 +230,8 @@ export const SurubaParty = () => {
       </H2>
 
       <p>
-        (Diferente da inscrição pro Karaokê, nessa os dados ficam sigilosos e
-        não aparece o nome de ninguém no site)
+        <Link href="https://wa.me/491734967344">Vem de zap!</Link>
       </p>
-
-      <Form<FormProps>
-        className="md:grid md:grid-cols-2"
-        fetcher={postToNotion}
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        submit={{
-          label: 'Enviar',
-          className: 'md:col-span-2',
-        }}
-        additionalWarning="Todas as informações desse formulário vão para um banco de dados
-        sigiloso que só as pessoas organizadoras tem acesso — eles não serão compartilhados com
-        terceiros e serão apagados depois da data da festa."
-      >
-        <Input label="Nome" name="name" type="text" className="col-span-2" />
-        <Input label="Email" name="email" type="email" />
-        <Input label="Whatsapp" name="phone" type="tel" />
-        <Input
-          label="É sua primeira vez em uma festa do tipo?"
-          className="col-span-2"
-          name="firsttime"
-          type="select"
-          selectOptions={[
-            {
-              label: 'Não, já participei antes',
-              value: 'false',
-            },
-            {
-              label: 'Sim, sou virgem e inocente',
-              value: 'true',
-            },
-          ]}
-        />
-        <Input
-          label="Você conhece Angelo pessoalmente?"
-          name="know"
-          type="select"
-          selectOptions={[
-            {
-              label: 'Graças a deus não',
-              value: 'false',
-            },
-            {
-              label: 'Graças a deus sim',
-              value: 'true',
-            },
-          ]}
-        />
-        <Input
-          label="Você leu o texto completo sobre como a festa funciona?"
-          name="read"
-          type="select"
-          selectOptions={[
-            {
-              label: 'Não li, tenho mais o que fazer',
-              value: 'false',
-            },
-            {
-              label: 'Claro que li, não sou trouxa',
-              value: 'true',
-            },
-          ]}
-        />
-      </Form>
     </div>
   )
 }
