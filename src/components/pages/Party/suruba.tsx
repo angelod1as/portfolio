@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { textColor as defaultTextColor } from 'src/helpers/colors'
 import { Strong as StrongModifier } from '#components/common/Strong'
 import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 import { Link } from '#components/common/Links'
 import { H2, H3, LI, UL } from '#components/common/Typography'
-import { KeyValue } from '#components/common/KeyValue/KeyValue'
 
 type FormProps = {
   name: string
@@ -42,9 +41,9 @@ export const SurubaParty = () => {
         </p>
         <p>
           Antes de tudo, você <Strong>deve</Strong> ler o texto abaixo. Sério.
-          Leia. Depois, preencha o formulário no fim e aí é só esperar!
+          Leia.
         </p>
-        <div>
+        {/* <div>
           <Strong>Dados da festa</Strong>
           <KeyValue
             keyValue={[
@@ -79,7 +78,7 @@ export const SurubaParty = () => {
             inscreva mesmo assim e cite isso quando eu te contatar. Existem
             algumas vagas patrocinadas
           </p>
-        </div>
+        </div> */}
       </div>
 
       <H2>
@@ -87,8 +86,8 @@ export const SurubaParty = () => {
       </H2>
       <H3>Quem sou eu na fila do pão</H3>
       <p>
-        Já <Strong>participei</Strong> e <Strong>organizei</Strong> algumas
-        festas de gente pelada.
+        Já <Strong>participei</Strong> e <Strong>organizei</Strong> ±10 festas
+        de gente pelada.
       </p>
       <p>
         Uma boa quantidade de gente já participou e <Strong>adorou</Strong> a
@@ -141,20 +140,20 @@ export const SurubaParty = () => {
       </p>
       <p>
         As festas que organizo são feitas <Strong>de gente pra gente</Strong>,
-        "pessoas físicas". Nunca viso lucro e sempre sou amparado por um grupo
-        de pessoas — em sua maioria mulheres — antes, durante e depois da festa.
+        "pessoas físicas", e sempre sou amparado por um grupo de pessoas — em
+        sua maioria mulheres — antes, durante e depois da festa.
       </p>
 
       <H3>
         Diálogo é <Strong>essencial</Strong>
       </H3>
       <p>
-        Não é uma exclusividade, mas a festa é feita por e para pessoas{' '}
-        <Strong>não-monogâmicas</Strong> e <Strong>queer</Strong>. Pessoas
-        monogâmicas e/ou hétero podem participar? Claro, mas saibam que estarão
-        em um espaço em que as pessoas ficam umas com as outras sem essas
-        amarras. Se alguém fizer algum avanço (com respeito) e você não quiser
-        participar, só <Strong>diga não</Strong> e siga se divertindo 😀
+        As festas são feitas por e para pessoas <Strong>não-monogâmicas</Strong>{' '}
+        e <Strong>queer</Strong>. Pessoas monogâmicas e/ou hétero podem
+        participar? Claro, mas saibam que estarão em um espaço em que as pessoas
+        ficam umas com as outras sem essas amarras. Se alguém fizer algum avanço
+        (com respeito) e você não quiser participar, só{' '}
+        <Strong>diga não</Strong> e siga se divertindo 😀
       </p>
       <p>
         Por favor tenha suas DRs <Strong>antes</Strong> da festa e não durante.
@@ -174,10 +173,6 @@ export const SurubaParty = () => {
         acontecer — umas semanas antes — para que as pessoas façam o cara-crachá
         e — principalmente — para que a gente <Strong>saque a interação</Strong>{' '}
         entre as pessoas.
-      </p>
-      <p>
-        Importante: se qualquer um no grupo te incomodar,{' '}
-        <Strong>fale com os organizadores</Strong> e agiremos de acordo.
       </p>
       <p>
         Nesse grupo você verá quem vai na festa, poderá{' '}
@@ -229,8 +224,14 @@ export const SurubaParty = () => {
         Quero <Strong>participar</Strong>!
       </H2>
 
-      <p>
+      {/* <p>
         <Link href="https://wa.me/491734967344">Vem de zap!</Link>
+      </p> */}
+
+      <p>
+        Não tenho nenhuma festa agendada neste momento, mas siga meu{' '}
+        <Link href="https://instagram.com/oicronofobico">Instagram</Link> para
+        novidades 👌
       </p>
     </div>
   )
