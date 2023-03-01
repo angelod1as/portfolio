@@ -18,7 +18,7 @@ const handler: NextApiHandler = async (req, res) => {
           title: [
             {
               text: {
-                content: new Date().toLocaleDateString('pt-BR'),
+                content: new Date().toLocaleDateString('en-CA'), // YYYY-MM-DD
               },
             },
           ],
