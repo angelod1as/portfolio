@@ -22,19 +22,20 @@ export const CTA = ({
   const { colors } = useColorContext()
 
   const finalContent = (
-    <div
-      className={`border-4 bg-black
+    <button
+      className={`
+      border-4 bg-black block w-full text-center px-2 py-2 font-bold cursor-pointer
       ${disabled ? 'border-gray-600' : colors.borderColor}
       ${disabled ? 'text-gray-600' : colors.textColor}
-      text-center px-2 py-2 font-bold`}
+      `}
     >
       {title && <h3 className="font-normal">{title}</h3>}
       <span className="not-italic CTA">{content}</span>
-    </div>
+    </button>
   )
 
   return (
-    <div className="relative flex justify-center w-full">
+    <div className="relative flex justify-center w-full cursor-pointer">
       {href ? (
         <Link
           href={href}

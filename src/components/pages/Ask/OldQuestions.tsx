@@ -1,6 +1,5 @@
 import { Link } from '#components/common/Links'
 import { Loader } from '#components/common/Loader'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React from 'react'
 import { useGetNotion } from '../../hooks/useGetNotion'
 
@@ -14,7 +13,6 @@ export type NotionResponse = {
 }
 
 export const OldQuestions = () => {
-  const { colors } = useColorContext()
   const { data, isLoading, error } = useGetNotion<NotionResponse>('ask')
 
   if (isLoading) return <Loader />
