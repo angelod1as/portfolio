@@ -1,5 +1,5 @@
 ---
-title: Using Notion as a database
+title: Using **Notion** as a database
 createdAt: 1675087146435
 description: How to build a form and use Notion API for small-scale projects.
 tags: [tech]
