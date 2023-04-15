@@ -52,9 +52,11 @@ export const OldQuestions = () => {
               <span className="max-w-[10rem]">
                 {name ? `🙋 ${name}` : '👻 Anônimo'}
               </span>
-              <Link className="font-normal" href={episode}>
-                🎙️ ouça a resposta
-              </Link>
+              {episode && (
+                <Link className="font-normal" href={episode}>
+                  🎙️ ouça a resposta
+                </Link>
+              )}
             </small>
             <p>{question}</p>
           </div>

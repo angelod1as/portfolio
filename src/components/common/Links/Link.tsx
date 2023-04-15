@@ -4,7 +4,7 @@ import React from 'react'
 
 export type LinkProps =
   | Omit<NextLinkProps, 'href'> & {
-      href: string
+      href: string | null
       block?: boolean
       inner?: boolean
       className?: string
@@ -18,6 +18,8 @@ export const Link: FCC<LinkProps> = ({
   className = '',
   ...rest
 }) => {
+  if (!href) return <>{children}</>
+
   const isAnchor = href.startsWith('#')
   const linkProps =
     isAnchor || inner
