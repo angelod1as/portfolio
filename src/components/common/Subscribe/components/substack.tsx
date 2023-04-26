@@ -129,6 +129,10 @@ export const Substack = ({ blog }: SubstackProps) => {
         It doesn't have a clear schedule, but I'm <Strong>working hard</Strong>{' '}
         to send an issue at least once a week.
       </p>
+      <p className="mb-4">
+        Ah, even though my website is in English, my newsletter currently has{' '}
+        <Strong>Brazilian Portuguese</Strong> content.
+      </p>
       <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
         <label htmlFor="email" className="flex-1 block w-full">
           Email:
