@@ -9,7 +9,6 @@ import { FCC, MDXReturn, PostResult } from '#types/types'
 import { textColor as defaultTextColor } from 'src/helpers/colors'
 import { removeSymbolsFromString } from 'src/helpers/removeSymbolsFromString'
 import { object as YupObject, string as YupString } from 'yup'
-import { OldQuestions } from './OldQuestions'
 
 type FormProps = {
   message: string
@@ -105,7 +104,8 @@ export const Ask: FCC<AskProps> = ({ content }) => {
                 />
               </Form>
             ),
-            OldQuestions: () => <OldQuestions />,
+            // Disabling OldQuestions because of low usage
+            // OldQuestions: () => <OldQuestions />,
           },
         }}
         metadata={metadata}
