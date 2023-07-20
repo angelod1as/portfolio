@@ -4,6 +4,7 @@ import React from 'react'
 
 export type LinkProps =
   | Omit<NextLinkProps, 'href'> & {
+      download?: boolean
       href: string | null
       block?: boolean
       inner?: boolean
@@ -31,6 +32,7 @@ export const Link: FCC<LinkProps> = ({
 
   const Anchor = (
     <a
+      {...rest}
       {...linkProps}
       href={href}
       className={`
