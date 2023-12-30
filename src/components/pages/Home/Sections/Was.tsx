@@ -14,6 +14,18 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
 
       <div>
         <p>
+          ... a <Strong>consultant</Strong> and <Strong>developer</Strong>{' '}
+          building the{' '}
+          <ColorLink inner href="/projects/huk">
+            HUK Autoservice
+          </ColorLink>{' '}
+          storefront in{' '}
+          <ColorLink href="https://foobar.agency/">
+            foobar Agency GmbH
+          </ColorLink>
+          , in Munich, Germany;
+        </p>
+        <p>
           ... a <Strong>tech lead</Strong> of a small team on{' '}
           <ColorLink href="https://www.seasoned.cc/">Seasoned.cc</ColorLink>,
           working alongside <Strong>designers</Strong> and{' '}

@@ -15,28 +15,19 @@ export const Am: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
       <div>
         <p>
           ... a <Strong>front end developer</Strong> and{' '}
-          <Strong>consultant</Strong> in{' '}
-          <ColorLink href="https://foobar.agency/">
-            foobar Agency GmbH
-          </ColorLink>
-          , in Munich, Germany;
+          <Strong>consultant</Strong> with focus on{' '}
+          <Strong>modern technologies</Strong> and efficient communication.
         </p>
         <p>
           ... a certified <Strong>Scrum Master</Strong> (PSM1);
         </p>
         <p>
-          ... a <Strong>daily podcaster</Strong>.{' '}
-          <ColorLink href="https://anchor.fm/cronofobia">Cronofobia</ColorLink>{' '}
-          is a podcast in Brazilian Portuguese about multiple subjects (like, a
-          lot, really);
-        </p>
-        <p>
-          ... a <Strong>writer</Strong> and <Strong>editor</Strong>. I'm editing
-          a{' '}
-          <ColorLink href="https://temposfantasticos.com/">
-            Tempos Fantásticos
+          ... a <Strong>writer</Strong> and <Strong>editor</Strong> of both
+          short stories and a{' '}
+          <ColorLink href="https://temposfantasticos.com">
+            sci-fi newspaper
           </ColorLink>{' '}
-          book, with its entire history. It's already over 300 pages.
+          — turning soon into a 350-pages book
         </p>
         <p>
           ... an amateur{' '}

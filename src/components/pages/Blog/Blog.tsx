@@ -1,4 +1,3 @@
-import { Subscribe } from '#components/common/Subscribe'
 import { Metadata, FCC } from '#types/types'
 import { useColorContext } from '../../templates/Providers/ColorProvider'
 import { BlogList } from './BlogList'
@@ -35,7 +34,7 @@ export const Blog: FCC<BlogProps> = ({ posts }) => {
           Read at your peril and <Strong>share abundantly</Strong>.
         </p>
       </div>
-      <Subscribe blog />
+      {/* <Subscribe blog /> */}
       {/* <NewsletterFeed /> */}
       <BlogList posts={posts} />
     </>

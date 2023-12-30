@@ -33,11 +33,6 @@ export const Want: FC<SectionProps> = ({ color, Strong }) => {
           client needs. My focus is <Strong>web development</Strong>, but this
           can change at any time.{' '}
         </p>
-
-        {/* TODO: Carreer manifesto */}
-        {/* <Link href="/" className={color}>
-          Read my carreer manifesto.
-        </Link> */}
       </div>
     </>
   )

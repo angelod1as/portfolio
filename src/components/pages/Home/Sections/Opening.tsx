@@ -19,14 +19,15 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
           <Strong>designer</Strong>.
         </p>
         <p>
-          I'm a <Strong>Scrum Master</Strong> and{' '}
+          I'm a <Strong>communication afficionado</Strong> and an{' '}
           <Strong>awarded journalist</Strong>.
         </p>
         <p>
-          I make <Strong>music</Strong> and I read <Strong>tarot</Strong>.
+          I make <Strong>music</Strong> and I read the <Strong>Tarot</Strong>.
         </p>
         <p>
-          I have a <Strong>weekly newsletter</Strong> with multiple subjects.
+          I had a <Strong>newsletter</Strong>, a <Strong>daily podcast</Strong>,
+          and a <Strong>sci-fi newspaper</Strong>.
         </p>
         <p>
           I have a pretty nice{' '}
