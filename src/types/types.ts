@@ -64,7 +64,7 @@ export type ProjectMetadata = {
     alt: string
   } | null
   live: string | null
-  tags?: string[]
+  categories?: string[]
 }
 
 // Forms
