@@ -56,6 +56,7 @@ type Summary = {
 export type ProjectMetadata = {
   title: string
   description: string
+  type: string
   compiledTitle: string | null
   summary: Summary | null
   compiledSummary?: (Omit<Summary, 'when'> & { when: string | null }) | null
