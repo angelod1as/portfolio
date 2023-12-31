@@ -21,13 +21,14 @@ export const Select: FCC<SelectProps> = ({
   selected,
 }) => {
   return (
-    <div className="flex flex-col w-full gap-2">
+    <div className="flex w-full gap-2 md:flex-col">
       <label htmlFor={htmlFor}>{label}</label>
       <select
         name={name}
         id={id}
         onChange={e => onChange(e.target.value)}
         value={selected}
+        className="w-full"
       >
         <option value="">all</option>
         {categories.map(category => (
