@@ -22,8 +22,9 @@ export const Link: FCC<LinkProps> = ({
   if (!href) return <>{children}</>
 
   const isAnchor = href.startsWith('#')
+  const isInner = inner || href.startsWith('/')
   const linkProps =
-    isAnchor || inner
+    isAnchor || isInner
       ? {}
       : {
           target: '_blank',
