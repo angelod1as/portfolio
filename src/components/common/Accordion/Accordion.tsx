@@ -14,10 +14,8 @@ export const Accordion: FCC<AccordionProps> = ({ children, title, color }) => {
       <Item value={title}>
         <Header asChild>
           <p className="m-0">
-            <Trigger
-              className={`text-base font-bold ${color} border-0 p-0 italic`}
-            >
-              &#8645; {title}
+            <Trigger className={`text-base font-bold ${color} px-4 border`}>
+              {title}
             </Trigger>
           </p>
         </Header>

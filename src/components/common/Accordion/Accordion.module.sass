@@ -14,7 +14,11 @@
   overflow: hidden
   animation-duration: 300ms
   animation-timing-function: ease-out
+
   &[data-state="open"]
     animation-name: open
+    animation-fill-mode: forwards
+
   &[data-state="closed"]
     animation-name: close
+    animation-fill-mode: forwards
