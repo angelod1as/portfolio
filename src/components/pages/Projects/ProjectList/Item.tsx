@@ -13,36 +13,40 @@ export const Item = ({
   const { colors } = useColorContext()
   const { title, description, compiledSummary, hero, live } = metadata
 
+  const Intro = ({ className }: { className: string }) => (
+    <div className={`flex flex-col gap-4 mb-4  ${className}`}>
+      {title && <h3 className={`${colors.textColor}`}>{title}</h3>}
+      <p className="m-0">{description}</p>
+    </div>
+  )
+
   return (
-    <div className="grid grid-cols-[200px_1fr] gap-6 ">
-      <figure className="flex flex-col gap-4">
-        <div className={'w-40 h-40' + ' ' + colors.bgColor}>
-          {hero?.src ? (
-            <Image src={hero.src} alt={hero.alt} width={300} height={300} />
-          ) : (
-            <div className="flex items-center justify-center w-full h-full text-black text-9xl">
-              {title?.substring(0, 1)}
-            </div>
-          )}
-        </div>
-        {hasContent && (
-          <CTA inner href={`/projects/${slug}`} content="Read more" />
+    <div className="md:grid md:grid-cols-[200px_1fr] md:gap-6">
+      <Intro className="md:hidden sm:block" />
+
+      <figure className="flex flex-col gap-4 mb-8 md:mb-0">
+        {hero?.src && (
+          <Image src={hero.src} alt={hero.alt} width={300} height={300} />
         )}
-        <CTA
-          href={live}
-          disabled={!live}
-          content={
-            live ? (
-              'See the project'
-            ) : (
-              <span className="text-xs">Project unavailable</span>
-            )
-          }
-        />
+        <div className="flex flex-col justify-between gap-4 sm:flex-row md:flex-col">
+          {hasContent && (
+            <CTA inner href={`/projects/${slug}`} content="Read more" />
+          )}
+          <CTA
+            href={live}
+            disabled={!live}
+            content={
+              live ? (
+                'See the project'
+              ) : (
+                <span className="text-xs">Project offline</span>
+              )
+            }
+          />
+        </div>
       </figure>
       <div className="mt-[-6px]">
-        {title && <h3 className={colors.textColor}>{title}</h3>}
-        {description && <p>{description}</p>}
+        <Intro className="md:block sm:hidden" />
         {compiledSummary && (
           <SummarySection compiledSummary={compiledSummary} />
         )}
