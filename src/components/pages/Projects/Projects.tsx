@@ -31,8 +31,6 @@ export const Projects = ({ projects }: ProjectsProps) => {
         <br /> This brief is a summary of notable projects.
       </p>
 
-      <h2>Highlighted</h2>
-
       <ProjectList projects={projects} />
 
       <p className="text-sm text-gray-400">
