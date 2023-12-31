@@ -30,11 +30,19 @@ export const Am: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
           — turning soon into a 350-pages book
         </p>
         <p>
-          ... an amateur{' '}
-          <ColorLink href="https://soundcloud.com/angelod1as">
-            solo music maker
+          ... an avid{' '}
+          <ColorLink href="https://www.goodreads.com/user/show/141444567-angelo-dias">
+            reader
           </ColorLink>
-          .
+          ,{' '}
+          <ColorLink href="https://backloggd.com/u/oicronofobico/">
+            gamer
+          </ColorLink>
+          , and{' '}
+          <ColorLink href="https://letterboxd.com/cronofobico/">
+            movie watcher
+          </ColorLink>
+          . I really enjoy tracking things.
         </p>
       </div>
     </>

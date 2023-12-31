@@ -84,6 +84,13 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
           </ColorLink>{' '}
           annual zine collection;
         </p>
+        <p>
+          ... an amateur{' '}
+          <ColorLink href="https://soundcloud.com/angelod1as">
+            solo music maker
+          </ColorLink>
+          .
+        </p>
       </div>
     </>
   )
