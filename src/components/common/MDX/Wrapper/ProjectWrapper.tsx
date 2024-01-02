@@ -17,19 +17,21 @@ export const ProjectWrapper: FCC<ProjectWrapperProps> = ({
     <>
       <div className="mb-16">
         <SummarySection compiledSummary={compiledSummary} />
-        <div className="mt-8">
-          <CTA
-            href={live}
-            disabled={!live}
-            content={
-              live ? (
-                'See the project'
-              ) : (
-                <span className="text-xs">Project unavailable</span>
-              )
-            }
-          />
-        </div>
+        {live !== 'not-available' && (
+          <div className="mt-8">
+            <CTA
+              href={live}
+              disabled={!live}
+              content={
+                live ? (
+                  'See the project'
+                ) : (
+                  <span className="text-xs">Project unavailable</span>
+                )
+              }
+            />
+          </div>
+        )}
       </div>
 
       {children}
