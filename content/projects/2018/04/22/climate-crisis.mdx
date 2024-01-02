@@ -1,0 +1,44 @@
+---
+title: Climate Crisis
+description: Journalists visited several world locations to show climate change impact through human stories
+type: professional
+summary:
+  when: 1524362400000
+  where: >-
+    Folha de S.Paulo
+  who: >-
+    Folha's Interactive Journalism team
+  what: Coding & Design
+  why: >-
+    Another partnership between Folha's Interactive Journalism team and special reporters and photographers to relay critical special features with stunning visuals and great performance.
+live: http://arte.folha.uol.com.br/ciencia/2018/climate-crisis/
+hero:
+  src: opening.jpg
+  alt: Aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama. Photo by Lalo de Almeida/Folhapress
+categories: 
+  - coding
+  - design
+  - management
+  - journalism
+---
+
+From the project's summary, published in English, Spanish and Portuguese:
+
+> Evidence of global climate change is increasingly irrefutable, with the accumulation of carbon dioxide (CO2) and other greenhouse gases in the atmosphere.
+> Folha visited three continents to explore the impact of climate change on people's lives. The resulting nine-part series assesses the costs of adapting to a new reality — before it is too late.
+
+The opening photo is the aerial view of overpopulated Gardi Sugdub, or Crab island, in the San Blas archipelago, Panama, from Lalo de Almeida/Folhapress
+
+## Development details
+
+First, this was 2018, and Folha de S.Paulo had _a lot_ of technical difficulties in implementing new technology, and we couldn't use _any_ database — only static files.
+
+It's funny how now I know every keyword to explain what we built with sweat and blood at that time. Today I can say: we developed a Static Site Generation framework with class-based React that generated static HTML, CSS and JS on build.
+
+When the journalists needed to update the content, they'd use an in-house system that read and saved a Json that posed as a database — exported on a different server.
+
+The user would get a plain HTML that would be quickly revalidated with any new content after loading the Json — having a very fast First Content Paint and, at the same time, updated information.
+
+This was our own way to do what Next.JS and Gatsby did some time later — but without the funding and tech community hype.
+
+We also heavily adapted New York Times' [AI2HTML](http://ai2html.org/) to generate HTML5 responsive infographics from Adobe Illustrator.
