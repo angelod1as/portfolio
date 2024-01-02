@@ -46,7 +46,8 @@ export type PageMetadata = {
 // Portfolio
 
 type Summary = {
-  when: number | null
+  when: string | number | null
+  ongoing: boolean | null
   where: string | null
   who: string | null
   what: string | null

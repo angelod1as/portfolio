@@ -17,7 +17,6 @@ export const parseMDXMetadata = async (
   type: PageType,
   hasContent: boolean
 ) => {
-  // eslint-disable-next-line no-console
   const projectDir = process.cwd()
   const publicDir = directory.split(projectDir)[1]
 

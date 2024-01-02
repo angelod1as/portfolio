@@ -42,6 +42,10 @@ export const compileTitle = async (title: string, type: PageType) => {
   return null
 }
 
+const generateWhen = (when: string | number | null) => {
+  return TimestampToDate(Number(when), ['day']) || null
+}
+
 export const compileSummary = async (
   summary: Metadata['summary']
 ): Promise<Metadata['compiledSummary']> => {
@@ -57,15 +61,13 @@ export const compileSummary = async (
     return null
   }
 
-  const numberWhen = summary?.when && Number(summary?.when)
-  const dateWhen = numberWhen ? TimestampToDate(numberWhen, ['day']) : null
-
   return {
-    when: dateWhen,
-    where: await compile(summary?.where),
-    who: await compile(summary?.who),
-    why: await compile(summary?.why),
-    what: await compile(summary?.what),
+    when: generateWhen(summary.when),
+    ongoing: summary.ongoing ?? null,
+    where: await compile(summary.where),
+    who: await compile(summary.who),
+    why: await compile(summary.why),
+    what: await compile(summary.what),
   }
 }
 

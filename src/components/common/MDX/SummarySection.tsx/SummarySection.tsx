@@ -9,13 +9,15 @@ type SummarySectionProps = {
 }
 
 export const SummarySection = ({ compiledSummary }: SummarySectionProps) => {
+  const { ongoing, what, when, where, who, why } = compiledSummary ?? {}
+
   return (
     <div className={styles.grid}>
-      <SummaryItem prefix="When" content={compiledSummary?.when} isParagraph />
-      <SummaryItem prefix="Where" content={compiledSummary?.where} />
-      <SummaryItem prefix="Who" content={compiledSummary?.who} />
-      <SummaryItem prefix="What" content={compiledSummary?.what} />
-      <SummaryItem prefix="Why" content={compiledSummary?.why} />
+      <SummaryItem prefix="When" content={when} isParagraph ongoing={ongoing} />
+      <SummaryItem prefix="Where" content={where} />
+      <SummaryItem prefix="Who" content={who} />
+      <SummaryItem prefix="What" content={what} />
+      <SummaryItem prefix="Why" content={why} />
     </div>
   )
 }

@@ -6,12 +6,14 @@ type SummaryItemProps = {
   prefix: string
   content: string | null | undefined
   isParagraph?: boolean
+  ongoing?: boolean | null
 }
 
 export const SummaryItem = ({
   prefix,
   content,
   isParagraph,
+  ongoing,
 }: SummaryItemProps) => {
   const { colors } = useColorContext()
   if (!content) return null
@@ -21,7 +23,7 @@ export const SummaryItem = ({
       <b className={`alternates ${colors.textColor}`}>{prefix}</b>
       <div>
         {isParagraph ? (
-          <p>{content}</p>
+          <p>{ongoing ? `Since ${content}` : content}</p>
         ) : (
           <MDX mdx={{ compiledSource: content }} type="clean" />
         )}
