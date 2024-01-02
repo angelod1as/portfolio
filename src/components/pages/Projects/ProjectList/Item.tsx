@@ -32,17 +32,19 @@ export const Item = ({
           {hasContent && (
             <CTA inner href={`/projects/${slug}`} content="Read more" />
           )}
-          <CTA
-            href={live}
-            disabled={!live}
-            content={
-              live ? (
-                'See the project'
-              ) : (
-                <span className="text-xs">Project offline</span>
-              )
-            }
-          />
+          {live !== 'not-available' && (
+            <CTA
+              href={live}
+              disabled={!live}
+              content={
+                live ? (
+                  'See the project'
+                ) : (
+                  <span className="text-xs">Project offline</span>
+                )
+              }
+            />
+          )}
         </div>
       </figure>
       <div className="mt-[-6px]">
