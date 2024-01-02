@@ -10,10 +10,19 @@ export const replaceContentImages = (
     /!\[(.*?)]*\]\((.*?)\s*\)/g,
     (fullString, altAndCaption?: string, url?: string) => {
       if (!url || !altAndCaption) return fullString
+      const [alt, caption] = altAndCaption.split('||')
+
+      if (fullString.includes('http')) {
+        const url = fullString.match(/!\[.*?\]\((.*?)\)/)?.[1] ?? ''
+        return `<figure className="my-8"><img
+          src="${url}"
+          alt="${alt.trim()}"
+        /></figure>`
+      }
+
       const imageRelativePath = path.join(publicDir, url)
       const imageFullPath = `${contentDir}/public${imageRelativePath}`
       const { height, width } = imageSize(imageFullPath)
-      const [alt, caption] = altAndCaption.split('||')
 
       if (height && width) {
         return `<Image
