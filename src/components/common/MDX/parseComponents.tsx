@@ -8,6 +8,7 @@ import { MDXProvider } from '@mdx-js/react'
 import Image, { ImageProps } from 'next/image'
 import { Author, AuthorProps } from './Author'
 import { Embed, EmbedProps } from './Embed'
+import { Audio } from '../Audio/Audio'
 
 type Props = {
   components?: MDXProps['components']
@@ -24,6 +25,7 @@ export const parseComponents = ({
   const bg = colors.bgColor ?? ''
 
   const bodyComponents = {
+    Audio: Audio,
     Small: ({ children, ...props }: JSX.IntrinsicElements['small']) => {
       return (
         <small {...props} className={`text-sm ${props.className ?? ''}`}>
