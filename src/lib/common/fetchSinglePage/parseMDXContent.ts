@@ -1,4 +1,4 @@
-import { handleMDXImages } from '#lib/images/handleMDXImages'
+import { handleMDXMedia } from '#lib/images/handleMDXMedia'
 import { replaceContentImages } from '#lib/images/replaceContentImages'
 import { serialize } from '#lib/common/MDX/serialize'
 
@@ -10,7 +10,7 @@ export const parseMDXContent = async (
   const projectDir = process.cwd()
   const publicDir = directory.split(projectDir)[1]
 
-  handleMDXImages(directory)
+  handleMDXMedia(directory)
 
   const parsedContent = replaceContentImages(content, publicDir, projectDir)
 

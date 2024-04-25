@@ -1,4 +1,4 @@
-import { handleMDXImages } from '#lib/images/handleMDXImages'
+import { handleMDXMedia } from '#lib/images/handleMDXMedia'
 import {
   imageExtensions,
   ImageString,
@@ -87,7 +87,7 @@ export const compileHero = (
     return null
   }
 
-  handleMDXImages(directory)
+  handleMDXMedia(directory)
 
   return {
     ...hero,

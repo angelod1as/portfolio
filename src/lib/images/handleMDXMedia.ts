@@ -2,16 +2,16 @@ import { readdirSync } from 'fs'
 import { join } from 'path'
 import { copyFileToPublic } from './copyFileToPublic'
 
-const imageFileTypes = ['.png', '.jpg', '.jpeg', '.gif']
+const mediaFileTypes = ['.png', '.jpg', '.jpeg', '.gif', '.mp3', '.mp4']
 
-export const handleMDXImages = (directory: string) => {
+export const handleMDXMedia = (directory: string) => {
   const projectDir = process.cwd()
   const publicDir = directory.split(projectDir)[1]
 
   const fileNames = readdirSync(directory)
 
   for (const fileName of fileNames) {
-    const isImage = imageFileTypes.some(fileType =>
+    const isMedia = mediaFileTypes.some(fileType =>
       fileName.toLowerCase().includes(fileType)
     )
 
@@ -22,7 +22,7 @@ export const handleMDXImages = (directory: string) => {
       .join(`/public${publicDir}`)
       .replace(fileName, '')
 
-    if (isImage) {
+    if (isMedia) {
       copyFileToPublic(fileName, filePath, publicFinalPath)
     }
   }
