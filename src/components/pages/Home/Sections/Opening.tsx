@@ -32,13 +32,13 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
         <p>
           I have a pretty nice{' '}
           <Strong>
-            <Link href="/cv/angelo_dias-resume.pdf" download>
+            <Link href="/cv/angelo_dias-resume.docx" download>
               resumé
             </Link>
           </Strong>{' '}
           and{' '}
           <Strong>
-            <Link href="/cv/angelo_dias-cover_letter.pdf" download>
+            <Link href="/cv/angelo_dias-cover_letter.docx" download>
               cover letter
             </Link>
           </Strong>
