@@ -33,12 +33,6 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
           <ColorLink href="https://www.metadados.com.br/vibe">Vibe</ColorLink>;
         </p>
         <p>
-          ... a <Strong>full stack mobile developer</Strong> at the livestock
-          company{' '}
-          <ColorLink href="https://www.databoi.com.br/">Databoi</ColorLink>,
-          doing code and making <Strong>critical technology decisions</Strong>;
-        </p>
-        <p>
           ... a <Strong>designer</Strong> and{' '}
           <Strong>front-end developer</Strong> at Latin America's biggest
           newspaper,{' '}
