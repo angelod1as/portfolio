@@ -9,6 +9,7 @@ export * from './Want'
 export * from './Am'
 export * from './Was'
 export * from './Colophon'
+export * from './Recommendations'
 
 export type SectionProps = {
   color: TextColor

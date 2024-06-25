@@ -19,7 +19,8 @@ export const Am: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
           <Strong>modern technologies</Strong> and efficient communication.
         </p>
         <p>
-          ... a certified <Strong>Scrum Master</Strong> (PSM1);
+          ... a certified <Strong>Scrum Master</Strong> (PSM1) — but I still
+          love other Agile frameworks;
         </p>
         <p>
           ... a <Strong>writer</Strong> and <Strong>editor</Strong> of both

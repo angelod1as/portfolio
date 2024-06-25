@@ -3,7 +3,15 @@ import { Link, LinkProps } from '#components/common/Links'
 import { FCC } from '#types/types'
 import React from 'react'
 import { textColor } from 'src/helpers/colors'
-import { Am, Generalist, Opening, Want, Was, Colophon } from './Sections'
+import {
+  Am,
+  Generalist,
+  Opening,
+  Want,
+  Was,
+  Colophon,
+  Recommendations,
+} from './Sections'
 
 // TODO: Add :stars: to Stuff
 
@@ -28,6 +36,10 @@ const sections = [
     Component: Was,
     color: textColor[4],
   },
+  {
+    Component: Recommendations,
+    color: textColor[5],
+  },
 ]
 
 export function Home() {
@@ -50,7 +62,7 @@ export function Home() {
           </HomeSection>
         )
       })}
-      <Colophon color={textColor[5]} />
+      <Colophon color={textColor[0]} />
     </>
   )
 }
