@@ -71,11 +71,11 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
         </p>
         <p>
           ... a self-published <Strong>zine author</Strong> (I even put up an{' '}
-          <ColorLink href="https://www.cronofobia.com/">online store</ColorLink>
+          <ColorLink href="https://zine.cronofobia.com/">
+            online store
+          </ColorLink>
           ), and a participant in{' '}
-          <ColorLink href="https://medium.com/@tefopress">
-            Tefopress
-          </ColorLink>{' '}
+          <ColorLink href="https://medium.com/@tefopress">Tefopress</ColorLink>{' '}
           annual zine collection;
         </p>
         <p>
