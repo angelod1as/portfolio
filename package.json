@@ -61,7 +61,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.31",
     "prettier": "^2.6.2",
     "react-test-renderer": "^18.1.0",
     "rehype-toc": "^3.0.2",
