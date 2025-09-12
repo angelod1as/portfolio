@@ -6,42 +6,44 @@ const headings = {
   h1: /I'm angelo and I do stuff/i,
   h2: {
     generalist: /I'm a proud generalist/i,
-    explore: /you are free to explore new stuff/i,
-    blog: /you can always rely on a blog/i,
-    contact: /contact me anytime/i,
-  },
-  h3: {
-    highlight: /highlighted projects/i,
-    posts: /latest posts/i,
+    want: /I want/i,
+    am: /I am/i,
+    was: /I was/i,
+    recommendations: /A few LinkedIn recommendations/i,
   },
 }
 
-describe(Home, () => {
+describe('Home', () => {
   it('renders the fixed textual content', () => {
     render(<Home />)
 
+    // Check main heading
     expect(
       screen.getByRole('heading', {
         name: headings.h1,
       })
     ).toBeInTheDocument()
 
-    expect(screen.getByText(/I'm a developer, writer and designer/i))
+    // Check for key text parts - use getAllByText since there might be multiple occurrences
+    expect(screen.getAllByText(/developer/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/writer/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/designer/i).length).toBeGreaterThan(0)
 
+    // Check main section headings
     expect(
       screen.getByRole('heading', { level: 2, name: headings.h2.generalist })
-    )
+    ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { level: 3, name: headings.h3.highlight })
-    )
+      screen.getByRole('heading', { level: 2, name: headings.h2.want })
+    ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { level: 2, name: headings.h2.explore }))
+    expect(
+      screen.getByRole('heading', { level: 2, name: headings.h2.am })
+    ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { level: 2, name: headings.h2.blog }))
-
-    expect(screen.getByRole('heading', { level: 3, name: headings.h3.posts }))
-
-    expect(screen.getByRole('heading', { level: 2, name: headings.h2.contact }))
+    expect(
+      screen.getByRole('heading', { level: 2, name: headings.h2.was })
+    ).toBeInTheDocument()
   })
 })
