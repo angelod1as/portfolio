@@ -1,20 +1,20 @@
-import { Root, Item, Header, Trigger, Content } from '@radix-ui/react-accordion'
-import styles from './Accordion.module.sass'
 import { FCC } from '#types/types'
-import { TextColor } from 'src/helpers/colors'
+import { Content, Header, Item, Root, Trigger } from '@radix-ui/react-accordion'
+import styles from './Accordion.module.sass'
 
 type AccordionProps = {
   title: string
-  color: TextColor
 }
 
-export const Accordion: FCC<AccordionProps> = ({ children, title, color }) => {
+export const Accordion: FCC<AccordionProps> = ({ children, title }) => {
   return (
     <Root type="single" collapsible>
       <Item value={title}>
         <Header asChild>
           <p className="m-0">
-            <Trigger className={`text-base font-bold ${color} px-4 border`}>
+            <Trigger
+              className={`text-base font-bold text-highlight px-4 border`}
+            >
               {title}
             </Trigger>
           </p>
