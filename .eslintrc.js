@@ -70,6 +70,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/strict-boolean-expressions': 0,
     '@typescript-eslint/no-invalid-void-type': 0,
+    '@typescript-eslint/promise-function-async': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
