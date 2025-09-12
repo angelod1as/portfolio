@@ -1,5 +1,5 @@
-import { SerializeOptions } from 'next-mdx-remote/dist/types'
 import { serialize as mdxSerialize } from 'next-mdx-remote/serialize'
+import { SerializeOptions } from 'node_modules/next-mdx-remote/dist/types'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'

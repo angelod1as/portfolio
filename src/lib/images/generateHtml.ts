@@ -2,7 +2,7 @@ import { Metadata } from '#types/types'
 import { readFileSync } from 'fs'
 import { marked } from 'marked'
 import { join } from 'path'
-import puppeteer from 'puppeteer'
+import type { Viewport } from 'puppeteer'
 
 type Tag = 'h1' | 'h2'
 const parseText = async (string: string, tag: Tag) => {
@@ -21,10 +21,7 @@ const parseHero = (src: string, projectDir: string) => {
   return `<img class="hero" src="data:image/jpeg;base64,${base64}" />`
 }
 
-export const generateHtml = async (
-  metadata: Metadata,
-  viewport: puppeteer.Viewport
-) => {
+export const generateHtml = async (metadata: Metadata, viewport: Viewport) => {
   const projectDir = process.cwd()
 
   const boilerplate = readFileSync(

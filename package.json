@@ -12,18 +12,18 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
-    "@radix-ui/react-accordion": "^0.1.6",
-    "@radix-ui/react-toggle-group": "^0.1.5",
-    "@vercel/analytics": "^0.1.6",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@vercel/analytics": "^1.5.0",
     "feed": "^4.2.2",
     "formik": "^2.2.9",
     "gray-matter": "^4.0.3",
-    "image-size": "^1.0.1",
+    "image-size": "^1.2.1",
     "marked": "^12.0.2",
     "next": "^14.2.32",
     "next-mdx-remote": "^4.4.1",
-    "ow": "^0.28.1",
-    "puppeteer": "^14.3.0",
+    "ow": "^1.1.1",
+    "puppeteer": "^21.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-responsive-embed": "^2.1.0",
@@ -32,7 +32,7 @@
     "rehype-slug": "^5.1.0",
     "rss-parser": "^3.12.0",
     "sass": "^1.92.1",
-    "swr": "^1.3.0"
+    "swr": "^2.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

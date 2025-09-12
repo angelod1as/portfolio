@@ -1,9 +1,9 @@
-import puppeteer from 'puppeteer'
+import puppeteer, { type Viewport } from 'puppeteer'
 
 export const runPuppeteer = async (
   finalHtml: string,
   finalPath: string,
-  viewport: puppeteer.Viewport
+  viewport: Viewport
 ) => {
   // eslint-disable-next-line no-console
   console.log(`\nCreating file using Puppeteer:\n ${finalPath}\n`)
