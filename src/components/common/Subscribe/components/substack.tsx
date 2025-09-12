@@ -45,7 +45,7 @@ type SubstackProps = {
 
 export const Substack = ({ blog, succint }: SubstackProps) => {
   const Strong: FCC = ({ children }) => (
-    <StrongModifier color="text-highlight">{children}</StrongModifier>
+    <StrongModifier>{children}</StrongModifier>
   )
 
   const [errors, setErrors] = useState<string[]>([])

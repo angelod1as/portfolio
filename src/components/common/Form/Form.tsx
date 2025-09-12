@@ -1,10 +1,10 @@
+import { Strong as StrongModifier } from '#components/common/Strong'
 import { ErrorProps, FCC, PostResult } from '#types/types'
-import { Formik, FormikValues, Form as FormikForm } from 'formik'
-import React, { ReactNode, useState } from 'react'
+import { Formik, Form as FormikForm, FormikValues } from 'formik'
+import { ReactNode, useState } from 'react'
 import { ApiError } from './ApiError'
 import { submitForm } from './helpers/submitForm'
 import { Submit } from './Submit'
-import { Strong as StrongModifier } from '#components/common/Strong'
 
 type FormProps<T> = {
   fetcher: (props: T) => Promise<PostResult>
@@ -33,7 +33,7 @@ export const Form = <T extends FormikValues>({
   const [success, setSuccess] = useState(false)
 
   const Strong: FCC = ({ children }) => (
-    <StrongModifier color="text-highlight">{children}</StrongModifier>
+    <StrongModifier>{children}</StrongModifier>
   )
 
   return (

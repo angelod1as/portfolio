@@ -21,7 +21,11 @@ export const Project: FCC<BlogPostProps> = ({ content }) => {
           image={metadata.socialImagePath ?? undefined}
         />
       )}
-      <MDX mdx={{ compiledSource }} metadata={metadata} type="projects" />
+      <MDX
+        mdx={{ compiledSource, frontmatter: {}, scope: {} }}
+        metadata={metadata}
+        type="projects"
+      />
       <CTA inner href="/projects" content="View all projects" />
     </>
   )

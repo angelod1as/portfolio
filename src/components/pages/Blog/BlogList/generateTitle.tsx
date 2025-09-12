@@ -11,6 +11,11 @@ export const generateTitle = (compiledTitle: string) => {
   }
 
   return (
-    <MDXRemote compiledSource={compiledTitle} components={titleComponents} />
+    <MDXRemote
+      compiledSource={compiledTitle}
+      components={titleComponents}
+      scope={{}}
+      frontmatter={{}}
+    />
   )
 }
