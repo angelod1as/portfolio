@@ -154,7 +154,7 @@ export const Substack = ({ blog, succint }: SubstackProps) => {
           type="submit"
           value="Subscribe"
           name="subscribe"
-          className="bg-highlight border-highlight"
+          className="text-black bg-highlight border-highlight"
         />
       </div>
       {errors.length > 0 && (
