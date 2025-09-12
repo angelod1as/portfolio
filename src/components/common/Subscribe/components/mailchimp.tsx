@@ -1,20 +1,8 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import {
-  textColor as defaultTextColor,
-  bgColor as defaultBgColor,
-  borderColor as defaultBorderColor,
-} from 'src/helpers/colors'
-
 type MailchimpProps = {
   inner?: boolean
 }
 
 export const Mailchimp = ({ inner }: MailchimpProps) => {
-  const { colors } = useColorContext()
-  const textColor = colors?.textColor ?? defaultTextColor[0]
-  const bgColor = colors?.bgColor ?? defaultBgColor[0]
-  const borderColor = colors?.borderColor ?? defaultBorderColor[0]
-
   return (
     <form
       action="https://gmail.us5.list-manage.com/subscribe/post?u=f065fa9f835273f5a59e75667&amp;id=821625a73a"
@@ -24,7 +12,7 @@ export const Mailchimp = ({ inner }: MailchimpProps) => {
       target="_blank"
     >
       <h2 className={`${inner ? '' : 'mb-4 h2-as-h1'}`}>
-        <span className={textColor}>Subscribe</span> to my blog
+        <span className="text-highlight">Subscribe</span> to my blog
       </h2>
 
       <p className={`${inner ? 'mb-4' : 'mb-4'}`}>
@@ -62,7 +50,7 @@ export const Mailchimp = ({ inner }: MailchimpProps) => {
           value="Subscribe"
           name="subscribe"
           id="mc-embedded-subscribe"
-          className={`${bgColor} ${borderColor}`}
+          className="bg-highlight border-highlight"
         />
       </div>
     </form>

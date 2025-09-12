@@ -1,5 +1,4 @@
 import React from 'react'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import Image from 'next/image'
 import { CTA } from '#components/common/CTA'
 import { ProjectProps } from '../Projects'
@@ -10,12 +9,11 @@ export const Item = ({
   hasContent,
   slug,
 }: Omit<ProjectProps, 'directory' | 'extension'>) => {
-  const { colors } = useColorContext()
   const { title, description, compiledSummary, hero, live } = metadata
 
   const Intro = ({ className }: { className: string }) => (
     <div className={`flex flex-col gap-4 mb-4  ${className}`}>
-      {title && <h3 className={`${colors.textColor}`}>{title}</h3>}
+      {title && <h3 className="text-highlight">{title}</h3>}
       <p className="m-0">{description}</p>
     </div>
   )

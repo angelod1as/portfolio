@@ -4,7 +4,6 @@ import { generateRssFeed } from '#lib/RSS/generateRssFeed'
 import { Metadata } from '#types/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import { randomColors } from 'src/helpers/colors'
 
 type BlogPageProps = {
   posts: Array<{
@@ -22,12 +21,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   await generateRssFeed(posts)
 
-  const colors = randomColors()
-
   return {
     props: {
       posts,
-      colors,
       slug: 'blog',
     },
   }

@@ -8,6 +8,7 @@ module.exports = {
         current: 'currentColor',
         black: '#000',
         white: '#FFF',
+        highlight: '#f2ca19', // Main highlight color - change this to update all highlights
         yellow: '#f2ca19',
         purple: '#aa5fff',
         pink: '#ff55d2',

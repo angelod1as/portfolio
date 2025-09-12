@@ -2,13 +2,14 @@
 title: Using **Notion** as a database
 createdAt: 1675087146435
 description: How to build a form and use Notion API for small-scale projects.
-categories: 
+categories:
   - tech
 ---
 
 [Notion](https://www.notion.so/) is hard to describe. The tool manages notes, TODOs, tables, images, and a plethora of content that can help organise our lives — or make it utterly chaotic if we fall into the "let me just create _another_ Notion dashboard" black hole.
 
 <!-- omit in toc -->
+
 ## Table of Contents
 
 - [Focus](#focus)
@@ -199,9 +200,9 @@ Now, we're going to build our simple HTML form inside `main`. There's minor CSS 
     <div className={styles.wrapper}>
       <label htmlFor="first-name">First name</label>
       <input
-        type= "text"
-        name= "first-name"
-        id= "first-name"
+        type="text"
+        name="first-name"
+        id="first-name"
         className={styles.mb}
       />
     </div>
@@ -209,22 +210,16 @@ Now, we're going to build our simple HTML form inside `main`. There's minor CSS 
     <div className={styles.wrapper}>
       <label htmlFor="last-name">Last name</label>
       <input
-        type= "text"
-        name= "last-name"
-        id= "last-name"
+        type="text"
+        name="last-name"
+        id="last-name"
         className={styles.mb}
       />
     </div>
 
     <div className={styles.wrapper}>
-      <label htmlFor="food-limitation">
-        What kind of food can you eat?
-      </label>
-      <select
-        name= "food-limitation"
-        id= "food-limitation"
-        className={styles.mb}
-      >
+      <label htmlFor="food-limitation">What kind of food can you eat?</label>
+      <select name="food-limitation" id="food-limitation" className={styles.mb}>
         <option value="omnivorous">I eat anything</option>
         <option value="vegetarian">{"I'm vegetarian"}</option>
         <option value="vegan">{"I'm vegan"}</option>
@@ -239,9 +234,9 @@ Now, we're going to build our simple HTML form inside `main`. There's minor CSS 
     <div className={styles.wrapper}>
       <label htmlFor="money-gift">How much money will you gift me?</label>
       <input
-        type= "number"
-        name= "money-gift"
-        id= "money-gift"
+        type="number"
+        name="money-gift"
+        id="money-gift"
         min="0"
         className={styles.mb}
       />
@@ -280,16 +275,16 @@ Let's delete everything from this file and add the following styles:
 
 .wrapper input,
 .wrapper label {
-  display: block
+  display: block;
 }
 
 .inline input,
 .inline label {
-  display: inline
+  display: inline;
 }
 
 .inline label {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 ```
 
@@ -308,12 +303,12 @@ We will first set up what kind of format our form has. Let's set up a simple `ty
 
 ```ts
 type FormData = {
-  "first-name": string;
-  "last-name": string;
-  "food-limitation": string;
-  "plus-one": string;
-  "money-gift": string;
-};
+  'first-name': string
+  'last-name': string
+  'food-limitation': string
+  'plus-one': string
+  'money-gift': string
+}
 ```
 
 > "But Angelo, isn't the `money-gift` a `number`? Or the `plus-one` a `boolean`?"
@@ -324,13 +319,13 @@ With our types setup, let's add a state to control our component. Add this after
 
 ```ts
 const [values, setValues] = useState<FormData>({
-  "first-name":"  ",
-  "food-limitation": "omnivorous",
-  "last-name":"  ",
-  "plus-one": "false",
-  "money-gift": "0",
-});
-  ```
+  'first-name': '  ',
+  'food-limitation': 'omnivorous',
+  'last-name': '  ',
+  'plus-one': 'false',
+  'money-gift': '0',
+})
+```
 
 We set up the `values` by adding some initial data and pointing it to the proper data structure, `FormData`. We pre-set some values to avoid submission errors.
 
@@ -350,12 +345,12 @@ That would be repeated in _every_ input, so I preferred to do a helper function 
 After the `useState` we wrote, add this:
 
 ```tsx
-  const updateValue = (field: keyof FormData, value: string | boolean) => {
-    setValues((values) => ({
-      ...values,
-      [field]: value.toString(),
-    }));
-  };
+const updateValue = (field: keyof FormData, value: string | boolean) => {
+  setValues(values => ({
+    ...values,
+    [field]: value.toString(),
+  }))
+}
 ```
 
 This function receives a `field` string — that can be only one of the `FormData` property names (that's what the `keyof` does), an event (both Input and Select events), and a `value`, the string or boolean from the form.
@@ -366,12 +361,12 @@ Now, in each input (and select), we will add the helper function with the specif
 
 ```tsx
 <input
-  type= "text"
-  name= "first-name"
-  id= "first-name"
+  type="text"
+  name="first-name"
+  id="first-name"
   className={styles.mb}
-  onChange={(e) => updateValue("first-name", e.target.value)}
-  value={values["first-name"]}
+  onChange={e => updateValue('first-name', e.target.value)}
+  value={values['first-name']}
 />
 ```
 
@@ -381,28 +376,28 @@ To finish, we will call a `handleSubmit` function when the user submits the form
 
 ```ts
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
+  event.preventDefault()
   try {
-    const response = await fetch("/api/notion", {
+    const response = await fetch('/api/notion', {
       body: JSON.stringify(values),
-      method: "POST",
-    });
+      method: 'POST',
+    })
 
     if (!response.ok) {
       return alert(`
       There was an error with your form submission:
       Status: ${response.status} - ${response.statusText}
-      `);
+      `)
     }
 
-    return alert("Submission successful");
+    return alert('Submission successful')
   } catch (error) {
     return alert(`
     There was an error with your form submission:
     ${error}
-    `);
+    `)
   }
-};
+}
 ```
 
 Line by line, we:
@@ -436,12 +431,12 @@ Remove the `Data` type and add our `FormData`:
 
 ```ts
 type FormData = {
-  "first-name": string;
-  "last-name": string;
-  "food-limitation": string;
-  "plus-one": string;
-  "money-gift": string;
-};
+  'first-name': string
+  'last-name': string
+  'food-limitation': string
+  'plus-one': string
+  'money-gift': string
+}
 ```
 
 (You can also export the `FormData` from our other file and import it here)
@@ -457,7 +452,7 @@ We need to get the form data from the request and parse it.
 In the first line of the function, add:
 
 ```ts
-const Data: FormData = JSON.parse(req.body);
+const Data: FormData = JSON.parse(req.body)
 ```
 
 Now, let's connect our Notion API. To do this, we will need the API key and a Database key, which need to be added to our Secrets.
@@ -480,17 +475,17 @@ Remember the database ID we saved from the last section? Paste it after the `NOT
 In our backend code, let's retrieve these values from our secrets and ensure they are present (throwing an error if not).
 
 ```ts
-const Data: FormData = JSON.parse(req.body);
-const databaseId = process.env.NOTION_PARTY_DB;
-const apiKey = process.env.NOTION_API_KEY;
+const Data: FormData = JSON.parse(req.body)
+const databaseId = process.env.NOTION_PARTY_DB
+const apiKey = process.env.NOTION_API_KEY
 
-if (!databaseId || !apiKey) throw new Error('The secret keys are missing');
+if (!databaseId || !apiKey) throw new Error('The secret keys are missing')
 ```
 
 Let's make sure whatever we want to do with this endpoint only runs when we use a `POST` by adding a short-circuit clause:
 
 ```ts
-if (req.method !== "POST") return;
+if (req.method !== 'POST') return
 ```
 
 To call the Notion API, we need to add their Javascript library, `@notionhq/client`. Let's run `yarn add @notionhq/client` and then import their `Client` at the top of the file:
@@ -513,39 +508,39 @@ const response = await notion.pages.create({
     database_id: `${databaseId}`,
   },
   properties: {
-    "first-name": {
+    'first-name': {
       title: [
         {
-          type: "text",
+          type: 'text',
           text: {
-            content: data["first-name"] ??"",
+            content: data['first-name'] ?? '',
           },
         },
       ],
     },
-    "last-name": {
+    'last-name': {
       rich_text: [
         {
-          type: "text",
+          type: 'text',
           text: {
-            content: data["last-name"] ??"",
+            content: data['last-name'] ?? '',
           },
         },
       ],
     },
-    "food-limitation": {
+    'food-limitation': {
       select: {
-        name: data["food-limitation"],
+        name: data['food-limitation'],
       },
     },
-    "plus-one": {
-      checkbox: data["plus-one"] === "true",
+    'plus-one': {
+      checkbox: data['plus-one'] === 'true',
     },
-    "money-gift": {
-      number: parseInt(data["money-gift"]),
+    'money-gift': {
+      number: parseInt(data['money-gift']),
     },
   },
-});
+})
 ```
 
 Let's go:
@@ -565,8 +560,8 @@ I hope this description was understandable. Notion has _a lot_ of formats for ea
 To end our form submission, we return `200` (meaning that everything went well) if the `response` has an `id`. If not, we return `500` (meaning "ooops").
 
 ```ts
-if (response.id) return res.status(200);
-return res.status(500);
+if (response.id) return res.status(200)
+return res.status(500)
 ```
 
 And... that's it for local development!

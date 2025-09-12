@@ -3,7 +3,6 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
 import { MDXReturn } from '#types/types'
 import { Project } from '#components/pages/Projects/Project'
-import { randomColors } from 'src/helpers/colors'
 import { fetchSinglePage } from '#lib/common/fetchSinglePage'
 import { fetchAllPages } from '#lib/common/fetchAllPages'
 
@@ -44,10 +43,8 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const project: MDXReturn = await fetchSinglePage(projectData, 'projects')
 
-  const colors = randomColors(project.metadata.color)
-
   return {
-    props: { content: project, colors, slug: context.params.slug },
+    props: { content: project, slug: context.params.slug },
   }
 }
 

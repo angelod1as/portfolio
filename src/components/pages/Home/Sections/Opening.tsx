@@ -47,8 +47,14 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
           </Strong>
           .
         </p>
-        <p>If you can read <Strong>Brazilian Portuguese</Strong>, check out my <Strong><Link href="https://www.cronofobia.com/">newsletter</Link></Strong>:</p>
-        <Subscribe succint/>
+        <p>
+          If you can read <Strong>Brazilian Portuguese</Strong>, check out my{' '}
+          <Strong>
+            <Link href="https://www.cronofobia.com/">newsletter</Link>
+          </Strong>
+          :
+        </p>
+        <Subscribe succint />
       </div>
     </>
   )

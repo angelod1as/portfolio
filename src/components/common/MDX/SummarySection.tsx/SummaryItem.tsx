@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React from 'react'
 import { MDX } from '../MDX'
 
@@ -15,12 +14,11 @@ export const SummaryItem = ({
   isParagraph,
   ongoing,
 }: SummaryItemProps) => {
-  const { colors } = useColorContext()
   if (!content) return null
 
   return (
     <>
-      <b className={`alternates ${colors.textColor}`}>{prefix}</b>
+      <b className="alternates text-highlight">{prefix}</b>
       <div>
         {isParagraph ? (
           <p>{ongoing ? `Since ${content}` : content}</p>

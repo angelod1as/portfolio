@@ -1,5 +1,4 @@
 import { ContentItem } from '#components/common/ContentItem'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { useState } from 'react'
 import { TimestampToDate } from 'src/helpers/TimestampToDate'
 import { PostProps } from '../Blog'
@@ -11,7 +10,6 @@ export type BlogListProps = {
 }
 
 export const BlogList = ({ posts }: BlogListProps) => {
-  const { colors } = useColorContext()
   const [order, setOrder] = useState<string>('descending')
 
   const handleOrder = (value: string) => {
@@ -53,7 +51,7 @@ export const BlogList = ({ posts }: BlogListProps) => {
                 tags={metadata.tags}
                 title={
                   metadata.compiledTitle
-                    ? generateTitle(metadata.compiledTitle, colors)
+                    ? generateTitle(metadata.compiledTitle)
                     : undefined
                 }
               />

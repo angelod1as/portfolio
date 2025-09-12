@@ -2,7 +2,6 @@ import { Page } from '#components/pages/Page'
 import ow from 'ow'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { FC } from 'react'
-import { randomColors } from 'src/helpers/colors'
 import { fetchAllPages } from '#lib/common/fetchAllPages'
 import { fetchSinglePage } from '#lib/common/fetchSinglePage'
 import { MDXReturn } from '#types/types'
@@ -42,10 +41,8 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const page: MDXReturn = await fetchSinglePage(pageData, 'pages')
 
-  const colors = randomColors(page.metadata.color)
-
   return {
-    props: { content: page, colors, slug: context.params.slug },
+    props: { content: page, slug: context.params.slug },
   }
 }
 

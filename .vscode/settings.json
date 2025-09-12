@@ -1,4 +1,14 @@
 {
   "tailwindCSS.rootFontSize": 20,
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.workingDirectories": ["./"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
 }

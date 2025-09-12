@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { ReactNode } from 'react'
 import { Link } from '../Links'
 import { Tag } from '../Tag'
@@ -20,11 +19,9 @@ export const ContentItem = ({
   tags,
   inner,
 }: ContentItemProps) => {
-  const { colors } = useColorContext()
-
   return (
     <li className="relative pl-6">
-      <div className={`absolute top-0 left-0 w-2 h-full ${colors.bgColor}`} />
+      <div className="absolute top-0 left-0 w-2 h-full bg-highlight" />
       {title && (
         <Link inner={inner} href={url}>
           {title}

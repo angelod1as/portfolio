@@ -1,6 +1,5 @@
 import { Link } from '#components/common/Links'
 import { Strong } from '#components/common/Strong'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { PageMetadata, ProjectMetadata } from '#types/types'
 import React from 'react'
 import { ProjectList } from './ProjectList'
@@ -15,19 +14,15 @@ export type ProjectsProps = {
 }
 
 export const Projects = ({ projects }: ProjectsProps) => {
-  const {
-    colors: { textColor },
-  } = useColorContext()
-
   return (
     <>
       <h1>
-        I'm angelo and I do <span className={textColor}>projects</span>
+        I'm angelo and I do <span className="text-highlight">projects</span>
       </h1>
 
       <p>
-        From <Strong color={textColor}>web development</Strong> to{' '}
-        <Strong color={textColor}>scriptwriting</Strong>, I've done a lot.
+        From <Strong color="text-highlight">web development</Strong> to{' '}
+        <Strong color="text-highlight">scriptwriting</Strong>, I've done a lot.
         <br /> This brief is a summary of notable projects.
       </p>
 

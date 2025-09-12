@@ -1,14 +1,8 @@
 import { Link } from '#components/common/Links'
 import { Loader } from '#components/common/Loader'
 import { Strong as StrongModifier } from '#components/common/Strong'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 import { useState } from 'react'
-import {
-  bgColor as defaultBgColor,
-  borderColor as defaultBorderColor,
-  textColor as defaultTextColor,
-} from 'src/helpers/colors'
 
 type FormElements = HTMLFormControlsCollection & {
   email: HTMLInputElement
@@ -50,13 +44,8 @@ type SubstackProps = {
 }
 
 export const Substack = ({ blog, succint }: SubstackProps) => {
-  const { colors } = useColorContext()
-  const bgColor = colors?.bgColor ?? defaultBgColor[0]
-  const borderColor = colors?.borderColor ?? defaultBorderColor[0]
-  const textColor = colors?.textColor ?? defaultTextColor[0]
-
   const Strong: FCC = ({ children }) => (
-    <StrongModifier color={textColor}>{children}</StrongModifier>
+    <StrongModifier color="text-highlight">{children}</StrongModifier>
   )
 
   const [errors, setErrors] = useState<string[]>([])
@@ -106,7 +95,7 @@ export const Substack = ({ blog, succint }: SubstackProps) => {
     return (
       <div>
         <h2 className={`${blog ? '' : 'mb-4 h2-as-h1'}`}>
-          Thanks for <span className={textColor}>subscribing</span>
+          Thanks for <span className="text-highlight">subscribing</span>
         </h2>
 
         <p className={`${blog ? 'mb-4' : 'mb-4'}`}>
@@ -118,25 +107,26 @@ export const Substack = ({ blog, succint }: SubstackProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full mb-8">
-      {!succint &&
-      <>
-      <h2 className={`mb-4 ${blog ? '' : 'h2-as-h1'}`}>
-        Read my <span className={textColor}>Newsletter</span>
-      </h2>
-      <p>
-        I write <Strong>way</Strong> more often in my{' '}
-        <Link href="https://angelodias.substack.com/">newsletter</Link> and
-        choose only <Strong>a few</Strong> things to be put in my blog.
-      </p>
-      <p className="mb-4">
-        It doesn't have a clear schedule, but I'm <Strong>working hard</Strong>{' '}
-        to send an issue at least once a week.
-      </p>
-      <p className="mb-4">
-        Ah, even though my website is in English, my newsletter currently has{' '}
-        <Strong>Brazilian Portuguese</Strong> content.
-      </p>
-      </>}
+      {!succint && (
+        <>
+          <h2 className={`mb-4 ${blog ? '' : 'h2-as-h1'}`}>
+            Read my <span className="text-highlight">Newsletter</span>
+          </h2>
+          <p>
+            I write <Strong>way</Strong> more often in my{' '}
+            <Link href="https://angelodias.substack.com/">newsletter</Link> and
+            choose only <Strong>a few</Strong> things to be put in my blog.
+          </p>
+          <p className="mb-4">
+            It doesn't have a clear schedule, but I'm{' '}
+            <Strong>working hard</Strong> to send an issue at least once a week.
+          </p>
+          <p className="mb-4">
+            Ah, even though my website is in English, my newsletter currently
+            has <Strong>Brazilian Portuguese</Strong> content.
+          </p>
+        </>
+      )}
       <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
         <label htmlFor="email" className="flex-1 block w-full">
           Email:
@@ -164,7 +154,7 @@ export const Substack = ({ blog, succint }: SubstackProps) => {
           type="submit"
           value="Subscribe"
           name="subscribe"
-          className={`${bgColor} ${borderColor}`}
+          className="bg-highlight border-highlight"
         />
       </div>
       {errors.length > 0 && (
