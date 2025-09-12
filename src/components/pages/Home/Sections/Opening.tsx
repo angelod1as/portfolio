@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { SectionProps } from '.'
 import { Link } from '#components/common/Links'
+import { Subscribe } from '#components/common/Subscribe'
+import { FC } from 'react'
+import { SectionProps } from '.'
 
 export const Opening: FC<SectionProps> = ({ color, Strong }) => {
   if (!Strong) {
@@ -46,6 +47,8 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
           </Strong>
           .
         </p>
+        <p>If you can read <Strong>Brazilian Portuguese</Strong>, check out my <Strong><Link href="https://www.cronofobia.com/">newsletter</Link></Strong>:</p>
+        <Subscribe succint/>
       </div>
     </>
   )

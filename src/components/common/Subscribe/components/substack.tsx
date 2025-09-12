@@ -46,9 +46,10 @@ const fetchSubstack = async (email: string): Promise<substackResult> => {
 
 type SubstackProps = {
   blog?: boolean
+  succint?: boolean
 }
 
-export const Substack = ({ blog }: SubstackProps) => {
+export const Substack = ({ blog, succint }: SubstackProps) => {
   const { colors } = useColorContext()
   const bgColor = colors?.bgColor ?? defaultBgColor[0]
   const borderColor = colors?.borderColor ?? defaultBorderColor[0]
@@ -117,6 +118,8 @@ export const Substack = ({ blog }: SubstackProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full mb-8">
+      {!succint &&
+      <>
       <h2 className={`mb-4 ${blog ? '' : 'h2-as-h1'}`}>
         Read my <span className={textColor}>Newsletter</span>
       </h2>
@@ -133,6 +136,7 @@ export const Substack = ({ blog }: SubstackProps) => {
         Ah, even though my website is in English, my newsletter currently has{' '}
         <Strong>Brazilian Portuguese</Strong> content.
       </p>
+      </>}
       <div className="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:gap-x-4">
         <label htmlFor="email" className="flex-1 block w-full">
           Email:
