@@ -1,4 +1,5 @@
 import imageSize from 'image-size'
+import { readFileSync } from 'fs'
 import path from 'path'
 
 export const replaceContentImages = (
@@ -22,7 +23,8 @@ export const replaceContentImages = (
 
       const imageRelativePath = path.join(publicDir, url)
       const imageFullPath = `${contentDir}/public${imageRelativePath}`
-      const { height, width } = imageSize(imageFullPath)
+      const imageBuffer = readFileSync(imageFullPath)
+      const { height, width } = imageSize(imageBuffer)
 
       if (height && width) {
         return `<Image

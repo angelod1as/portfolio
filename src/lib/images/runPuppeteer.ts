@@ -19,7 +19,7 @@ export const runPuppeteer = async (
     const page = await browser.newPage()
     await page.setContent(finalHtml)
     await page.waitForNetworkIdle()
-    await page.screenshot({ path: finalPath })
+    await page.screenshot({ path: finalPath as `${string}.png` })
     await page.close()
   } catch (error) {
     console.error(error)
