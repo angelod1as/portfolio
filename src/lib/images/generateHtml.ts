@@ -5,14 +5,14 @@ import { join } from 'path'
 import puppeteer from 'puppeteer'
 
 type Tag = 'h1' | 'h2'
-const parseText = (string: string, tag: Tag) => {
+const parseText = async (string: string, tag: Tag) => {
   marked.use({
     renderer: {
       paragraph: text => `<${tag}>${text}</${tag}>`,
       strong: text => `<b class="text-highlight">${text}</b>`,
     },
   })
-  return marked.parse(string)
+  return await marked.parse(string)
 }
 
 const parseHero = (src: string, projectDir: string) => {
@@ -21,7 +21,7 @@ const parseHero = (src: string, projectDir: string) => {
   return `<img class="hero" src="data:image/jpeg;base64,${base64}" />`
 }
 
-export const generateHtml = (
+export const generateHtml = async (
   metadata: Metadata,
   viewport: puppeteer.Viewport
 ) => {
@@ -32,9 +32,9 @@ export const generateHtml = (
     'utf8'
   )
 
-  const title = parseText(metadata.title, 'h1')
+  const title = await parseText(metadata.title, 'h1')
   const description = metadata.description
-    ? parseText(metadata.description, 'h2')
+    ? await parseText(metadata.description, 'h2')
     : undefined
   const heroImage = metadata.hero?.src
     ? parseHero(metadata.hero.src, projectDir)

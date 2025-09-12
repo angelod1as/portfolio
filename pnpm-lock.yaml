@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@mdx-js/react':
-        specifier: ^2.1.1
+        specifier: ^2.3.0
         version: 2.3.0(react@18.3.1)
       '@radix-ui/react-accordion':
         specifier: ^0.1.6
@@ -33,13 +33,13 @@ importers:
         specifier: ^1.0.1
         version: 1.2.1
       marked:
-        specifier: ^4.0.16
-        version: 4.3.0
+        specifier: ^12.0.2
+        version: 12.0.2
       next:
         specifier: ^14.2.32
         version: 14.2.32(@babel/core@7.28.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.92.1)
       next-mdx-remote:
-        specifier: ^4.0.3
+        specifier: ^4.4.1
         version: 4.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ow:
         specifier: ^0.28.1
@@ -60,10 +60,10 @@ importers:
         specifier: ^6.1.1
         version: 6.1.1
       rehype-highlight:
-        specifier: ^5.0.2
-        version: 5.0.2
+        specifier: ^6.0.0
+        version: 6.0.0
       rehype-slug:
-        specifier: ^5.0.1
+        specifier: ^5.1.0
         version: 5.1.0
       rss-parser:
         specifier: ^3.12.0
@@ -2849,9 +2849,9 @@ packages:
     resolution: {integrity: sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==}
     engines: {node: '>=0.10.0'}
 
-  marked@4.3.0:
-    resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
-    engines: {node: '>= 12'}
+  marked@12.0.2:
+    resolution: {integrity: sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==}
+    engines: {node: '>= 18'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -3450,8 +3450,8 @@ packages:
   rehype-autolink-headings@6.1.1:
     resolution: {integrity: sha512-NMYzZIsHM3sA14nC5rAFuUPIOfg+DFmf9EY1YMhaNlB7+3kK/ZlE6kqPfuxr1tsJ1XWkTrMtMoyHosU70d35mA==}
 
-  rehype-highlight@5.0.2:
-    resolution: {integrity: sha512-ZNm8V8BQUDn05cJPzAu/PjiloaFFrh+Pt3bY+NCcdCggI7Uyl5mW0FGR7RATeIz5/ECUd1D8Kvjt4HaLPmnOMw==}
+  rehype-highlight@6.0.0:
+    resolution: {integrity: sha512-q7UtlFicLhetp7K48ZgZiJgchYscMma7XjzX7t23bqEJF8m6/s+viXQEe4oHjrATTIZpX7RG8CKD7BlNZoh9gw==}
 
   rehype-slug@5.1.0:
     resolution: {integrity: sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==}
@@ -7457,7 +7457,7 @@ snapshots:
 
   markdown-extensions@1.1.1: {}
 
-  marked@4.3.0: {}
+  marked@12.0.2: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -8264,7 +8264,7 @@ snapshots:
       unified: 10.1.2
       unist-util-visit: 4.1.2
 
-  rehype-highlight@5.0.2:
+  rehype-highlight@6.0.0:
     dependencies:
       '@types/hast': 2.3.10
       hast-util-to-text: 3.1.2
