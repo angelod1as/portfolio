@@ -42,8 +42,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@types/react@18.3.24)(react@18.3.1)
       ow:
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^3.0.0
+        version: 3.0.0
       puppeteer:
         specifier: ^24.20.0
         version: 24.20.0(typescript@5.9.2)
@@ -3417,9 +3417,9 @@ packages:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
 
-  ow@2.0.0:
-    resolution: {integrity: sha512-ESUigmGrdhUZ2nQSFNkeKSl6ZRPupXzprMs3yF9DYlNVpJ8XAjM/fI9RUZxA7PI1K9HQDCCvBo1jr/GEIo9joQ==}
-    engines: {node: '>=18'}
+  ow@3.0.0:
+    resolution: {integrity: sha512-Hud8xDH/tbY0iAdiGry4ZtaTloALVVdykLhuKgztOjYI+YRdB3NB8eqsCSn91r7oj1pZ+MZFLYB88sDhW0Od4Q==}
+    engines: {node: '>=20'}
 
   own-keys@1.0.1:
     resolution: {integrity: sha512-qFOyK5PjiWZd+QQIh+1jhdb9LpxTF0qs7Pm8o5QHYZ0M3vKqSqzsZaEB6oWlxZ+q2sJBMI/Ktgd2N5ZwQoRHfg==}
@@ -8378,7 +8378,7 @@ snapshots:
       type-check: 0.4.0
       word-wrap: 1.2.5
 
-  ow@2.0.0:
+  ow@3.0.0:
     dependencies:
       '@sindresorhus/is': 6.3.1
       callsites: 4.2.0
