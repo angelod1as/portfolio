@@ -7,8 +7,8 @@
 - [ ] Re-enable `@typescript-eslint/promise-function-async` rule after fixing ESLint/TypeScript compatibility
 
 ## Deprecated Packages Warnings
-- [ ] `eslint-config-standard-with-typescript@21.0.1` - Deprecated, should use `eslint-config-love` instead
-- [ ] `eslint@8.15.0` - No longer supported, needs update
+- [x] `eslint-config-standard-with-typescript@21.0.1` - Removed (eslint-config-love requires ESLint 9, staying with ESLint 8 for Next.js compatibility)
+- [x] `eslint@8.15.0` - Updated to 8.57.1 (staying on v8 for Next.js compatibility)
 - [ ] `puppeteer@14.4.1` - Version < 24.10.2 is no longer supported (will update to v21 as planned)
 
 ## Deprecated Subdependencies
