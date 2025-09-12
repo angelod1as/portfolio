@@ -30,8 +30,7 @@
     "./src/test/test-helper.tsx",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "src/test/__mocks__/fileMock.js"
+    "**/*.tsx"
   ],
   "exclude": ["node_modules"]
 }
