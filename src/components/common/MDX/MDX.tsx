@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { Metadata, FCC, MDXProps } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import React from 'react'
@@ -13,12 +12,10 @@ type Props = {
 }
 
 export const MDX: FCC<Props> = ({ mdx, type, metadata }) => {
-  const { colors } = useColorContext()
   const { components, ...rest } = mdx
 
   const [bodyComponents, titleComponents] = parseComponents({
     components,
-    colors,
   })
 
   if (metadata) {

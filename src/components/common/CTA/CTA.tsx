@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { ReactNode } from 'react'
 import { Link } from '../Links'
 
@@ -19,14 +18,12 @@ export const CTA = ({
   mdx,
   inner,
 }: CTAProps) => {
-  const { colors } = useColorContext()
-
   const finalContent = (
     <button
       className={`
       border-4 bg-black block w-full text-center px-2 py-2 font-bold cursor-pointer
-      ${disabled ? 'border-gray-600' : colors.borderColor}
-      ${disabled ? 'text-gray-600' : colors.textColor}
+      ${disabled ? 'border-gray-600' : 'border-highlight'}
+      ${disabled ? 'text-gray-600' : 'text-highlight'}
       `}
     >
       {title && <h3 className="font-normal">{title}</h3>}

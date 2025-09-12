@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React, { useEffect, useState } from 'react'
 
 export const ProgressBar = () => {
@@ -17,13 +16,9 @@ export const ProgressBar = () => {
     return () => window.removeEventListener('scroll', scrollHeight)
   }, [])
 
-  const { colors } = useColorContext()
   return (
     <div className="fixed bottom-0 left-0 z-50 w-full h-1">
-      <div
-        style={{ width: `${width}%` }}
-        className={`h-full ${colors.bgColor}`}
-      />
+      <div style={{ width: `${width}%` }} className="h-full bg-highlight" />
     </div>
   )
 }

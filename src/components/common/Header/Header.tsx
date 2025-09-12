@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -7,7 +6,6 @@ import { MenuLink } from './MenuLink'
 
 export const Header: FCC = () => {
   const { asPath } = useRouter()
-  const { colors } = useColorContext()
 
   return (
     <div
@@ -21,7 +19,7 @@ export const Header: FCC = () => {
       {asPath !== '/' && (
         <div className="hidden md:block">
           <b>
-            I'm <span className={colors.textColor}>angelo</span> and I do stuff
+            I'm <span className="text-highlight">angelo</span> and I do stuff
           </b>
         </div>
       )}

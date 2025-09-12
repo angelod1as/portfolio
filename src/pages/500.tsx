@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { randomColors, RandomColors } from 'src/helpers/colors'
 
 const ServerError: NextPage = () => {
   return <div>500</div>
@@ -7,14 +6,10 @@ const ServerError: NextPage = () => {
 
 export default ServerError
 
-type GetStaticPropsType = {
-  colors: RandomColors
-}
+type GetStaticPropsType = {}
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
-  const colors = randomColors()
-
   return {
-    props: { colors },
+    props: {},
   }
 }

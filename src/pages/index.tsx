@@ -1,6 +1,5 @@
-import type { GetStaticProps, NextPage } from 'next'
 import { Home } from '#components/pages/Home'
-import { randomColors, RandomColors } from 'src/helpers/colors'
+import type { GetStaticProps, NextPage } from 'next'
 
 const HomePage: NextPage = () => {
   return <Home />
@@ -8,14 +7,10 @@ const HomePage: NextPage = () => {
 
 export default HomePage
 
-type GetStaticPropsType = {
-  colors: RandomColors
-}
+type GetStaticPropsType = {}
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
-  const colors = randomColors()
-
   return {
-    props: { colors, slug: 'homepage' },
+    props: { slug: 'homepage' },
   }
 }

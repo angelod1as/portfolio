@@ -31,7 +31,9 @@ export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
           <Strong>Agile</Strong> environments
         </p>
         <p>
-          Codewise I'm less of a generalist and more focused on <Strong>Typescript</Strong> and <Strong>React</Strong>. I've been building React projects since 2015 (way before hooks).
+          Codewise I'm less of a generalist and more focused on{' '}
+          <Strong>Typescript</Strong> and <Strong>React</Strong>. I've been
+          building React projects since 2015 (way before hooks).
         </p>
 
         <div className="flex flex-col gap-2 pt-2">
@@ -39,8 +41,8 @@ export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
             <p>A good chunk of the modern web development ecosystem.</p>
             <ul className="list-disc">
               <li>
-                <Strong>Javascript</Strong> - Typescript, React, NextJS, React Router 7, Remix, Astro, Redux,
-                Node.js
+                <Strong>Javascript</Strong> - Typescript, React, NextJS, React
+                Router 7, Remix, Astro, Redux, Node.js
               </li>
               <li>
                 <Strong>CSS</Strong> - Tailwind, SASS, Stylus, Styled

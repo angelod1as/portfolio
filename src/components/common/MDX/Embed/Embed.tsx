@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import React from 'react'
 import ResponsiveEmbed from 'react-responsive-embed'
 
@@ -13,13 +12,12 @@ export const Embed = ({
   allowFullScreen = true,
   ...props
 }: EmbedProps) => {
-  const { colors } = useColorContext()
   if (youtubeId) {
     src = `https://www.youtube.com/embed/${youtubeId}`
   }
 
   return (
-    <div className={`my-8 border-4 ${colors.borderColor}`}>
+    <div className="my-8 border-4 border-highlight">
       <ResponsiveEmbed {...props} src={src} allowFullScreen={allowFullScreen} />
     </div>
   )

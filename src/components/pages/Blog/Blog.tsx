@@ -1,5 +1,4 @@
 import { Metadata, FCC } from '#types/types'
-import { useColorContext } from '../../templates/Providers/ColorProvider'
 import { BlogList } from './BlogList'
 
 export type PostProps = Array<{
@@ -13,16 +12,12 @@ export type BlogProps = {
 }
 
 export const Blog: FCC<BlogProps> = ({ posts }) => {
-  const { colors } = useColorContext()
-
-  const Strong: FCC = props => (
-    <strong {...props} className={colors.textColor} />
-  )
+  const Strong: FCC = props => <strong {...props} className="text-highlight" />
 
   return (
     <>
       <h1>
-        I'm angelo and I do <span className={colors.textColor}>blogging</span>
+        I'm angelo and I do <span className="text-highlight">blogging</span>
       </h1>
       <div>
         <p>

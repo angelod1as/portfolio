@@ -1,16 +1,14 @@
 import { HomeSection } from '#components/common/HomeSection'
 import { Link, LinkProps } from '#components/common/Links'
 import { FCC } from '#types/types'
-import React from 'react'
-import { textColor } from 'src/helpers/colors'
 import {
   Am,
+  Colophon,
   Generalist,
   Opening,
+  Recommendations,
   Want,
   Was,
-  Colophon,
-  Recommendations,
 } from './Sections'
 
 // TODO: Add :stars: to Stuff
@@ -18,51 +16,49 @@ import {
 const sections = [
   {
     Component: Opening,
-    color: textColor[0],
   },
   {
     Component: Generalist,
-    color: textColor[1],
   },
   {
     Component: Want,
-    color: textColor[2],
   },
   {
     Component: Am,
-    color: textColor[3],
   },
   {
     Component: Was,
-    color: textColor[4],
   },
   {
     Component: Recommendations,
-    color: textColor[5],
   },
 ]
 
 export function Home() {
   return (
     <>
-      {sections.map(({ Component, color }, index) => {
+      {sections.map(({ Component }, index) => {
         const Strong: FCC = ({ children }) => (
-          <strong className={color}>{children}</strong>
+          <strong className="text-highlight">{children}</strong>
         )
 
         const ColorLink: FCC<LinkProps> = props => (
-          <Link className={color} {...props}>
+          <Link className="text-highlight" {...props}>
             {props.children}
           </Link>
         )
 
         return (
           <HomeSection key={index}>
-            <Component color={color} Strong={Strong} ColorLink={ColorLink} />
+            <Component
+              color="text-highlight"
+              Strong={Strong}
+              ColorLink={ColorLink}
+            />
           </HomeSection>
         )
       })}
-      <Colophon color={textColor[0]} />
+      <Colophon color="text-highlight" />
     </>
   )
 }

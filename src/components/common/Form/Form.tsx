@@ -5,8 +5,6 @@ import { ApiError } from './ApiError'
 import { submitForm } from './helpers/submitForm'
 import { Submit } from './Submit'
 import { Strong as StrongModifier } from '#components/common/Strong'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
-import { textColor as defaultTextColor } from 'src/helpers/colors'
 
 type FormProps<T> = {
   fetcher: (props: T) => Promise<PostResult>
@@ -31,13 +29,11 @@ export const Form = <T extends FormikValues>({
   children,
   className,
 }: FormProps<T>) => {
-  const { colors } = useColorContext()
-  const textColor = colors?.textColor ?? defaultTextColor[0]
   const [apiErrors, setApiErrors] = useState<ErrorProps[]>([])
   const [success, setSuccess] = useState(false)
 
   const Strong: FCC = ({ children }) => (
-    <StrongModifier color={textColor}>{children}</StrongModifier>
+    <StrongModifier color="text-highlight">{children}</StrongModifier>
   )
 
   return (

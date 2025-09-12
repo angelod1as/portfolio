@@ -1,7 +1,5 @@
 import React from 'react'
-import { textColor as defaultTextColor } from 'src/helpers/colors'
 import { Strong as StrongModifier } from '#components/common/Strong'
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { FCC } from '#types/types'
 import { Link } from '#components/common/Links'
 import { H2, H3, LI, UL } from '#components/common/Typography'
@@ -17,17 +15,14 @@ type FormProps = {
 export type KaraokeFormProps = FormProps
 
 export const SurubaParty = () => {
-  const { colors } = useColorContext()
-  const textColor = colors?.textColor ?? defaultTextColor[0]
-
   const Strong: FCC = ({ children }) => (
-    <StrongModifier color={textColor}>{children}</StrongModifier>
+    <StrongModifier color="text-highlight">{children}</StrongModifier>
   )
 
   return (
     <div>
       <h2 className="mb-4 h2-as-h1">
-        Festa de <span className={textColor}>gente pelada</span>
+        Festa de <span className="text-highlight">gente pelada</span>
       </h2>
       <div className="flex flex-col gap-4 my-8">
         <p>
@@ -82,7 +77,7 @@ export const SurubaParty = () => {
       </div>
 
       <H2>
-        Suruba <span className={textColor}>não é</span> bagunça
+        Suruba <span className="text-highlight">não é</span> bagunça
       </H2>
       <H3>Quem sou eu na fila do pão</H3>
       <p>

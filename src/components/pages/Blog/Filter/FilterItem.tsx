@@ -1,4 +1,3 @@
-import { useColorContext } from '#components/templates/Providers/ColorProvider'
 import { Item } from '@radix-ui/react-toggle-group'
 import React, { FC } from 'react'
 import style from './FilterItem.module.sass'
@@ -10,9 +9,8 @@ type FilterItemProps = {
 }
 
 export const FilterItem: FC<FilterItemProps> = ({ label, value, checked }) => {
-  const { colors } = useColorContext()
   const checkedStyle = checked ? style.checked : style.unchecked
-  const bgStyle = checked ? colors.bgColor : 'bg-transparent'
+  const bgStyle = checked ? 'bg-highlight' : 'bg-transparent'
   return (
     <Item
       key={value}
