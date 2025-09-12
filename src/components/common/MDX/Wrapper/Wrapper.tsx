@@ -2,7 +2,6 @@ import { PageType } from '#lib/common/fetchAllPages'
 import { FCC, Metadata } from '#types/types'
 import { MDXRemote } from 'next-mdx-remote'
 import Image from 'next/image'
-import React from 'react'
 import { MDXComponents } from '../parseComponents'
 import { BlogPostWrapper } from './BlogPostWrapper'
 import { ProjectWrapper } from './ProjectWrapper'
@@ -54,6 +53,8 @@ export const Wrapper: FCC<WrapperProps> = ({
         <MDXRemote
           compiledSource={compiledTitle}
           components={titleComponents}
+          scope={{}}
+          frontmatter={{}}
         />
       )}
 

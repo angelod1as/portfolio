@@ -19,7 +19,11 @@ export const Page: FCC<PageProps> = ({ content }) => {
           image={metadata.socialImagePath ?? undefined}
         />
       )}
-      <MDX mdx={{ compiledSource }} metadata={metadata} type="pages" />
+      <MDX
+        mdx={{ compiledSource, frontmatter: {}, scope: {} }}
+        metadata={metadata}
+        type="pages"
+      />
     </>
   )
 }

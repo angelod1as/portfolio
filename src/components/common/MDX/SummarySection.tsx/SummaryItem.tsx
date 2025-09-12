@@ -1,4 +1,3 @@
-import React from 'react'
 import { MDX } from '../MDX'
 
 type SummaryItemProps = {
@@ -23,7 +22,10 @@ export const SummaryItem = ({
         {isParagraph ? (
           <p>{ongoing ? `Since ${content}` : content}</p>
         ) : (
-          <MDX mdx={{ compiledSource: content }} type="clean" />
+          <MDX
+            mdx={{ compiledSource: content, scope: {}, frontmatter: {} }}
+            type="clean"
+          />
         )}
       </div>
     </>

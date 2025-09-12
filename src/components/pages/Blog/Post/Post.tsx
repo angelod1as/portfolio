@@ -20,7 +20,11 @@ export const Post: FCC<BlogPostProps> = ({ content }) => {
           image={metadata.socialImagePath ?? undefined}
         />
       )}
-      <MDX mdx={{ compiledSource }} metadata={metadata} type="blog" />
+      <MDX
+        mdx={{ compiledSource, scope: {}, frontmatter: {} }}
+        metadata={metadata}
+        type="blog"
+      />
     </>
   )
 }

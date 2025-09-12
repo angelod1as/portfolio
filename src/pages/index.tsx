@@ -7,9 +7,7 @@ const HomePage: NextPage = () => {
 
 export default HomePage
 
-type GetStaticPropsType = Record<string, never>
-
-export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { slug: 'homepage' },
   }

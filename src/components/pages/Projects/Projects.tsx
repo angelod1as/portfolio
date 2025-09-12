@@ -1,7 +1,6 @@
 import { Link } from '#components/common/Links'
 import { Strong } from '#components/common/Strong'
 import { PageMetadata, ProjectMetadata } from '#types/types'
-import React from 'react'
 import { ProjectList } from './ProjectList'
 
 export type ProjectProps = PageMetadata & {
@@ -21,8 +20,8 @@ export const Projects = ({ projects }: ProjectsProps) => {
       </h1>
 
       <p>
-        From <Strong color="text-highlight">web development</Strong> to{' '}
-        <Strong color="text-highlight">scriptwriting</Strong>, I've done a lot.
+        From <Strong>web development</Strong> to <Strong>scriptwriting</Strong>,
+        I've done a lot.
         <br /> This brief is a summary of notable projects.
       </p>
 
