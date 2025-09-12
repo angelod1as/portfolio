@@ -1,4 +1,3 @@
-import { generateSocialImage } from '#lib/images/generateSocialImage'
 import { Metadata } from '#types/types'
 import { timeToRead } from 'src/helpers/timeToRead'
 import { wordCount } from 'src/helpers/wordCount'
@@ -18,21 +17,19 @@ export const parseMDXMetadata = async (
   hasContent: boolean
 ) => {
   const projectDir = process.cwd()
-  const publicDir = directory.split(projectDir)[1]
+  const _publicDir = directory.split(projectDir)[1]
 
   const hero = compileHero(metadata.hero, directory)
 
-  // Generate Social Image
+  // Generate Social Image URL (dynamic, not at build time)
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000'
+
   const socialImagePath = hasContent
-    ? await generateSocialImage({
-        directory,
-        publicDir,
-        fileName,
-        metadata: {
-          ...metadata,
-          hero,
-        },
-      })
+    ? `${baseUrl}/api/og?title=${encodeURIComponent(metadata.title || '')}&description=${encodeURIComponent(metadata.description || '')}`
     : 'no-content'
 
   return {
