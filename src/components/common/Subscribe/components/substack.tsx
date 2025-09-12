@@ -113,17 +113,17 @@ export const Substack = ({ blog, succint }: SubstackProps) => {
             Read my <span className="text-highlight">Newsletter</span>
           </h2>
           <p>
-            I write <Strong>way</Strong> more often in my{' '}
-            <Link href="https://angelodias.substack.com/">newsletter</Link> and
-            choose only <Strong>a few</Strong> things to be put in my blog.
+            My{' '}
+            <Strong>
+              <Link href="https://www.cronofobia.com/">newsletter</Link>
+            </Strong>{' '}
+            is the home for my writings. This blog is deprecated (but I'll keep
+            the existing articles here for reference).
           </p>
-          <p className="mb-4">
-            It doesn't have a clear schedule, but I'm{' '}
-            <Strong>working hard</Strong> to send an issue at least once a week.
-          </p>
+
           <p className="mb-4">
             Ah, even though my website is in English, my newsletter currently
-            has <Strong>Brazilian Portuguese</Strong> content.
+            has only <Strong>Brazilian Portuguese</Strong> content.
           </p>
         </>
       )}
