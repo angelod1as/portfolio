@@ -44,7 +44,7 @@ export const generateSocialImage = async ({
       width: 1200,
     }
 
-    const finalHtml = generateHtml(metadata, viewPort)
+    const finalHtml = await generateHtml(metadata, viewPort)
 
     await runPuppeteer(finalHtml, socialImagePathAndFilename, viewPort).catch(
       err => {
@@ -59,7 +59,7 @@ export const generateSocialImage = async ({
       width: 1200,
     }
 
-    const finalHtml = generateHtml(metadata, viewPort)
+    const finalHtml = await generateHtml(metadata, viewPort)
 
     await runPuppeteer(finalHtml, instagramImagePathAndFilename, {
       height: 1200,
