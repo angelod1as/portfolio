@@ -123,7 +123,7 @@ export const Recommendations: FC<SectionProps> = ({
   return (
     <div className="flex flex-col gap-8">
       <h2>
-        A few LinkedIn <span className={color}>recommendations</span>:
+        A few LinkedIn <span className="text-highlight">recommendations</span>:
       </h2>
 
       <p className="">

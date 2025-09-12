@@ -7,8 +7,7 @@ export const Closed = () => {
       <h2 className={`mb-10`}>
         <span className="text-highlight">Subscribe</span> to my blog
         <p>
-          Oops, subscriptions are <Strong color="text-highlight">closed</Strong>{' '}
-          for now.{' '}
+          Oops, subscriptions are <Strong>closed</Strong> for now.{' '}
           <Link inner href="/blog/about-subscription">
             read here to know more.
           </Link>

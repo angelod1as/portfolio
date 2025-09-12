@@ -11,8 +11,6 @@ import {
   Was,
 } from './Sections'
 
-// TODO: Add :stars: to Stuff
-
 const sections = [
   {
     Component: Opening,
@@ -50,15 +48,11 @@ export function Home() {
 
         return (
           <HomeSection key={index}>
-            <Component
-              color="text-highlight"
-              Strong={Strong}
-              ColorLink={ColorLink}
-            />
+            <Component Strong={Strong} ColorLink={ColorLink} />
           </HomeSection>
         )
       })}
-      <Colophon color="text-highlight" />
+      <Colophon />
     </>
   )
 }

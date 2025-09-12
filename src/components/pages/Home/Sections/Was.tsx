@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
+export const Was: FC<SectionProps> = ({ Strong, ColorLink }) => {
   if (!Strong || !ColorLink) {
     return null
   }
@@ -9,7 +9,7 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
   return (
     <>
       <h2 className="h2-as-h1">
-        I <span className={color}>was</span>
+        I <span className="text-highlight">was</span>
       </h2>
 
       <div>
@@ -42,9 +42,9 @@ export const Was: FC<SectionProps> = ({ color, Strong, ColorLink }) => {
           . I designed <Strong>print</Strong> and <Strong>digital</Strong>{' '}
           pages, built multimedia <Strong>infographics</Strong>, and developed
           internal and external <Strong>digital tools</Strong>. At Folha I
-          worked on a project that won {/* <ColorLink href="/awards"> */}
-          <Strong>Brazil's biggest journalism award</Strong>
-          {/* </ColorLink> */}, among other prizes;
+          worked on a project that won{' '}
+          <Strong>Brazil's biggest journalism award</Strong>, among other
+          prizes;
         </p>
         <p>
           ... a <Strong>writer</Strong>, <Strong>editor</Strong>, and{' '}
