@@ -2,14 +2,13 @@ import { FCC } from '#types/types'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import React from 'react'
 
-export type LinkProps =
-  | Omit<NextLinkProps, 'href'> & {
-      download?: boolean
-      href: string | null
-      block?: boolean
-      inner?: boolean
-      className?: string
-    }
+export type LinkProps = Omit<NextLinkProps, 'href'> & {
+  download?: boolean
+  href: string | null
+  block?: boolean
+  inner?: boolean
+  className?: string
+}
 
 export const Link: FCC<LinkProps> = ({
   href,
