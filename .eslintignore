@@ -9,6 +9,7 @@
 
 # testing
 /coverage
+/src/test/__mocks__
 
 # next.js
 /.next/
