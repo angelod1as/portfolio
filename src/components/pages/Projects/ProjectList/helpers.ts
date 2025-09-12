@@ -40,11 +40,16 @@ const generateTimes = (
         selectedType === '' ? true : project.metadata.type === selectedType,
       ].every(Boolean)
     )
-    .map(project =>
-      project.metadata.summary?.when
-        ? new Date(project.metadata.summary?.when).getFullYear()
-        : undefined
-    )
+    .map(project => {
+      // Get the last date from the array (end date), or first if only one
+      const whenValue = Array.isArray(project.metadata.summary?.when)
+        ? project.metadata.summary?.when[
+            project.metadata.summary?.when.length - 1
+          ]
+        : project.metadata.summary?.when
+
+      return whenValue ? new Date(Number(whenValue)).getFullYear() : undefined
+    })
     .filter(
       (category, index, self): category is number =>
         Boolean(category) && self.indexOf(category) === index
@@ -91,11 +96,17 @@ export const generateSelects = (
 }
 
 export const sortProjectByDate = (a: ProjectProps, b: ProjectProps) => {
-  if (
-    typeof a.metadata.summary?.when === 'number' &&
-    typeof b.metadata.summary?.when === 'number'
-  ) {
-    return b.metadata.summary?.when - a.metadata.summary?.when
+  // Get the last date from arrays (end date), or the single value
+  const aWhen = Array.isArray(a.metadata.summary?.when)
+    ? a.metadata.summary?.when[a.metadata.summary?.when.length - 1] // Last element (end date)
+    : a.metadata.summary?.when
+
+  const bWhen = Array.isArray(b.metadata.summary?.when)
+    ? b.metadata.summary?.when[b.metadata.summary?.when.length - 1] // Last element (end date)
+    : b.metadata.summary?.when
+
+  if (aWhen && bWhen) {
+    return Number(bWhen) - Number(aWhen)
   }
   return 0
 }
