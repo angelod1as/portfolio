@@ -11,7 +11,7 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
   return (
     <>
       <h1>
-        I'm angelo and I do <span className={color}>stuff</span>
+        I'm angelo and I do <span className="text-highlight">stuff</span>
       </h1>
 
       <div>
@@ -24,16 +24,15 @@ export const Opening: FC<SectionProps> = ({ color, Strong }) => {
           <Strong>award-winning journalist</Strong>.
         </p>
         <p>
-          I make <Strong>music</Strong> and write{' '}
-          <Strong>speculative fiction</Strong>.
+          I <Strong>code</Strong> professionally and have worked on{' '}
+          <Strong>a lot</Strong> of different projects.
         </p>
         <p>
-          I have a <Strong>newsletter</Strong>, did a{' '}
-          <Strong>daily podcast</Strong> for ±500 episodes, and edited a{' '}
-          <Strong>sci-fi newspaper</Strong> for 3 years.
-        </p>
-        <p>
-          See my{' '}
+          Continue reading to know more, check my{' '}
+          <Strong>
+            <Link href="/projects">projects</Link>
+          </Strong>
+          , or see my{' '}
           <Strong>
             <Link href="/cv/angelo_dias-resume.docx" download>
               resumé

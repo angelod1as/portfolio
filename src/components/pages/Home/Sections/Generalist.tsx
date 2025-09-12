@@ -2,7 +2,7 @@ import { Accordion } from '#components/common/Accordion'
 import { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
+export const Generalist: FC<SectionProps> = ({ Strong }) => {
   if (!Strong) {
     return null
   }
@@ -10,7 +10,7 @@ export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
   return (
     <>
       <h2 className="h2-as-h1">
-        I'm a proud <span className={color}>generalist</span>
+        I'm a proud <span className="text-highlight">generalist</span>
       </h2>
 
       <div>
@@ -35,9 +35,13 @@ export const Generalist: FC<SectionProps> = ({ color, Strong }) => {
           <Strong>Typescript</Strong> and <Strong>React</Strong>. I've been
           building React projects since 2015 (way before hooks).
         </p>
+        <p>
+          Also, I'm a <Strong>Contentful Certified</Strong> professional — I
+          really enjoy working with headless CMSs.
+        </p>
 
         <div className="flex flex-col gap-2 pt-2">
-          <Accordion color={color} title="I have worked before with:">
+          <Accordion title="I have worked before with:">
             <p>A good chunk of the modern web development ecosystem.</p>
             <ul className="list-disc">
               <li>

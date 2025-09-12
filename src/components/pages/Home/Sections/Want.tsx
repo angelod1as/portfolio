@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Want: FC<SectionProps> = ({ color, Strong }) => {
+export const Want: FC<SectionProps> = ({ Strong }) => {
   if (!Strong) {
     return null
   }
@@ -9,7 +9,7 @@ export const Want: FC<SectionProps> = ({ color, Strong }) => {
   return (
     <>
       <h2 className="h2-as-h1">
-        I <span className={color}>want</span>
+        I <span className="text-highlight">want</span>
       </h2>
 
       <div>
@@ -31,7 +31,9 @@ export const Want: FC<SectionProps> = ({ color, Strong }) => {
         <p>
           ... to deliver <Strong>high value</Strong> in whatever format the
           client needs. My focus is <Strong>web development</Strong>, but this
-          can change at any time.{' '}
+          can change at any time — I've worked as a <Strong>designer</Strong>,{' '}
+          <Strong>writer</Strong>, and even <Strong>teacher</Strong> in the
+          past.
         </p>
       </div>
     </>
