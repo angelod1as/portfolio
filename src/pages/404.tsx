@@ -6,7 +6,7 @@ const NotFound: NextPage = () => {
 
 export default NotFound
 
-type GetStaticPropsType = {}
+type GetStaticPropsType = Record<string, never>
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
   return {

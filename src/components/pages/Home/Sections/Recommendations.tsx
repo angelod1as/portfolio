@@ -111,11 +111,7 @@ const recommendations: Recommendation[] = [
   },
 ]
 
-export const Recommendations: FC<SectionProps> = ({
-  color,
-  Strong,
-  ColorLink,
-}) => {
+export const Recommendations: FC<SectionProps> = ({ Strong, ColorLink }) => {
   if (!Strong || !ColorLink) {
     return null
   }

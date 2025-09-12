@@ -44,7 +44,7 @@ const generateTimes = (
       // Get the last date from the array (end date), or first if only one
       const when = project.metadata.summary?.when
       if (!when || when.length === 0) return undefined
-      
+
       const lastDate = when[when.length - 1]
       return new Date(Number(lastDate)).getFullYear()
     })
@@ -97,14 +97,14 @@ export const sortProjectByDate = (a: ProjectProps, b: ProjectProps) => {
   // Get the last date from arrays (end date)
   const aWhen = a.metadata.summary?.when
   const bWhen = b.metadata.summary?.when
-  
+
   if (!aWhen || aWhen.length === 0 || !bWhen || bWhen.length === 0) {
     return 0
   }
-  
+
   const aLastDate = aWhen[aWhen.length - 1]
   const bLastDate = bWhen[bWhen.length - 1]
-  
+
   return Number(bLastDate) - Number(aLastDate)
 }
 

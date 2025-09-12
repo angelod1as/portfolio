@@ -7,7 +7,7 @@ const HomePage: NextPage = () => {
 
 export default HomePage
 
-type GetStaticPropsType = {}
+type GetStaticPropsType = Record<string, never>
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
   return {
