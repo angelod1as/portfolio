@@ -42,7 +42,27 @@ export const compileTitle = async (title: string, type: PageType) => {
   return null
 }
 
-const generateWhen = (when: string | number | null) => {
+const generateWhen = (when: (string | number)[] | string | number | null) => {
+  if (!when) return null
+
+  // Handle array format
+  if (Array.isArray(when)) {
+    if (when.length === 0) return null
+    if (when.length === 1) {
+      return TimestampToDate(Number(when[0]), ['day']) || null
+    }
+    if (when.length === 2) {
+      const fromDate = TimestampToDate(Number(when[0]), ['day'])
+      const toDate = TimestampToDate(Number(when[1]), ['day'])
+      return fromDate && toDate ? `from ${fromDate} to ${toDate}` : null
+    }
+    // If more than 2 items, just use first and last
+    const fromDate = TimestampToDate(Number(when[0]), ['day'])
+    const toDate = TimestampToDate(Number(when[when.length - 1]), ['day'])
+    return fromDate && toDate ? `from ${fromDate} to ${toDate}` : null
+  }
+
+  // Handle legacy single value format
   return TimestampToDate(Number(when), ['day']) || null
 }
 
