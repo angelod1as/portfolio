@@ -6,7 +6,7 @@ const ServerError: NextPage = () => {
 
 export default ServerError
 
-type GetStaticPropsType = {}
+type GetStaticPropsType = Record<string, never>
 
 export const getStaticProps: GetStaticProps<GetStaticPropsType> = async () => {
   return {

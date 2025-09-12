@@ -3,7 +3,7 @@ import { Subscribe } from '#components/common/Subscribe'
 import { FC } from 'react'
 import { SectionProps } from '.'
 
-export const Opening: FC<SectionProps> = ({ color, Strong }) => {
+export const Opening: FC<SectionProps> = ({ Strong }) => {
   if (!Strong) {
     return null
   }
