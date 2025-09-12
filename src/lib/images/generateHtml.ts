@@ -3,15 +3,13 @@ import { readFileSync } from 'fs'
 import { marked } from 'marked'
 import { join } from 'path'
 import puppeteer from 'puppeteer'
-import { textColor } from 'src/helpers/colors'
 
 type Tag = 'h1' | 'h2'
 const parseText = (string: string, tag: Tag) => {
-  const color = textColor[0]
   marked.use({
     renderer: {
       paragraph: text => `<${tag}>${text}</${tag}>`,
-      strong: text => `<b class="${color}">${text}</b>`,
+      strong: text => `<b class="text-highlight">${text}</b>`,
     },
   })
   return marked.parse(string)
