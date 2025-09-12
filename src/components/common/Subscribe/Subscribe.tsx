@@ -5,16 +5,17 @@ import { Substack } from './components/substack'
 type SubscribeProps = {
   blog?: boolean
   closed?: boolean
+  succint?: boolean
 }
 
-export const Subscribe = ({ blog, closed }: SubscribeProps) => {
+export const Subscribe = ({ blog, closed, succint }: SubscribeProps) => {
   if (closed) {
     return <Closed />
   }
 
   return (
     <div>
-      <Substack blog={blog} />
+      <Substack blog={blog} succint={succint} />
       {blog && <Rss />}
     </div>
   )
