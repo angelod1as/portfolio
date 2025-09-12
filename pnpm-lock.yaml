@@ -76,7 +76,7 @@ importers:
         version: 2.3.6(react@18.3.1)
     devDependencies:
       '@babel/core':
-        specifier: ^7.17.10
+        specifier: ^7.28.4
         version: 7.28.4
       '@testing-library/jest-dom':
         specifier: ^6.8.0
@@ -88,7 +88,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/marked':
-        specifier: ^4.0.3
+        specifier: ^4.3.2
         version: 4.3.2
       '@types/node':
         specifier: 20.19.13
@@ -160,7 +160,7 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2
       simple-git:
-        specifier: ^3.16.0
+        specifier: ^3.28.0
         version: 3.28.0
       tailwindcss:
         specifier: ^3.4.17
