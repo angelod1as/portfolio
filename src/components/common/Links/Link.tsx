@@ -1,6 +1,5 @@
 import { FCC } from '#types/types'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import React from 'react'
 
 export type LinkProps = Omit<NextLinkProps, 'href'> & {
   download?: boolean
@@ -30,29 +29,24 @@ export const Link: FCC<LinkProps> = ({
           rel: 'noreferrer',
         }
 
-  const Anchor = (
-    <a
-      {...rest}
-      {...linkProps}
-      href={href}
-      className={`
+  const sharedClassName = `
       ${className}
       ${block ? 'hover:scale-[0.98]' : 'hover:scale-95 inline-block'}
       ${isAnchor ? 'anchor' : 'italic'}
       font-bold cursor-pointer transition-transform
-      `}
-    >
-      {children}
-    </a>
-  )
+      `
 
-  if (inner) {
+  if (isInner) {
     return (
-      <NextLink href={href} passHref {...rest}>
-        {Anchor}
+      <NextLink href={href} className={sharedClassName} {...rest}>
+        {children}
       </NextLink>
     )
   }
 
-  return Anchor
+  return (
+    <a {...rest} {...linkProps} href={href} className={sharedClassName}>
+      {children}
+    </a>
+  )
 }
