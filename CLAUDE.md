@@ -49,6 +49,10 @@ MDX files in `/content/{blog,projects,pages}/` → parsed with `gray-matter` (fr
 
 `#types/*`, `#pages/*`, `#components/*`, `#test/*`, `#lib/*`, `#content/*` — all map into `src/` subdirectories.
 
+## Git Commits
+
+- **DO NOT CO-AUTHOR**: Never add `Co-Authored-By` lines to commit messages.
+
 ## Style & Conventions
 
 - **Styling**: Tailwind CSS + SASS (`src/styles/globals.sass`). Custom colors: highlight (#f2ca19), red (#F95B2B). Dark mode via class strategy.
