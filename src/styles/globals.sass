@@ -60,3 +60,18 @@ small
 
 hr
   @apply my-8
+
+@keyframes shimmer
+  from
+    background-position: 200% center
+  to
+    background-position: -200% center
+
+.wave
+  background: linear-gradient(90deg, #7a6510 30%, #f2ca19 50%, #7a6510 70%)
+  background-size: 200% auto
+  animation: shimmer 2s linear infinite
+  -webkit-background-clip: text
+  background-clip: text
+  -webkit-text-fill-color: transparent
+  color: transparent

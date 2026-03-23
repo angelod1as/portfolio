@@ -1,4 +1,5 @@
 import React from 'react'
+import email from 'public/social/email.svg'
 import github from 'public/social/github.svg'
 import telegram from 'public/social/telegram.svg'
 import linkedin from 'public/social/linkedin.svg'
@@ -14,6 +15,9 @@ export const Contact: FCC = () => {
       </h2>
 
       <div className="flex justify-start gap-4 mt-10">
+        <Social href="mailto:oiangelodias@gmail.com">
+          <Image src={email} alt="email" width={40} height={40} />
+        </Social>
         <Social href="https://github.com/angelod1as">
           <Image src={github} alt="github" width={40} height={40} />
         </Social>
