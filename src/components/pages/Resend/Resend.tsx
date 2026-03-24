@@ -237,7 +237,8 @@ export function Resend() {
         <p>
           <ColorLink href="/cv/angelo_dias-resume.docx" download>
             Download my resume
-          </ColorLink>
+          </ColorLink>{' '}
+          or see <ColorLink href="/projects">all projects</ColorLink>.
         </p>
       </HomeSection>
     </>

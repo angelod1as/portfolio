@@ -189,40 +189,37 @@ function RecommendationCard({
 
   return (
     <div
-      className={`border p-4 rounded bg-transparent w-full ${
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
+      onClick={toggle}
+      onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && toggle()}
+      onPointerEnter={e => e.pointerType === 'mouse' && setHovered(true)}
+      onPointerLeave={e => e.pointerType === 'mouse' && setHovered(false)}
+      className={`border p-4 rounded bg-transparent w-full cursor-pointer ${
         highlighted ? 'border-highlight' : 'border-gray-700'
       }`}
     >
-      <div
-        role="button"
-        tabIndex={0}
-        aria-expanded={expanded}
-        onClick={toggle}
-        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && toggle()}
-        onPointerEnter={e => e.pointerType === 'mouse' && setHovered(true)}
-        onPointerLeave={e => e.pointerType === 'mouse' && setHovered(false)}
-        className="cursor-pointer"
+      <p
+        className="m-0 text-sm text-gray-400 transition-opacity duration-300"
+        style={{ opacity: expanded ? 0 : 1 }}
+        aria-hidden={expanded}
       >
-        <p
-          className="m-0 text-sm text-gray-400 transition-opacity duration-300"
-          style={{ opacity: expanded ? 0 : 1 }}
-          aria-hidden={expanded}
-        >
-          {excerpt}
-        </p>
-        <div
-          className="text-sm text-gray-400 transition-all duration-300 ease-in-out"
-          style={{
-            opacity: expanded ? 1 : 0,
-            maxHeight: expanded ? '600px' : '0px',
-            overflow: 'hidden',
-          }}
-          aria-hidden={!expanded}
-        >
-          {text(Strong)}
-        </div>
+        {excerpt}
+      </p>
+      <div
+        className="text-sm text-gray-400 transition-all duration-300 ease-in-out"
+        style={{
+          opacity: expanded ? 1 : 0,
+          maxHeight: expanded ? '600px' : '0px',
+          overflow: 'hidden',
+        }}
+        aria-hidden={!expanded}
+      >
+        {text(Strong)}
       </div>
-      <p className="m-0 mt-3 text-sm">
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
+      <p className="m-0 mt-3 text-sm" onClick={e => e.stopPropagation()}>
         <ColorLink href={`https://www.linkedin.com/in/${id}/`}>
           {name}
         </ColorLink>
