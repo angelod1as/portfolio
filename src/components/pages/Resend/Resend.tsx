@@ -238,7 +238,13 @@ export function Resend() {
           <ColorLink href="/cv/angelo_dias-resume.docx" download>
             Download my resume
           </ColorLink>{' '}
-          or see <ColorLink href="/projects">all projects</ColorLink>.
+          or see <ColorLink href="/projects">all projects</ColorLink> (they
+          range from web dev to comics scripts to podcasts to role-playing
+          games).{' '}
+          <ColorLink href="https://github.com/angelod1as/portfolio/">
+            This website is open-source
+          </ColorLink>
+          .
         </p>
       </HomeSection>
     </>
