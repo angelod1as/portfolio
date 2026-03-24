@@ -22,7 +22,7 @@
     "gray-matter": "^4.0.3",
     "image-size": "^2.0.2",
     "marked": "^16.2.1",
-    "next": "^15.5.3",
+    "next": "15.5.9",
     "next-mdx-remote": "^5.0.0",
     "ow": "^3.0.0",
     "puppeteer": "^24.20.0",
