@@ -70,7 +70,7 @@ const works: Work[] = [
     title: 'Casa de Francisca',
     description:
       'Cultural venue website. TanStack Start, Directus CMS, Tailwind v4, Docker/Coolify deployment. In progress.',
-    tags: ['react', 'fullstack', 'design'],
+    tags: ['react', 'full-stack', 'design'],
   },
   {
     title: 'Poem Printer',
@@ -81,17 +81,17 @@ const works: Work[] = [
   },
 ]
 
+const Strong: FCC = ({ children }) => (
+  <strong className="text-highlight">{children}</strong>
+)
+
+const ColorLink: FCC<LinkProps> = props => (
+  <Link className="text-highlight" {...props}>
+    {props.children}
+  </Link>
+)
+
 export function Resend() {
-  const Strong: FCC = ({ children }) => (
-    <strong className="text-highlight">{children}</strong>
-  )
-
-  const ColorLink: FCC<LinkProps> = props => (
-    <Link className="text-highlight" {...props}>
-      {props.children}
-    </Link>
-  )
-
   return (
     <>
       <NewHead
@@ -233,6 +233,11 @@ export function Resend() {
         <p>
           I'm not looking for just any job. I'm looking for{' '}
           <Strong>this one</Strong>. If any of this resonates, I'd love to talk.
+        </p>
+        <p>
+          <ColorLink href="/cv/angelo_dias-resume.docx" download>
+            Download my resume
+          </ColorLink>
         </p>
       </HomeSection>
     </>

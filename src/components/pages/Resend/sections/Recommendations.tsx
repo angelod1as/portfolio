@@ -185,19 +185,28 @@ function RecommendationCard({
 
   const expanded = locked || hovered
 
+  const toggle = () => setLocked(prev => !prev)
+
   return (
-    <button
-      onClick={() => setLocked(prev => !prev)}
-      onPointerEnter={e => e.pointerType === 'mouse' && setHovered(true)}
-      onPointerLeave={e => e.pointerType === 'mouse' && setHovered(false)}
-      className={`text-left border p-4 rounded cursor-pointer bg-transparent w-full ${
+    <div
+      className={`border p-4 rounded bg-transparent w-full ${
         highlighted ? 'border-highlight' : 'border-gray-700'
       }`}
     >
-      <div className="relative">
+      <div
+        role="button"
+        tabIndex={0}
+        aria-expanded={expanded}
+        onClick={toggle}
+        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && toggle()}
+        onPointerEnter={e => e.pointerType === 'mouse' && setHovered(true)}
+        onPointerLeave={e => e.pointerType === 'mouse' && setHovered(false)}
+        className="cursor-pointer"
+      >
         <p
           className="m-0 text-sm text-gray-400 transition-opacity duration-300"
           style={{ opacity: expanded ? 0 : 1 }}
+          aria-hidden={expanded}
         >
           {excerpt}
         </p>
@@ -208,6 +217,7 @@ function RecommendationCard({
             maxHeight: expanded ? '600px' : '0px',
             overflow: 'hidden',
           }}
+          aria-hidden={!expanded}
         >
           {text(Strong)}
         </div>
@@ -224,7 +234,7 @@ function RecommendationCard({
         )}
       </p>
       {extra && <p className="text-sm font-bold wave">{extra}</p>}
-    </button>
+    </div>
   )
 }
 
@@ -232,8 +242,6 @@ export const Recommendations: FC<ResendSectionProps> = ({
   ColorLink,
   Strong,
 }) => {
-  if (!ColorLink || !Strong) return null
-
   return (
     <div className="flex flex-col gap-8">
       <h2>
