@@ -91,6 +91,11 @@ const ColorLink: FCC<LinkProps> = props => (
   </Link>
 )
 
+/**
+ * This component was used in the now deprecated /resend URL
+ * I used it to apply for a job at Resend but sadly the position was closed.
+ * I keep it here for reference for future projects.
+ */
 export function Resend() {
   return (
     <>
