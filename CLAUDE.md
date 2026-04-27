@@ -63,6 +63,7 @@ pnpm astro add <name>  # add an integration
 - `main` is locked via the `lock-main-during-v3-rewrite` ruleset until launch.
 - v2 (Next.js) is preserved at tag `2.3.0`. To retrieve any v2 file: `git checkout 2.3.0 -- <path>`.
 - Never commit directly to `v3` — feature branches and PRs only.
+- **Vercel CI will fail on every PR and is expected to fail.** v2 had a Vercel deploy integration that's still wired to the repo; v3 targets GitHub Pages, not Vercel. Ignore the Vercel red ❌ check on PRs — it's not blocking. The Vercel integration will be removed at launch.
 
 ---
 
