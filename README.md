@@ -154,6 +154,10 @@ All v2 posts and projects port to v3. **Body text is byte-for-byte unchanged.** 
 - **No `Co-Authored-By`** lines in commit messages.
 - **Never commit directly to `v3`** — feature branches and PRs only.
 
+### Expected CI failure: Vercel
+
+The v2 Vercel project is still wired to this repo and will attempt to build every PR and branch push. **Every Vercel deploy on `v3` (and on PRs targeting it) will fail** — Astro is not the framework Vercel is configured for, and we are moving off Vercel onto GitHub Pages. **Ignore Vercel red ❌ checks**; they are not blocking. The Vercel integration will be removed at launch.
+
 ---
 
 ## License
