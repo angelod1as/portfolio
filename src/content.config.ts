@@ -6,7 +6,7 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.string().min(1),
       publishedAt: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]),
       toc: z.boolean().optional(),
@@ -19,7 +19,7 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.string().min(1),
       publishedAt: z.coerce.date().optional(),
       categories: z.array(z.string()).min(1),
       type: z.enum(['personal', 'professional', 'client']).optional(),
