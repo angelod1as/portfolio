@@ -23,6 +23,9 @@ const projects = defineCollection({
       publishedAt: z.coerce.date().optional(),
       categories: z.array(z.string()).min(1),
       type: z.enum(['personal', 'professional', 'client']).optional(),
+      // hero is { src, alt } because it's a rendered <img> — alt is required.
+      // Compare with blog.ogImage above, which is a bare image() because it's
+      // only used in <meta> tags where alt has no meaning.
       hero: z
         .object({
           src: image(),
