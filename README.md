@@ -145,6 +145,10 @@ All v2 posts and projects port to v3. **Body text is byte-for-byte unchanged.** 
 
 ---
 
+## Live preview (during v3 development)
+
+While v3 is in development, every push to `v3` deploys to **https://angelod1as.github.io/portfolio/** via GitHub Actions. The site is built with `base: '/portfolio'` for that subpath. At launch, both `site` and `base` flip to the production domain.
+
 ## Repo conventions
 
 - **Default branch is `v3`** during the rewrite. All PRs target `v3`.

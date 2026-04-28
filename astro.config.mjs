@@ -6,8 +6,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace placeholder with production domain (angelodias.com) before launch
-  site: 'https://example.com',
+  // TODO: at launch, replace site with 'https://angelodias.com' and remove `base`.
+  // Until then we deploy to GitHub Pages at https://angelod1as.github.io/portfolio/
+  site: 'https://angelod1as.github.io',
+  base: '/portfolio',
   integrations: [
     mdx(),
     sitemap(),
