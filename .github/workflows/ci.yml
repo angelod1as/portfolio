@@ -6,6 +6,9 @@ on:
   push:
     branches: [v3]
 
+permissions:
+  contents: read
+
 jobs:
   check-and-build:
     runs-on: ubuntu-latest
