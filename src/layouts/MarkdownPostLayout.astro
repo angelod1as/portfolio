@@ -5,7 +5,7 @@ const { tags, title, pubDate, description, author, image } = frontmatter;
 ---
 
 <BaseLayout pageTitle={title}>
-  <p>{pubDate.toString().slice(0, 10)}</p>
+  <p>{pubDate.toLocaleDateString()}</p>
   <p><em>{description}</em></p>
   <p>Written by: {author}</p>
   <img src={image.url} width="300" alt={image.alt} />
