@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/preact": "^5.1.2",
     "@astrojs/rss": "^4.0.18",
-    "astro": "^6.1.10",
+    "astro": "^6.2.0",
     "preact": "^10.29.1"
   }
 }
