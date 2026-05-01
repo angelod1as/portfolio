@@ -37,7 +37,7 @@ This blog post will be commited as-is, with mistakes in grammar and ideas. I wil
 
 ## References
 
-I am mainly building this as a goal to be featured on <sidebar.io> newsletter.
+I am mainly building this as a goal to be featured on [sidebar.io](sidebar.io) newsletter.
 
 Honestly, that's it. I want to be read so I want to make text my focus. In the past, this website's focus was to showcase my skills and make myself sellable — but I can see that's not very useful if I'm going to fail on some interview with a stupid coding algorythm no one will ever use in production.
 
@@ -67,8 +67,8 @@ I ended up adding a "see file history" link that opens this file's history in gi
 
 My last website had a single-column layout — easier on the mobile view, but kind of lazy on desktop.
 
-![A webpage featuring a single-column dark background with yellow and white text. The heading reads 'I'm angelo and I do stuff,' followed by details about angelo's roles as a developer, writer, designer, and journalist. Links to projects, resume, and newsletter are also visible.](images/first-post/image-1.png)
+![A webpage featuring a single-column dark background with yellow and white text. The heading reads 'I'm angelo and I do stuff,' followed by details about angelo's roles as a developer, writer, designer, and journalist. Links to projects, resume, and newsletter are also visible.](./image-1.png)
 
 The idea for the new one is ~stolen~ inspired by some websites I mentioned above. This is the current state of it:
 
-![A webpage featuring a personal introduction from someone named Angelo, with a two-column layout. To the left, a menu. To the right, an article.](images/first-post/image.png)
+![A webpage featuring a personal introduction from someone named Angelo, with a two-column layout. To the left, a menu. To the right, an article.](./image.png)
