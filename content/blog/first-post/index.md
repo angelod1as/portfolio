@@ -33,13 +33,13 @@ The compromise I can make is that everything will be coded by these two hands, r
 
 ### Draft
 
-This blog post will be commited as-is, with mistakes in grammar and ideas. I will change it and see what I can do to make it better. This is meant to be a documented process, so here we go.
+This blog post will be committed as-is, with mistakes in grammar and ideas. I will change it and see what I can do to make it better. This is meant to be a documented process, so here we go.
 
 ## References
 
 I am mainly building this as a goal to be featured on [sidebar.io](sidebar.io) newsletter.
 
-Honestly, that's it. I want to be read so I want to make text my focus. In the past, this website's focus was to showcase my skills and make myself sellable — but I can see that's not very useful if I'm going to fail on some interview with a stupid coding algorythm no one will ever use in production.
+Honestly, that's it. I want to be read so I want to make text my focus. In the past, this website's focus was to showcase my skills and make myself sellable — but I can see that's not very useful if I'm going to fail on some interview with a stupid coding algorithm no one will ever use in production.
 
 I want to try my best to showcase my mind, not my work. I want to be hired because of who I am, not simply because of what I can do.
 
