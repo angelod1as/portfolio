@@ -12,8 +12,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const REPO_URL = "https://github.com/angelod1as/portfolio";
+const REPO_BRANCH = "main";
+
+const blameUrl = post.filePath
+  ? `${REPO_URL}/blame/${REPO_BRANCH}/${post.filePath}`
+  : null;
 ---
 
-<MarkdownPostLayout frontmatter={post.data}>
+<MarkdownPostLayout frontmatter={post.data} blameUrl={blameUrl}>
   <Content />
 </MarkdownPostLayout>

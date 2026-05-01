@@ -1,14 +1,13 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-  pubDate: Date;
-  description: string;
-}>;
+type Props = {
+  frontmatter: CollectionEntry<"blog">["data"];
+  blameUrl: string | null;
+};
 
-const { frontmatter } = Astro.props;
+const { frontmatter, blameUrl } = Astro.props;
 const { title, pubDate, description } = frontmatter;
 ---
 
@@ -17,4 +16,13 @@ const { title, pubDate, description } = frontmatter;
   <p><em>{description}</em></p>
   <p>Written by: Angelo Dias</p>
   <slot />
+  {
+    blameUrl && (
+      <footer>
+        <a href={blameUrl} target="_blank" rel="noopener">
+          View revision history →
+        </a>
+      </footer>
+    )
+  }
 </BaseLayout>
