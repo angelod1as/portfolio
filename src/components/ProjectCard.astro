@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+
+const { id, data } = Astro.props.project;
+
+const {
+  title,
+  description,
+  year: { from, to },
+  what,
+  how,
+  thumb: { alt, src },
+} = data;
+
+const formatDate = (from: number, to?: number) => {
+  if (!to) return `${from} → current`;
+  if (from === to) return from;
+  return `${from} → ${to}`;
+};
+
+const date = formatDate(from, to);
+---
+
+<a class="project" href={`projects/${id}`}>
+  <Image src={src} alt={alt} />
+  <div class="data">
+    <p class="title">{title} <span class="year">{date}</span></p>
+    <p>{description}</p>
+    <div class="columns">
+      <div>
+        <p class="subtitle">What?</p>
+        <ul>{what.map((item) => <li>{item}</li>)}</ul>
+      </div>
+      <div>
+        <p class="subtitle">How?</p>
+        <ul>{how.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </div>
+  </div>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    &:hover {
+      /* TODO: CHANGE */
+      background-color: red;
+    }
+  }
+
+  .project {
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .year {
+    font-weight: normal;
+    font-size: 1rem;
+  }
+
+  .columns {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .subtitle {
+    font-weight: bold;
+  }
+</style>

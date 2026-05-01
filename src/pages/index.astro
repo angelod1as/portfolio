@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import IAm from "../fragments/index/i-am.md";
 import IWant from "../fragments/index/i-want.md";
 import Opening from "../fragments/index/opening.md";
@@ -25,11 +26,7 @@ const allProjects = await getCollection("projects");
   <h2>Latest in projects</h2>
   <!-- Currently working on? -->
   <ul>
-    {
-      allProjects.map((project) => (
-        <BlogPost url={`/posts/${project.id}`} title={project.data.title} />
-      ))
-    }
+    {allProjects.map((project) => <ProjectCard project={project} />)}
   </ul>
 
   <h2>Latest in writing</h2>
