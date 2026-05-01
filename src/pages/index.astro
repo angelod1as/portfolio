@@ -3,18 +3,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
+import IAm from "../fragments/index/i-am.md";
+import IWant from "../fragments/index/i-want.md";
+import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
 const allPosts = await getCollection("blog");
+const allProjects = await getCollection("projects");
 ---
 
 <BaseLayout>
-  <p>This is where I will post about my journey learning Astro.</p>
+  <Opening />
+  <div class="columns">
+    <div>
+      <IAm />
+    </div>
+    <div>
+      <IWant />
+    </div>
+  </div>
 
+  <h2>Latest in projects</h2>
+  <!-- Currently working on? -->
   <ul>
     {
-      allPosts.map((post: any) => (
+      allProjects.map((project) => (
+        <BlogPost url={`/posts/${project.id}`} title={project.data.title} />
+      ))
+    }
+  </ul>
+
+  <h2>Latest in writing</h2>
+  <ul>
+    {
+      allPosts.map((post) => (
         <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
       ))
     }
   </ul>
 </BaseLayout>
+
+<style>
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>
