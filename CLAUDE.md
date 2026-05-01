@@ -1,6 +1,6 @@
 # Portfolio v3
 
-Personal portfolio. Static site, Astro 6 + Preact, deployed to GitHub Pages.
+Personal portfolio. Static site, Astro 6, deployed to GitHub Pages, PNPM (not npm or bun).
 
 ## Claude usage rules — educational only
 
