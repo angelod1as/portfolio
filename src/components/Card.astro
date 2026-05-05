@@ -19,15 +19,27 @@ const { url } = Astro.props;
 
 <style>
   .card {
-    text-decoration: none;
-    color: black;
+    display: block;
     padding: 1rem;
-    border: 3px solid black;
-    /* TODO: CHANGE */
-    transition: background-color 1s;
-    &:hover {
-      /* TODO: CHANGE */
-      background-color: red;
-    }
+    color: var(--fg);
+    background: var(--bg);
+    border: 3px solid var(--border);
+    text-decoration: none;
+    transform: translate(4px, -4px);
+    box-shadow: -4px 4px 0 var(--accent);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .card:hover {
+    transform: translate(8px, -8px);
+    box-shadow: -8px 8px 0 var(--accent);
+  }
+
+  .card:active {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 var(--accent);
+    transition-duration: 80ms;
   }
 </style>
