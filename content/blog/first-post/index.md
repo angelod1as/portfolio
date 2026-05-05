@@ -46,6 +46,7 @@ I want to try my best to showcase my mind, not my work. I want to be hired becau
 This is a inspiration list:
 
 - [Mitchell](https://mitchellh.com/writing)'s website is mainly what I want to do, with nice TOCs and simple design.
+- [Terry](https://www.terrygodier.com/) made something beautiful (although too fancy for me)
 - [Dir14](https://www.dir14.com/) has some great design, hovering for images, nice transitions. I want it smaller, though.
 - [samhenri](https://samhenri.gold/blog/)'s blog is straight to the point, no fuss.
 - [lesswrong](https://www.lesswrong.com/posts/KRLGxCaqdgrotyB8z/there-are-only-four-skills-design-technical-management-and): I love lesswrong's footnote/sidenote design.

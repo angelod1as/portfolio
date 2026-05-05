@@ -1,4 +1,6 @@
 ---
+import IAm from "../fragments/more/i-am.md";
+import IWant from "../fragments/more/i-want.md";
 import IWas from "../fragments/more/i-was.md";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
@@ -7,5 +9,16 @@ const pageTitle = "About Me";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <IWas />
+  <div>
+    <div class="columns">
+      <div>
+        <IAm />
+      </div>
+      <div>
+        <IWant />
+      </div>
+    </div>
+
+    <IWas />
+  </div>
 </BaseLayout>

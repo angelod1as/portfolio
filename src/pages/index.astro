@@ -3,9 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import IAm from "../fragments/index/i-am.md";
-import IWant from "../fragments/index/i-want.md";
+import SmallProjectCard from "../components/SmallProjectCard.astro";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
 
@@ -19,25 +17,14 @@ const allProjects = (await getCollection("projects")).sort(sorter).slice(0, 3);
 ---
 
 <BaseLayout>
-  <main>
-    <div class="opening">
+  <div class="wrapper">
+    <div class="test">
       <Opening />
     </div>
-
-    <div class="columns">
-      <div>
-        <IAm />
-      </div>
-      <div>
-        <IWant />
-      </div>
-    </div>
-
-    <div>
+    <div class="projects full">
       <h2>Latest in projects</h2>
-      <!-- Currently working on? -->
-      <ul>
-        {allProjects.map((project) => <ProjectCard project={project} />)}
+      <ul class="projects">
+        {allProjects.map((project) => <SmallProjectCard project={project} />)}
       </ul>
     </div>
     <div>
@@ -50,23 +37,26 @@ const allProjects = (await getCollection("projects")).sort(sorter).slice(0, 3);
         }
       </ul>
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .columns {
+  .wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+
+    > * {
+      grid-column: 1;
+    }
+
+    > .full {
+      grid-column: 1 / -1;
+    }
   }
 
-  .opening {
-    margin-top: 10rem;
+  .projects ul {
+    padding: 0;
+    margin: 0;
   }
 </style>
