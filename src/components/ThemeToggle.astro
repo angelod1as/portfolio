@@ -1,0 +1,99 @@
+---
+
+---
+
+<button id="theme-toggle" type="button" aria-label="Toggle theme">
+  <svg
+    class="icon-light"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="4"></circle>
+    <path
+      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2
+  12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+    ></path>
+  </svg>
+  <svg
+    class="icon-dark"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById("theme-toggle");
+
+  btn?.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+
+    const apply = () => {
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    };
+
+    if (!document.startViewTransition) {
+      apply();
+      return;
+    }
+
+    document.startViewTransition(apply);
+  });
+</script>
+
+<style>
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    border: 3px solid var(--border);
+    cursor: pointer;
+    transform: translate(var(--lift), calc(var(--lift) * -1));
+    box-shadow: calc(var(--lift) * -1) var(--lift) 0 var(--accent);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  button:hover {
+    transform: translate(calc(var(--lift) * 2), calc(var(--lift) * -2));
+    box-shadow: calc(var(--lift) * -2) calc(var(--lift) * 2) 0 var(--accent);
+  }
+
+  button:active {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 var(--accent);
+    transition-duration: 80ms;
+  }
+</style>
+
+<style is:global>
+  :root[data-theme="light"] #theme-toggle .icon-dark {
+    display: none;
+  }
+  :root[data-theme="dark"] #theme-toggle .icon-light {
+    display: none;
+  }
+</style>

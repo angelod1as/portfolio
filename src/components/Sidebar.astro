@@ -1,8 +1,10 @@
 ---
 import Navigation from "./Navigation.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div class="wrapper">
+  <ThemeToggle />
   <h1>I am <span>angelo</span><br />and I do <i>stuff</i></h1>
   <Navigation />
 </div>
@@ -12,7 +14,11 @@ import Navigation from "./Navigation.astro";
     display: flex;
     height: 100%;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
+
+    h1 {
+      margin: 0;
+    }
   }
 </style>

@@ -1,9 +1,36 @@
+@property --lift {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 4px;
+}
+
 :root {
   --w-md: 768px;
+
+  color-scheme: light dark;
+
+  /* Light palette */
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #525252;
+  --border: #0a0a0a;
+  --accent: rgb(242 202 25);
+  --accent-fg: #0a0a0a;
+}
+
+/* Dark palette */
+[data-theme="dark"] {
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: #a3a3a3;
+  --border: #ffffff;
+  --accent: rgb(242 202 25);
+  --accent-fg: #000000;
 }
 
 html {
-  background-color: #f1f5f9;
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-text), sans-serif;
   font-size: 125%;
 }
@@ -81,7 +108,7 @@ ul {
 a {
   color: inherit;
   text-decoration: underline wavy;
-  text-decoration-color: #94a3b8;
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition:
@@ -89,7 +116,7 @@ a {
     text-underline-offset 200ms ease;
 }
 a:hover {
-  text-decoration-color: #0f172a;
+  text-decoration-color: var(--muted);
   text-underline-offset: 5px;
 }
 
@@ -101,4 +128,18 @@ del {
 
 del:hover {
   text-decoration-color: transparent;
+}
+
+/* View Transitions */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
