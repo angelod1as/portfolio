@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import Card from "./Card.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -26,37 +27,27 @@ const formatDate = (from: number, to?: number) => {
 const date = formatDate(from, to);
 ---
 
-<a class="project" href={`projects/${id}`}>
-  <Image src={src} alt={alt} />
-  <div class="data">
-    <p class="title">{title} <span class="year">{date}</span></p>
-    <p>{description}</p>
-    <div class="columns">
-      <div>
-        <p class="subtitle">What?</p>
-        <ul>{what.map((item) => <li>{item}</li>)}</ul>
-      </div>
-      <div>
-        <p class="subtitle">How?</p>
-        <ul>{how.map((item) => <li>{item}</li>)}</ul>
+<Card url={`projects/${id}`}>
+  <div class="project">
+    <Image src={src} alt={alt} />
+    <div class="data">
+      <p class="title">{title} <span class="year">{date}</span></p>
+      <p>{description}</p>
+      <div class="columns">
+        <div>
+          <p class="subtitle">What?</p>
+          <ul>{what.map((item) => <li>{item}</li>)}</ul>
+        </div>
+        <div>
+          <p class="subtitle">How?</p>
+          <ul>{how.map((item) => <li>{item}</li>)}</ul>
+        </div>
       </div>
     </div>
   </div>
-</a>
+</Card>
 
 <style>
-  a {
-    text-decoration: none;
-    color: black;
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    &:hover {
-      /* TODO: CHANGE */
-      background-color: red;
-    }
-  }
-
   .project {
     gap: 1rem;
     display: grid;

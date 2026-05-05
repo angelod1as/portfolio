@@ -1,0 +1,33 @@
+---
+type Props = {
+  url?: string;
+};
+const { url } = Astro.props;
+---
+
+{
+  url ? (
+    <div class="card">
+      <slot />
+    </div>
+  ) : (
+    <a href={url} class="card">
+      <slot />
+    </a>
+  )
+}
+
+<style>
+  .card {
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    border: 3px solid black;
+    /* TODO: CHANGE */
+    transition: background-color 1s;
+    &:hover {
+      /* TODO: CHANGE */
+      background-color: red;
+    }
+  }
+</style>

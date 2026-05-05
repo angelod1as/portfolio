@@ -8,41 +8,65 @@ import IAm from "../fragments/index/i-am.md";
 import IWant from "../fragments/index/i-want.md";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
-const allPosts = await getCollection("blog");
-const allProjects = await getCollection("projects");
+
+const sorter = (a: any, b: any) => {
+  const aTime = a.data.pubDate.getTime();
+  const bTime = b.data.pubDate.getTime();
+  return aTime - bTime;
+};
+const allPosts = (await getCollection("blog")).sort(sorter).slice(0, 5);
+const allProjects = (await getCollection("projects")).sort(sorter).slice(0, 3);
 ---
 
 <BaseLayout>
-  <Opening />
-  <div class="columns">
+  <main>
+    <div class="opening">
+      <Opening />
+    </div>
+
+    <div class="columns">
+      <div>
+        <IAm />
+      </div>
+      <div>
+        <IWant />
+      </div>
+    </div>
+
     <div>
-      <IAm />
+      <h2>Latest in projects</h2>
+      <!-- Currently working on? -->
+      <ul>
+        {allProjects.map((project) => <ProjectCard project={project} />)}
+      </ul>
     </div>
     <div>
-      <IWant />
+      <h2>Latest in writing</h2>
+      <ul>
+        {
+          allPosts.map((post) => (
+            <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
+          ))
+        }
+      </ul>
     </div>
-  </div>
-
-  <h2>Latest in projects</h2>
-  <!-- Currently working on? -->
-  <ul>
-    {allProjects.map((project) => <ProjectCard project={project} />)}
-  </ul>
-
-  <h2>Latest in writing</h2>
-  <ul>
-    {
-      allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
-      ))
-    }
-  </ul>
+  </main>
 </BaseLayout>
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
   .columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .opening {
+    margin-top: 10rem;
   }
 </style>
