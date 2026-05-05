@@ -1,6 +1,11 @@
+:root {
+  --w-md: 768px;
+}
+
 html {
   background-color: #f1f5f9;
-  font-family: sans-serif;
+  font-family: var(--font-text), sans-serif;
+  font-size: 125%;
 }
 
 body {
@@ -16,8 +21,24 @@ h1 {
   font-size: 2.5rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 100%;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
 p {
   margin: 0;
+
+  + p {
+    margin-top: 1rem;
+  }
 }
 
 img {

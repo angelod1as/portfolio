@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 ---
@@ -10,12 +11,14 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>I'm angelo and I do stuff</title>
+    <Font cssVariable="--font-text" />
+    <Font cssVariable="--font-display" />
   </head>
   <body>
-    <aside>
+    <header>
       <Sidebar />
-    </aside>
-    <main><slot /></main>
+    </header>
+    <slot />
   </body>
 </html>
 
@@ -28,11 +31,11 @@ import "../styles/global.css";
 
     /* Desktop */
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 1rem;
   }
 
-  aside {
+  header {
     /* Position */
     position: sticky;
     top: 0;
@@ -40,10 +43,5 @@ import "../styles/global.css";
     overflow: auto;
     padding: 1rem;
     border-right: 1px solid black;
-  }
-
-  main {
-    min-width: 0;
-    padding: 1rem;
   }
 </style>

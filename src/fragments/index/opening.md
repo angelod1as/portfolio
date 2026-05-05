@@ -2,10 +2,9 @@
 title: Homepage opening
 ---
 
-## I'm a developer, writer and designer
+## Developer, writer and designer
 
-Communication aficionado and award-winning journalist. Proud generalist — my focus is communication applied to
-technology.
+Communication aficionado and award-winning journalist. Proud generalist — my focus is communication applied to technology.
 
 I integrate multidisciplinary teams and surface the individual strengths of each member.
 
