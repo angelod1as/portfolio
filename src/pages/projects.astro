@@ -2,20 +2,18 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
-import BlogPost from "../components/BlogPost.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import "../styles/global.css";
-const allPosts = await getCollection("projects");
+const allProjects = await getCollection("projects");
 ---
 
 <BaseLayout>
-  <h2>Projects</h2>
-  <p>Here is the full projects rundown <i>with filters</i></p>
-
-  <ul>
-    {
-      allPosts.map((post: any) => (
-        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
-      ))
-    }
-  </ul>
+  <div>
+    <h2>Projects</h2>
+    <p>Here is the full projects rundown <i>with filters</i></p>
+    <!-- Currently working on? -->
+    <ul>
+      {allProjects.map((project) => <ProjectCard project={project} />)}
+    </ul>
+  </div>
 </BaseLayout>

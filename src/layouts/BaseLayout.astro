@@ -18,7 +18,9 @@ import "../styles/global.css";
     <header>
       <Sidebar />
     </header>
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
@@ -31,7 +33,7 @@ import "../styles/global.css";
 
     /* Desktop */
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr;
     gap: 1rem;
   }
 
@@ -43,5 +45,13 @@ import "../styles/global.css";
     overflow: auto;
     padding: 1rem;
     border-right: 1px solid black;
+  }
+
+  main {
+    margin: 10rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 </style>

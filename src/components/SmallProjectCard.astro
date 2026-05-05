@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { formatCardDate } from "../utils/format-date";
 import Card from "./Card.astro";
@@ -14,39 +13,20 @@ const {
   title,
   description,
   year: { from, to },
-  what,
-  how,
-  thumb: { alt, src },
 } = data;
 
 const date = formatCardDate(from, to);
 ---
 
 <Card url={`projects/${id}`}>
-  <div class="project">
-    <Image src={src} alt={alt} />
-    <div class="data">
-      <p class="title">{title} <span class="year">{date}</span></p>
-      <p>{description}</p>
-      <div class="columns">
-        <div>
-          <p class="subtitle">What?</p>
-          <ul>{what.map((item) => <li>{item}</li>)}</ul>
-        </div>
-        <div>
-          <p class="subtitle">How?</p>
-          <ul>{how.map((item) => <li>{item}</li>)}</ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <p class="title">{title}</p>
+  <p class="year">{date}</p>
+  <p>{description}</p>
 </Card>
 
 <style>
   .project {
     gap: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 6fr;
   }
 
   .data {
