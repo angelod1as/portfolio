@@ -93,8 +93,9 @@ are low.
   and `/2026` is a year archive.
 - **Tags are free-form.** No fixed vocabulary — it does not exist yet and inventing one now
   would be wrong. `/tags` makes the drift visible; revisit past roughly 30 tags.
-- **Host (eventually):** Hostinger KVM2 — 2 vCPU, 8 GB, 100 GB — running Coolify. The same
-  box will later carry listmonk and Postgres.
+- **Host:** the Hostinger KVM2 — 2 vCPU, 8 GB, 100 GB — running Coolify. v1 deploys there,
+  not to Vercel. The same box will later carry listmonk and Postgres. **When that deploy
+  happens is Angelo's call, and Angelo does it** — no agent touches the box.
 - **Content lives in `content/`,** outside `src/`, loaded by glob loaders.
 - **Bilingual:** every entry declares `lang: en | pt`.
 
@@ -109,5 +110,4 @@ Not blocking. Answered during `speckit-specify`.
 
 - Is the existing content in `content/blog/` and `content/projects/` frontmatter-compatible,
   or does porting need a migration script?
-- Does v1 deploy to Coolify, or stay on Vercel until the newsletter phase forces the move?
 - Where do the personal recommendations come from — do they exist yet, or need collecting?
