@@ -1,0 +1,59 @@
+---
+// The document shell. Semantic markup only — v1 ships no stylesheet on purpose.
+interface Props {
+  title: string
+  description?: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props
+const site = 'Angelo Dias'
+const preview = new URL(image ?? '/og-default.png', Astro.site).href
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title === site ? title : `${title} — ${site}`}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={site}
+      href="/rss.xml"
+    />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={preview} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <header>
+      <p><a href="/">{site}</a></p>
+      <nav aria-label="Lanes">
+        <ul>
+          <li><a href="/essays">Essays</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/library">Library</a></li>
+          <li><a href="/now">Now</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <ul>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/rss.xml">Feed</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

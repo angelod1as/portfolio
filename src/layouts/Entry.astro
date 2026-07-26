@@ -1,0 +1,103 @@
+---
+import Base from './Base.astro'
+import type { Entry } from '../lib/entries'
+
+interface Props {
+  entry: Entry
+}
+
+const { entry } = Astro.props
+const { data, lane } = entry
+
+// Only work and library entries carry these; the base entry does not.
+const extra = data as typeof data & {
+  description?: string
+  image?: string
+  type?: 'personal' | 'professional'
+  live?: string
+  hero?: { src: string; alt: string }
+  summary?: {
+    when: Date | Date[]
+    where: string
+    who: string
+    what: string
+    why: string
+  }
+  medium?: 'book' | 'series' | 'film'
+  by?: string
+}
+
+const LANE_LABEL = {
+  essays: 'Essay',
+  notes: 'Note',
+  work: 'Work',
+  library: 'Library',
+} as const
+
+const when = Array.isArray(extra.summary?.when)
+  ? extra.summary.when
+  : extra.summary
+    ? [extra.summary.when as Date]
+    : []
+
+const iso = (date: Date) => date.toISOString().slice(0, 10)
+---
+
+<Base
+  title={data.title}
+  description={extra.description}
+  image={extra.image ?? extra.hero?.src}
+>
+  <article lang={data.lang}>
+    <header>
+      <p>{LANE_LABEL[lane]}</p>
+      <h1>{data.title}</h1>
+      <p>
+        <time datetime={data.date.toISOString()}>{iso(data.date)}</time>
+        {extra.by && <span> · {extra.by}</span>}
+        {extra.medium && <span> · {extra.medium}</span>}
+        {extra.type && <span> · {extra.type}</span>}
+      </p>
+      {
+        data.tags.length > 0 && (
+          <ul aria-label="Tags">
+            {data.tags.map(tag => (
+              <li>
+                <a href={`/tags/${tag}`}>{tag}</a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    {extra.hero && <img src={extra.hero.src} alt={extra.hero.alt} />}
+
+    {
+      extra.summary && (
+        <dl>
+          <dt>When</dt>
+          <dd>{when.map(iso).join(' – ')}</dd>
+          <dt>Where</dt>
+          <dd>{extra.summary.where}</dd>
+          <dt>Who</dt>
+          <dd>{extra.summary.who}</dd>
+          <dt>What</dt>
+          <dd>{extra.summary.what}</dd>
+          <dt>Why</dt>
+          <dd>{extra.summary.why}</dd>
+        </dl>
+      )
+    }
+
+    {
+      extra.live && (
+        <p>
+          <a href={extra.live}>See it live</a>
+        </p>
+      )
+    }
+
+    <slot />
+  </article>
+</Base>

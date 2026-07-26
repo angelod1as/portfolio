@@ -54,26 +54,26 @@ accessibility audit, not by tests.
 
 ### Collision detection (TDD)
 
-- [ ] T015 Write failing tests in `tests/collisions.test.ts`: two entries resolving to one
+- [x] T015 Write failing tests in `tests/collisions.test.ts`: two entries resolving to one
       address throw, the error names both file paths, and unique addresses do not throw
-- [ ] T016 Implement `src/lib/collisions.ts` to make `tests/collisions.test.ts` pass
+- [x] T016 Implement `src/lib/collisions.ts` to make `tests/collisions.test.ts` pass
 
 ### Cross-lane queries (TDD)
 
-- [ ] T017 Write failing tests in `tests/entries.test.ts`: all published entries across
+- [x] T017 Write failing tests in `tests/entries.test.ts`: all published entries across
       four collections sorted newest first, drafts excluded, filter by language, filter by
       tag, filter by year, each result carrying its lane
-- [ ] T018 Implement `src/lib/entries.ts` to make `tests/entries.test.ts` pass
+- [x] T018 Implement `src/lib/entries.ts` to make `tests/entries.test.ts` pass
 
 ### Shared markup
 
-- [ ] T019 [P] Create `src/layouts/Base.astro` — semantic document shell, `<title>`,
+- [x] T019 [P] Create `src/layouts/Base.astro` — semantic document shell, `<title>`,
       meta description, social preview meta pointing at the site default. No styling
-- [ ] T020 [P] Create `src/components/EntryList.astro` — renders a list of entries with
+- [x] T020 [P] Create `src/components/EntryList.astro` — renders a list of entries with
       title, date, language and tags, used by every index
-- [ ] T021 Create `src/pages/[year]/[month]/[slug].astro` — the single entry route drawing
+- [x] T021 Create `src/pages/[year]/[month]/[slug].astro` — the single entry route drawing
       from all four collections, calling the collision check before emitting any page
-- [ ] T022 Create `src/layouts/Entry.astro` — the entry page shell, showing the lane and
+- [x] T022 Create `src/layouts/Entry.astro` — the entry page shell, showing the lane and
       linking each tag
 
 **Checkpoint**: an entry in any lane is reachable at its date-stamped address, duplicates

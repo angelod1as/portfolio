@@ -1,0 +1,53 @@
+---
+import type { Entry } from '../lib/entries'
+
+interface Props {
+  entries: Entry[]
+  // Lane indexes already say which lane they are; tag pages and the archive do not.
+  showLane?: boolean
+}
+
+const { entries, showLane = false } = Astro.props
+
+const LANG_LABEL = { en: 'English', pt: 'Português' } as const
+---
+
+{
+  entries.length === 0 ? (
+    <p>Nothing here yet.</p>
+  ) : (
+    <ul>
+      {entries.map(entry => (
+        <li>
+          <article>
+            <h3>
+              <a href={entry.address}>{entry.data.title}</a>
+            </h3>
+            <p>
+              <time datetime={entry.data.date.toISOString()}>
+                {entry.data.date.toISOString().slice(0, 10)}
+              </time>
+              <span> · </span>
+              <span lang={entry.data.lang}>{LANG_LABEL[entry.data.lang]}</span>
+              {showLane && (
+                <>
+                  <span> · </span>
+                  <span>{entry.lane}</span>
+                </>
+              )}
+            </p>
+            {entry.data.tags.length > 0 && (
+              <ul aria-label="Tags">
+                {entry.data.tags.map(tag => (
+                  <li>
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        </li>
+      ))}
+    </ul>
+  )
+}
