@@ -47,6 +47,8 @@ Binding. Work that serves one of these does not get done, however small it looks
 - **No CSS beyond block-level layout.** No colours, no fonts, no dark mode, no components,
   no design system. v1 is semantic HTML. Design is v2 and it is a conversation, not a task.
 - **No CMS, no comments, no analytics.**
+- **No redirects from the old URLs.** Decided: the old `/blog/*` and `/projects/*` links
+  break at cutover and that is accepted.
 - **No fiction lane.** Fiction is `#fiction` on an Essay.
 - **No Instagram embeds.** Instagram is an outbound link.
 - **No VPS, Coolify, DNS or deployment work by an agent.** That is a human step.
@@ -107,7 +109,5 @@ Not blocking. Answered during `speckit-specify`.
 
 - Is the existing content in `content/blog/` and `content/projects/` frontmatter-compatible,
   or does porting need a migration script?
-- Do the old URLs (`/blog/[slug]`, `/projects/[slug]`, `/[slug]`) need redirects to the new
-  date-stamped ones at cutover?
 - Does v1 deploy to Coolify, or stay on Vercel until the newsletter phase forces the move?
 - Where do the personal recommendations come from — do they exist yet, or need collecting?
