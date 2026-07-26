@@ -62,6 +62,8 @@ const recommendations = defineCollection({
     kind: z.enum(['professional', 'personal']),
     name: z.string(),
     role: z.string().optional(),
+    company: z.string().optional(),
+    link: z.string().optional(),
     text: z.string(),
   }),
 })

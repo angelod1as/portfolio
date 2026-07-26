@@ -109,15 +109,15 @@ find it at its address, on the notes index and in the feed — with no other fil
 **Independent test**: from `/`, reach a professional Work entry and a named recommendation
 in two clicks without reading prose.
 
-- [ ] T027 [US1] Create `content/recommendations.yaml` with the professional set ported
+- [x] T027 [US1] Create `content/recommendations.yaml` with the professional set ported
       from the current site, and an empty personal set
-- [ ] T028 [US1] Load and validate recommendations in `src/content.config.ts` as a data
+- [x] T028 [US1] Load and validate recommendations in `src/content.config.ts` as a data
       collection with `kind`, `name`, `role`, `text`
 - [ ] T029 [US1] Create `src/components/Recommendations.astro` rendering one set, omitting
       itself entirely when the set is empty
 - [ ] T030 [US1] Create `src/pages/work/[...lang].astro` — the Work index listing entries
       with what, who and when visible before opening, plus both recommendation sets
-- [ ] T031 [US1] Extend `src/layouts/Entry.astro` to render the Work `summary`
+- [x] T031 [US1] Extend `src/layouts/Entry.astro` to render the Work `summary`
       (when / where / who / what / why), the `live` link when present, and the `hero`
       image with its `alt` when present
 - [ ] T032 [US1] Create `content/now.md` and `src/pages/now.astro` — the standing page,
