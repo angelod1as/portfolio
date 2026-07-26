@@ -14,15 +14,15 @@ accessibility audit, not by tests.
 
 ## Phase 1: Setup
 
-- [ ] T001 HALT — get Angelo's approval for three dependencies (`@astrojs/sitemap`,
+- [x] T001 HALT — get Angelo's approval for three dependencies (`@astrojs/sitemap`,
       `vitest`, `gray-matter`) before installing anything. Dependency choice is on the
       standard halt list. Record the answer in `specs/001-five-lane-site/plan.md`
-- [ ] T002 Install the approved dependencies and commit `package.json` +
+- [x] T002 Install the approved dependencies and commit `package.json` +
       `pnpm-lock.yaml`
-- [ ] T003 [P] Add `@astrojs/sitemap` to the integrations array in `astro.config.mjs`
-- [ ] T004 [P] Create `vitest.config.ts` at the repo root, scoped to `tests/`
-- [ ] T005 [P] Add a `test` script to `package.json` running `vitest run`
-- [ ] T006 Create the content folders `content/essays/`, `content/notes/`,
+- [x] T003 [P] Add `@astrojs/sitemap` to the integrations array in `astro.config.mjs`
+- [x] T004 [P] Create `vitest.config.ts` at the repo root, scoped to `tests/`
+- [x] T005 [P] Add a `test` script to `package.json` running `vitest run`
+- [x] T006 Create the content folders `content/essays/`, `content/notes/`,
       `content/work/`, `content/library/` with a `.gitkeep` in each
 - [ ] T007 Delete the scaffold placeholder `content/essays/scaffold.md` once a real entry
       exists to keep the build non-empty
@@ -35,21 +35,21 @@ accessibility audit, not by tests.
 
 ### Schema
 
-- [ ] T008 Define the shared base entry schema — `title`, `date`, `lang`, `tags`, `draft`,
+- [x] T008 Define the shared base entry schema — `title`, `date`, `lang`, `tags`, `draft`,
       `newsletter`, `image` — in `src/content.config.ts` per data-model.md
-- [ ] T009 Define the `essays` and `notes` collections using the base schema, loaded by
+- [x] T009 Define the `essays` and `notes` collections using the base schema, loaded by
       glob from `content/essays` and `content/notes`, in `src/content.config.ts`
-- [ ] T010 Define the `work` collection — base plus `type`, `summary`, `live`, `hero` with
+- [x] T010 Define the `work` collection — base plus `type`, `summary`, `live`, `hero` with
       `alt` required whenever `hero` is present — in `src/content.config.ts`
-- [ ] T011 Define the `library` collection — base plus `medium` and `by` — in
+- [x] T011 Define the `library` collection — base plus `medium` and `by` — in
       `src/content.config.ts`
 
 ### Address derivation (TDD)
 
-- [ ] T012 Write failing tests for address derivation in `tests/address.test.ts`: a date
+- [x] T012 Write failing tests for address derivation in `tests/address.test.ts`: a date
       and slug produce `/YYYY/MM/slug`, months are zero-padded, and the lane never appears
-- [ ] T013 Implement `src/lib/address.ts` to make `tests/address.test.ts` pass
-- [ ] T014 Add `pnpm test` to the `fast` and `full` tiers of `.os/gates.yaml`, in the same
+- [x] T013 Implement `src/lib/address.ts` to make `tests/address.test.ts` pass
+- [x] T014 Add `pnpm test` to the `fast` and `full` tiers of `.os/gates.yaml`, in the same
       commit as the first passing test, per the constitution
 
 ### Collision detection (TDD)

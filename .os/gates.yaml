@@ -5,9 +5,9 @@
 # playwright, tsc --noEmit) were removed rather than left in place. A gate that
 # reports green while checking nothing is the worst failure mode in the system.
 #
-# Deliberately absent: a test runner. There are no tests yet. `pnpm test` with no
-# suite exits 0 and would make the gate lie. Add it here the same day the first
-# test exists, not before.
+# `pnpm test` joined the gate on 2026-07-26, in the same commit as the first
+# passing test (address derivation), per the constitution. It was deliberately
+# absent before that: an empty suite exits 0 and would make the gate lie.
 
 preset: web-ts
 
@@ -15,6 +15,7 @@ preset: web-ts
 fast:
   - "pnpm exec astro check"
   - "pnpm exec prettier --check ."
+  - "pnpm test"
 
 # The real gate. Runs at task-set boundaries and before opening a PR.
 #
@@ -23,6 +24,7 @@ fast:
 full:
   - "pnpm exec astro check"
   - "pnpm exec prettier --check ."
+  - "pnpm test"
   - "pnpm build"
 
 # Nothing honest to put here yet. Link checking and Lighthouse a11y >= 95 land here
