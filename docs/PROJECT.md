@@ -104,10 +104,35 @@ are low.
 Angelo, alone. There is no second reviewer, which is why the gate has to be honest and why
 the halt list in `.os/autonomy.yaml` is long.
 
-## Open questions
+## Porting the old content
 
-Not blocking. Answered during `speckit-specify`.
+The existing frontmatter is **not** compatible. Porting needs a migration script — 12 blog
+posts, 22 projects, all mechanical:
 
-- Is the existing content in `content/blog/` and `content/projects/` frontmatter-compatible,
-  or does porting need a migration script?
-- Where do the personal recommendations come from — do they exist yet, or need collecting?
+| Old                              | New                                 |
+| -------------------------------- | ----------------------------------- |
+| `createdAt` (epoch milliseconds) | `date`                              |
+| `categories`                     | `tags`                              |
+| absent                           | `lang`, assigned per file by Angelo |
+| `draft: true`                    | unchanged                           |
+
+Two more things about the port:
+
+- **Old titles contain markdown** (`I **gave up** on my fountain pen`). The migration
+  strips it — titles are plain strings. Angelo has approved this; it is the one exception
+  to "never touch the prose", and it applies to titles only.
+- **Projects carry a richer shape than essays or notes:** `type: personal | professional`,
+  `hero { src, alt }`, `live`, and a `summary` object of `when / where / who / what / why`.
+  The Work lane keeps this. It is the reason Work is a lane and not a tag.
+
+## Library
+
+Goodreads has no API — access was shut down in 2020 and is not coming back. The Library
+lane is hand-written markdown, one file per book, optionally enriched from Open Library by
+ISBN at the time of writing. No runtime dependency on any book service.
+
+## Recommendations
+
+Professional recommendations are ported from the current site (LinkedIn). Personal
+recommendations do not exist yet and Angelo will collect them. The lane ships with whatever
+exists; an empty personal list is acceptable at v1.
