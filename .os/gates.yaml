@@ -1,0 +1,44 @@
+# Gate for angelodias.com.br v4 — adapted from the web-ts preset.
+#
+# Every command below was run by hand on 2026-07-26 before being listed here.
+# Commands from the preset that do not run in this project (biome, vitest,
+# playwright, tsc --noEmit) were removed rather than left in place. A gate that
+# reports green while checking nothing is the worst failure mode in the system.
+#
+# Deliberately absent: a test runner. There are no tests yet. `pnpm test` with no
+# suite exits 0 and would make the gate lie. Add it here the same day the first
+# test exists, not before.
+
+preset: web-ts
+
+# Runs after edits. Seconds.
+fast:
+  - "pnpm exec astro check"
+  - "pnpm exec prettier --check ."
+
+# The real gate. Runs at task-set boundaries and before opening a PR.
+#
+# `pnpm build` is the content gate: the zod schemas in src/content.config.ts reject
+# an entry with a missing or malformed field, and the build exits non-zero.
+full:
+  - "pnpm exec astro check"
+  - "pnpm exec prettier --check ."
+  - "pnpm build"
+
+# Nothing honest to put here yet. Link checking and Lighthouse a11y >= 95 land here
+# when v1 has pages worth measuring.
+slow: []
+
+budget:
+  max_iterations: 25
+  max_minutes: 45
+
+# Changes to these paths are flagged in the review packet as possible gate tampering.
+tamper_watch:
+  - ".os/gates.yaml"
+  - "astro.config.mjs"
+  - "src/content.config.ts"
+  - "tsconfig.json"
+  - ".prettierrc*"
+  - ".prettierignore"
+  - "package.json"

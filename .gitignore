@@ -44,3 +44,7 @@ pnpm-debug.log*
 # vercel
 .vercel
 tsconfig.tsbuildinfo
+
+# astro
+dist/
+.astro/

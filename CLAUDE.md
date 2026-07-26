@@ -2,7 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Commands
+@AGENTS.md
+
+> **Branch `v4`.** This branch is the Astro rewrite. The Next.js documentation below
+> describes `main` (still live on Vercel) and is kept for porting reference only — it does
+> not describe this branch. For what `v4` is, read `docs/PROJECT.md` and
+> `.specify/memory/constitution.md`. Current commands: `pnpm dev`, `pnpm build`,
+> `pnpm check`, `bash scripts/gate.sh full`.
+
+## Commands (main / Next.js — historical)
 
 ```bash
 npm run dev          # Local dev server

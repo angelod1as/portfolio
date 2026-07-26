@@ -22,3 +22,20 @@ pnpm-error.log*
 .env.production.local
 
 .vercel
+
+/dist
+/.astro
+pnpm-lock.yaml
+/content
+/public
+
+# vendored tooling — not ours to reformat
+/.specify
+/.serena
+/.os
+/.vscode
+/scripts
+
+# prose is never reformatted by a tool
+*.md
+*.mdx

@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content'
+
+const essays = await getCollection('essays')
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Angelo Dias</title>
+  </head>
+  <body>
+    <h1>Angelo Dias</h1>
+    <p>Scaffold. The lanes are specified, not built yet.</p>
+    <ul>
+      {essays.map(essay => <li>{essay.data.title}</li>)}
+    </ul>
+  </body>
+</html>
