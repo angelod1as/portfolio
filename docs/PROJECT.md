@@ -4,8 +4,8 @@
 
 A personal site that carries a complicated person without asking the visitor to
 untangle him. Lanes are **formats**, not subjects: Essays, Notes, Work, Library, Now.
-Subject lives in tags. A hiring manager clicks *Work*; a curious reader clicks *Essays*
-or *Library*; both find the same person from a different door.
+Subject lives in tags. A hiring manager clicks _Work_; a curious reader clicks _Essays_
+or _Library_; both find the same person from a different door.
 
 The reference shape is `maggieappleton.com`. The aspiration is a site good enough to be
 featured on `sidebar.io`.
@@ -24,14 +24,14 @@ Everyone else is welcome but is not who the structure serves.
 
 Decided up front so no early choice paints us into a corner.
 
-| Phase | What |
-|---|---|
+| Phase  | What                                                                               |
+| ------ | ---------------------------------------------------------------------------------- |
 | **v1** | Astro static site, five lanes, **plain HTML — effectively no CSS**, content ported |
-| v2 | Design: high contrast black and white plus one accent, sharp corners |
-| v3 | listmonk on the VPS, weekly digest composed from the site's own feed |
-| v4 | Scheduled publishing, and `standalone` entries that go out as their own newsletter |
-| v5 | Cronofobia migrated off Substack |
-| later | Full `/en` `/pt` routing, possibly AI-assisted translation |
+| v2     | Design: high contrast black and white plus one accent, sharp corners               |
+| v3     | listmonk on the VPS, weekly digest composed from the site's own feed               |
+| v4     | Scheduled publishing, and `standalone` entries that go out as their own newsletter |
+| v5     | Cronofobia migrated off Substack                                                   |
+| later  | Full `/en` `/pt` routing, possibly AI-assisted translation                         |
 
 Only v1 is in scope. Everything below the v1 row is a non-goal until it is not.
 
@@ -79,9 +79,18 @@ are low.
 
 ## Constraints
 
-- **Repo:** `github.com/angelod1as/portfolio`, branch `v4` off `main`. `main` stays live on
-  Vercel and is not touched. The `v3` branch is an earlier Astro attempt, kept as reference.
-- **Stack:** Astro 6, MDX, pnpm, Node ≥ 20. No UI framework.
+- **Repo:** `github.com/angelod1as/portfolio`, branch `v4` off `main`, worked in the
+  `../v4` worktree. `main` stays live on Vercel and is not touched.
+- **Stack:** Astro 7, MDX, pnpm, Node ≥ 20. No UI framework.
+- **Built from scratch.** The `v3` branch and the `astro/` folder are earlier attempts.
+  They are not a starting point and their structure is not inherited — neither their
+  routes, their components, nor their content model.
+- **URLs are date-stamped:** `/2026/07/why-i-left-nextjs`. One shape for every entry
+  regardless of lane, mirroring how content is already filed on disk
+  (`content/blog/2022/05/…`). Lane indexes (`/essays`, `/notes`, …) are views over that,
+  and `/2026` is a year archive.
+- **Tags are free-form.** No fixed vocabulary — it does not exist yet and inventing one now
+  would be wrong. `/tags` makes the drift visible; revisit past roughly 30 tags.
 - **Host (eventually):** Hostinger KVM2 — 2 vCPU, 8 GB, 100 GB — running Coolify. The same
   box will later carry listmonk and Postgres.
 - **Content lives in `content/`,** outside `src/`, loaded by glob loaders.
@@ -98,7 +107,7 @@ Not blocking. Answered during `speckit-specify`.
 
 - Is the existing content in `content/blog/` and `content/projects/` frontmatter-compatible,
   or does porting need a migration script?
-- Do the old URLs (`/blog/[slug]`, `/projects/[slug]`, `/[slug]`) need redirects at cutover?
+- Do the old URLs (`/blog/[slug]`, `/projects/[slug]`, `/[slug]`) need redirects to the new
+  date-stamped ones at cutover?
 - Does v1 deploy to Coolify, or stay on Vercel until the newsletter phase forces the move?
-- Tag vocabulary: fixed list or free-form?
 - Where do the personal recommendations come from — do they exist yet, or need collecting?

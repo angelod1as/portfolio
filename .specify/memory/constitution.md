@@ -56,11 +56,19 @@ tags. Adding a sixth lane is a decision and halts.
 
 **Angelo's prose is not the agent's to edit.** Moving a file, correcting a path, adding a
 required frontmatter field — fine. Rewording a sentence, reflowing a paragraph, "fixing" a
-title, deleting a draft — halt. Prettier is configured to never touch `*.md` and `*.mdx`
-for this reason, and that exclusion is not to be removed.
+title, deleting a draft — halt. Prettier does format `*.md` and `*.mdx`, but with
+`proseWrap: 'preserve'`, so it fixes structure — list markers, heading style, frontmatter,
+tables — and never reflows or rewrites a sentence. That setting is not to be changed.
 
 **Bilingual by field, not by route.** Every entry declares `lang: 'en' | 'pt'`. Both
 languages share one index and one URL space. No `/en` or `/pt` routes at v1.
+
+**Every entry lives at `/YYYY/MM/slug`,** whatever its lane. Lane indexes are views over
+that set, never a URL prefix. Changing the URL scheme is a decision and halts.
+
+**Nothing is inherited from the earlier attempts.** The `v3` branch and the `astro/`
+folder may be read, but their routes, components and content model are not a starting
+point. This site is built from scratch.
 
 **The schema anticipates the newsletter; the code does not implement it.** `date` and
 `newsletter` are carried on every entry from the first commit. No send logic, no cron, no

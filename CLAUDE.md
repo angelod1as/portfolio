@@ -1,69 +1,60 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code working in this repository.
 
 @AGENTS.md
 
-> **Branch `v4`.** This branch is the Astro rewrite. The Next.js documentation below
-> describes `main` (still live on Vercel) and is kept for porting reference only — it does
-> not describe this branch. For what `v4` is, read `docs/PROJECT.md` and
-> `.specify/memory/constitution.md`. Current commands: `pnpm dev`, `pnpm build`,
-> `pnpm check`, `bash scripts/gate.sh full`.
+## What this is
 
-## Commands (main / Next.js — historical)
+Angelo's personal site, rebuilt from scratch on branch `v4`. Astro 7, MDX, pnpm,
+Node ≥ 20. No UI framework.
+
+Read before doing anything:
+
+- `docs/PROJECT.md` — the north star, the phases, and the binding non-goals
+- `.specify/memory/constitution.md` — rules that may not be broken
+- `.os/autonomy.yaml` — what always halts and asks
+
+## Commands
 
 ```bash
-npm run dev          # Local dev server
-npm run build        # Production build
-npm run lint         # ESLint + TypeScript type-check (tsc --noEmit)
-npm test             # Jest tests
-npm run post         # Scaffold a new blog post (interactive CLI)
-npm run project      # Scaffold a new project entry (interactive CLI)
+pnpm dev                  # local dev server
+pnpm build                # static build — also validates all content frontmatter
+pnpm check                # astro check (types + diagnostics)
+pnpm format               # prettier --write
+pnpm format:check         # prettier --check
+bash scripts/gate.sh full # the only definition of done
 ```
 
-## Architecture
+## Content
 
-Next.js 15 portfolio site using **static generation** (getStaticProps/getStaticPaths) with MDX-based content. Deployed on Vercel.
+Content lives in `content/`, outside `src/`, loaded by glob loaders declared in
+`src/content.config.ts`. Frontmatter is validated by zod at build time — a malformed
+entry fails `pnpm build`, which is how the gate catches bad content.
 
-### Content Pipeline
+Lanes are **formats** (Essays, Notes, Work, Library, Now). Subjects are **tags**. Adding
+a lane is a decision and halts.
 
-MDX files in `/content/{blog,projects,pages}/` → parsed with `gray-matter` (frontmatter) → serialized with `next-mdx-remote` + rehype plugins → rendered as static pages.
+Every entry declares `lang: 'en' | 'pt'`. Both languages share one index and one URL
+space. There are no `/en` or `/pt` routes.
 
-- `src/lib/common/fetchAllPages.ts` — lists all content of a type, extracts metadata
-- `src/lib/common/fetchSinglePage.ts` — fetches one page, serializes MDX with rehype-highlight, rehype-slug, rehype-autolink-headings
+**Never edit Angelo's prose.** Moving files, fixing paths, adding required frontmatter
+fields — fine. Changing his words — halt. Prettier is configured with
+`proseWrap: 'preserve'` so markdown is normalized structurally but sentences and line
+breaks are left exactly as written.
 
-### Key Directories
+## Style
 
-- `src/pages/` — Next.js pages with SSG; includes API routes for OG image generation (`/api/og`) and RSS (`/api/substack`)
-- `src/components/pages/` — page-specific components (Home, Blog, Projects)
-- `src/components/common/` — shared components (MDX renderer, Footer, Form)
-- `src/components/templates/` — layout wrappers (Providers, Template)
-- `src/helpers/` — utility functions (date formatting, reading time calc)
-- `src/types/types.ts` — shared TypeScript types
-- `content/` — MDX content organized by type and date
+- **v1 is plain HTML.** Semantic elements, block-level layout, no colours, no fonts, no
+  components. Any styling beyond that halts and asks. Design is a later phase.
+- **Code style:** no semicolons, single quotes, trailing commas, 80 columns (Prettier).
+- Colours from the previous site, for whenever design starts: highlight `#f2ca19`,
+  red `#F95B2B`.
 
-### Routing
+## Git
 
-| Route | Source |
-|-------|--------|
-| `/` | Home page |
-| `/blog` | Blog listing with filtering/search |
-| `/blog/[slug]` | Individual blog post |
-| `/projects` | Project listing |
-| `/projects/[slug]` | Individual project |
-| `/[slug]` | Catch-all for static pages from `content/pages/` |
-
-### Path Aliases (tsconfig)
-
-`#types/*`, `#pages/*`, `#components/*`, `#test/*`, `#lib/*`, `#content/*` — all map into `src/` subdirectories.
-
-## Git Commits
-
-- **DO NOT CO-AUTHOR**: Never add `Co-Authored-By` lines to commit messages.
-
-## Style & Conventions
-
-- **Styling**: Tailwind CSS + SASS (`src/styles/globals.sass`). Custom colors: highlight (#f2ca19), red (#F95B2B). Dark mode via class strategy.
-- **Code style**: No semicolons, single quotes, trailing commas, 80-char width (Prettier). Unused imports are warnings. No console.log (warn/error allowed).
-- **OG images**: Generated dynamically via `@vercel/og` at `/api/og` (Edge runtime).
-- **UI primitives**: Radix UI (accordion, toggle-group).
+- **DO NOT CO-AUTHOR**: never add `Co-Authored-By` lines to commit messages.
+- `main` is the previous Next.js site and is still live on Vercel. Do not touch it, do
+  not merge into it, do not deploy from it.
+- Work happens in the `v4` worktree at `../v4`. The `astro/` and `v3/` worktrees are
+  earlier attempts — leave them alone.

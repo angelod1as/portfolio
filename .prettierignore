@@ -4,9 +4,6 @@
 
 /coverage
 
-/.next/
-/out/
-
 /build
 
 .DS_Store
@@ -26,7 +23,6 @@ pnpm-error.log*
 /dist
 /.astro
 pnpm-lock.yaml
-/content
 /public
 
 # vendored tooling — not ours to reformat
@@ -35,7 +31,5 @@ pnpm-lock.yaml
 /.os
 /.vscode
 /scripts
-
-# prose is never reformatted by a tool
-*.md
-*.mdx
+/.claude
+content/**/*.html

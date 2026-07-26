@@ -1,14 +1,22 @@
 # Angelo Dias's portfolio
 
-## Description
+Personal site: essays, notes, work, library. Lanes are formats; subjects are tags.
+Entries are written in English or Brazilian Portuguese and share one feed.
 
-The [website](https://angelodias.com.br) is self explanatory.
+Astro 7, MDX, pnpm, Node ≥ 20. No UI framework. Content lives in `content/`.
 
-Made using Typescript, React, [Next.js](https://nextjs.org/), [Vercel](https://vercel.com), VS Code, and more.
+```bash
+pnpm dev                  # local dev server
+pnpm build                # static build — also validates all content frontmatter
+pnpm check                # astro check (types + diagnostics)
+pnpm format               # prettier --write
+bash scripts/gate.sh full # the definition of done
+```
 
-## Updates
+What this is, who it is for, and what it deliberately is not: `docs/PROJECT.md`.
+Rules an agent may not break: `.specify/memory/constitution.md`.
 
-This website was first built using Gatsby, then moved to Next.js. There is a plan to move it to [Astro](astro.new), so technical updates are halted and only content updates are allowed.
+`main` holds the previous Next.js site, still live on Vercel.
 
 ## Like what you see?
 
