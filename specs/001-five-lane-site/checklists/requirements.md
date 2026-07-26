@@ -46,6 +46,21 @@ Validation ran twice. Issues found and fixed on the first pass:
 Deliberately not marked as clarifications, because `docs/PROJECT.md` already decides them:
 lane count, tag freedom, language handling, address shape, no redirects, no styling.
 
-One item worth the reviewer's attention rather than the planner's: FR-026 and SC-010
+One item worth the reviewer's attention rather than the planner's: FR-031 and SC-010
 constrain v1 to unstyled semantic markup. That is a deliberate constraint from the
 interview, not an oversight.
+
+## Re-validation after clarification (2026-07-26)
+
+Four clarifications integrated; 16/16 items still passing, no regressions. What changed:
+
+- Library grew to cover series and films, adding FR-021 through FR-023 and SC-013.
+- The language filter resolved to built index pages, which added a no-JavaScript
+  constraint the spec had never stated: FR-033 and SC-012.
+- The Essays/Notes boundary resolved to "no rule", recorded as FR-024 with its drift risk
+  written into Assumptions rather than hidden.
+- Social previews resolved to a site default with per-entry override (FR-030), removing the
+  contradiction between requiring preview images and forbidding design work.
+
+Requirements renumbered from FR-017 onward to absorb the insertions. 38 requirements,
+13 success criteria, no duplicates or gaps.

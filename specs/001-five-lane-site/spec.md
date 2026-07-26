@@ -11,6 +11,23 @@ Library and Now — where subject is carried by free-form tags, entries are writ
 English or Brazilian Portuguese and share one feed, and every entry lives at a
 date-stamped address. v1 is structure and content only: plain HTML, no styling.
 
+## Clarifications
+
+### Session 2026-07-26
+
+- Q: What separates a Note from an Essay, and where do the 12 existing blog posts go? → A:
+  No rule. Angelo assigns the lane per entry, case by case. The port defaults all 12 to
+  Essays; moving the file moves the lane. Accepted risk: the two lanes may drift into
+  meaning the same thing, and nothing in the build will prevent it.
+- Q: How does the language filter work on a lane index? → A: Separate built index pages
+  (`/essays`, `/essays/en`, `/essays/pt`). No JavaScript. Entry addresses are unaffected.
+- Q: What does a Library entry record, now that it covers books, series and films? → A:
+  `medium` (book / series / film), `by` (author, director or creator), date finished, and
+  the reaction as the body. No rating, no cover, no reading state.
+- Q: Where do per-entry social preview images come from at v1? → A: One site-wide default
+  image, with an optional per-entry override. Work entries reuse their hero image.
+  Generated title cards are a design-phase task.
+
 ## User Scenarios & Testing _(mandatory)_
 
 ### User Story 1 - A hiring manager decides whether Angelo can do the work (Priority: P1)
@@ -64,7 +81,7 @@ and find a machine-readable feed to subscribe with.
 4. **Given** a visitor who wants to follow along, **When** they look for a feed, **Then** a
    valid feed exists covering all published entries.
 5. **Given** a visitor on the Library index, **When** they scan it, **Then** they see what
-   Angelo has read and what he thought of it.
+   Angelo has read and watched, what medium each was, and what he thought of it.
 
 ---
 
@@ -220,53 +237,75 @@ text of a sample of entries — the prose must be byte-identical.
 
 - **FR-013**: Every entry MUST declare its language as either English or Brazilian
   Portuguese; the field is required and an entry without it MUST fail the build.
-- **FR-014**: Both languages MUST share one set of indexes and one address space; the site
-  MUST NOT have per-language routes or require translation.
+- **FR-014**: Entries MUST have one address regardless of language, and translation MUST
+  never be required for an entry to publish.
 - **FR-015**: An entry's language MUST be visible in listings before the entry is opened.
-- **FR-016**: Lane indexes MUST allow a visitor to narrow the listing to a single language,
-  with both shown by default.
+- **FR-016**: Each lane index MUST exist in three forms — both languages, English only, and
+  Portuguese only — each at its own address, with the both-languages form as the default
+  landing point. These are views over one entry set, not per-language copies of an entry.
+- **FR-017**: Language narrowing MUST work without JavaScript, and MUST survive with
+  scripting disabled.
 
 **Work**
 
-- **FR-017**: A Work entry MUST support a structured summary of when, where, who, what and
+- **FR-018**: A Work entry MUST support a structured summary of when, where, who, what and
   why, a personal-or-professional marker, an optional link to the live thing, and an
   optional hero image with alternative text.
-- **FR-018**: Work MUST present recommendations in two distinct sets — professional and
+- **FR-019**: Work MUST present recommendations in two distinct sets — professional and
   personal — each attributed to a named person.
-- **FR-019**: An empty recommendation set MUST be omitted rather than rendered empty.
+- **FR-020**: An empty recommendation set MUST be omitted rather than rendered empty.
+
+**Library**
+
+- **FR-021**: A Library entry MUST record what medium it is — book, series or film — who
+  made it, when Angelo finished it, and his reaction as the body.
+- **FR-022**: The Library index MUST let a visitor see entries of a single medium as well
+  as all of them together.
+- **FR-023**: A Library entry MUST NOT require a rating, a cover image or a reading state;
+  these are out of scope for v1.
+
+**Essays and Notes**
+
+- **FR-024**: Which lane an entry belongs to MUST be Angelo's per-entry choice. The system
+  MUST NOT infer or enforce a boundary between Essays and Notes by length, shape or any
+  other rule.
 
 **Publishing and validation**
 
-- **FR-020**: Adding one correctly-formed file to a lane's content folder MUST be
+- **FR-025**: Adding one correctly-formed file to a lane's content folder MUST be
   sufficient to publish an entry — no index, registry or navigation file may need editing.
-- **FR-021**: An entry with a missing or invalid required field MUST fail the build with a
+- **FR-026**: An entry with a missing or invalid required field MUST fail the build with a
   message naming the file and the field.
-- **FR-022**: Every entry MUST carry the fields the future newsletter will need, and no
+- **FR-027**: Every entry MUST carry the fields the future newsletter will need, and no
   part of v1 may read them for sending, scheduling or hiding.
 
 **Distribution**
 
-- **FR-023**: The site MUST publish a machine-readable feed covering all published entries
+- **FR-028**: The site MUST publish a machine-readable feed covering all published entries
   across all lanes.
-- **FR-024**: The site MUST publish a sitemap covering every reachable address.
-- **FR-025**: Every entry MUST have a social preview image for when it is shared.
+- **FR-029**: The site MUST publish a sitemap covering every reachable address.
+- **FR-030**: Every entry MUST present a social preview image when shared: a single
+  site-wide default, overridable per entry. Work entries MUST use their hero image as that
+  override where one exists. Generating a preview image per entry is out of scope for v1.
 
 **Presentation**
 
-- **FR-026**: v1 MUST use semantic markup with block-level layout only — no colour,
+- **FR-031**: v1 MUST use semantic markup with block-level layout only — no colour,
   typography, theming or component styling.
-- **FR-027**: Every page MUST be usable and legible without any styling applied.
-- **FR-028**: The site MUST meet an accessibility score of at least 95 on its main page
+- **FR-032**: Every page MUST be usable and legible without any styling applied.
+- **FR-033**: Every page MUST be fully usable with JavaScript disabled.
+- **FR-034**: The site MUST meet an accessibility score of at least 95 on its main page
   types.
 
 **Migration**
 
-- **FR-029**: All existing non-draft blog and project entries MUST be ported into the
-  appropriate lanes, preserving their original dates.
-- **FR-030**: Porting MUST NOT alter the body text of any entry.
-- **FR-031**: Porting MUST convert legacy fields to their new equivalents — timestamp to
+- **FR-035**: All existing non-draft blog and project entries MUST be ported into the
+  appropriate lanes, preserving their original dates. Blog posts default to Essays; project
+  entries become Work.
+- **FR-036**: Porting MUST NOT alter the body text of any entry.
+- **FR-037**: Porting MUST convert legacy fields to their new equivalents — timestamp to
   date, categories to tags — and MUST strip emphasis markup from titles.
-- **FR-032**: Language MUST be assigned per ported entry by Angelo, and any entry left
+- **FR-038**: Language MUST be assigned per ported entry by Angelo, and any entry left
   without one MUST fail the build rather than be guessed.
 
 ### Key Entities
@@ -278,7 +317,10 @@ text of a sample of entries — the prose must be byte-identical.
   and which index it appears on. Not a subject, and not part of an address.
 - **Work entry**: An Entry with additional structure — the when/where/who/what/why summary,
   a personal-or-professional marker, an optional live link, an optional hero image.
-- **Library entry**: An Entry describing a book Angelo has read and his reaction to it.
+- **Library entry**: An Entry describing something Angelo has consumed and his reaction to
+  it. Carries its medium (book, series or film), who made it, and the date he finished it.
+- **Essay / Note**: The same underlying Entry, differing only in which lane Angelo filed it
+  under and how that lane presents it. No rule distinguishes them.
 - **Tag**: A free-form subject label shared across lanes. Has a page listing its entries.
 - **Recommendation**: A quoted endorsement attributed to a named person, belonging to
   either the professional or the personal set.
@@ -306,7 +348,9 @@ text of a sample of entries — the prose must be byte-identical.
 - **SC-009**: Main page types score at least 95 for accessibility.
 - **SC-010**: Every page is legible and navigable with styling disabled entirely.
 - **SC-011**: A reader can restrict any lane index to a single language and see only that
-  language's entries.
+  language's entries, with scripting disabled.
+- **SC-012**: Every page works with JavaScript turned off.
+- **SC-013**: A visitor can see the Library narrowed to books, to series, or to films.
 
 ## Assumptions
 
@@ -317,8 +361,12 @@ text of a sample of entries — the prose must be byte-identical.
   controlled vocabulary can be imposed later once drift is visible.
 - Future-dated entries publish immediately at v1. Hiding them until their date is scheduled
   publishing, which is a later phase.
-- Book data is entered by hand. Goodreads has no usable API, and the site takes no runtime
-  dependency on any book service.
+- Library data is entered by hand. Goodreads has no usable API, and the site takes no
+  runtime dependency on any book, film or television service.
+- Library covers books, series and films in one lane, because they share a format — a thing
+  consumed plus a reaction — not a subject.
+- Essays and Notes are distinguished only by Angelo's judgement. The accepted risk is that
+  the two lanes drift into meaning the same thing; nothing in the build prevents it.
 - Personal recommendations do not exist yet. The site ships with the professional set and
   an absent personal set if none have been collected by then.
 - Old addresses (`/blog/*`, `/projects/*`) break at cutover. No redirects — decided.
