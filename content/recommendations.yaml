@@ -1,4 +1,5 @@
-- kind: professional
+- id: steffen-mueller
+  kind: professional
   name: Steffen Mueller
   role: CTO
   company: HUK-COBURG Autoservice GmbH
@@ -12,7 +13,8 @@
     Angelo would be an asset to any team who needs an experienced front-end
     engineer with a huge sense of ownership to drive projects.
 
-- kind: professional
+- id: moritz-tillmann
+  kind: professional
   name: Moritz Tillmann
   role: Director of Product
   company: HUK-COBURG Autowelt GmbH
@@ -26,7 +28,8 @@
     restrict him to a developer, he's more than that - especially with his
     background!
 
-- kind: professional
+- id: niek-nijrolder
+  kind: professional
   name: Niek Nijrolder
   role: Business Development Manager
   company: foobar Agency
@@ -43,7 +46,8 @@
     opinion, this makes him the perfect developer to seamlessly integrate into
     client-side teams.
 
-- kind: professional
+- id: thais-dias
+  kind: professional
   name: Thais Dias
   role: UI Designer
   company: HUK-COBURG Autoservice GmbH
@@ -59,7 +63,8 @@
     Angelo is great at bridging the gap between our worlds. Can't wait to keep
     making awesome things together!
 
-- kind: professional
+- id: felipe-freitag-vargas
+  kind: professional
   name: Felipe Freitag Vargas
   role: Founder & CTO
   company: Seasoned

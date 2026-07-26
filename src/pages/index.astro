@@ -1,20 +1,57 @@
 ---
-import { getCollection } from 'astro:content'
+import Base from '../layouts/Base.astro'
+import EntryList from '../components/EntryList.astro'
+import { loadPublished } from '../lib/content'
+import type { Lane } from '../lib/entries'
 
-const essays = await getCollection('essays')
+const all = await loadPublished()
+
+const LANES: { lane: Lane; heading: string; blurb: string }[] = [
+  {
+    lane: 'work',
+    heading: 'Work',
+    blurb: 'What I have built and written, and who for.',
+  },
+  { lane: 'essays', heading: 'Essays', blurb: 'Longer pieces, finished.' },
+  { lane: 'notes', heading: 'Notes', blurb: 'Shorter things, in progress.' },
+  {
+    lane: 'library',
+    heading: 'Library',
+    blurb: 'Books, series and films, and what I made of them.',
+  },
+]
+
+// A taste of each lane, not a river. The point is that a visitor can pick a door.
+const taste = LANES.map(entry => ({
+  ...entry,
+  entries: all.filter(item => item.lane === entry.lane).slice(0, 4),
+}))
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Angelo Dias</title>
-  </head>
-  <body>
-    <h1>Angelo Dias</h1>
-    <p>Scaffold. The lanes are specified, not built yet.</p>
-    <ul>
-      {essays.map(essay => <li>{essay.data.title}</li>)}
-    </ul>
-  </body>
-</html>
+<Base
+  title="Angelo Dias"
+  description="Developer, writer, designer, journalist and psychology student. Essays, notes, work and a library."
+>
+  <h1>Angelo Dias</h1>
+  <p>
+    I am a developer, a writer and a designer. I am an award-winning journalist
+    and a psychology student. I write in English and in Portuguese.
+  </p>
+
+  {
+    taste.map(({ lane, heading, blurb, entries }) => (
+      <section>
+        <h2>
+          <a href={`/${lane}`}>{heading}</a>
+        </h2>
+        <p>{blurb}</p>
+        <EntryList entries={entries} />
+      </section>
+    ))
+  }
+
+  <section>
+    <h2><a href="/now">Now</a></h2>
+    <p>What I am doing at the moment.</p>
+  </section>
+</Base>

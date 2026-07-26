@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro'
+
+// A standing page, not a collection: replaced in place, no date-stamped address,
+// absent from every index and the feed.
+const now = await import('../../content/now.md')
+const { Content, frontmatter } = now
+---
+
+<Base
+  title={frontmatter.title}
+  description="What Angelo Dias is doing at the moment."
+>
+  <h1>{frontmatter.title}</h1>
+  <Content />
+</Base>

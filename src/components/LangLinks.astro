@@ -1,0 +1,32 @@
+---
+// Plain anchors between the three built variants of a lane index. No JavaScript:
+// the filter has to survive with scripting disabled.
+interface Props {
+  base: string
+  current?: string
+}
+
+const { base, current } = Astro.props
+
+const variants = [
+  { slug: undefined, label: 'All' },
+  { slug: 'en', label: 'English' },
+  { slug: 'pt', label: 'Português' },
+]
+---
+
+<nav aria-label="Language">
+  <ul>
+    {
+      variants.map(({ slug, label }) => (
+        <li>
+          {slug === current ? (
+            <span aria-current="true">{label}</span>
+          ) : (
+            <a href={slug ? `${base}/${slug}` : base}>{label}</a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>

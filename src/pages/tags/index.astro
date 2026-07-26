@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro'
+import { loadPublished } from '../../lib/content'
+import { tagCounts } from '../../lib/entries'
+
+const tags = tagCounts(await loadPublished())
+---
+
+<Base title="Tags" description="Every subject, across every lane.">
+  <h1>Tags</h1>
+  <p>
+    Subjects cut across lanes — a tag gathers essays, notes, work and library
+    entries alike.
+  </p>
+
+  {
+    tags.length === 0 ? (
+      <p>No tags in use yet.</p>
+    ) : (
+      <ul>
+        {tags.map(({ tag, count }) => (
+          <li>
+            <a href={`/tags/${tag}`}>{tag}</a> <span>({count})</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Base>

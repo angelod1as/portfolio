@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro'
+import EntryList from '../../components/EntryList.astro'
+import { loadPublished } from '../../lib/content'
+import { byYear, type Entry } from '../../lib/entries'
+
+export async function getStaticPaths() {
+  const all = await loadPublished()
+  const years = [...new Set(all.map(entry => entry.data.date.getUTCFullYear()))]
+
+  return years.map(year => ({
+    params: { year: String(year) },
+    props: { entries: byYear(all, year) },
+  }))
+}
+
+const { year } = Astro.params
+const { entries } = Astro.props as { entries: Entry[] }
+---
+
+<Base title={year} description={`Everything published in ${year}.`}>
+  <h1>{year}</h1>
+  <EntryList entries={entries} showLane />
+</Base>

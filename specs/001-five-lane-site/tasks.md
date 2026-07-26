@@ -88,14 +88,14 @@ fail the build, and `bash scripts/gate.sh full` passes.
 **Independent test**: create `content/notes/probe.md` with the required fields, build, and
 find it at its address, on the notes index and in the feed — with no other file edited.
 
-- [ ] T023 [US4] Verify the one-file publish path end to end using the probe procedure in
+- [x] T023 [US4] Verify the one-file publish path end to end using the probe procedure in
       quickstart.md, then delete the probe
-- [ ] T024 [US4] Verify each failure mode in the contracts/authoring.md failure table
+- [x] T024 [US4] Verify each failure mode in the contracts/authoring.md failure table
       fails the build with the file and field named: missing `lang`, invalid `lang`,
       missing `title`, missing `date`, `hero` without `alt`, unknown `medium`
-- [ ] T025 [US4] Exclude drafts from every collection query in `src/lib/entries.ts` and
+- [x] T025 [US4] Exclude drafts from every collection query in `src/lib/entries.ts` and
       from the entry route in `src/pages/[year]/[month]/[slug].astro`
-- [ ] T026 [US4] Verify a drafted entry is absent from `dist/` entirely — no page, index,
+- [x] T026 [US4] Verify a drafted entry is absent from `dist/` entirely — no page, index,
       feed or sitemap entry — per the quickstart grep check
 
 **Checkpoint**: publishing is one file; bad content cannot ship.
@@ -113,16 +113,16 @@ in two clicks without reading prose.
       from the current site, and an empty personal set
 - [x] T028 [US1] Load and validate recommendations in `src/content.config.ts` as a data
       collection with `kind`, `name`, `role`, `text`
-- [ ] T029 [US1] Create `src/components/Recommendations.astro` rendering one set, omitting
+- [x] T029 [US1] Create `src/components/Recommendations.astro` rendering one set, omitting
       itself entirely when the set is empty
-- [ ] T030 [US1] Create `src/pages/work/[...lang].astro` — the Work index listing entries
+- [x] T030 [US1] Create `src/pages/work/[...lang].astro` — the Work index listing entries
       with what, who and when visible before opening, plus both recommendation sets
 - [x] T031 [US1] Extend `src/layouts/Entry.astro` to render the Work `summary`
       (when / where / who / what / why), the `live` link when present, and the `hero`
       image with its `alt` when present
-- [ ] T032 [US1] Create `content/now.md` and `src/pages/now.astro` — the standing page,
+- [x] T032 [US1] Create `content/now.md` and `src/pages/now.astro` — the standing page,
       not a collection, absent from indexes and the feed
-- [ ] T033 [US1] Create `src/pages/index.astro` — the taster homepage: one line on who
+- [x] T033 [US1] Create `src/pages/index.astro` — the taster homepage: one line on who
       Angelo is, recent entries per lane, and a labelled door into each lane
 
 **Checkpoint**: the P1 visitor journey works. This plus Phase 3 is the MVP.
@@ -136,13 +136,13 @@ in two clicks without reading prose.
 **Independent test**: from `/`, open a full essay and a note in one click each, and fetch a
 valid feed.
 
-- [ ] T034 [P] [US2] Create `src/pages/essays/[...lang].astro` — the Essays index, newest
+- [x] T034 [P] [US2] Create `src/pages/essays/[...lang].astro` — the Essays index, newest
       first
-- [ ] T035 [P] [US2] Create `src/pages/notes/[...lang].astro` — the Notes index, newest
+- [x] T035 [P] [US2] Create `src/pages/notes/[...lang].astro` — the Notes index, newest
       first
-- [ ] T036 [P] [US2] Create `src/pages/library/[...filter].astro` — the Library index
+- [x] T036 [P] [US2] Create `src/pages/library/[...filter].astro` — the Library index
       showing title, medium, `by` and date for each entry
-- [ ] T037 [US2] Create `src/pages/rss.xml.ts` — a feed covering every published entry
+- [x] T037 [US2] Create `src/pages/rss.xml.ts` — a feed covering every published entry
       across all four lanes, excluding drafts
 - [ ] T038 [US2] Write at least 3 essays, 5 notes and 3 library entries as real content —
       HALT and hand this to Angelo; the agent does not write his prose
@@ -182,10 +182,10 @@ valid feed.
 
 **Independent test**: from a tagged entry, reach every entry sharing that tag.
 
-- [ ] T045 [P] [US3] Create `src/pages/tags/[tag].astro` — every entry with that tag,
+- [x] T045 [P] [US3] Create `src/pages/tags/[tag].astro` — every entry with that tag,
       any lane, newest first, each result labelled with its lane
-- [ ] T046 [P] [US3] Create `src/pages/tags/index.astro` — every tag in use with a count
-- [ ] T047 [US3] Verify a tag used in exactly one lane and a tag used in several both
+- [x] T046 [P] [US3] Create `src/pages/tags/index.astro` — every tag in use with a count
+- [x] T047 [US3] Verify a tag used in exactly one lane and a tag used in several both
       render correctly, and that a tag used once does not look broken
 
 **Checkpoint**: the format/subject split pays off instead of hiding things.
@@ -198,14 +198,14 @@ valid feed.
 
 **Independent test**: open `/essays`, `/essays/en`, `/essays/pt` with JavaScript disabled.
 
-- [ ] T048 [US5] Extend the `[...lang]` routes in `src/pages/essays/`, `notes/` and
+- [x] T048 [US5] Extend the `[...lang]` routes in `src/pages/essays/`, `notes/` and
       `work/` to build the unfiltered, English and Portuguese variants from one route
-- [ ] T049 [US5] Extend `src/pages/library/[...filter].astro` to build the language
+- [x] T049 [US5] Extend `src/pages/library/[...filter].astro` to build the language
       variants and the `books` / `series` / `films` medium variants
-- [ ] T050 [P] [US5] Create `src/components/LangLinks.astro` — plain anchors between the
+- [x] T050 [P] [US5] Create `src/components/LangLinks.astro` — plain anchors between the
       three variants, no JavaScript
-- [ ] T051 [US5] Show each entry's language in every listing, per FR-015
-- [ ] T052 [US5] Verify all filter pages work with scripting disabled
+- [x] T051 [US5] Show each entry's language in every listing, per FR-015
+- [x] T052 [US5] Verify all filter pages work with scripting disabled
 
 **Checkpoint**: bilingual readers are served and nothing depends on JavaScript.
 
@@ -213,20 +213,20 @@ valid feed.
 
 ## Phase 9: Polish & cross-cutting
 
-- [ ] T053 [P] Add the year archive `src/pages/[year]/index.astro` listing every entry
+- [x] T053 [P] Add the year archive `src/pages/[year]/index.astro` listing every entry
       published that year
-- [ ] T054 [P] Create `src/pages/404.astro` for unknown tags, years and entries
+- [x] T054 [P] Create `src/pages/404.astro` for unknown tags, years and entries
 - [ ] T055 [P] Add the site-wide default social preview image at `public/og-default.png`
       and wire the per-entry override chain — `image`, then `hero.src`, then the default —
       in `src/layouts/Base.astro`. HALT if the default image needs designing
-- [ ] T056 Verify `/sitemap.xml` covers every address in contracts/routes.md
+- [x] T056 Verify `/sitemap.xml` covers every address in contracts/routes.md
 - [ ] T057 Run the accessibility audit over the homepage, a lane index, an entry and a tag
       page; record all four scores. Fix anything below 95
 - [ ] T058 Add the accessibility audit to the `slow` tier of `.os/gates.yaml` now that
       pages exist to audit
-- [ ] T059 Verify every page renders legibly with styling disabled, per SC-010
+- [x] T059 Verify every page renders legibly with styling disabled, per SC-010
 - [ ] T060 Walk every check in quickstart.md end to end and record the results
-- [ ] T061 Confirm no stylesheet, no client-side script, no newsletter code and no redirect
+- [x] T061 Confirm no stylesheet, no client-side script, no newsletter code and no redirect
       was added anywhere in the diff
 
 ---

@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content'
+
+interface Props {
+  kind: 'professional' | 'personal'
+  heading: string
+}
+
+const { kind, heading } = Astro.props
+
+const all = await getCollection('recommendations')
+const set = all.filter(entry => entry.data.kind === kind)
+---
+
+{/* An empty set is omitted entirely rather than rendered as an empty shell. */}
+{
+  set.length > 0 && (
+    <section>
+      <h2>{heading}</h2>
+      {set.map(({ data }) => (
+        <figure>
+          <blockquote>
+            {data.text.split('\n\n').map(paragraph => (
+              <p>{paragraph}</p>
+            ))}
+          </blockquote>
+          <figcaption>
+            {data.link ? <a href={data.link}>{data.name}</a> : data.name}
+            {data.role && <span>, {data.role}</span>}
+            {data.company && <span> at {data.company}</span>}
+          </figcaption>
+        </figure>
+      ))}
+    </section>
+  )
+}

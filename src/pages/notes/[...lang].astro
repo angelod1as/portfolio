@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro'
+import EntryList from '../../components/EntryList.astro'
+import LangLinks from '../../components/LangLinks.astro'
+import { loadLane } from '../../lib/content'
+import { byLang } from '../../lib/entries'
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'pt' } },
+  ]
+}
+
+const { lang } = Astro.params
+const all = await loadLane('notes')
+const entries = lang === 'en' || lang === 'pt' ? byLang(all, lang) : all
+---
+
+<Base title="Notes" description="Shorter things, half-formed on purpose.">
+  <h1>Notes</h1>
+  <LangLinks base="/notes" current={lang} />
+  <EntryList entries={entries} />
+</Base>

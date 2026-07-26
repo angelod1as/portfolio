@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro'
+import EntryList from '../../components/EntryList.astro'
+import LangLinks from '../../components/LangLinks.astro'
+import Recommendations from '../../components/Recommendations.astro'
+import { loadLane } from '../../lib/content'
+import { byLang } from '../../lib/entries'
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'pt' } },
+  ]
+}
+
+const { lang } = Astro.params
+const all = await loadLane('work')
+const entries = lang === 'en' || lang === 'pt' ? byLang(all, lang) : all
+---
+
+<Base
+  title="Work"
+  description="What Angelo Dias has built, written and shipped, and who for."
+>
+  <h1>Work</h1>
+  <LangLinks base="/work" current={lang} />
+  <EntryList entries={entries} />
+
+  <Recommendations kind="professional" heading="What colleagues say" />
+  <Recommendations kind="personal" heading="What friends say" />
+</Base>
