@@ -1,10 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro'
-import EntryList from '../../components/EntryList.astro'
 import LangLinks from '../../components/LangLinks.astro'
 import Recommendations from '../../components/Recommendations.astro'
 import { loadLane } from '../../lib/content'
-import { byLang } from '../../lib/entries'
+import { byLang, tagSlug } from '../../lib/entries'
 
 export async function getStaticPaths() {
   return [
@@ -17,6 +16,18 @@ export async function getStaticPaths() {
 const { lang } = Astro.params
 const all = await loadLane('work')
 const entries = lang === 'en' || lang === 'pt' ? byLang(all, lang) : all
+
+const LANG_LABEL = { en: 'English', pt: 'Português' } as const
+
+// Work has its own listing rather than the shared one: a hiring manager must see
+// what it was and who it was for without opening anything.
+const listed = entries.map(entry => ({
+  entry,
+  data: entry.data as typeof entry.data & {
+    type?: 'personal' | 'professional'
+    summary?: { what: string; where: string }
+  },
+}))
 ---
 
 <Base
@@ -25,7 +36,45 @@ const entries = lang === 'en' || lang === 'pt' ? byLang(all, lang) : all
 >
   <h1>Work</h1>
   <LangLinks base="/work" current={lang} />
-  <EntryList entries={entries} />
+
+  {
+    listed.length === 0 ? (
+      <p>Nothing here yet.</p>
+    ) : (
+      <ul>
+        {listed.map(({ entry, data }) => (
+          <li>
+            <article>
+              <h2>
+                <a href={entry.address}>{data.title}</a>
+              </h2>
+              <p>
+                {data.summary && <span>{data.summary.what}</span>}
+                {data.summary && <span> for </span>}
+                {data.summary && <span>{data.summary.where}</span>}
+                {data.summary && <span> · </span>}
+                <time datetime={data.date.toISOString()}>
+                  {data.date.toISOString().slice(0, 10)}
+                </time>
+                {data.type && <span> · {data.type}</span>}
+                <span> · </span>
+                <span lang={data.lang}>{LANG_LABEL[data.lang]}</span>
+              </p>
+              {data.tags.length > 0 && (
+                <ul aria-label="Tags">
+                  {data.tags.map(tag => (
+                    <li>
+                      <a href={`/tags/${tagSlug(tag)}`}>{tag}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 
   <Recommendations kind="professional" heading="What colleagues say" />
   <Recommendations kind="personal" heading="What friends say" />

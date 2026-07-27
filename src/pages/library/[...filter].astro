@@ -2,7 +2,9 @@
 import Base from '../../layouts/Base.astro'
 import LangLinks from '../../components/LangLinks.astro'
 import { loadLane } from '../../lib/content'
-import { byLang } from '../../lib/entries'
+import { byLang, tagSlug } from '../../lib/entries'
+
+const LANG_LABEL = { en: 'English', pt: 'Português' } as const
 
 // One route builds every view: unfiltered, the two languages, and the three media.
 const MEDIA = { books: 'book', series: 'series', films: 'film' } as const
@@ -79,9 +81,9 @@ const mediumViews: MediumSlug[] = ['books', 'series', 'films']
           return (
             <li>
               <article>
-                <h3>
+                <h2>
                   <a href={entry.address}>{data.title}</a>
-                </h3>
+                </h2>
                 <p>
                   <span>{data.medium}</span>
                   <span> · </span>
@@ -90,7 +92,18 @@ const mediumViews: MediumSlug[] = ['books', 'series', 'films']
                   <time datetime={data.date.toISOString()}>
                     {data.date.toISOString().slice(0, 10)}
                   </time>
+                  <span> · </span>
+                  <span lang={data.lang}>{LANG_LABEL[data.lang]}</span>
                 </p>
+                {data.tags.length > 0 && (
+                  <ul aria-label="Tags">
+                    {data.tags.map(tag => (
+                      <li>
+                        <a href={`/tags/${tagSlug(tag)}`}>{tag}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </article>
             </li>
           )

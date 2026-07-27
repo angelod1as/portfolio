@@ -42,12 +42,17 @@ JavaScript is involved (FR-033).
 
 ## Site
 
-| Address        | What                                         |
-| -------------- | -------------------------------------------- |
-| `/`            | Homepage — a taste of each lane.             |
-| `/rss.xml`     | Feed covering all published entries.         |
-| `/sitemap.xml` | Every address above.                         |
-| `/404`         | Not-found, for unknown tags, years, entries. |
+| Address              | What                                         |
+| -------------------- | -------------------------------------------- |
+| `/`                  | Homepage — a taste of each lane.             |
+| `/rss.xml`           | Feed covering all published entries.         |
+| `/sitemap-index.xml` | Index pointing at `/sitemap-0.xml`.          |
+| `/sitemap-0.xml`     | Every address above except `/404`.           |
+| `/404`               | Not-found, for unknown tags, years, entries. |
+
+The sitemap is split into an index and a numbered file because that is what the sitemap
+integration emits. `/sitemap.xml` is deliberately not an address — nothing links to it and
+crawlers are pointed at the index by `robots.txt`.
 
 ## Reserved
 

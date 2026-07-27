@@ -7,18 +7,18 @@ import { byTag, tagCounts, type Entry } from '../../lib/entries'
 export async function getStaticPaths() {
   const all = await loadPublished()
 
-  return tagCounts(all).map(({ tag }) => ({
-    params: { tag },
-    props: { entries: byTag(all, tag) },
+  return tagCounts(all).map(({ tag, slug }) => ({
+    params: { tag: slug },
+    props: { entries: byTag(all, slug), label: tag },
   }))
 }
 
-const { tag } = Astro.params
-const { entries } = Astro.props as { entries: Entry[] }
+// The URL carries the slug; the page shows the tag as Angelo wrote it.
+const { entries, label } = Astro.props as { entries: Entry[]; label: string }
 ---
 
-<Base title={`Tagged “${tag}”`} description={`Everything tagged ${tag}.`}>
-  <h1>Tagged “{tag}”</h1>
+<Base title={`Tagged “${label}”`} description={`Everything tagged ${label}.`}>
+  <h1>Tagged “{label}”</h1>
   <p>
     <a href="/tags">All tags</a>
   </p>

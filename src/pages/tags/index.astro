@@ -18,9 +18,9 @@ const tags = tagCounts(await loadPublished())
       <p>No tags in use yet.</p>
     ) : (
       <ul>
-        {tags.map(({ tag, count }) => (
+        {tags.map(({ tag, slug, count }) => (
           <li>
-            <a href={`/tags/${tag}`}>{tag}</a> <span>({count})</span>
+            <a href={`/tags/${slug}`}>{tag}</a> <span>({count})</span>
           </li>
         ))}
       </ul>

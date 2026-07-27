@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /*
 
-Disallow: /api/*
-Disallow: /party/*
-Disallow: /festa/*
+Sitemap: https://www.angelodias.com.br/sitemap-index.xml

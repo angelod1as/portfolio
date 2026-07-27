@@ -25,10 +25,11 @@ pnpm-error.log*
 pnpm-lock.yaml
 /public
 
-# vendored tooling — not ours to reformat
+# vendored tooling — not ours to reformat.
+# `.os/` is deliberately NOT here: it holds the gate's own configuration, and a
+# gate that excludes its own config from itself is not checking what it claims to.
 /.specify
 /.serena
-/.os
 /.vscode
 /scripts
 /.claude

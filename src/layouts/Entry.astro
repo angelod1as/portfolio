@@ -1,6 +1,6 @@
 ---
 import Base from './Base.astro'
-import type { Entry } from '../lib/entries'
+import { tagSlug, type Entry } from '../lib/entries'
 
 interface Props {
   entry: Entry
@@ -63,7 +63,7 @@ const iso = (date: Date) => date.toISOString().slice(0, 10)
           <ul aria-label="Tags">
             {data.tags.map(tag => (
               <li>
-                <a href={`/tags/${tag}`}>{tag}</a>
+                <a href={`/tags/${tagSlug(tag)}`}>{tag}</a>
               </li>
             ))}
           </ul>

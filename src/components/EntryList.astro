@@ -1,13 +1,17 @@
 ---
-import type { Entry } from '../lib/entries'
+import { tagSlug, type Entry } from '../lib/entries'
 
 interface Props {
   entries: Entry[]
   // Lane indexes already say which lane they are; tag pages and the archive do not.
   showLane?: boolean
+  // Indexes put these directly under the <h1>; the homepage nests them under a
+  // per-lane <h2>. Skipping a level is a scored accessibility failure.
+  headingLevel?: 2 | 3
 }
 
-const { entries, showLane = false } = Astro.props
+const { entries, showLane = false, headingLevel = 2 } = Astro.props
+const Heading = `h${headingLevel}` as 'h2' | 'h3'
 
 const LANG_LABEL = { en: 'English', pt: 'Português' } as const
 ---
@@ -20,9 +24,9 @@ const LANG_LABEL = { en: 'English', pt: 'Português' } as const
       {entries.map(entry => (
         <li>
           <article>
-            <h3>
+            <Heading>
               <a href={entry.address}>{entry.data.title}</a>
-            </h3>
+            </Heading>
             <p>
               <time datetime={entry.data.date.toISOString()}>
                 {entry.data.date.toISOString().slice(0, 10)}
@@ -40,7 +44,7 @@ const LANG_LABEL = { en: 'English', pt: 'Português' } as const
               <ul aria-label="Tags">
                 {entry.data.tags.map(tag => (
                   <li>
-                    <a href={`/tags/${tag}`}>{tag}</a>
+                    <a href={`/tags/${tagSlug(tag)}`}>{tag}</a>
                   </li>
                 ))}
               </ul>

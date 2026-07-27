@@ -43,7 +43,10 @@ Binding. Work that serves one of these does not get done, however small it looks
   carries `newsletter` and `date`; no code reads them for sending.
 - **No Substack or Cronofobia migration.** That list is real and lives elsewhere; it does
   not get moved onto unproven infrastructure.
-- **No `/en` `/pt` routes and no translation.** Language is a field, not a route.
+- **No per-entry `/en` `/pt` routes and no translation.** Language is a field: an entry has
+  one address whatever language it is in. Lane indexes do get language variants
+  (`/essays/en`, `/notes/pt`) so a list can be narrowed without JavaScript — those are
+  views, not copies of an entry.
 - **No CSS beyond block-level layout.** No colours, no fonts, no dark mode, no components,
   no design system. v1 is semantic HTML. Design is v2 and it is a conversation, not a task.
 - **No CMS, no comments, no analytics.**

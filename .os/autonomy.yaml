@@ -9,12 +9,12 @@ level: L2
 # Always halt and ask, on top of the standard list in the decision-vs-approval skill.
 halt_also:
   - "Editing, rewriting, reflowing or deleting Angelo's prose. Porting files and fixing frontmatter is fine; changing his words is not."
-  - "Removing the astro/ or v3/ worktree folders, or the v3 / start branches. Do not — ask first."
-  - "Any CSS beyond block-level layout, and any visual or typographic decision. v1 is plain HTML on purpose."
-  - "Touching the VPS, Coolify, DNS, or the live Vercel deployment."
-  - "Merging to main."
-  - "Adding a new content lane. Formats are lanes; subjects are tags. A sixth lane is a decision."
-  - "Implementing any newsletter, listmonk, cron or scheduled-publish behaviour. The schema carries those fields; nothing reads them at v1."
+  - 'Removing the astro/ or v3/ worktree folders, or the v3 / start branches. Do not — ask first.'
+  - 'Any CSS beyond block-level layout, and any visual or typographic decision. v1 is plain HTML on purpose.'
+  - 'Touching the VPS, Coolify, DNS, or the live Vercel deployment.'
+  - 'Merging to main.'
+  - 'Adding a new content lane. Formats are lanes; subjects are tags. A sixth lane is a decision.'
+  - 'Implementing any newsletter, listmonk, cron or scheduled-publish behaviour. The schema carries those fields; nothing reads them at v1.'
 
 # The standard list, repeated here so it is visible where it applies:
 #   irreversible or costly · dependency or framework choice · data model change

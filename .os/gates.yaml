@@ -13,19 +13,19 @@ preset: web-ts
 
 # Runs after edits. Seconds.
 fast:
-  - "pnpm exec astro check"
-  - "pnpm exec prettier --check ."
-  - "pnpm test"
+  - 'pnpm exec astro check'
+  - 'pnpm exec prettier --check .'
+  - 'pnpm test'
 
 # The real gate. Runs at task-set boundaries and before opening a PR.
 #
 # `pnpm build` is the content gate: the zod schemas in src/content.config.ts reject
 # an entry with a missing or malformed field, and the build exits non-zero.
 full:
-  - "pnpm exec astro check"
-  - "pnpm exec prettier --check ."
-  - "pnpm test"
-  - "pnpm build"
+  - 'pnpm exec astro check'
+  - 'pnpm exec prettier --check .'
+  - 'pnpm test'
+  - 'pnpm build'
 
 # Nothing honest to put here yet. Link checking and Lighthouse a11y >= 95 land here
 # when v1 has pages worth measuring.
@@ -37,10 +37,10 @@ budget:
 
 # Changes to these paths are flagged in the review packet as possible gate tampering.
 tamper_watch:
-  - ".os/gates.yaml"
-  - "astro.config.mjs"
-  - "src/content.config.ts"
-  - "tsconfig.json"
-  - ".prettierrc*"
-  - ".prettierignore"
-  - "package.json"
+  - '.os/gates.yaml'
+  - 'astro.config.mjs'
+  - 'src/content.config.ts'
+  - 'tsconfig.json'
+  - '.prettierrc*'
+  - '.prettierignore'
+  - 'package.json'

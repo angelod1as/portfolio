@@ -8,7 +8,9 @@ interface Props {
 
 const { title, description, image } = Astro.props
 const site = 'Angelo Dias'
-const preview = new URL(image ?? '/og-default.png', Astro.site).href
+// The old site's social image, reused so nothing ships a broken og:image.
+// A designed default is a later task and a visual decision.
+const preview = new URL(image ?? '/social.png', Astro.site).href
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 ---
 

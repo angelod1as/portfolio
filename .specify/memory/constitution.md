@@ -60,8 +60,14 @@ title, deleting a draft — halt. Prettier does format `*.md` and `*.mdx`, but w
 `proseWrap: 'preserve'`, so it fixes structure — list markers, heading style, frontmatter,
 tables — and never reflows or rewrites a sentence. That setting is not to be changed.
 
-**Bilingual by field, not by route.** Every entry declares `lang: 'en' | 'pt'`. Both
-languages share one index and one URL space. No `/en` or `/pt` routes at v1.
+**Bilingual by field, not by route.** Every entry declares `lang: 'en' | 'pt'`. An entry
+has exactly one address regardless of its language, and translation is never required for
+it to publish.
+
+Lane indexes do have language variants — `/essays/en`, `/notes/pt` and so on — because a
+reader must be able to narrow a list without JavaScript. Those are *views over one entry
+set*, not per-language copies of an entry. Giving an entry itself a per-language route is
+still forbidden.
 
 **Every entry lives at `/YYYY/MM/slug`,** whatever its lane. Lane indexes are views over
 that set, never a URL prefix. Changing the URL scheme is a decision and halts.

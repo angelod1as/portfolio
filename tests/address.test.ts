@@ -22,11 +22,6 @@ describe('addressFor', () => {
     )
   })
 
-  it('is independent of the lane', () => {
-    const date = new Date('2026-01-02')
-    expect(addressFor(date, 'same-slug')).toBe(addressFor(date, 'same-slug'))
-  })
-
   it('reads the date in UTC, so an entry never lands in the wrong month', () => {
     // A date parsed as midnight UTC must not slip to the previous month for
     // anyone west of Greenwich.
