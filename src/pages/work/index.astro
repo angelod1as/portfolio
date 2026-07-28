@@ -1,23 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro'
-import LangLinks from '../../components/LangLinks.astro'
 import Recommendations from '../../components/Recommendations.astro'
 import { loadLane } from '../../lib/content'
-import { byLang, tagSlug } from '../../lib/entries'
+import { tagSlug } from '../../lib/entries'
 
-export async function getStaticPaths() {
-  return [
-    { params: { lang: undefined } },
-    { params: { lang: 'en' } },
-    { params: { lang: 'pt' } },
-  ]
-}
-
-const { lang } = Astro.params
-const all = await loadLane('work')
-const entries = lang === 'en' || lang === 'pt' ? byLang(all, lang) : all
-
-const LANG_LABEL = { en: 'English', pt: 'Português' } as const
+const entries = await loadLane('work')
 
 // Work has its own listing rather than the shared one: a hiring manager must see
 // what it was and who it was for without opening anything.
@@ -35,7 +22,6 @@ const listed = entries.map(entry => ({
   description="What Angelo Dias has built, written and shipped, and who for."
 >
   <h1>Work</h1>
-  <LangLinks base="/work" current={lang} />
 
   {
     listed.length === 0 ? (
@@ -57,8 +43,6 @@ const listed = entries.map(entry => ({
                   {data.date.toISOString().slice(0, 10)}
                 </time>
                 {data.type && <span> · {data.type}</span>}
-                <span> · </span>
-                <span lang={data.lang}>{LANG_LABEL[data.lang]}</span>
               </p>
               {data.tags.length > 0 && (
                 <ul aria-label="Tags">

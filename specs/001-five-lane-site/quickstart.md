@@ -27,7 +27,6 @@ cat > content/notes/probe.md <<'EOF'
 ---
 title: Probe
 date: 2026-07-26
-lang: en
 tags: [meta]
 ---
 Body.
@@ -41,13 +40,13 @@ in `/rss.xml` and `/sitemap.xml` — with no file other than the one created. Th
 ## Bad content is stopped (SC-005)
 
 ```bash
-# remove the lang line from any entry, then:
+# remove the title line from any entry, then:
 pnpm build
 ```
 
-Expected: build fails, exit non-zero, naming the file and `lang`. Restore and rebuild.
+Expected: build fails, exit non-zero, naming the file and `title`. Restore and rebuild.
 
-Repeat for: an invalid `lang`, a `hero` without `alt`, an unknown `medium`, and two entries
+Repeat for: a missing `date`, a `hero` without `alt`, an unknown `medium`, and two entries
 resolving to the same `/YYYY/MM/slug` — the last must name both files.
 
 ## Drafts stay hidden (FR-008)
@@ -60,16 +59,15 @@ grep -rl "that entry's title" dist/ | head
 
 Expected: no matches anywhere in `dist/` — no page, no index, no feed, no sitemap.
 
-## Language filtering without scripts (SC-011, SC-012)
+## No scripts anywhere (SC-012)
 
 ```bash
 pnpm build && pnpm preview
 ```
 
-Open `/essays`, `/essays/en`, `/essays/pt` with JavaScript disabled in the browser.
+Browse the site with JavaScript disabled.
 
-Expected: all three render, the filtered pages contain only their language, and every link
-between them works.
+Expected: every page and every link works. Nothing on the site depends on scripting.
 
 ## Library media (SC-013)
 

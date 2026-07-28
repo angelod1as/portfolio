@@ -8,15 +8,14 @@ lanes differ only where the spec says they differ.
 Shared by all four collections. Validated at build time; a violation fails `pnpm build`
 naming the file and the field (FR-026).
 
-| Field        | Required | Type                                | Notes                                                 |
-| ------------ | -------- | ----------------------------------- | ----------------------------------------------------- |
-| `title`      | yes      | string                              | Plain text. No markup — the port strips it (FR-037).  |
-| `date`       | yes      | date                                | Drives the address. For Library, the date finished.   |
-| `lang`       | yes      | `en` \| `pt`                        | No default. Absence fails the build (FR-013, FR-038). |
-| `tags`       | no       | string[]                            | Free-form, defaults to empty (FR-010).                |
-| `draft`      | no       | boolean                             | Defaults false. True removes it entirely (FR-008).    |
-| `newsletter` | no       | `include` \| `standalone` \| `skip` | Defaults `include`. Nothing reads it at v1 (FR-027).  |
-| `image`      | no       | string                              | Social preview override (FR-030).                     |
+| Field        | Required | Type                                | Notes                                                |
+| ------------ | -------- | ----------------------------------- | ---------------------------------------------------- |
+| `title`      | yes      | string                              | Plain text. No markup — the port strips it (FR-037). |
+| `date`       | yes      | date                                | Drives the address. For Library, the date finished.  |
+| `tags`       | no       | string[]                            | Free-form, defaults to empty (FR-010).               |
+| `draft`      | no       | boolean                             | Defaults false. True removes it entirely (FR-008).   |
+| `newsletter` | no       | `include` \| `standalone` \| `skip` | Defaults `include`. Nothing reads it at v1 (FR-027). |
+| `image`      | no       | string                              | Social preview override (FR-030).                    |
 
 **Address**: `/YYYY/MM/slug`, where the year and month come from `date` and the slug from
 the filename. Independent of which collection the file is in, so moving a file between
@@ -88,8 +87,7 @@ The personal set is expected to be empty at launch.
 
 Nothing below is stored; all of it is computed from the collections at build time.
 
-- **Lane index** — one collection, newest first, plus an English-only and a
-  Portuguese-only variant at their own addresses (FR-016).
+- **Lane index** — one collection, newest first.
 - **Library medium views** — the Library index filtered to one medium (FR-022).
 - **Tag page** — every entry carrying a tag, across all four collections, newest first,
   each result labelled with its lane (FR-011).

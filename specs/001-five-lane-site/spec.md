@@ -7,9 +7,9 @@
 **Status**: Draft
 
 **Input**: A personal site organised by format rather than subject — Essays, Notes, Work,
-Library and Now — where subject is carried by free-form tags, entries are written in
-English or Brazilian Portuguese and share one feed, and every entry lives at a
-date-stamped address. v1 is structure and content only: plain HTML, no styling.
+Library and Now — where subject is carried by free-form tags and every entry lives at a
+date-stamped address. The site is English and does not model language at all. v1 is
+structure and content only: plain HTML, no styling.
 
 ## Clarifications
 
@@ -19,11 +19,15 @@ date-stamped address. v1 is structure and content only: plain HTML, no styling.
   No rule. Angelo assigns the lane per entry, case by case. The port defaults all 12 to
   Essays; moving the file moves the lane. Accepted risk: the two lanes may drift into
   meaning the same thing, and nothing in the build will prevent it.
-- Q: How does the language filter work on a lane index? → A: Separate built index pages
-  (`/essays`, `/essays/en`, `/essays/pt`). No JavaScript. Entry addresses are unaffected.
+- Q: How does the language filter work on a lane index? → A: Separate built index pages.
+  **Superseded 2026-07-28** — see below.
 - Q: What does a Library entry record, now that it covers books, series and films? → A:
   `medium` (book / series / film), `by` (author, director or creator), date finished, and
   the reaction as the body. No rating, no cover, no reading state.
+- **2026-07-28, reversal:** language handling is dropped entirely. The site is English.
+  No `lang` field, no badge, no filter, no `/en` or `/pt` index variants. Older Portuguese
+  entries publish unlabelled. This removes User Story 5, FR-013 through FR-017, FR-038 and
+  SC-011, and unblocks the content port, which no longer needs a per-file decision.
 - Q: Where do per-entry social preview images come from at v1? → A: One site-wide default
   image, with an optional per-entry override. Work entries reuse their hero image.
   Generated title cards are a design-phase task.
@@ -127,37 +131,15 @@ step, and see it appear in the right places.
    is built, **Then** the build fails and names the file and the offending field.
 3. **Given** an entry marked as a draft, **When** the site is built, **Then** it is absent
    from every index, feed and address.
-4. **Given** Angelo writes in Portuguese, **When** he declares the entry's language,
-   **Then** no separate translation or duplicate entry is required for it to publish.
-
----
-
-### User Story 5 - A bilingual audience is served without being fragmented (Priority: P3)
-
-Some readers read only English, some only Portuguese, some both. Nobody should be shown a
-wall of text in a language they cannot read with no way to narrow it, and nobody should
-have to pick a language before they are allowed to see anything.
-
-**Why this priority**: Real, but a refinement of P2 — the site is usable without it.
-
-**Independent Test**: On any lane index, restrict the listing to one language and confirm
-the other language's entries drop out.
-
-**Acceptance Scenarios**:
-
-1. **Given** a visitor on a lane index, **When** they look at an entry in the listing,
-   **Then** its language is visible before they open it.
-2. **Given** a visitor on a lane index, **When** they filter to one language, **Then**
-   only entries in that language remain.
-3. **Given** a visitor arriving with no preference, **When** the page loads, **Then**
-   entries in both languages are shown together.
+4. **Given** Angelo writes in Portuguese, **When** he publishes, **Then** the entry needs
+   no language field, no translation and no duplicate to go live.
 
 ---
 
 ### User Story 6 - The old site's content survives the move (Priority: P2)
 
-Twelve blog posts and twenty-two project entries exist on the current site, some going
-back to 2015. None of them should be lost, and none of Angelo's sentences should be
+Thirteen blog files — twelve publishable, one a draft — and twenty-two project entries
+exist on the current site, some going back to 2015. None of them should be lost, and none of Angelo's sentences should be
 altered on the way across.
 
 **Why this priority**: The success metric requires Work to be fully ported. Nothing to
@@ -196,8 +178,8 @@ text of a sample of entries — the prose must be byte-identical.
   not a blank one.
 - An entry belongs plausibly in two lanes — it lives in exactly one; the overlap is
   expressed with tags.
-- A ported entry has no language recorded — the build must not guess silently; the field is
-  required and its absence fails the build.
+- A ported entry is written in Portuguese — it publishes exactly like any other entry; the
+  site records nothing about language.
 
 ## Requirements _(mandatory)_
 
@@ -210,7 +192,7 @@ text of a sample of entries — the prose must be byte-identical.
 - **FR-002**: The homepage MUST show a taste of each lane, with recent entries per lane and
   a labelled path into each lane's own index.
 - **FR-003**: Each of Essays, Notes, Work and Library MUST have an index listing its
-  entries newest first, showing at minimum title, date, language and tags.
+  entries newest first, showing at minimum title, date and tags.
 - **FR-004**: Now MUST be a single page describing Angelo's current situation, not a
   collection.
 
@@ -219,7 +201,7 @@ text of a sample of entries — the prose must be byte-identical.
 - **FR-005**: Every entry MUST be reachable at an address of the form `/YYYY/MM/slug`,
   derived from its own date, regardless of which lane it belongs to.
 - **FR-006**: A year MUST have an archive page listing every entry published in it.
-- **FR-007**: Every entry MUST declare a title, a date, a language, and its draft status.
+- **FR-007**: Every entry MUST declare a title, a date, and its draft status.
 - **FR-008**: Entries marked as drafts MUST NOT appear in any index, archive, tag page or
   feed, and MUST NOT be reachable at an address.
 - **FR-009**: Two entries MUST NOT be allowed to occupy the same address; a collision MUST
@@ -235,16 +217,11 @@ text of a sample of entries — the prose must be byte-identical.
 
 **Language**
 
-- **FR-013**: Every entry MUST declare its language as either English or Brazilian
-  Portuguese; the field is required and an entry without it MUST fail the build.
-- **FR-014**: Entries MUST have one address regardless of language, and translation MUST
-  never be required for an entry to publish.
-- **FR-015**: An entry's language MUST be visible in listings before the entry is opened.
-- **FR-016**: Each lane index MUST exist in three forms — both languages, English only, and
-  Portuguese only — each at its own address, with the both-languages form as the default
-  landing point. These are views over one entry set, not per-language copies of an entry.
-- **FR-017**: Language narrowing MUST work without JavaScript, and MUST survive with
-  scripting disabled.
+- **FR-013**: The site MUST NOT model language. No language field, no badge, no filter, no
+  per-language route, no translation. Entries written in Portuguese publish unlabelled.
+
+_FR-014 through FR-017 were withdrawn on 2026-07-28 when language handling was dropped.
+The numbers are left unused rather than reassigned, so existing references stay honest._
 
 **Work**
 
@@ -305,13 +282,13 @@ text of a sample of entries — the prose must be byte-identical.
 - **FR-036**: Porting MUST NOT alter the body text of any entry.
 - **FR-037**: Porting MUST convert legacy fields to their new equivalents — timestamp to
   date, categories to tags — and MUST strip emphasis markup from titles.
-- **FR-038**: Language MUST be assigned per ported entry by Angelo, and any entry left
-  without one MUST fail the build rather than be guessed.
+- **FR-038**: Porting MUST require no per-file decision from Angelo. The transformation is
+  fully mechanical.
 
 ### Key Entities
 
 - **Entry**: A single published thing. Belongs to exactly one lane. Carries a title, a
-  date, a language, tags, a draft flag, newsletter-intent fields reserved for later, and a
+  date, tags, a draft flag, newsletter-intent fields reserved for later, and a
   body. Its address derives from its date and slug.
 - **Lane**: A format — Essays, Notes, Work, Library. Determines how an entry is presented
   and which index it appears on. Not a subject, and not part of an address.
@@ -347,8 +324,7 @@ text of a sample of entries — the prose must be byte-identical.
 - **SC-008**: Every published entry appears in the feed and the sitemap.
 - **SC-009**: Main page types score at least 95 for accessibility.
 - **SC-010**: Every page is legible and navigable with styling disabled entirely.
-- **SC-011**: A reader can restrict any lane index to a single language and see only that
-  language's entries, with scripting disabled.
+- **SC-011**: No page anywhere exposes a language field, badge or filter.
 - **SC-012**: Every page works with JavaScript turned off.
 - **SC-013**: A visitor can see the Library narrowed to books, to series, or to films.
 

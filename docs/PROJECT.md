@@ -31,7 +31,6 @@ Decided up front so no early choice paints us into a corner.
 | v3     | listmonk on the VPS, weekly digest composed from the site's own feed               |
 | v4     | Scheduled publishing, and `standalone` entries that go out as their own newsletter |
 | v5     | Cronofobia migrated off Substack                                                   |
-| later  | Full `/en` `/pt` routing, possibly AI-assisted translation                         |
 
 Only v1 is in scope. Everything below the v1 row is a non-goal until it is not.
 
@@ -43,10 +42,9 @@ Binding. Work that serves one of these does not get done, however small it looks
   carries `newsletter` and `date`; no code reads them for sending.
 - **No Substack or Cronofobia migration.** That list is real and lives elsewhere; it does
   not get moved onto unproven infrastructure.
-- **No per-entry `/en` `/pt` routes and no translation.** Language is a field: an entry has
-  one address whatever language it is in. Lane indexes do get language variants
-  (`/essays/en`, `/notes/pt`) so a list can be narrowed without JavaScript — those are
-  views, not copies of an entry.
+- **No language handling of any kind.** The site is English. No `lang` field, no badge, no
+  filter, no `/en` or `/pt` routes, no translation. Older Portuguese entries publish as
+  they are, unlabelled.
 - **No CSS beyond block-level layout.** No colours, no fonts, no dark mode, no components,
   no design system. v1 is semantic HTML. Design is v2 and it is a conversation, not a task.
 - **No CMS, no comments, no analytics.**
@@ -61,7 +59,7 @@ Binding. Work that serves one of these does not get done, however small it looks
 v1 replaces the live site when all of this is true:
 
 - [ ] Essays, Notes, Work, Library and Now all render
-- [ ] Tag filtering and the `en`/`pt` badge + filter work
+- [ ] Tag pages gather a subject across every lane
 - [ ] Work fully ported from the current Next.js site
 - [ ] Recommendations live, split into professional (LinkedIn) and personal
 - [ ] At least 3 essays, 5 notes, 3 library entries — real ones
@@ -100,7 +98,7 @@ are low.
   not to Vercel. The same box will later carry listmonk and Postgres. **When that deploy
   happens is Angelo's call, and Angelo does it** — no agent touches the box.
 - **Content lives in `content/`,** outside `src/`, loaded by glob loaders.
-- **Bilingual:** every entry declares `lang: en | pt`.
+- **English.** Language is not modelled; see the non-goals.
 
 ## Who reviews
 
@@ -109,15 +107,16 @@ the halt list in `.os/autonomy.yaml` is long.
 
 ## Porting the old content
 
-The existing frontmatter is **not** compatible. Porting needs a migration script — 12 blog
-posts, 22 projects, all mechanical:
+The existing frontmatter is **not** compatible. Porting needs a migration script — 13 blog
+files (12 of them publishable, one is a draft) and 22 projects, all mechanical:
 
-| Old                              | New                                 |
-| -------------------------------- | ----------------------------------- |
-| `createdAt` (epoch milliseconds) | `date`                              |
-| `categories`                     | `tags`                              |
-| absent                           | `lang`, assigned per file by Angelo |
-| `draft: true`                    | unchanged                           |
+| Old                              | New       |
+| -------------------------------- | --------- |
+| `createdAt` (epoch milliseconds) | `date`    |
+| `categories`                     | `tags`    |
+| `draft: true`                    | unchanged |
+
+Nothing has to be decided per file: with language gone, the port is fully mechanical.
 
 Two more things about the port:
 

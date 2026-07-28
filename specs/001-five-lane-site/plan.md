@@ -47,7 +47,7 @@ _Checked before Phase 0 and again after Phase 1 design._
 | ----------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Format is a lane, subject is a tag        | Pass   | Four collections, all subjects in tags. No sixth lane. Library covering three media stays one lane — one format, one shape.              |
 | Angelo's prose is not the agent's to edit | Pass   | The port transforms frontmatter only. Title stripping is the one approved exception, and `proseWrap: 'preserve'` keeps bodies untouched. |
-| Bilingual by field, not by route          | Pass   | One address per entry regardless of language. `/essays/en` is an index view, not a per-language copy of an entry.                        |
+| No language modelling                     | Pass   | Dropped 2026-07-28. No `lang` field, badge, filter or per-language route anywhere.                                                       |
 | `/YYYY/MM/slug` for every entry           | Pass   | One route derives every address; lanes never appear in a URL.                                                                            |
 | Schema anticipates the newsletter         | Pass   | `newsletter` and `date` carried; nothing reads them.                                                                                     |
 | v1 is plain HTML                          | Pass   | No stylesheet is created. The accessibility requirement is met with semantics, not styling.                                              |
@@ -59,11 +59,11 @@ _Checked before Phase 0 and again after Phase 1 design._
 
 1. **Three new dependencies** (`@astrojs/sitemap`, `vitest`, `gray-matter`). Dependency
    choice is on the standard halt list. Nothing is installed until Angelo approves.
-2. **The language map for the port.** FR-038 forbids guessing. The script will not run
-   without an explicit `en`/`pt` assignment for each of the 34 existing entries, and that
-   list has to come from Angelo.
+   ~~2. The language map for the port.~~ **Removed 2026-07-28** — language handling was
+   dropped, so the port needs no per-file decision and is fully mechanical.
 
-Neither blocks planning or task generation. Both block execution.
+The dependency halt was cleared on 2026-07-26. Nothing now blocks the port but the work
+itself.
 
 ## Project Structure
 
@@ -92,7 +92,7 @@ src/
 ├── lib/
 │   ├── address.ts             # date + slug → /YYYY/MM/slug
 │   ├── collisions.ts          # duplicate address detection, throws
-│   └── entries.ts             # cross-lane queries: all, by lang, by tag, by year
+│   └── entries.ts             # cross-lane queries: all, by tag, by year, tag slugs
 ├── layouts/
 │   ├── Base.astro
 │   └── Entry.astro
@@ -104,10 +104,10 @@ src/
     ├── index.astro            # taster homepage
     ├── [year]/index.astro     # year archive
     ├── [year]/[month]/[slug].astro   # every entry, all lanes
-    ├── essays/[...lang].astro # index + /en + /pt from one route
-    ├── notes/[...lang].astro
-    ├── work/[...lang].astro
-    ├── library/[...filter].astro     # lang and medium views
+    ├── essays/index.astro
+    ├── notes/index.astro
+    ├── work/index.astro
+    ├── library/[...filter].astro     # index + the three medium views
     ├── tags/index.astro
     ├── tags/[tag].astro
     ├── now.astro
@@ -149,7 +149,7 @@ or scheduling behaviour, any redirect from the old URLs, any generated preview i
 ## Phase 0 — Research
 
 Complete. See [research.md](./research.md). Eight unknowns resolved: address derivation,
-collision failure, script-free filtering, title stripping, the port's language assignments,
+collision failure, title stripping,
 what is worth testing, how accessibility gets measured, and which dependencies are needed.
 
 ## Phase 1 — Design & Contracts

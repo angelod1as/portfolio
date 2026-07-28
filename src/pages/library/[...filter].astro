@@ -1,17 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro'
-import LangLinks from '../../components/LangLinks.astro'
 import { loadLane } from '../../lib/content'
-import { byLang, tagSlug } from '../../lib/entries'
+import { tagSlug } from '../../lib/entries'
 
-const LANG_LABEL = { en: 'English', pt: 'Português' } as const
-
-// One route builds every view: unfiltered, the two languages, and the three media.
+// One route builds the unfiltered index and the three medium views.
 const MEDIA = { books: 'book', series: 'series', films: 'film' } as const
 type MediumSlug = keyof typeof MEDIA
 
 export async function getStaticPaths() {
-  return [undefined, 'en', 'pt', 'books', 'series', 'films'].map(filter => ({
+  return [undefined, 'books', 'series', 'films'].map(filter => ({
     params: { filter },
   }))
 }
@@ -19,18 +16,15 @@ export async function getStaticPaths() {
 const { filter } = Astro.params
 const all = await loadLane('library')
 
-const isLang = filter === 'en' || filter === 'pt'
 const isMedium = filter !== undefined && filter in MEDIA
 
-const entries = isLang
-  ? byLang(all, filter)
-  : isMedium
-    ? all.filter(
-        entry =>
-          (entry.data as { medium?: string }).medium ===
-          MEDIA[filter as MediumSlug]
-      )
-    : all
+const entries = isMedium
+  ? all.filter(
+      entry =>
+        (entry.data as { medium?: string }).medium ===
+        MEDIA[filter as MediumSlug]
+    )
+  : all
 
 const mediumViews: MediumSlug[] = ['books', 'series', 'films']
 ---
@@ -40,8 +34,6 @@ const mediumViews: MediumSlug[] = ['books', 'series', 'films']
   description="Books, series and films Angelo has finished, and what he thought of them."
 >
   <h1>Library</h1>
-
-  <LangLinks base="/library" current={isLang ? filter : undefined} />
 
   <nav aria-label="Medium">
     <ul>
@@ -92,8 +84,6 @@ const mediumViews: MediumSlug[] = ['books', 'series', 'films']
                   <time datetime={data.date.toISOString()}>
                     {data.date.toISOString().slice(0, 10)}
                   </time>
-                  <span> · </span>
-                  <span lang={data.lang}>{LANG_LABEL[data.lang]}</span>
                 </p>
                 {data.tags.length > 0 && (
                   <ul aria-label="Tags">

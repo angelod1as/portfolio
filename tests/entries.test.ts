@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest'
 import {
   toEntries,
   published,
-  byLang,
   byTag,
   byYear,
   tagCounts,
@@ -15,7 +14,6 @@ const raw = (
   data: Partial<{
     title: string
     date: string
-    lang: 'en' | 'pt'
     tags: string[]
     draft: boolean
   }>
@@ -24,7 +22,6 @@ const raw = (
   data: {
     title: data.title ?? id,
     date: new Date(data.date ?? '2026-01-01'),
-    lang: data.lang ?? ('en' as const),
     tags: data.tags ?? [],
     draft: data.draft ?? false,
   },
@@ -37,7 +34,7 @@ const fixture = () =>
       raw('new', { date: '2026-07-24', tags: ['tech', 'psych'] }),
       raw('hidden', { date: '2026-07-25', draft: true, tags: ['tech'] }),
     ],
-    notes: [raw('nota', { date: '2026-06-01', lang: 'pt', tags: ['psych'] })],
+    notes: [raw('nota', { date: '2026-06-01', tags: ['psych'] })],
     work: [raw('job', { date: '2023-06-27' })],
     library: [raw('andor', { date: '2026-05-02', tags: ['scifi'] })],
   })
@@ -84,18 +81,6 @@ describe('published', () => {
 
   it('excludes drafts', () => {
     expect(published(fixture()).map(e => e.id)).not.toContain('hidden')
-  })
-})
-
-describe('byLang', () => {
-  it('keeps only the requested language', () => {
-    expect(byLang(published(fixture()), 'pt').map(e => e.id)).toEqual(['nota'])
-  })
-
-  it('never returns a draft', () => {
-    expect(byLang(published(fixture()), 'en').map(e => e.id)).not.toContain(
-      'hidden'
-    )
   })
 })
 

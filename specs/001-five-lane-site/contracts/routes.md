@@ -11,27 +11,19 @@ Every address the site answers on. Anything not listed here returns the not-foun
 
 ## Lanes
 
-| Address           | What                                    |
-| ----------------- | --------------------------------------- |
-| `/essays`         | All essays, newest first.               |
-| `/essays/en`      | English only.                           |
-| `/essays/pt`      | Portuguese only.                        |
-| `/notes`          | Same three forms.                       |
-| `/notes/en`       |                                         |
-| `/notes/pt`       |                                         |
-| `/work`           | Same three forms, plus recommendations. |
-| `/work/en`        |                                         |
-| `/work/pt`        |                                         |
-| `/library`        | Same three forms.                       |
-| `/library/en`     |                                         |
-| `/library/pt`     |                                         |
-| `/library/books`  | Medium filters.                         |
-| `/library/series` |                                         |
-| `/library/films`  |                                         |
-| `/now`            | The standing page.                      |
+| Address           | What                            |
+| ----------------- | ------------------------------- |
+| `/essays`         | All essays, newest first.       |
+| `/notes`          | All notes, newest first.        |
+| `/work`           | All work, plus recommendations. |
+| `/library`        | Everything in the library.      |
+| `/library/books`  | Medium filters.                 |
+| `/library/series` |                                 |
+| `/library/films`  |                                 |
+| `/now`            | The standing page.              |
 
-Language and medium filters are separate built pages, reachable by plain links. No
-JavaScript is involved (FR-033).
+Medium filters are separate built pages, reachable by plain links. No JavaScript is
+involved (FR-033). The site has no language routes — it does not model language.
 
 ## Subjects
 

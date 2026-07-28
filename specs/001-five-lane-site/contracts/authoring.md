@@ -9,7 +9,6 @@ publishes an entry; nothing else is edited (FR-025).
 ---
 title: Why I left Next.js
 date: 2026-07-24
-lang: en
 tags: [tech, astro]
 ---
 
@@ -27,7 +26,6 @@ file later moves the lane and keeps the address.
 ---
 title: Sex-positive parties: two commissioned stories
 date: 2023-06-27
-lang: en
 tags: [journalism]
 type: professional
 summary:
@@ -53,7 +51,6 @@ Body.
 ---
 title: Andor
 date: 2026-05-02
-lang: en
 medium: series
 by: Tony Gilroy
 tags: [scifi]
@@ -86,11 +83,9 @@ field named. It never reaches the published site (FR-026, SC-005).
 
 Specifically:
 
-| Mistake                       | Result                                     |
-| ----------------------------- | ------------------------------------------ |
-| Missing `lang`                | Build fails naming the file and `lang`.    |
-| `lang: es`                    | Build fails; only `en` and `pt` are valid. |
-| Missing `title` or `date`     | Build fails naming the field.              |
-| Two entries, same `/YYYY/MM/` | Build fails naming both files.             |
-| `hero` without `alt`          | Build fails.                               |
-| `medium: audiobook`           | Build fails; three media are valid.        |
+| Mistake                       | Result                              |
+| ----------------------------- | ----------------------------------- |
+| Missing `title` or `date`     | Build fails naming the field.       |
+| Two entries, same `/YYYY/MM/` | Build fails naming both files.      |
+| `hero` without `alt`          | Build fails.                        |
+| `medium: audiobook`           | Build fails; three media are valid. |

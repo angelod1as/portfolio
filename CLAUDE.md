@@ -35,10 +35,9 @@ entry fails `pnpm build`, which is how the gate catches bad content.
 Lanes are **formats** (Essays, Notes, Work, Library, Now). Subjects are **tags**. Adding
 a lane is a decision and halts.
 
-Every entry declares `lang: 'en' | 'pt'` and has one address whatever its language. Lane
-indexes have language variants (`/essays/en`, `/notes/pt`) so a list can be narrowed
-without JavaScript — those are views, not per-entry routes. An entry never gets a
-per-language route.
+The site is English and does not model language: no `lang` field, no badge, no filter, no
+per-language routes. Older Portuguese entries publish unlabelled. Adding language handling
+back is a decision and halts.
 
 **Never edit Angelo's prose.** Moving files, fixing paths, adding required frontmatter
 fields — fine. Changing his words — halt. Prettier is configured with

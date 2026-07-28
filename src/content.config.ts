@@ -8,7 +8,6 @@ const entry = z.object({
   title: z.string(),
   description: z.string().optional(),
   date: z.coerce.date(),
-  lang: z.enum(['en', 'pt']),
   tags: z.array(z.string()).default([]),
   draft: z.boolean().default(false),
   newsletter: z.enum(['include', 'standalone', 'skip']).default('include'),

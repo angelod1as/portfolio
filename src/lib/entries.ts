@@ -13,7 +13,6 @@ export type RawEntry = {
   data: {
     title: string
     date: Date
-    lang: 'en' | 'pt'
     tags: string[]
     draft: boolean
   }
@@ -82,10 +81,6 @@ export function published<E extends Entry>(entries: E[]): E[] {
   return entries
     .filter(entry => !entry.data.draft)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-}
-
-export function byLang<E extends Entry>(entries: E[], lang: 'en' | 'pt'): E[] {
-  return entries.filter(entry => entry.data.lang === lang)
 }
 
 /** Matches on the slug, so `/tags/music-production` finds "music production". */

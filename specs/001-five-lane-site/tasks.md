@@ -157,12 +157,13 @@ valid feed.
 
 **Independent test**: count the ported entries against the source and diff every body.
 
-- [ ] T039 [US6] HALT — get the per-file `en`/`pt` assignment for all 34 existing entries
-      from Angelo. FR-038 forbids guessing; the script must not run without it
+- [x] T039 [US6] ~~HALT — get the per-file `en`/`pt` assignment.~~ Removed 2026-07-28:
+      language handling was dropped, so the port needs no per-file decision
 - [ ] T040 [US6] Write failing tests in `tests/migrate.test.ts`: epoch-millisecond
       `createdAt` becomes a date, `categories` becomes `tags`, emphasis markers are
       stripped from titles, `summary.when` normalises from a list, the body is returned
-      unchanged byte for byte, and a file with no language assignment throws
+      unchanged byte for byte, `live: not-available` is dropped, and `hero.src` is rewritten
+      to a root-absolute path
 - [ ] T041 [US6] Implement `scripts/migrate-content.mjs` to make `tests/migrate.test.ts`
       pass, reading from the `main` branch and writing into `content/`
 - [ ] T042 [US6] Run the migration: blog posts into `content/essays/`, projects into
@@ -192,22 +193,10 @@ valid feed.
 
 ---
 
-## Phase 8: User Story 5 — Serving both languages (P3)
+## Phase 8: ~~User Story 5 — serving both languages~~ (removed)
 
-**Goal**: narrow any lane to one language, with scripting off.
-
-**Independent test**: open `/essays`, `/essays/en`, `/essays/pt` with JavaScript disabled.
-
-- [x] T048 [US5] Extend the `[...lang]` routes in `src/pages/essays/`, `notes/` and
-      `work/` to build the unfiltered, English and Portuguese variants from one route
-- [x] T049 [US5] Extend `src/pages/library/[...filter].astro` to build the language
-      variants and the `books` / `series` / `films` medium variants
-- [x] T050 [P] [US5] Create `src/components/LangLinks.astro` — plain anchors between the
-      three variants, no JavaScript
-- [x] T051 [US5] Show each entry's language in every listing, per FR-015
-- [x] T052 [US5] Verify all filter pages work with scripting disabled
-
-**Checkpoint**: bilingual readers are served and nothing depends on JavaScript.
+Dropped on 2026-07-28. The site is English and does not model language, so T048–T052 no
+longer exist. The language variants that had been built were removed.
 
 ---
 

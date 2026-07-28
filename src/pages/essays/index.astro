@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import EntryList from '../../components/EntryList.astro'
+import { loadLane } from '../../lib/content'
+
+const entries = await loadLane('essays')
+---
+
+<Base title="Essays" description="Longer pieces, finished.">
+  <h1>Essays</h1>
+  <EntryList entries={entries} />
+</Base>

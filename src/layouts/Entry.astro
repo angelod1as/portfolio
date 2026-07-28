@@ -48,7 +48,7 @@ const iso = (date: Date) => date.toISOString().slice(0, 10)
   description={extra.description}
   image={extra.image ?? extra.hero?.src}
 >
-  <article lang={data.lang}>
+  <article>
     <header>
       <p>{LANE_LABEL[lane]}</p>
       <h1>{data.title}</h1>

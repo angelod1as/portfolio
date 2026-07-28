@@ -12,8 +12,6 @@ interface Props {
 
 const { entries, showLane = false, headingLevel = 2 } = Astro.props
 const Heading = `h${headingLevel}` as 'h2' | 'h3'
-
-const LANG_LABEL = { en: 'English', pt: 'Português' } as const
 ---
 
 {
@@ -31,8 +29,6 @@ const LANG_LABEL = { en: 'English', pt: 'Português' } as const
               <time datetime={entry.data.date.toISOString()}>
                 {entry.data.date.toISOString().slice(0, 10)}
               </time>
-              <span> · </span>
-              <span lang={entry.data.lang}>{LANG_LABEL[entry.data.lang]}</span>
               {showLane && (
                 <>
                   <span> · </span>

@@ -1,7 +1,6 @@
 ---
 title: Scaffold entry
 date: 2026-07-26
-lang: en
 tags: [meta]
 ---
 
