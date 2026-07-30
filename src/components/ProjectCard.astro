@@ -22,12 +22,12 @@ const {
 const date = formatCardDate(from, to);
 ---
 
-<Card url={`projects/${id}`}>
+<Card url={id}>
   <div class="project">
     <Image src={src} alt={alt} />
     <div class="data">
       <h3 class="title">{title} <span class="year">{date}</span></h3>
-      <p>{description}</p>
+      <p class="description">{description}</p>
       <div class="columns">
         <div>
           <p class="subtitle">What?</p>
@@ -58,16 +58,22 @@ const date = formatCardDate(from, to);
   .title {
     font-weight: bold;
     font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .description {
+    margin-bottom: 1rem;
   }
 
   .year {
+    padding-left: 1rem;
     font-weight: normal;
     font-size: 1rem;
   }
 
   .columns {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .subtitle {

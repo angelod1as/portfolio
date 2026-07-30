@@ -136,6 +136,13 @@ del:hover {
   text-decoration-color: transparent;
 }
 
+/* WIP indicator */
+.wip {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 /* View Transitions */
 
 ::view-transition-old(root),
