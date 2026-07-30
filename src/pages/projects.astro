@@ -10,10 +10,23 @@ const allProjects = await getCollection("projects");
 <BaseLayout>
   <div>
     <h2>Projects</h2>
-    <p>Here is the full projects rundown <i>with filters</i></p>
-    <!-- Currently working on? -->
+
+    <p>Below, a list of projects — still WIP</p>
+
+    <p class="wip">Planned: additive filters using query parameters</p>
+
     <ul>
       {allProjects.map((project) => <ProjectCard project={project} />)}
     </ul>
   </div>
 </BaseLayout>
+
+<style>
+  ul {
+    margin: 1rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>
