@@ -120,8 +120,7 @@ a,
     text-decoration-color: var(--muted);
     text-underline-offset: 5px;
   }
-  &[target="_blank"]:after {
-    content: "➹";
+  &.external-link span {
     font-size: 0.8rem;
     color: var(--muted);
   }

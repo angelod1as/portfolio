@@ -1,11 +1,28 @@
 import { defineConfig, fontProviders } from "astro/config";
 
 import mdx from "@astrojs/mdx";
+import rehypeExternalLinks from "rehype-external-links";
+
+const site = "https://www.angelodias.com.br";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
-  site: "https://www.angelodias.com.br",
+  site,
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          target: "_blank",
+          rel: ["noopener", "noreferrer"],
+          test: (node) => !String(node.properties?.href ?? "").startsWith(site),
+          properties: { class: "external-link" },
+          content: { type: "text", value: " ➹" },
+        },
+      ],
+    ],
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),
