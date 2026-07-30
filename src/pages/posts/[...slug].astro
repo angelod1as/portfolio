@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import Link from "../../components/Link.astro";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
@@ -22,5 +23,9 @@ const blameUrl = post.filePath
 ---
 
 <MarkdownPostLayout frontmatter={post.data} blameUrl={blameUrl}>
-  <Content />
+  <Content
+    components={{
+      a: Link,
+    }}
+  />
 </MarkdownPostLayout>

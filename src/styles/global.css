@@ -105,7 +105,8 @@ ul {
 }
 
 /* Links */
-a {
+a,
+.like-link {
   color: inherit;
   text-decoration: underline wavy;
   text-decoration-color: var(--accent);
@@ -114,10 +115,16 @@ a {
   transition:
     text-decoration-color 200ms ease,
     text-underline-offset 200ms ease;
-}
-a:hover {
-  text-decoration-color: var(--muted);
-  text-underline-offset: 5px;
+
+  &:hover {
+    text-decoration-color: var(--muted);
+    text-underline-offset: 5px;
+  }
+  &[target="_blank"]:after {
+    content: "➹";
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
 }
 
 /* Strikethrough off on hover */

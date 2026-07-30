@@ -1,0 +1,17 @@
+---
+const { href, ...rest } = Astro.props;
+
+const isExternal =
+  !!href &&
+  /^https?:\/\//i.test(href) &&
+  new URL(href).origin !== Astro.site?.origin;
+---
+
+<a
+  href={href}
+  {...rest}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+>
+  <slot />
+</a>
