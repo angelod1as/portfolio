@@ -9,10 +9,10 @@ type Props = {
 
 const { frontmatter, blameUrl } = Astro.props;
 const { title, pubDate, description } = frontmatter;
-const date = pubDate.toLocaleDateString()
+const date = pubDate.toLocaleDateString();
 ---
 
-<BaseLayout pageTitle={title}>
+<BaseLayout title={title}>
   <div class="header">
     <h1>{title}</h1>
     <p><em>{description}</em></p>
@@ -22,22 +22,20 @@ const date = pubDate.toLocaleDateString()
 
   <div class="footer">
     <p>Written by Angelo Dias at {date}</p>
-  {
-    blameUrl && (
-      <footer>
-        <a href={blameUrl} target="_blank" rel="noopener">
-          View revision history →
-        </a>
-      </footer>
-    )
-  }
+    {
+      blameUrl && (
+        <footer>
+          <a href={blameUrl} target="_blank" rel="noopener">
+            View revision history →
+          </a>
+        </footer>
+      )
+    }
   </div>
 </BaseLayout>
 
 <style>
-  
-
   .pubdate {
-    font-size: ;
+    font-size:;
   }
 </style>

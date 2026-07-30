@@ -1,15 +1,33 @@
 ---
 import Navigation from "./Navigation.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+
+const titles = {
+  blog: "blogging",
+  projects: "projects",
+  more: "even more!",
+};
+
+const url = Astro.url.pathname.replaceAll("/", "");
+const titleString = titles[url as keyof typeof titles] || "stuff";
 ---
 
 <div class="wrapper">
   <ThemeToggle />
-  <h1>I am <span>angelo</span><br />and I do <i>stuff</i></h1>
+  <p class="title">
+    I am <span>angelo</span><br />and I do <i>{titleString}</i>
+  </p>
   <Navigation />
 </div>
 
 <style>
+  .title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 100%;
+    margin: 0;
+    font-size: 2.5rem;
+  }
   .wrapper {
     display: flex;
     height: 100%;
