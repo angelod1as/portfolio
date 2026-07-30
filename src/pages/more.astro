@@ -1,4 +1,5 @@
 ---
+import Experience from "../fragments/more/experience.md";
 import IAm from "../fragments/more/i-am.md";
 import IWant from "../fragments/more/i-want.md";
 import IWas from "../fragments/more/i-was.md";
@@ -9,16 +10,28 @@ const pageTitle = "About Me";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div>
-    <div class="columns">
-      <div>
-        <IAm />
-      </div>
-      <div>
-        <IWant />
-      </div>
-    </div>
-
-    <IWas />
+  <div class="wrapper">
+    <div><IAm /></div>
+    <div><IWant /></div>
+    <div><IWas /></div>
+    <div class="experience"><Experience /></div>
   </div>
 </BaseLayout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .experience {
+    h3 {
+    }
+    span {
+      display: block;
+      margin: 2rem 0 0.3rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  }
+</style>
