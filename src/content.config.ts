@@ -11,6 +11,31 @@ const blog = defineCollection({
   }),
 });
 
+export const WHAT = [
+  "coding",
+  "architecture",
+  "management",
+  "mentoring",
+  "design",
+  "illustration",
+  "journalism",
+  "fiction",
+  "scriptwriting",
+  "editorial",
+  "speaking",
+  "audio",
+] as const;
+
+export const MEDIUM = [
+  "web",
+  "print",
+  "comics",
+  "video",
+  "podcast",
+  "music",
+  "hardware",
+] as const;
+
 const projects = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/projects" }),
   schema: ({ image }) =>
@@ -20,9 +45,12 @@ const projects = defineCollection({
         from: z.coerce.number().int(),
         to: z.coerce.number().int().optional(),
       }),
+      type: z.enum(["personal", "professional"]),
       description: z.string(),
-      what: z.array(z.string()),
-      how: z.array(z.string()),
+      what: z.array(z.enum(WHAT)).nonempty(),
+      medium: z.array(z.enum(MEDIUM)).nonempty(),
+      how: z.array(z.string()).optional(),
+      live: z.string().url().optional(),
       thumb: z.object({
         src: image(),
         alt: z.string(),

@@ -1,14 +1,16 @@
 ---
 title: Harvard Business School
-description: Content migration to Contentful and website maintenance
+description: Contentful migration and Next.js development across 61 Harvard Business School sites
 type: professional
 year:
   from: 2024
 what:
   - coding
-  - software architecture
+  - architecture
   - management
-  - training
+  - mentoring
+medium:
+  - web
 how:
   - Next.js
   - TypeScript
@@ -16,6 +18,7 @@ how:
   - Contentful
   - Storybook
   - Jest
+live: https://www.hbs.edu/
 thumb:
   src: ./hbs.webp
   alt: Harvard Business School logo
@@ -27,6 +30,4 @@ I led the migration of HBS's web ecosystem to Contentful across 61 sites, delive
 
 ---
 
-**Tech:** Next.js, Typescript, React, Storybook, Contentful SDK, Jest
-
-[See it live clicking here](https://www.hbs.edu/).
+**Tech:** Next.js, TypeScript, React, Storybook, Contentful SDK, Jest
