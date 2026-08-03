@@ -55,6 +55,7 @@ This is a inspiration list:
 - [chrbutler](https://www.chrbutler.com/reactionary-red-lining-of-ai): I mean, nice take on "left-aligned".
 - [Karl Koch](https://karlkoch.me/): not my color choice, definitely my animation choices.
 - [Hardik](https://hvpandya.com/power-prompts) added a very fun sidebar TOC.
+- [Andy Bell](https://bell.bz/)'s website and his process of building it (told via [Piccallili](https://piccalil.li/)) is amazing.
 
 I surely have a larger inspiration list, but these come to mind now.
 
