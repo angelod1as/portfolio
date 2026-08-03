@@ -15,7 +15,15 @@ const { Content } = await render(project);
 
 <h1>{project.data.title}</h1>
 
+{
+  project.data.live && (
+    <a href={project.data.live} target="_blank" rel="noopener noreferrer">
+      See it live ↗
+    </a>
+  )
+}
+
 <!-- <MarkdownPostLayout frontmatter={post.data} blameUrl={blameUrl}>
 
 </MarkdownPostLayout> -->
-<Content />
+<Content components={{ Embed }} />

@@ -23,6 +23,11 @@ export default defineConfig({
       ],
     ],
   },
+  image: {
+    layout: "constrained",
+    objectFit: "cover",
+    responsiveStyles: true,
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),

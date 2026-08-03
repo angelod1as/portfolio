@@ -33,10 +33,18 @@ const date = formatCardDate(from, to);
           <p class="subtitle">What?</p>
           <ul>{what.map((item) => <li>{item}</li>)}</ul>
         </div>
-        <div>
-          <p class="subtitle">How?</p>
-          <ul>{how.map((item) => <li>{item}</li>)}</ul>
-        </div>
+        {
+          how && (
+            <div>
+              <p class="subtitle">How?</p>
+              <ul>
+                {how.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
       </div>
     </div>
   </div>

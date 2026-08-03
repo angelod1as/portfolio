@@ -1,15 +1,18 @@
 ---
 title: Recibo
-description: A box that prints poems, comics, short stories, and children activities
+description: A box that prints poems, comics, short stories, and children's activities
 type: personal
 year:
   from: 2021
   to: 2021
 what:
   - coding
+medium:
+  - hardware
 how:
   - Python
   - Raspberry Pi
+live: https://github.com/angelod1as/recibo-poem-printer
 thumb:
   src: ./opening.jpg
   alt: A picture of a thermal printer paper being spit out of a wooden box
@@ -89,7 +92,7 @@ exit 0
 
 The only downside is that it takes a few seconds to boot completely.
 
-(If you know a way to run the script ONLY after the USB drives were mounted succesfully, please let me know. All my attempts failed)
+(If you know a way to run the script ONLY after the USB drives were mounted successfully, please let me know. All my attempts failed)
 
 - To watch rc.local after boot: `grep rc.local /var/log/syslog`
 - To test without rebooting, run `sudo /etc/rc.local` on your Pi. If it complains about `resource busy`, restart your printer.
