@@ -11,7 +11,7 @@ type Props = {
 const { pageTitle, title, description } = Astro.props;
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={pageTitle} description={description}>
   <PageHeader title={title} description={description} />
 
   <slot />

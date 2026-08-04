@@ -2,6 +2,7 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
 const site = "https://www.angelodias.com.br";
 
@@ -29,7 +30,7 @@ const externalLinks = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   site,
   markdown: {
     processor: satteri({ hastPlugins: [externalLinks] }),
