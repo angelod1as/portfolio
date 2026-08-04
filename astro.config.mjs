@@ -1,27 +1,38 @@
 import { defineConfig, fontProviders } from "astro/config";
 
+import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
-import rehypeExternalLinks from "rehype-external-links";
 
 const site = "https://www.angelodias.com.br";
+
+const externalLinks = {
+  name: "external-links",
+  element: {
+    filter: ["a"],
+    visit(node, ctx) {
+      const href = String(node.properties?.href ?? "");
+      if (!/^https?:\/\//.test(href)) return;
+      if (href.startsWith(site)) return;
+
+      ctx.setProperty(node, "className", ["external-link"]);
+      ctx.setProperty(node, "rel", ["noopener", "noreferrer"]);
+      ctx.setProperty(node, "target", "_blank");
+      ctx.appendChild(node, {
+        type: "element",
+        tagName: "span",
+        properties: {},
+        children: [{ type: "text", value: " ➹" }],
+      });
+    },
+  },
+};
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
   site,
   markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: "_blank",
-          rel: ["noopener", "noreferrer"],
-          test: (node) => !String(node.properties?.href ?? "").startsWith(site),
-          properties: { class: "external-link" },
-          content: { type: "text", value: " ➹" },
-        },
-      ],
-    ],
+    processor: satteri({ hastPlugins: [externalLinks] }),
   },
   image: {
     layout: "constrained",

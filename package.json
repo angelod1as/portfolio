@@ -15,14 +15,14 @@
   },
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.5.10",
-    "@astrojs/mdx": "^5.0.4",
-    "@astrojs/rss": "^4.0.18",
-    "astro": "^6.2.0",
-    "preact": "^10.29.1",
-    "rehype-external-links": "^3.0.0"
+    "@astrojs/markdown-satteri": "^0.3.5",
+    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^7.1.6",
+    "preact": "^10.29.1"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.35.3",
