@@ -50,7 +50,7 @@ const projects = defineCollection({
       what: z.array(z.enum(WHAT)).nonempty(),
       medium: z.array(z.enum(MEDIUM)).nonempty(),
       how: z.array(z.string()).optional(),
-      live: z.string().url().optional(),
+      live: z.string().optional(),
       thumb: z.object({
         src: image(),
         alt: z.string(),
