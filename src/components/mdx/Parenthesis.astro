@@ -1,0 +1,12 @@
+---
+type Props = {
+  about: string;
+};
+
+const { about } = Astro.props;
+---
+
+<details>
+  <summary>A parenthesis about {about}</summary>
+  <slot />
+</details>

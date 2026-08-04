@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "../../components/BlogPost.astro";
+import ListLayout from "../../layouts/ListLayout.astro";
+import "../../styles/global.css";
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  function (a, b) {
+    const aTime = a.data.date.getTime();
+    const bTime = b.data.date.getTime();
+    return aTime - bTime;
+  },
+);
+---
+
+<ListLayout pageTitle="I am angelo and I do blog" title="Blog" description="">
+  <ul>
+    {
+      allPosts.map((post) => (
+        <BlogPost url={`/blog/${post.id}`} title={post.data.title} />
+      ))
+    }
+  </ul>
+</ListLayout>

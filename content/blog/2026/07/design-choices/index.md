@@ -1,6 +1,6 @@
 ---
 title: Design choices
-pubDate: 2026-05-03
+date: 2026-05-03
 description: Why did I chose this?
 ---
 

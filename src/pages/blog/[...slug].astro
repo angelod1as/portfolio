@@ -1,10 +1,11 @@
 ---
+import { YouTube } from "@astro-community/astro-embed-youtube";
 import { getCollection, render } from "astro:content";
-import Link from "../../components/Link.astro";
+import Parenthesis from "../../components/mdx/Parenthesis.astro";
 import ProseLayout from "../../layouts/ProseLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -17,19 +18,19 @@ const { Content } = await render(post);
 const REPO_URL = "https://github.com/angelod1as/portfolio";
 const REPO_BRANCH = "main";
 
-const blameUrl = post.filePath
-  ? `${REPO_URL}/blame/${REPO_BRANCH}/${post.filePath}`
+const historyUrl = post.filePath
+  ? `${REPO_URL}/commits/${REPO_BRANCH}/${post.filePath}`
   : null;
 ---
 
 <ProseLayout title={post.data.title} description={post.data.description}>
-  <Content components={{ a: Link }} />
+  <Content components={{ Parenthesis, YouTube }} />
 
   <div slot="footer" class="footer">
-    <p>Written by Angelo Dias at {post.data.pubDate.toLocaleDateString()}</p>
+    <p>Written by Angelo Dias at {post.data.date.toLocaleDateString()}</p>
     {
-      blameUrl && (
-        <a href={blameUrl} target="_blank" rel="noopener">
+      historyUrl && (
+        <a href={historyUrl} target="_blank" rel="noopener">
           View revision history →
         </a>
       )

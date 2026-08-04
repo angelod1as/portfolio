@@ -2,12 +2,32 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
 
+export const CATEGORIES = [
+  "tech",
+  "career",
+  "reflection",
+  "mgmt",
+  "agile",
+  "blogging",
+] as const;
+
 const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/blog" }),
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./content/blog",
+    // Folders are YYYY/MM for organisation only; the public URL is flat.
+    generateId: ({ entry }) =>
+      entry
+        .replace(/\.[^.]+$/, "")
+        .replace(/^\d{4}\/\d{2}\//, "")
+        .replace(/\/index$/, ""),
+  }),
   schema: z.object({
     title: z.string(),
-    pubDate: z.date(),
+    date: z.coerce.date(),
     description: z.string(),
+    categories: z.array(z.enum(CATEGORIES)).default([]),
+    draft: z.boolean().default(false),
   }),
 });
 

@@ -1,9 +1,9 @@
 import type { CollectionEntry } from "astro:content";
 
-export const byPubDate = (
+export const byDate = (
   a: CollectionEntry<"blog">,
   b: CollectionEntry<"blog">,
-) => b.data.pubDate.getTime() - a.data.pubDate.getTime();
+) => b.data.date.getTime() - a.data.date.getTime();
 
 export const byYear = (
   a: CollectionEntry<"projects">,

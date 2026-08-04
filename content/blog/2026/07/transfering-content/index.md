@@ -1,8 +1,8 @@
 ---
 title: Transferring content
-pubDate: 2026-05-01
+date: 2026-05-01
 description: "Moving data from old site to new site; organizing structure"
-tags: ["blogging"]
+categories: ["blogging"]
 ---
 
 ## From old to new
