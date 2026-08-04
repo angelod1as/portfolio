@@ -7,9 +7,11 @@ import CardList from "../components/CardList.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
-import { byPubDate, splitHighlighted } from "../utils/sort";
+import { byDate, splitHighlighted } from "../utils/sort";
 
-const allPosts = (await getCollection("blog")).sort(byPubDate).slice(0, 5);
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort(byDate)
+  .slice(0, 5);
 
 const { highlighted, rest } = splitHighlighted(await getCollection("projects"));
 const allProjects = [...highlighted, ...rest].slice(0, 3);
@@ -37,7 +39,7 @@ const allProjects = [...highlighted, ...rest].slice(0, 3);
       <ul>
         {
           allPosts.map((post) => (
-            <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
+            <BlogPost url={`/blog/${post.id}`} title={post.data.title} />
           ))
         }
       </ul>
