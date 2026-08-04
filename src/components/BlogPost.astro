@@ -1,14 +1,16 @@
 ---
 import { formatDate } from "../utils/date";
+import Pill from "./Pill.astro";
 
 type Props = {
   url: string;
   title: string;
   date: Date;
   description?: string;
+  draft?: boolean;
 };
 
-const { url, title, date, description } = Astro.props;
+const { url, title, date, description, draft } = Astro.props;
 
 const isoDate = date.toISOString();
 const shortDate = formatDate(date, { short: true });
@@ -18,6 +20,7 @@ const shortDate = formatDate(date, { short: true });
   <a href={url}>
     <time datetime={isoDate}>{shortDate}</time> - {title}
   </a>
+  {draft && <Pill>DRAFT</Pill>}
   {description && <p class="description">{description}</p>}
 </li>
 

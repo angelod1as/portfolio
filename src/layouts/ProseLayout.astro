@@ -10,7 +10,7 @@ type Props = {
 const { title, description } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <article class="prose">
     <PageHeader title={title} description={description}>
       <slot name="meta" />

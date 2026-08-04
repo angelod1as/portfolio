@@ -4,12 +4,17 @@ import BlogPost from "../../components/BlogPost.astro";
 import ListLayout from "../../layouts/ListLayout.astro";
 import "../../styles/global.css";
 import { byDate } from "../../utils/sort";
-const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-  byDate,
-);
+// Drafts stay visible while developing, flagged in the list; never in a build.
+const allPosts = (
+  await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft)
+).sort(byDate);
 ---
 
-<ListLayout pageTitle="I am angelo and I do blog" title="Blog" description="">
+<ListLayout
+  pageTitle="I am angelo and I do blogging"
+  title="Blog"
+  description="Writing about code, career, and whatever else is on my mind"
+>
   <ul>
     {
       allPosts.map((post) => (
@@ -18,6 +23,7 @@ const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
           title={post.data.title}
           date={post.data.date}
           description={post.data.description}
+          draft={post.data.draft}
         />
       ))
     }

@@ -3,7 +3,15 @@ import { Font } from "astro:assets";
 import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 
-const { title } = Astro.props;
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+
+const pageTitle = title || "I am angelo and I do stuff";
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <html lang="en">
@@ -36,7 +44,16 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title || "I am angelo and I do stuff"}</title>
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    {description && <meta name="description" content={description} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={pageTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta name="twitter:card" content="summary" />
+
     <Font cssVariable="--font-text" />
     <Font cssVariable="--font-display" />
   </head>

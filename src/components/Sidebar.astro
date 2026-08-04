@@ -18,6 +18,21 @@ const titleString = titles[url as keyof typeof titles] || "stuff";
     I am <span>angelo</span><br />and I do <br /><i>{titleString}</i>
   </p>
   <Navigation />
+
+  <div class="social">
+    <a
+      href="https://www.linkedin.com/in/angelod1as/"
+      class="external-link"
+      rel="noopener noreferrer"
+      target="_blank">LinkedIn<span> ➹</span></a
+    >
+    <a
+      href="https://github.com/angelod1as"
+      class="external-link"
+      rel="noopener noreferrer"
+      target="_blank">GitHub<span> ➹</span></a
+    >
+  </div>
 </div>
 
 <style>
@@ -34,5 +49,10 @@ const titleString = titles[url as keyof typeof titles] || "stuff";
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
+  }
+  .social {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
   }
 </style>
