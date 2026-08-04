@@ -29,7 +29,7 @@ I had to redo the whole tutorial from scratch to be able to code this by hand. T
 
 I will say, somewhere in this website, that it is AI-free. That's a lie. At some point I will get blocked by some error, a weird configuration, a funky setup... and Claude will surely come to my help, "oh, you're correct" and all that jazz.
 
-The compromise I can make is that everything will be coded by these two hands, reviewed with these eyes the earth shall take, and only *supported* by AI whenever necessary (as *never* as possible).
+The compromise I can make is that everything will be coded by these two hands, reviewed with these eyes the earth shall take, and only _supported_ by AI whenever necessary (as _never_ as possible).
 
 ### Draft
 
