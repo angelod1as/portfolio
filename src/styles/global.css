@@ -115,8 +115,14 @@ ul {
     --gap: 2rem;
   }
 
-  li + li {
-    margin-top: 0.5rem;
+  /* Markdown images land in their own paragraph, not a <figure>, so match
+     the figure spacing on paragraphs that hold nothing but an image. */
+  > p:has(> img:only-child) {
+    --gap: 2rem;
+
+    + * {
+      --gap: 2rem;
+    }
   }
 }
 
@@ -150,6 +156,66 @@ del {
 
 del:hover {
   text-decoration-color: transparent;
+}
+
+/* Rules */
+hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--muted);
+}
+
+/* Quotes */
+blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+
+  > * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* Parenthesis — collapsible aside */
+details {
+  summary {
+    font-weight: 700;
+    cursor: pointer;
+
+    &::marker {
+      color: var(--accent);
+    }
+
+    /* Safari still ships the legacy marker pseudo-element. */
+    &::-webkit-details-marker {
+      color: var(--accent);
+    }
+  }
+
+  .parenthesis-content {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--muted);
+  }
+}
+
+/* Code */
+code {
+  font-size: 0.85em;
+}
+
+/* Inline code only — highlighted blocks style their own <code>. */
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 3px;
 }
 
 /* WIP indicator */

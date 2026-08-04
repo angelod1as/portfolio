@@ -8,5 +8,7 @@ const { about } = Astro.props;
 
 <details>
   <summary>A parenthesis about {about}</summary>
-  <slot />
+  <div class="prose parenthesis-content">
+    <slot />
+  </div>
 </details>
