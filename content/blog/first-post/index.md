@@ -69,8 +69,8 @@ I ended up adding a "see file history" link that opens this file's history in gi
 
 My last website had a single-column layout — easier on the mobile view, but kind of lazy on desktop.
 
-![A webpage featuring a single-column dark background with yellow and white text. The heading reads 'I'm angelo and I do stuff,' followed by details about angelo's roles as a developer, writer, designer, and journalist. Links to projects, resume, and newsletter are also visible.](./image-1.png)
+![A webpage featuring a single-column dark background with yellow and white text. The heading reads 'I'm angelo and I do stuff,' followed by details about angelo's roles as a developer, writer, designer, and journalist. Links to projects, resume, and newsletter are also visible.](./image-1.webp)
 
 The idea for the new one is ~stolen~ inspired by some websites I mentioned above. This is the current state of it:
 
-![A webpage featuring a personal introduction from someone named Angelo, with a two-column layout. To the left, a menu. To the right, an article.](./image.png)
+![A webpage featuring a personal introduction from someone named Angelo, with a two-column layout. To the left, a menu. To the right, an article.](./image.webp)

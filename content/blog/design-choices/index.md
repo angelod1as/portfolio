@@ -18,7 +18,7 @@ Well, websites go _almost_ very differently.
 
 For this website I studied a few font pairings. The old version had _Montserrat_ for text and _Montserrat Alternates_ for headings.
 
-![printscreen of my old blog with the fonts mentioned in the last paragraph](./image.png)
+![printscreen of my old blog with the fonts mentioned in the last paragraph](./image.webp)
 
 I liked that combination, with those colors, with that size. But now, thinking about a simpler, text-focused design, I went more _newspaper-y_ than ever.
 
