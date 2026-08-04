@@ -1,13 +1,14 @@
 ---
 type Props = {
   url?: string;
+  label?: string;
 };
-const { url } = Astro.props;
+const { url, label } = Astro.props;
 ---
 
 {
   url ? (
-    <a href={url} class="card">
+    <a href={url} class="card" aria-label={label}>
       <slot />
     </a>
   ) : (

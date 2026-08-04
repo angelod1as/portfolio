@@ -6,85 +6,80 @@ import Card from "./Card.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
+  variant?: "full" | "compact";
 };
 
-const { id, data } = Astro.props.project;
+const { project, variant = "full" } = Astro.props;
+const { id, data } = project;
 
-const {
-  title,
-  description,
-  year: { from, to },
-  what,
-  how,
-  thumb: { alt, src },
-} = data;
+const { title, description, year, type, what, medium, thumb } = data;
 
-const date = formatCardDate(from, to);
+const date = formatCardDate(year.from, year.to);
+const tags = [...what, ...medium];
+const full = variant === "full";
 ---
 
-<Card url={id}>
-  <div class="project">
-    <Image src={src} alt={alt} />
-    <div class="data">
-      <h3 class="title">{title} <span class="year">{date}</span></h3>
-      <p class="description">{description}</p>
-      <div class="columns">
-        <div>
-          <p class="subtitle">What?</p>
-          <ul>{what.map((item) => <li>{item}</li>)}</ul>
-        </div>
-        {
-          how && (
-            <div>
-              <p class="subtitle">How?</p>
-              <ul>
-                {how.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )
-        }
-      </div>
+<Card url={`/projects/${id}`} label={`${title} - ${description}`}>
+  <article class="project" data-variant={variant}>
+    {full && <Image src={thumb.src} alt={thumb.alt} />}
+    <div class="body">
+      <p class="meta">{date} · {type}</p>
+      <h3 class="title">{title}</h3>
+      <p>{description}</p>
+      {
+        full && (
+          <ul class="tags">
+            {tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
     </div>
-  </div>
+  </article>
 </Card>
 
 <style>
   .project {
-    gap: 1rem;
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    gap: 1rem;
   }
 
-  .data {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  .project[data-variant="full"] {
+    grid-template-columns: minmax(6rem, 1fr) 5fr;
+  }
+
+  .body > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
   }
 
   .title {
-    font-weight: bold;
-    font-size: 1.5rem;
     margin: 0;
-  }
-
-  .description {
-    margin-bottom: 1rem;
-  }
-
-  .year {
-    padding-left: 1rem;
-    font-weight: normal;
-    font-size: 1rem;
-  }
-
-  .columns {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .subtitle {
+    font-size: 1.5rem;
     font-weight: bold;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  .tags li {
+    margin: 0;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+  }
+
+  .tags li::before {
+    content: none;
   }
 </style>
