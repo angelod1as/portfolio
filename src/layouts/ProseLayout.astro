@@ -1,0 +1,21 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <article class="prose">
+    <PageHeader title={title} description={description} />
+
+    <slot />
+
+    <slot name="footer" />
+  </article>
+</BaseLayout>

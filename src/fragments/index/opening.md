@@ -1,8 +1,4 @@
----
-title: Homepage opening
----
-
-## Developer, writer and designer
+# Developer, writer and designer
 
 Communication aficionado and award-winning journalist. Proud generalist — my focus is communication applied to technology.
 

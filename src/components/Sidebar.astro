@@ -15,7 +15,7 @@ const titleString = titles[url as keyof typeof titles] || "stuff";
 <div class="wrapper">
   <ThemeToggle />
   <p class="title">
-    I am <span>angelo</span><br />and I do <i>{titleString}</i>
+    I am <span>angelo</span><br />and I do <br /><i>{titleString}</i>
   </p>
   <Navigation />
 </div>
@@ -34,9 +34,5 @@ const titleString = titles[url as keyof typeof titles] || "stuff";
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
-
-    h1 {
-      margin: 0;
-    }
   }
 </style>

@@ -1,5 +1,10 @@
 ---
+import { YouTube } from "@astro-community/astro-embed-youtube";
 import { getCollection, render } from "astro:content";
+import Audio from "../../components/embeds/Audio.astro";
+import Book from "../../components/embeds/Book.astro";
+import Podcast from "../../components/embeds/Podcast.astro";
+import ProseLayout from "../../layouts/ProseLayout.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -13,17 +18,26 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<h1>{project.data.title}</h1>
+<ProseLayout title={project.data.title} description={project.data.description}>
+  {
+    project.data.live && (
+      <a
+        href={project.data.live}
+        class="external-link see-it-live"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        See it live<span> ➹</span>
+      </a>
+    )
+  }
 
-{
-  project.data.live && (
-    <a href={project.data.live} target="_blank" rel="noopener noreferrer">
-      See it live ↗
-    </a>
-  )
-}
+  <Content components={{ YouTube, Podcast, Book, Audio }} />
+</ProseLayout>
 
-<!-- <MarkdownPostLayout frontmatter={post.data} blameUrl={blameUrl}>
-
-</MarkdownPostLayout> -->
-<Content components={{ Embed }} />
+<style>
+  .see-it-live {
+    display: block;
+    margin: 1rem 0;
+  }
+</style>

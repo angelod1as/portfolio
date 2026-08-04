@@ -55,6 +55,7 @@ const projects = defineCollection({
         src: image(),
         alt: z.string(),
       }),
+      highlighted: z.number().int().min(0).optional(),
     }),
 });
 
