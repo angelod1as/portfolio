@@ -39,7 +39,12 @@ const allProjects = [...highlighted, ...rest].slice(0, 3);
       <ul>
         {
           allPosts.map((post) => (
-            <BlogPost url={`/blog/${post.id}`} title={post.data.title} />
+            <BlogPost
+              url={`/blog/${post.id}`}
+              title={post.data.title}
+              date={post.data.date}
+              description={post.data.description}
+            />
           ))
         }
       </ul>

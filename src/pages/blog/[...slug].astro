@@ -1,8 +1,10 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import { getCollection, render } from "astro:content";
+import OldPostNotice from "../../components/OldPostNotice.astro";
 import Parenthesis from "../../components/mdx/Parenthesis.astro";
 import ProseLayout from "../../layouts/ProseLayout.astro";
+import { formatDate, isOld } from "../../utils/date";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -21,13 +23,23 @@ const REPO_BRANCH = "main";
 const historyUrl = post.filePath
   ? `${REPO_URL}/commits/${REPO_BRANCH}/${post.filePath}`
   : null;
+
+const { date } = post.data;
+const isoDate = date.toISOString();
+const formattedDate = formatDate(date);
+const isOldPost = isOld(date);
 ---
 
 <ProseLayout title={post.data.title} description={post.data.description}>
+  <p slot="meta" class="meta">
+    <time datetime={isoDate}>{formattedDate}</time> · Written by Angelo Dias
+  </p>
+
+  {isOldPost && <OldPostNotice />}
+
   <Content components={{ Parenthesis, YouTube }} />
 
   <div slot="footer" class="footer">
-    <p>Written by Angelo Dias at {post.data.date.toLocaleDateString()}</p>
     {
       historyUrl && (
         <a href={historyUrl} target="_blank" rel="noopener">
@@ -37,3 +49,11 @@ const historyUrl = post.filePath
     }
   </div>
 </ProseLayout>
+
+<style>
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+</style>

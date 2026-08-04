@@ -12,7 +12,9 @@ const { title, description } = Astro.props;
 
 <BaseLayout title={title}>
   <article class="prose">
-    <PageHeader title={title} description={description} />
+    <PageHeader title={title} description={description}>
+      <slot name="meta" />
+    </PageHeader>
 
     <slot />
 
