@@ -11,9 +11,9 @@ const title = "I am angelo and here's more";
 
 <BaseLayout title={title}>
   <div class="wrapper">
-    <div><IAm /></div>
-    <div><IWant /></div>
-    <div><IWas /></div>
+    <div class="more"><IAm /></div>
+    <div class="more"><IWant /></div>
+    <div class="more"><IWas /></div>
     <div class="experience"><Experience /></div>
   </div>
 </BaseLayout>
@@ -26,12 +26,19 @@ const title = "I am angelo and here's more";
   }
   .experience {
     h3 {
+      margin: 0.5rem 0;
     }
     span {
       display: block;
       margin: 2rem 0 0.3rem 0;
       color: var(--muted);
       font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+  .more {
+    h2 {
+      margin-bottom: 1rem;
     }
   }
 </style>

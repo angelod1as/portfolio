@@ -1,32 +1,36 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-
 import { getCollection } from "astro:content";
+import CardList from "../components/CardList.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import "../styles/global.css";
-const allProjects = await getCollection("projects");
+import ProseLayout from "../layouts/ProseLayout.astro";
+import { splitHighlighted } from "../utils/sort";
+
+const { highlighted, rest } = splitHighlighted(await getCollection("projects"));
 ---
 
-<BaseLayout>
-  <div>
-    <h2>Projects</h2>
+<ProseLayout
+  title="Projects"
+  description="Below, a list of projects — still WIP"
+>
+  <p class="wip">Planned: additive filters using query parameters</p>
 
-    <p>Below, a list of projects — still WIP</p>
-
-    <p class="wip">Planned: additive filters using query parameters</p>
-
-    <ul>
-      {allProjects.map((project) => <ProjectCard project={project} />)}
-    </ul>
-  </div>
-</BaseLayout>
-
-<style>
-  ul {
-    margin: 1rem 0 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  {
+    highlighted.length > 0 && (
+      <>
+        <h2>Highlighted</h2>
+        <CardList>
+          {highlighted.map((project) => (
+            <li>
+              <ProjectCard project={project} />
+            </li>
+          ))}
+        </CardList>
+      </>
+    )
   }
-</style>
+
+  <h2>All projects</h2>
+  <CardList>
+    {rest.map((project) => <ProjectCard project={project} />)}
+  </CardList>
+</ProseLayout>

@@ -1,0 +1,21 @@
+---
+type Props = { gap?: string };
+const { gap = "2rem" } = Astro.props;
+---
+
+<ul class="list" style={`--card-gap: ${gap}`}>
+  <slot />
+</ul>
+
+<style>
+  .list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+  }
+
+  .list > :global(li)::before {
+    content: none;
+  }
+</style>

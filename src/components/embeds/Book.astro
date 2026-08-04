@@ -1,0 +1,24 @@
+---
+import Frame from "./Frame.astro";
+
+type Props = {
+  bkcode: string;
+  title: string;
+  page?: number;
+};
+
+const { bkcode, title, page } = Astro.props;
+
+const params = new URLSearchParams({
+  bkcode,
+  mode: "viewer",
+  view: "book",
+  showsharemenu: "false",
+});
+
+if (page) params.set("page", String(page));
+
+const src = `https://v.calameo.com/?${params}`;
+---
+
+<Frame src={src} title={title} ratio="68 / 35" />

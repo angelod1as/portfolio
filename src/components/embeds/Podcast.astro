@@ -1,0 +1,42 @@
+---
+import Frame from "./Frame.astro";
+
+type Props = {
+  id: string;
+  title: string;
+  height?: string;
+};
+
+// Change to 152 for smaller
+const spotifyHeight = 352;
+
+const { id, title, height = `${spotifyHeight}px` } = Astro.props;
+
+// Pattern adapted from astro-embed PR #365's matcher.ts
+const TYPES = "track|album|playlist|episode|show|artist";
+const BARE = new RegExp(`^(?:${TYPES})/[A-Za-z0-9]+$`);
+const URL_PATTERN = new RegExp(
+  `open\\.spotify\\.com(?:/intl-[a-z]+)?(?:/embed)?/(${TYPES})/([A-Za-z0-9]+)`,
+);
+
+function resolve(idOrUrl: string) {
+  if (BARE.test(idOrUrl)) return idOrUrl;
+  const match = idOrUrl.match(URL_PATTERN);
+  return match && `${match[1]}/${match[2]}`;
+}
+
+const typeAndId = resolve(id);
+
+if (!typeAndId) {
+  throw new Error(`Podcast: unrecognised Spotify id or URL — ${id}`);
+}
+
+const src = `https://open.spotify.com/embed/${typeAndId}`;
+---
+
+<Frame
+  src={src}
+  title={title}
+  height={height}
+  allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+/>

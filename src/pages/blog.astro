@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
 import "../styles/global.css";
+import ListLayout from "../layouts/ListLayout.astro";
 const allPosts = (await getCollection("blog")).sort(function (a, b) {
   const aTime = a.data.pubDate.getTime();
   const bTime = b.data.pubDate.getTime();
@@ -11,8 +12,7 @@ const allPosts = (await getCollection("blog")).sort(function (a, b) {
 });
 ---
 
-<BaseLayout title="I am angelo and I do blog">
-  <h2>Blog</h2>
+<ListLayout pageTitle="I am angelo and I do blog" title="Blog" description="">
   <ul>
     {
       allPosts.map((post) => (
@@ -20,4 +20,4 @@ const allPosts = (await getCollection("blog")).sort(function (a, b) {
       ))
     }
   </ul>
-</BaseLayout>
+</ListLayout>

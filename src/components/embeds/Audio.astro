@@ -1,0 +1,36 @@
+---
+type Props = {
+  src: string;
+  label?: string;
+};
+
+const { src, label } = Astro.props;
+
+const files = import.meta.glob<string>("../../../content/projects/**/*.mp3", {
+  query: "?url",
+  import: "default",
+  eager: true,
+});
+
+const url = files[`../../../content/projects/${src}`];
+
+if (!url) {
+  throw new Error(`Audio: no file at content/projects/${src}`);
+}
+---
+
+<figure>
+  {label && <figcaption>{label}</figcaption>}
+  <audio controls preload="none" src={url}></audio>
+</figure>
+
+<style>
+  figure {
+    margin: 0;
+  }
+
+  audio {
+    display: block;
+    width: 100%;
+  }
+</style>

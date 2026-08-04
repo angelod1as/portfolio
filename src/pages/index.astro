@@ -3,32 +3,37 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
+import CardList from "../components/CardList.astro";
 import SmallProjectCard from "../components/SmallProjectCard.astro";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
+import { byPubDate, splitHighlighted } from "../utils/sort";
 
-const sorter = (a: any, b: any) => {
-  const aTime = a.data.pubDate.getTime();
-  const bTime = b.data.pubDate.getTime();
-  return aTime - bTime;
-};
-const allPosts = (await getCollection("blog")).sort(sorter).slice(0, 5);
-const allProjects = (await getCollection("projects")).sort(sorter).slice(0, 3);
+const allPosts = (await getCollection("blog")).sort(byPubDate).slice(0, 5);
+
+const { highlighted, rest } = splitHighlighted(await getCollection("projects"));
+const allProjects = [...highlighted, ...rest].slice(0, 3);
 ---
 
 <BaseLayout>
   <div class="wrapper">
-    <div class="test">
+    <div class="prose">
       <Opening />
     </div>
-    <div class="projects full">
+    <div class="prose full">
       <h2>Latest in projects</h2>
-      <ul class="projects">
-        {allProjects.map((project) => <SmallProjectCard project={project} />)}
-      </ul>
+      <CardList gap="1rem">
+        {
+          allProjects.map((project) => (
+            <li>
+              <SmallProjectCard project={project} />
+            </li>
+          ))
+        }
+      </CardList>
     </div>
     <div>
-      <h2>Latest in writing</h2>
+      <h2 class="subtitle">Latest in writing</h2>
       <ul>
         {
           allPosts.map((post) => (
@@ -55,8 +60,7 @@ const allProjects = (await getCollection("projects")).sort(sorter).slice(0, 3);
     }
   }
 
-  .projects ul {
-    padding: 0;
-    margin: 0;
+  .subtitle {
+    margin-bottom: 1rem;
   }
 </style>

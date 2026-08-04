@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Link from "../../components/Link.astro";
-import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+import ProseLayout from "../../layouts/ProseLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -22,10 +22,17 @@ const blameUrl = post.filePath
   : null;
 ---
 
-<MarkdownPostLayout frontmatter={post.data} blameUrl={blameUrl}>
-  <Content
-    components={{
-      a: Link,
-    }}
-  />
-</MarkdownPostLayout>
+<ProseLayout title={post.data.title} description={post.data.description}>
+  <Content components={{ a: Link }} />
+
+  <div slot="footer" class="footer">
+    <p>Written by Angelo Dias at {post.data.pubDate.toLocaleDateString()}</p>
+    {
+      blameUrl && (
+        <a href={blameUrl} target="_blank" rel="noopener">
+          View revision history →
+        </a>
+      )
+    }
+  </div>
+</ProseLayout>
