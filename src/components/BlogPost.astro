@@ -21,7 +21,7 @@ const shortDate = formatDate(date, { short: true });
   <a href={url}>
     <time datetime={isoDate}>{shortDate}</time> - {title}
   </a>
-  {draft && <Pill class="draft">DRAFT</Pill>}
+  {draft && <Pill class="draft-pill">DRAFT</Pill>}
   {
     categories && categories.length > 0 && (
       <ul class="categories">
@@ -52,11 +52,13 @@ const shortDate = formatDate(date, { short: true });
   }
 
   .categories {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     padding-left: 0;
-    margin-top: 0.4rem;
+    margin-inline-start: 1rem;
+    vertical-align: baseline;
+    text-transform: lowercase;
 
     li + li {
       margin-top: 0;
@@ -67,9 +69,5 @@ const shortDate = formatDate(date, { short: true });
       width: 0;
       margin-left: 0;
     }
-  }
-
-  .draft {
-    margin-inline-start: 0.5rem;
   }
 </style>

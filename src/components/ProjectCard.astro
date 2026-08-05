@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { formatCardDate } from "../utils/format-date";
 import Card from "./Card.astro";
+import Pill from "./Pill.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -30,7 +31,9 @@ const full = variant === "full";
         full && (
           <ul class="tags">
             {tags.map((tag) => (
-              <li>{tag}</li>
+              <li>
+                <Pill variant="outline">{tag}</Pill>
+              </li>
             ))}
           </ul>
         )
@@ -70,13 +73,6 @@ const full = variant === "full";
     gap: 0.5rem;
     padding: 0;
     margin-top: 1rem;
-  }
-
-  .tags li {
-    margin: 0;
-    padding: 0.1rem 0.5rem;
-    font-size: 0.8rem;
-    border: 1px solid var(--border);
   }
 
   .tags li::before {
