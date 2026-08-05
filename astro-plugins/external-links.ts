@@ -1,8 +1,10 @@
-export const externalLinks = (site: string) => ({
+import type { HastPluginDefinition } from "satteri";
+
+export const externalLinks = (site: string): HastPluginDefinition => ({
   name: "external-links",
   element: {
     filter: ["a"],
-    visit(node: any, ctx: any) {
+    visit(node, ctx) {
       const href = String(node.properties?.href ?? "");
       if (!/^https?:\/\//.test(href)) return;
       if (href.startsWith(site)) return;
