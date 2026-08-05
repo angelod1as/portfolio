@@ -1,16 +1,35 @@
 ---
+type Props = {
+  href?: string;
+  variant?: "solid" | "outline";
+  class?: string;
+};
 
+const { href, variant = "solid", class: className } = Astro.props;
+const Tag = href ? "a" : "span";
 ---
 
-<span class="pill"><slot /></span>
+<Tag class:list={["pill", variant, className]} href={href}><slot /></Tag>
 
 <style>
   .pill {
-    margin-inline-start: 0.5rem;
     padding: 0.1em 0.4em;
-    background: var(--accent);
-    color: var(--accent-fg);
     font-size: 0.7rem;
     font-weight: 700;
+  }
+
+  .solid {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  .outline {
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  a.pill {
+    text-decoration: none;
   }
 </style>
