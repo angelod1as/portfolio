@@ -37,7 +37,7 @@ const isOldPost = isOld(date);
 <ProseLayout title={post.data.title} description={post.data.description}>
   <p slot="meta" class="meta">
     <time datetime={isoDate}>{formattedDate}</time> · Written by Angelo Dias
-    {post.data.draft && <Pill class="draft">DRAFT</Pill>}
+    {post.data.draft && <Pill class="draft-pill">DRAFT</Pill>}
   </p>
 
   {isOldPost && <OldPostNotice />}
@@ -65,9 +65,5 @@ const isOldPost = isOld(date);
     color: var(--muted);
     font-size: 0.9rem;
     font-style: normal;
-  }
-
-  .draft {
-    margin-inline-start: 0.5rem;
   }
 </style>

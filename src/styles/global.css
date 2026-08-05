@@ -218,11 +218,15 @@ pre {
   border-radius: 3px;
 }
 
-/* WIP indicator */
+/* WIP and DRAFT Pill indicator */
 .wip {
   color: var(--muted);
   font-size: 0.9rem;
   font-style: italic;
+}
+
+.draft-pill {
+  margin-inline-start: 0.5rem;
 }
 
 /* View Transitions */
