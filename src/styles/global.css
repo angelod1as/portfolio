@@ -115,14 +115,10 @@ ul {
     --gap: 2rem;
   }
 
-  /* Markdown images land in their own paragraph, not a <figure>, so match
-     the figure spacing on paragraphs that hold nothing but an image. */
-  > p:has(> img:only-child) {
-    --gap: 2rem;
-
-    + * {
-      --gap: 2rem;
-    }
+  figure figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
   }
 }
 
