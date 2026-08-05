@@ -1,10 +1,12 @@
-export const figures = {
+import type { HastPluginDefinition } from "satteri";
+
+export const figures: HastPluginDefinition = {
   name: "figures",
   element: {
     filter: ["p"],
-    visit(node: any, ctx: any) {
+    visit(node, ctx) {
       const kids = (node.children ?? []).filter(
-        (c: any) => !(c.type === "text" && c.value.trim() === ""),
+        (c) => !(c.type === "text" && c.value.trim() === ""),
       );
       if (kids.length !== 1) return;
       const only = kids[0];
@@ -18,7 +20,9 @@ export const figures = {
         children.push({
           type: "element",
           tagName: "figcaption",
-          properties: {},
+          properties: {
+            title: undefined,
+          },
           children: [{ type: "text", value: title }],
         });
       }
