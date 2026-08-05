@@ -8,9 +8,10 @@ type Props = {
   date: Date;
   description?: string;
   draft?: boolean;
+  categories?: string[];
 };
 
-const { url, title, date, description, draft } = Astro.props;
+const { url, title, date, description, draft, categories } = Astro.props;
 
 const isoDate = date.toISOString();
 const shortDate = formatDate(date, { short: true });
@@ -20,7 +21,18 @@ const shortDate = formatDate(date, { short: true });
   <a href={url}>
     <time datetime={isoDate}>{shortDate}</time> - {title}
   </a>
-  {draft && <Pill>DRAFT</Pill>}
+  {draft && <Pill class="draft">DRAFT</Pill>}
+  {
+    categories && categories.length > 0 && (
+      <ul class="categories">
+        {categories.map((category) => (
+          <li>
+            <Pill variant="outline">{category}</Pill>
+          </li>
+        ))}
+      </ul>
+    )
+  }
   {description && <p class="description">{description}</p>}
 </li>
 
@@ -37,5 +49,27 @@ const shortDate = formatDate(date, { short: true });
   .description {
     color: var(--muted);
     font-size: 0.9rem;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-left: 0;
+    margin-top: 0.4rem;
+
+    li + li {
+      margin-top: 0;
+    }
+
+    li::before {
+      content: "";
+      width: 0;
+      margin-left: 0;
+    }
+  }
+
+  .draft {
+    margin-inline-start: 0.5rem;
   }
 </style>
