@@ -1,7 +1,7 @@
 ---
 title: Google Maps with search and marker using React
 date: 2022-12-13
-description: implement Google Maps with a handy library brought by Google to make our lifes easier!
+description: implement Google Maps with a handy library brought by Google to make our lives easier!
 categories:
   - tech
 ---
@@ -45,7 +45,7 @@ export const App = () => (
 )
 ```
 
-![GoogleMaps_React_mySuperMap](./google1.png)
+![Google Maps](./google1.png)
 
 Awesome, what might seem like a boring page with no content... is also a fertile field for ambitious creation!
 
@@ -125,7 +125,7 @@ export const Map = () => {
 }
 ```
 
-The `render` function is simple and pratical: we can render different components depending on the status of the script loading.
+The `render` function is simple and practical: we can render different components depending on the status of the script loading.
 
 I won't focus on the `LOADING` and `FAILURE` states in this tutorial, though. Use your imagination and build a beautiful loading spinner and an informative error page.
 
@@ -224,7 +224,7 @@ And that's the only CSS you will write to make this map happen. Refresh your bro
 
 ### Tweaking the map
 
-You have a fully working map in your app, with the correct behaviour of any Google Map instances you see around there.
+You have a fully working map in your app, with the correct behavior of any Google Map instances you see around there.
 
 This is a lot... and I want less.
 
@@ -353,7 +353,8 @@ new window.google.maps.places.Autocomplete(ref.current, {
 
 Looking at our app now, we can search for a myriad of places but this results in no change in our map, right?
 
-![GoogleMaps_React_mySuperMap5](./google5.png)
+![Screenshot from Google Maps](./google5.png)
+
 That's why the received value from the `Autocomplete` is not being used anywhere.
 
 ### Putting things together
