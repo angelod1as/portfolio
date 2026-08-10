@@ -11,6 +11,7 @@ const { highlighted, rest } = splitHighlighted(projects);
 
 const what = [...new Set(projects.flatMap((p) => p.data.what))].sort();
 const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
+const types = [...new Set(projects.map((p) => p.data.type))].sort();
 ---
 
 <ProseLayout
@@ -22,6 +23,7 @@ const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
     facets={[
       { name: "what", label: "What", values: what },
       { name: "medium", label: "Medium", values: medium },
+      { name: "type", label: "Type", values: types },
     ]}
   />
 
@@ -34,6 +36,7 @@ const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
             <li
               data-what={project.data.what.join(" ")}
               data-medium={project.data.medium.join(" ")}
+              data-type={project.data.type}
             >
               <ProjectCard project={project} />
             </li>
@@ -50,6 +53,7 @@ const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
           <li
             data-what={project.data.what.join(" ")}
             data-medium={project.data.medium.join(" ")}
+            data-type={project.data.type}
           >
             <ProjectCard project={project} />
           </li>
