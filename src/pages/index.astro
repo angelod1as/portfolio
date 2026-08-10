@@ -2,9 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
-import BlogPost from "../components/BlogPost.astro";
-import CardList from "../components/CardList.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import BlogPost from "../components/content/BlogPost.astro";
+import CardList from "../components/ui/CardList.astro";
+import ProjectCard from "../components/content/ProjectCard.astro";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
 import { byDate, byHighlighted, splitHighlighted } from "../utils/sort";
