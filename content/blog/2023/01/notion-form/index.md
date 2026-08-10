@@ -4,6 +4,8 @@ date: 2023-01-30
 description: How to build a form and use Notion API for small-scale projects.
 categories:
   - tech
+kind:
+  - tutorial
 ---
 
 [Notion](https://www.notion.so/) is hard to describe. The tool manages notes, TODOs, tables, images, and a plethora of content that can help organise our lives — or make it utterly chaotic if we fall into the "let me just create _another_ Notion dashboard" black hole.

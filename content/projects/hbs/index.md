@@ -2,6 +2,7 @@
 title: Harvard Business School
 description: Contentful migration and Next.js development across 61 Harvard Business School sites
 type: professional
+highlighted: 1
 year:
   from: 2024
 what:

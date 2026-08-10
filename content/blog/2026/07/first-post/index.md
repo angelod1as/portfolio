@@ -3,6 +3,7 @@ title: Doing things by hand
 date: 2026-04-30
 description: "Rethinking my portfolio; rebuilding from semi-scratch; ditching AI"
 categories: ["blogging"]
+kind: ["log"]
 ---
 
 ## First draft
