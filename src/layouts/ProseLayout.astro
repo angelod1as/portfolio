@@ -5,12 +5,14 @@ import BaseLayout from "./BaseLayout.astro";
 type Props = {
   title: string;
   description: string;
+  image?: string;
+  type?: "website" | "article";
 };
 
-const { title, description } = Astro.props;
+const { title, description, image, type } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={image} type={type}>
   <article class="prose">
     <PageHeader title={title} description={description}>
       <slot name="meta" />
