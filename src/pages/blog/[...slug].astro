@@ -29,16 +29,34 @@ const historyUrl = post.filePath
   : null;
 
 const { date } = post.data;
+const tags = [...post.data.categories, ...post.data.kind];
 const isoDate = date.toISOString();
 const formattedDate = formatDate(date);
 const isOldPost = isOld(date);
 ---
 
-<ProseLayout title={post.data.title} description={post.data.description}>
+<ProseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={`/blog/${post.id}.png`}
+  type="article"
+>
   <p slot="meta" class="meta">
     <time datetime={isoDate}>{formattedDate}</time> · Written by Angelo Dias
     {post.data.draft && <Pill class="draft-pill">DRAFT</Pill>}
   </p>
+
+  {
+    tags.length > 0 && (
+      <ul slot="meta" class="tags">
+        {tags.map((tag) => (
+          <li>
+            <Pill variant="outline">{tag}</Pill>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 
   {isOldPost && <OldPostNotice />}
 
@@ -65,5 +83,19 @@ const isOldPost = isOld(date);
     color: var(--muted);
     font-size: 0.9rem;
     font-style: normal;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-left: 0;
+    margin-top: 0.6rem;
+
+    li::before {
+      content: "";
+      width: 0;
+      margin-left: 0;
+    }
   }
 </style>

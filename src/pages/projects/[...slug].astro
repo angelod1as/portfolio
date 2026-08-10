@@ -18,7 +18,12 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<ProseLayout title={project.data.title} description={project.data.description}>
+<ProseLayout
+  title={project.data.title}
+  description={project.data.description}
+  image={`/projects/${project.id}.png`}
+  type="article"
+>
   {
     project.data.live && (
       <a
