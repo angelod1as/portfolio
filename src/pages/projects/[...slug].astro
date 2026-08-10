@@ -4,7 +4,9 @@ import { getCollection, render } from "astro:content";
 import Audio from "../../components/embeds/Audio.astro";
 import Book from "../../components/embeds/Book.astro";
 import Podcast from "../../components/embeds/Podcast.astro";
+import Pill from "../../components/ui/Pill.astro";
 import ProseLayout from "../../layouts/ProseLayout.astro";
+import { formatCardDate } from "../../utils/format-date";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -16,6 +18,13 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+const { year, type, what, medium, how } = project.data;
+
+const date = formatCardDate(year.from, year.to);
+// `what` and `medium` are the facets the projects list filters on; `how` is a
+// stack list, so it reads as text instead of as pills you could click.
+const tags = [...what, ...medium];
 ---
 
 <ProseLayout
@@ -24,6 +33,26 @@ const { Content } = await render(project);
   image={`/projects/${project.id}.png`}
   type="article"
 >
+  <p slot="meta" class="meta">{date} · {type}</p>
+
+  <ul slot="meta" class="tags">
+    {
+      tags.map((tag) => (
+        <li>
+          <Pill variant="outline">{tag}</Pill>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    how && how.length > 0 && (
+      <p slot="meta" class="how">
+        Built with {how.join(", ")}
+      </p>
+    )
+  }
+
   {
     project.data.live && (
       <a
@@ -44,5 +73,31 @@ const { Content } = await render(project);
   .see-it-live {
     display: block;
     margin: 1rem 0;
+  }
+
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+
+  .how {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-left: 0;
+    margin-top: 0.6rem;
+
+    li::before {
+      content: "";
+      width: 0;
+      margin-left: 0;
+    }
   }
 </style>
