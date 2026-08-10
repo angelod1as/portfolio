@@ -1,13 +1,21 @@
 ---
 import { getCollection } from "astro:content";
 import BlogPost from "../../components/BlogPost.astro";
+import Filters from "../../components/Filters.astro";
 import ListLayout from "../../layouts/ListLayout.astro";
 import "../../styles/global.css";
 import { byDate } from "../../utils/sort";
+
 // Drafts stay visible while developing, flagged in the list; never in a build.
 const allPosts = (
   await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft)
 ).sort(byDate);
+
+const categories = [
+  ...new Set(allPosts.flatMap((post) => post.data.categories)),
+].sort();
+
+const kinds = [...new Set(allPosts.flatMap((post) => post.data.kind))].sort();
 ---
 
 <ListLayout
@@ -15,7 +23,15 @@ const allPosts = (
   title="Blog"
   description="Writing about code, career, and whatever else is on my mind"
 >
-  <ul>
+  <Filters
+    target=".posts"
+    facets={[
+      { name: "cat", label: "Topic", values: categories },
+      { name: "kind", label: "Kind", values: kinds },
+    ]}
+  />
+
+  <ul class="posts">
     {
       allPosts.map((post) => (
         <BlogPost
@@ -25,6 +41,7 @@ const allPosts = (
           description={post.data.description}
           draft={post.data.draft}
           categories={post.data.categories}
+          kind={post.data.kind}
         />
       ))
     }
