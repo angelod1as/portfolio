@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import CardList from "../components/CardList.astro";
+import Recommendation from "../components/Recommendation.astro";
+import ProseLayout from "../layouts/ProseLayout.astro";
+import { byHighlighted } from "../utils/sort";
+
+const entries = (await getCollection("recommendations")).sort(byHighlighted);
+
+const recommendations = await Promise.all(
+  entries.map(async (entry) => ({
+    data: entry.data,
+    Content: (await render(entry)).Content,
+  })),
+);
+---
+
+<ProseLayout
+  title="Recommendations"
+  description="What people I've worked with have to say"
+>
+  <p>
+    Edited for length. Read them in whole (and many others) on <a
+      href="https://www.linkedin.com/in/angelod1as/details/recommendations/"
+      class="external-link"
+      rel="noopener noreferrer"
+      target="_blank">LinkedIn<span> ➹</span></a
+    >. Titles reflect the roles they held when writing.
+  </p>
+  <CardList class="recommendations">
+    {
+      recommendations.map(({ data, Content }) => (
+        <Recommendation
+          name={data.name}
+          role={data.role}
+          company={data.company}
+          linkedin={data.linkedin}
+          extra={data.extra}
+        >
+          <Content />
+        </Recommendation>
+      ))
+    }
+  </CardList>
+</ProseLayout>

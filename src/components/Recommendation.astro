@@ -1,0 +1,50 @@
+---
+import Card from "./Card.astro";
+
+type Props = {
+  name: string;
+  role: string;
+  company: string;
+  linkedin: string;
+  extra?: string;
+};
+
+const { name, role, company, linkedin, extra } = Astro.props;
+---
+
+<li>
+  <Card>
+    <div class="text"><slot /></div>
+    <p class="who">
+      <a
+        href={`https://www.linkedin.com/in/${linkedin}/`}
+        class="external-link"
+        rel="noopener noreferrer"
+        target="_blank">{name}<span> ➹</span></a
+      >
+      <span class="meta">— {role} @ {company}</span>
+    </p>
+    {extra && <p class="extra">{extra}</p>}
+  </Card>
+</li>
+
+<style>
+  .text > :global(* + *) {
+    margin-top: 1rem;
+  }
+
+  .who {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .meta {
+    color: var(--muted);
+  }
+
+  .extra {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+</style>

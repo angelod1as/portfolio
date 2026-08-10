@@ -7,11 +7,16 @@ import CardList from "../components/CardList.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Opening from "../fragments/index/opening.md";
 import "../styles/global.css";
-import { byDate, splitHighlighted } from "../utils/sort";
+import { byDate, byHighlighted, splitHighlighted } from "../utils/sort";
 
 const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort(byDate)
   .slice(0, 5);
+
+const recommendations = (await getCollection("recommendations"))
+  .filter((r) => r.data.highlighted)
+  .sort(byHighlighted)
+  .slice(0, 3);
 
 const { highlighted, rest } = splitHighlighted(await getCollection("projects"));
 const allProjects = [...highlighted, ...rest].slice(0, 3);
@@ -49,6 +54,22 @@ const allProjects = [...highlighted, ...rest].slice(0, 3);
         }
       </ul>
     </div>
+    <div>
+      <h2 class="subtitle">Recommendation highlights</h2>
+      <ul class="recommendations">
+        {
+          recommendations.map((rec) => (
+            <li>
+              <blockquote>{rec.data.excerpt}</blockquote>
+              <p class="who">
+                {rec.data.name} — {rec.data.role} @ {rec.data.company}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+      <p><a href="/recommendations/">See all recommendations →</a></p>
+    </div>
   </div>
 </BaseLayout>
 
@@ -69,5 +90,25 @@ const allProjects = [...highlighted, ...rest].slice(0, 3);
 
   .subtitle {
     margin-bottom: 1rem;
+  }
+
+  .recommendations {
+    padding-left: 0;
+
+    li::before {
+      content: none;
+      width: 0;
+      margin-left: 0;
+    }
+
+    li + li {
+      margin-top: 1.5rem;
+    }
+
+    .who {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
   }
 </style>
