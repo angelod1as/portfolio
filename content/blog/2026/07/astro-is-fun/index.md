@@ -4,6 +4,8 @@ date: 2026-05-02
 description: Details on Astro implementation
 categories:
   - blogging
+kind:
+  - essay
 ---
 
 My first take on Static Site Generation was circa 2015, working with a bunch of designers-turned-developers at Folha de S.Paulo. We developed our own SSG engine with `gulp`, `grunt`, `webpack`, and some other stuff I can't remember. We had (for reasons) to work strictly with JavaScript, so Hugo or Jekyll weren't real solutions.

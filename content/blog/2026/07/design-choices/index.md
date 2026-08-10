@@ -2,6 +2,8 @@
 title: Design choices
 date: 2026-05-03
 description: Why did I chose this?
+kind:
+  - essay
 ---
 
 I used to work as a designer for Latin America's biggest newspaper. This made me see design under a very specific lens: newspapers are made the way they are for a reason. Serifs everywhere, columns, bold titles in various formats, glorious black-and-white, infographics. Everything is fit in the (back then) large-format paper and we, designers, make sure it looks _harmonious_.
