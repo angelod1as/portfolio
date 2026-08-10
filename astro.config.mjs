@@ -30,7 +30,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Lora",
       cssVariable: "--font-text",
-      weights: [400, 700],
+      weights: ["400 700"],
     },
   ],
 });

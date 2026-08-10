@@ -27,19 +27,27 @@ const recommendations = await Promise.all(
       target="_blank">LinkedIn<span> ➹</span></a
     >. Titles reflect the roles they held when writing.
   </p>
-  <CardList class="recommendations">
-    {
-      recommendations.map(({ data, Content }) => (
-        <Recommendation
-          name={data.name}
-          role={data.role}
-          company={data.company}
-          linkedin={data.linkedin}
-          extra={data.extra}
-        >
-          <Content />
-        </Recommendation>
-      ))
-    }
-  </CardList>
+  <section class="recommendations">
+    <CardList>
+      {
+        recommendations.map(({ data, Content }) => (
+          <Recommendation
+            name={data.name}
+            role={data.role}
+            company={data.company}
+            linkedin={data.linkedin}
+            extra={data.extra}
+          >
+            <Content />
+          </Recommendation>
+        ))
+      }
+    </CardList>
+  </section>
 </ProseLayout>
+
+<style>
+  .recommendations {
+    margin-top: 2rem;
+  }
+</style>
