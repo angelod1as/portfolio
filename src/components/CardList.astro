@@ -1,9 +1,9 @@
 ---
-type Props = { gap?: string };
-const { gap = "2rem" } = Astro.props;
+type Props = { gap?: string; class?: string };
+const { gap = "2rem", class: className } = Astro.props;
 ---
 
-<ul class="list" style={`--card-gap: ${gap}`}>
+<ul class:list={["list", className]} style={`--card-gap: ${gap}`}>
   <slot />
 </ul>
 

@@ -1,36 +1,66 @@
 ---
 import { getCollection } from "astro:content";
 import CardList from "../components/CardList.astro";
+import Filters from "../components/Filters.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ProseLayout from "../layouts/ProseLayout.astro";
 import { splitHighlighted } from "../utils/sort";
 
-const { highlighted, rest } = splitHighlighted(await getCollection("projects"));
+const projects = await getCollection("projects");
+const { highlighted, rest } = splitHighlighted(projects);
+
+const what = [...new Set(projects.flatMap((p) => p.data.what))].sort();
+const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
 ---
 
 <ProseLayout
   title="Projects"
   description="Below, a list of projects — still WIP"
 >
-  <p class="wip">Planned: additive filters using query parameters</p>
+  <Filters
+    target=".projects"
+    facets={[
+      { name: "what", label: "What", values: what },
+      { name: "medium", label: "Medium", values: medium },
+    ]}
+  />
 
   {
     highlighted.length > 0 && (
-      <>
-        <h2>Highlighted</h2>
-        <CardList>
+      <section>
+        <h2 class="title">Highlighted</h2>
+        <CardList class="projects">
           {highlighted.map((project) => (
-            <li>
+            <li
+              data-what={project.data.what.join(" ")}
+              data-medium={project.data.medium.join(" ")}
+            >
               <ProjectCard project={project} />
             </li>
           ))}
         </CardList>
-      </>
+      </section>
     )
   }
-
-  <h2>All projects</h2>
-  <CardList>
-    {rest.map((project) => <ProjectCard project={project} />)}
-  </CardList>
+  <section>
+    <h2 class="title">Other projects</h2>
+    <CardList class="projects">
+      {
+        rest.map((project) => (
+          <li
+            data-what={project.data.what.join(" ")}
+            data-medium={project.data.medium.join(" ")}
+          >
+            <ProjectCard project={project} />
+          </li>
+        ))
+      }
+    </CardList>
+  </section>
 </ProseLayout>
+
+<style>
+  .title {
+    margin-bottom: 1rem;
+  }
+</style>

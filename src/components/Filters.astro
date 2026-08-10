@@ -1,0 +1,161 @@
+---
+type Facet = {
+  name: string;
+  label: string;
+  values: readonly string[];
+};
+
+type Props = {
+  facets: Facet[];
+  target: string;
+};
+
+const { facets, target } = Astro.props;
+---
+
+{
+  /* Rendered `hidden` on purpose: this is a static site, so a form submit
+    would only reload an identical page. The script below reveals the
+    controls, meaning no-JS visitors see the full list and no dead UI. */
+}
+<form class="filters" data-target={target} hidden>
+  {
+    facets.map((facet) => (
+      <fieldset>
+        <legend>{facet.label}</legend>
+        {facet.values.map((value) => (
+          <label>
+            <input type="checkbox" name={facet.name} value={value} />
+            {value}
+          </label>
+        ))}
+      </fieldset>
+    ))
+  }
+  <p class="count" aria-live="polite"></p>
+</form>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+  }
+
+  legend {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .count {
+    flex-basis: 100%;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  // Filter functionality
+  // This _vanilla_ code is kinda complicated for anyone React-addicted (me)
+  // I hope it's readable enough
+  document.querySelectorAll<HTMLFormElement>(".filters").forEach((form) => {
+    const target = form.dataset.target;
+    const lists = target ? document.querySelectorAll(target) : [];
+
+    // A page can carry several lists under one filter bar. Group them so a
+    // section whose items are all filtered out can hide its heading too.
+    const groups = [...lists].map((list) => ({
+      section: list.closest("section"),
+      items: [...list.querySelectorAll<HTMLElement>(":scope > li")],
+    }));
+    const items = groups.flatMap((group) => group.items);
+    if (items.length === 0) return;
+
+    const boxes = form.querySelectorAll<HTMLInputElement>(
+      "input[type=checkbox]",
+    );
+    const count = form.querySelector<HTMLElement>(".count");
+
+    // Checked boxes grouped by facet: "cat" -> ["tech", "agile"]
+    const selected = () => {
+      const map = new Map<string, string[]>();
+      boxes.forEach((box) => {
+        if (!box.checked) return;
+        map.set(box.name, [...(map.get(box.name) ?? []), box.value]);
+      });
+      return map;
+    };
+
+    const apply = () => {
+      const active = selected();
+      let shown = 0;
+
+      items.forEach((item) => {
+        // OR within a facet, AND across facets.
+        // No sense to AND withing a facet (most posts are single category)
+        const match = [...active].every(([facet, values]) => {
+          const own = (item.dataset[facet] ?? "").split(" ");
+          return values.some((value) => own.includes(value));
+        });
+
+        item.hidden = !match;
+        if (match) shown++;
+      });
+
+      groups.forEach((group) => {
+        if (group.section) {
+          group.section.hidden = group.items.every((item) => item.hidden);
+        }
+      });
+
+      if (count) {
+        count.textContent =
+          shown === 0
+            ? "Nothing matches these filters."
+            : `${shown} of ${items.length}`;
+      }
+    };
+
+    // replaceState keeps "Back" from stepping through every click.
+    // The filters are visual, not navigation
+    const sync = () => {
+      const params = new URLSearchParams();
+      selected().forEach((values, facet) => {
+        values.forEach((value) => params.append(facet, value));
+      });
+      const query = params.toString();
+      history.replaceState(null, "", query ? `?${query}` : location.pathname);
+    };
+
+    // Restore state from a shared URL before the first paint of the controls.
+    const params = new URLSearchParams(location.search);
+    boxes.forEach((box) => {
+      box.checked = params.getAll(box.name).includes(box.value);
+    });
+
+    form.addEventListener("change", () => {
+      apply();
+      sync();
+    });
+
+    apply();
+    form.hidden = false;
+  });
+</script>
