@@ -20,3 +20,10 @@ export const splitHighlighted = (projects: CollectionEntry<"projects">[]) => ({
     .sort((a, b) => (a.data.highlighted ?? 0) - (b.data.highlighted ?? 0)),
   rest: projects.filter((p) => !p.data.highlighted).sort(byYear),
 });
+
+export const byHighlighted = (
+  a: CollectionEntry<"recommendations">,
+  b: CollectionEntry<"recommendations">,
+) =>
+  (a.data.highlighted ?? Infinity) - (b.data.highlighted ?? Infinity) ||
+  b.data.date.valueOf() - a.data.date.valueOf();

@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 const titles = {
   blog: "blogging",
   projects: "projects",
+  recommendations: "a good job",
   more: "even more!",
 };
 
@@ -38,7 +39,6 @@ const titleString = titles[url as keyof typeof titles] || "stuff";
 <style>
   .title {
     font-family: var(--font-display);
-    font-weight: 700;
     line-height: 100%;
     margin: 0;
     font-size: 2.5rem;

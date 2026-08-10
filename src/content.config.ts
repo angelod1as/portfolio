@@ -2,18 +2,11 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
 
-export const CATEGORIES = [
-  "tech",
-  "career",
-  "reflection",
-  "mgmt",
-  "agile",
-  "blogging",
-] as const;
+const pattern = "**/[^_]*.{md,mdx}";
 
 const blog = defineCollection({
   loader: glob({
-    pattern: "**/[^_]*.{md,mdx}",
+    pattern,
     base: "./content/blog",
     // Folders are YYYY/MM for organisation only; the public URL is flat.
     generateId: ({ entry }) =>
@@ -26,38 +19,14 @@ const blog = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     description: z.string(),
-    categories: z.array(z.enum(CATEGORIES)).default([]),
+    categories: z.array(z.string()).default([]),
+    kind: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
 });
 
-export const WHAT = [
-  "coding",
-  "architecture",
-  "management",
-  "mentoring",
-  "design",
-  "illustration",
-  "journalism",
-  "fiction",
-  "scriptwriting",
-  "editorial",
-  "speaking",
-  "audio",
-] as const;
-
-export const MEDIUM = [
-  "web",
-  "print",
-  "comics",
-  "video",
-  "podcast",
-  "music",
-  "hardware",
-] as const;
-
 const projects = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/projects" }),
+  loader: glob({ pattern, base: "./content/projects" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -67,8 +36,8 @@ const projects = defineCollection({
       }),
       type: z.enum(["personal", "professional"]),
       description: z.string(),
-      what: z.array(z.enum(WHAT)).nonempty(),
-      medium: z.array(z.enum(MEDIUM)).nonempty(),
+      what: z.array(z.string()).nonempty(),
+      medium: z.array(z.string()).nonempty(),
       how: z.array(z.string()).optional(),
       live: z.string().optional(),
       thumb: z.object({
@@ -79,4 +48,18 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { blog, projects };
+const recommendations = defineCollection({
+  loader: glob({ pattern, base: "./content/recommendations" }),
+  schema: z.object({
+    name: z.string(),
+    date: z.coerce.date(),
+    role: z.string(),
+    company: z.string(),
+    linkedin: z.string(),
+    excerpt: z.string(),
+    extra: z.string().optional(),
+    highlighted: z.number().int().min(0).optional(),
+  }),
+});
+
+export const collections = { blog, projects, recommendations };
