@@ -48,10 +48,6 @@ img {
   width: 100%;
 }
 
-[itemprop^="ai-content-declaration"] {
-  display: none;
-}
-
 /* Typography */
 
 h1 {
