@@ -7,7 +7,7 @@ Static, no frontend framework, deployed to GitHub Pages.
 
 ## Running it
 
-Node is pinned in `.nvmrc`. PNPM only — not npm, not bun.
+Node is pinned in `.nvmrc`. Use PNPM.
 
 ```sh
 pnpm install
@@ -52,9 +52,11 @@ Add a file under `content/blog/YYYY/MM/<slug>/index.md`, or a bare
 schema; `draft: true` keeps a post out of the build while leaving it visible
 in `pnpm dev`.
 
-## Claude
+## IA Usage
 
-Claude is used here to learn, not to write. The rules are in `CLAUDE.md`.
+Claude Code is used here to learn, not to write. The rules are in `CLAUDE.md`.
+
+Except from this README, some code (minimal), and technical docs, no AI was used — especially in creative writing — AT ALL. Yes, those em-dashes `—` were hand-typed using `opt+shift+-`. I like em-dashes.
 
 ## Like what you see?
 
