@@ -14,10 +14,7 @@ const medium = [...new Set(projects.flatMap((p) => p.data.medium))].sort();
 const types = [...new Set(projects.map((p) => p.data.type))].sort();
 ---
 
-<ProseLayout
-  title="Projects"
-  description="Below, a list of projects — still WIP"
->
+<ProseLayout title="Projects" description="Below, a list of projects">
   <Filters
     target=".projects"
     facets={[
