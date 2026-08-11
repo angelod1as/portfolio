@@ -1,43 +1,61 @@
-# Astro Starter Kit: Minimal
+# Angelo Dias's portfolio
+
+The [website](https://www.angelodias.com.br) is self explanatory.
+
+Third build of it. It was Gatsby, then Next.js, now [Astro](https://astro.build).
+Static, no frontend framework, deployed to GitHub Pages.
+
+## Running it
+
+Node is pinned in `.nvmrc`. PNPM only — not npm, not bun.
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Command             | What it does                                     |
+| :------------------ | :----------------------------------------------- |
+| `pnpm dev`          | Dev server on `localhost:4321`. Drafts visible.  |
+| `pnpm build`        | Static build to `dist/`, including social cards. |
+| `pnpm preview`      | Serve `dist/` as it will be deployed.            |
+| `pnpm test`         | Unit tests (vitest).                             |
+| `pnpm astro check`  | Types, across `.astro` files too.                |
+| `pnpm format:write` | Prettier.                                        |
 
-## 🚀 Project Structure
+## How it is put together
 
-Inside of your Astro project, you'll see the following folders and files:
+Content is MDX in `content/`, loaded as Astro collections and validated by
+zod schemas in `src/content.config.ts`. A typo in a date or a missing
+description fails the build instead of the page.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `content/blog/YYYY/MM/` — folders are for authoring only; the URL is flat.
+- `content/projects/<slug>/` — flat, with images beside the entry.
+- `content/recommendations/` — one file each.
+- `src/fragments/` — page copy that has no URL and belongs to one page.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Markdown runs through [satteri](https://www.npmjs.com/package/satteri) with two
+plugins in `astro-plugins/`: one marks external links, the other turns lone
+images into captioned figures.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Social cards are drawn at build time with satori and resvg — one per post and
+per project. Nothing runs at request time.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Components split by what they know: `src/components/ui/` takes primitives,
+`src/components/content/` takes collection entries, `embeds/` and `mdx/` are
+rendered inside content.
 
-## 🧞 Commands
+## Writing
 
-All commands are run from the root of the project, from a terminal:
+Add a file under `content/blog/YYYY/MM/<slug>/index.md`, or a bare
+`<slug>.mdx` when it carries no images. Frontmatter is enforced by the
+schema; `draft: true` keeps a post out of the build while leaving it visible
+in `pnpm dev`.
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Claude
 
-## 👀 Want to learn more?
+Claude is used here to learn, not to write. The rules are in `CLAUDE.md`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Like what you see?
+
+I'm open for hire. Hit me on [oiangelodias\[at\]gmail.com](mailto:oiangelodias@gmail.com).
