@@ -13,7 +13,19 @@ const { title, description, image, type } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={image} type={type}>
-  <article class="prose">
+  <article class="prose" itemref="acd-version acd-level acd-details">
+    <data
+      id="acd-version"
+      itemprop="ai-content-declaration:version"
+      value="1.0.0"
+    />
+    <data id="acd-level" itemprop="ai-content-declaration:level" value="none" />
+    <data
+      id="acd-details"
+      itemprop="ai-content-declaration:details"
+      value="Written entirely by hand."
+    />
+
     <PageHeader title={title} description={description}>
       <slot name="meta" />
     </PageHeader>
