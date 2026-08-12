@@ -4,5 +4,10 @@
   // language - current active spelling language
   "language": "en",
   // words - list of words to be always considered correct
-  "words": ["Contentful", "Folha", "infographics"]
+  "words": [
+    "Contentful",
+    "Folha",
+    "infographics",
+    "worktrees"
+  ]
 }
