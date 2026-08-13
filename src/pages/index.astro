@@ -76,15 +76,20 @@ const allProjects = [...highlighted, ...rest].slice(0, 3);
 <style>
   .wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
     gap: 3rem;
+  }
 
-    > * {
-      grid-column: 1;
-    }
+  @media (min-width: 768px) {
+    .wrapper {
+      grid-template-columns: 2fr 1fr;
 
-    > .full {
-      grid-column: 1 / -1;
+      > * {
+        grid-column: 1;
+      }
+
+      > .full {
+        grid-column: 1 / -1;
+      }
     }
   }
 
