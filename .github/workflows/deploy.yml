@@ -12,11 +12,12 @@ permissions:
   pages: write
   id-token: write
 
-# Let a running deploy finish rather than cancelling it — a half-deployed
+# A pull request supersedes its own older runs — no point gating on a commit
+# that's already been replaced. A deploy is never cancelled: a half-deployed
 # site is worse than a slightly stale one.
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
