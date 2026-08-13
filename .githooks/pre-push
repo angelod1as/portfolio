@@ -1,0 +1,14 @@
+#!/bin/sh
+# The same gate CI runs, minus the build — fast enough to sit in a push.
+# Wired up by the `prepare` script in package.json (core.hooksPath).
+# Skip once with `git push --no-verify`.
+set -e
+
+echo "pre-push: format"
+pnpm format:check
+
+echo "pre-push: types"
+pnpm exec astro check
+
+echo "pre-push: tests"
+pnpm test

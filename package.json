@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "prepare": "git config core.hooksPath .githooks",
     "test": "vitest run",
     "test:watch": "vitest",
     "format:check": "prettier --check .",
