@@ -32,7 +32,13 @@ html {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-text), sans-serif;
-  font-size: 125%;
+  font-size: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 125%;
+  }
 }
 
 body {
@@ -51,7 +57,7 @@ img {
 /* Typography */
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 9vw, 2.5rem);
 }
 
 h1,
@@ -217,6 +223,7 @@ code {
 pre {
   padding: 1rem;
   border-radius: 3px;
+  overflow-x: auto;
 }
 
 /* WIP and DRAFT Pill indicator */
