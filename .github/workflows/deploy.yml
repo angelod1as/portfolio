@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
 # Let a running deploy finish rather than cancelling it — a half-deployed
 # site is worse than a slightly stale one.
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -56,12 +58,15 @@ jobs:
       # linux-x64 binaries from the lockfile.
       - run: pnpm build
 
-      - uses: actions/upload-pages-artifact@v3
+      # A pull request builds to prove the build works, but publishes nothing.
+      - if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
   deploy:
     needs: build
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
